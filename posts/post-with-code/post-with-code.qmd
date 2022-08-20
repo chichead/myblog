@@ -3,6 +3,7 @@ title: "Post With Code"
 author: "Harlow Malloc"
 date: "2022-08-13"
 categories: [news, code, analysis]
+description: 'This is a test post. In this post, I try out different functionalities'
 image: "image.jpg"
 ---
 

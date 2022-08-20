@@ -3,21 +3,23 @@ project:
 
 website:
   title: "오렌지 맨숀🍊"
+  site-url: https://orangemansion.com
+  description: "귤 향 가득한, 오렌지 맨숀입니다."
   navbar:
     right:
-      - about.qmd
+      - text: Blog
+        href: blog.qmd
       - icon: github
         href: https://github.com/chichead
-      - icon: twitter
-        href: https://twitter.com
+      - icon: instagram
+        href: https://www.instagram.com/ahnhyemin
+      - icon: linkedin
+        href: https://www.linkedin.com/in/anhyemin
+  google-analytics: G-YZCBLF5F53
 format:
   html:
     theme: 
-      light: styles.css
-      dark: darkly
+      - styles.css
+      - custom.scss
 
-editor: visual
-
-about:
-  template: jolla
 

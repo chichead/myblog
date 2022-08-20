@@ -1,0 +1,92 @@
+/*-- scss:rules --*/
+
+// import google fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://webfontworld.github.io/ridi/RidiBatang.css');
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+@import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css');
+@import url('https://webfontworld.github.io/heungkuk/SimKyungha.css');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+
+
+// navbar
+
+.navbar-title {
+  font-family: 'SimKyungha';
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-size: 27px;
+
+  &:hover {
+    color: #F95700;
+    opacity: 0.8;
+  }
+}
+
+.nav-item {
+  font-family: "Noto Sans KR";
+  font-size: 1rem;
+  
+    &:hover {
+    color: #F95700;
+  }
+}
+
+div.navbar-container container-fluid {
+  font-family: "Noto Sans KR";
+  font-size: 1rem;
+}
+
+
+// font style
+
+p {
+  font-family: "Pretendard";
+  font-weight: 200;
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "RIDIBatang";
+  color: #595959;
+}
+
+code.sourceCode {
+  font-family: 'd2coding', monospace;
+  font-size: 14px;
+}
+
+div.listing-date {
+  font-family: "IBM Plex Mono";
+  font-size: 13px;
+  font-weight: 100;
+}
+
+div.listing-reading-time {
+  font-family: "Pretendard";
+  font-size: 12px;
+  font-weight: 100;
+}
+
+#listing-listing-sort {
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.quarto-listing-category-title {
+  font-family: "Noto Sans KR";
+}
+
+.category {
+  font-size: 14px;
+}
