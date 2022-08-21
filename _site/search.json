@@ -16,9 +16,9 @@
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
     "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "프로그래밍 언어 그 자체를 가지고 명령어를 통해 작업을 하는 건 많이 어렵습니다. 불편하기도 하고요. 그럴 때 사용하는 게 바로 IDE(통합계발환경, Intergrated Development Environment)입니다. Python을 이용할 때 사용하는 PyCharm이나 Jupyter Notebook, 혹은 MS에서 나온 텍스트 에디터 VS Code가 대표적인 IDE라고 할 수 있을겁니다. R의 가장 대표 IDE는 RStudio입니다. 그런데 이 RStudio가 갑자기 이름을 바꾼다고 선언했습니다. 아마 8월 중으로 이름표를 새로 바꿀 것 같은데요, 새로운 이름은 Posit입니다."
   },
   {
     "objectID": "about.html",
@@ -32,7 +32,7 @@
     "href": "blog.html",
     "title": "오렌지 맨숀🍊",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n  \n\n\n\n\n\n\n\n\nThis is a test post. In this post, I try out different functionalities\n\n\n\n\n\n\n2022-08-13\n\n\n0 min\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2022-08-10\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis is a test post. In this post, I try out different functionalities\n\n\n\n\n\n\n2022-06-01\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n  \n\n\n\n\n\n\n\n\nRStudio가 갑자기 Posit으로 이름을 고치는 이유는 뭘까\n\n\n\n\n\n\n2022/08/21\n\n\n2 min\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nThis is a test post. In this post, I try out different functionalities\n\n\n\n\n\n\n2022/08/13\n\n\n0 min\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis is a test post. In this post, I try out different functionalities\n\n\n\n\n\n\n2022/06/01\n\n\n3 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/blog_post/post.html",
@@ -47,5 +47,61 @@
     "title": "Post With Code",
     "section": "",
     "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/welcome/index.html#posit이-뭔데",
+    "href": "posts/welcome/index.html#posit이-뭔데",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "Posit이 뭔데?",
+    "text": "Posit이 뭔데?\nPosit을 사전에서 찾아보면 설치하다, ~을 사실로 가정하다, 아이디어 및 이론을 제시하다로 나옵니다. 토론 과정에서 아이디어를 제시하는 경우 posit이라는 단어를 쓰는 셈인거죠. RStudio(IDE 이름이 회사 이름이기도 합니다)에서는 posit이라는 단어가 데이터 분석가, 데이터 과학자들의 업무와 잘 어울린다는 판단을 했고, RStudio의 새로운 이름으로 Posit을 결정했다고 발표했습니다. 회사명도 Posit으로 바뀔 예정입니다."
+  },
+  {
+    "objectID": "posts/welcome/index.html#rtudio가-이름을-바꾸는-이유는",
+    "href": "posts/welcome/index.html#rtudio가-이름을-바꾸는-이유는",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "RTudio가 이름을 바꾸는 이유는?",
+    "text": "RTudio가 이름을 바꾸는 이유는?\nR을\u001c\n\n바뀌는 이유 1. A broader focus\n\n“We want to make scientific communication better for everyone”\n\n\nRstudio는 이미 python을 지원하고 있음\n\n\nR 인터페이스로 python을 할 수 있는 reticulate 패키지도 있고\n\n\n하지만 python 이용자가 Rstudio를 이용하는 걸 본 적은 없음. 대부분 다 jupyter 쓰지\n\n\n혹은 VS code를 쓰지\n\n“That name has started to feel increasing constraining”\n\nRstudio라는 이름이 가지는 한계 / R만 개발할 수 있는 IDE\n\n\nR 이름 뗄 테니까 다른 언어(python, Julia 등)도 우리 개발환경으로 들어와라라고 유혹하는 것\n\n바뀌는 이유 2. A large community\n\n“We want to help more parts of science become as open, dynamic, inclusive, and diverse as the community we belong to”\n\n\n비교적 잘 운영되고 있는 R community\n\n\n하지만 python community와 비교했을 때 확장의 한계도 있다\n\n\n역시나 다른 커뮤니티와의 융합을 목적으로 둠\n\n\n그렇다고 R에서 python으로의 전환까지 이어지진 않을 것임\n\n\n해들리 위컴 왈\n“I’m not going to stop writing R code” “I’m not going to learn Python.”\n\n\n이와 궤를 같이하는 변화가 바로 Quarto\n\n\n차세대 Rmarkdown인 Quarto에서는 jupyter, VS code, Observable javascript를 기본적으로 실행할 수 있음\n\n2. Posit이 뭔데\n\nPosit의 실제 뜻 / 설치하다, ~을 사실로 가정하다, 아이디어 및 이론을 제시하다\n\n\n토론을 할 때 아이디어를 제시하는 경우 posit이라는 단어를 씀\n\n\n데이터 분석가, 과학자들의 업무와 잘 어울리는 단어 posit을 새로운 IDE의 이름으로 결정\n\n\n\n홈페이지는 8월 중으로 오픈 예정 https://posit.co/\n\n\nSpeaker notes (press ‘s’ when presenting to switch to speaker mode)."
+  },
+  {
+    "objectID": "posts/welcome/index.html#rstudio가-이름을-바꾸는-이유는",
+    "href": "posts/welcome/index.html#rstudio가-이름을-바꾸는-이유는",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "RStudio가 이름을 바꾸는 이유는?",
+    "text": "RStudio가 이름을 바꾸는 이유는?\nR을\n\n바뀌는 이유 1. A broader focus\n\n“We want to make scientific communication better for everyone”\n\n\nRstudio는 이미 python을 지원하고 있음\n\n\nR 인터페이스로 python을 할 수 있는 reticulate 패키지도 있고\n\n\n하지만 python 이용자가 Rstudio를 이용하는 걸 본 적은 없음. 대부분 다 jupyter 쓰지\n\n\n혹은 VS code를 쓰지\n\n“That name has started to feel increasing constraining”\n\nRstudio라는 이름이 가지는 한계 / R만 개발할 수 있는 IDE\n\n\nR 이름 뗄 테니까 다른 언어(python, Julia 등)도 우리 개발환경으로 들어와라라고 유혹하는 것\n\n바뀌는 이유 2. A large community\n\n“We want to help more parts of science become as open, dynamic, inclusive, and diverse as the community we belong to”\n\n\n비교적 잘 운영되고 있는 R community\n\n\n하지만 python community와 비교했을 때 확장의 한계도 있다\n\n\n역시나 다른 커뮤니티와의 융합을 목적으로 둠\n\n\n그렇다고 R에서 python으로의 전환까지 이어지진 않을 것임\n\n\n해들리 위컴 왈\n“I’m not going to stop writing R code” “I’m not going to learn Python.”\n\n\n이와 궤를 같이하는 변화가 바로 Quarto\n\n\n차세대 Rmarkdown인 Quarto에서는 jupyter, VS code, Observable javascript를 기본적으로 실행할 수 있음\n\n2. Posit이 뭔데\n\nPosit의 실제 뜻 / 설치하다, ~을 사실로 가정하다, 아이디어 및 이론을 제시하다\n\n\n토론을 할 때 아이디어를 제시하는 경우 posit이라는 단어를 씀\n\n\n데이터 분석가, 과학자들의 업무와 잘 어울리는 단어 posit을 새로운 IDE의 이름으로 결정\n\n\n\n홈페이지는 8월 중으로 오픈 예정 https://posit.co/\n\n\nSpeaker notes (press ‘s’ when presenting to switch to speaker mode)."
+  },
+  {
+    "objectID": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html",
+    "href": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "",
+    "text": "프로그래밍 언어 그 자체를 가지고 명령어를 통해 작업을 하는 건 많이 어렵습니다. 불편하기도 하고요. 그럴 때 사용하는 게 바로 IDE(통합계발환경, Intergrated Development Environment)입니다. Python을 이용할 때 사용하는 PyCharm이나 Jupyter Notebook, 혹은 MS의 텍스트 에디터 VS Code가 대표적인 IDE라고 할 수 있을겁니다.\nRStudio는 R의 가장 대표 IDE입니다. 그런데 이 RStudio가 지난 7월 말, 본인들의 이름을 바꾼다고 선언했습니다. 아마 8월 중으로 이름표를 새로 바꿀 것 같은데요, 그들이 공개한 RStudio의 새로운 이름은 Posit입니다. RStudio는 왜 갑자기 이름을 Posit으로 바꾸려는걸까요?"
+  },
+  {
+    "objectID": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#posit이-뭔데",
+    "href": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#posit이-뭔데",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "Posit이 뭔데?",
+    "text": "Posit이 뭔데?\nPosit을 사전에서 찾아보면 설치하다, ~을 사실로 가정하다, 아이디어 및 이론을 제시하다로 나옵니다. 토론 과정에서 아이디어를 제시하는 경우 posit이라는 단어를 쓰는 셈인거죠. RStudio(IDE 이름이 회사 이름이기도 합니다)에서는 posit이라는 단어가 데이터 분석가, 데이터 과학자들의 업무와 잘 어울린다는 판단을 했고, RStudio의 새로운 이름으로 Posit을 결정했다고 발표했습니다. 회사명도 Posit으로 바뀔 예정입니다."
+  },
+  {
+    "objectID": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#rstudio가-이름을-바꾸는-이유는",
+    "href": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#rstudio가-이름을-바꾸는-이유는",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "RStudio가 이름을 바꾸는 이유는",
+    "text": "RStudio가 이름을 바꾸는 이유는\n\n1. A Broader Focus\n\n“That name has started to feel increasing constraining.”\n\n데이터 관련 분석 프로그래밍, 혹은 데이터 사이언스에서 R은 항상 Python과 비교됩니다. 데이터 관련 공부를 시작하면서 R과 Python 사이의 양자택일은 쉽지 않은 고민이죠. 전반적인 흐름은 Python에게 웃어주고 있는 모양세입니다. 여기에 Julia까지 참전하면서 R의 입지는 점점 줄어들고 있습니다. R 이름을 딱 박고 있는 RStudio 입장에서 반길일이 아니죠.\nRStudio가 여지껏 가만히 있었던 건 아닙니다. RStudio는 이미 Python을 지원하고 있습니다. R 인터페이스로 Python을 할 수 있는 reticulate 패키지도 있고요. 하지만 Python 이용자가 RStudio를 이용하는 건 쉽지 않은 선택입니다. 이미 잘 갖춰진 Python 전용 IDE를 쓰지 뭣하러 RStudio를 씁니까. 아니면 호환성 좋은 VS code를 쓰면 되죠.\nRStudio의 수석과학자 해들리 위컴은 RStudio라는 이름이 가지는 한계를 인정했습니다. 누가봐도 RStudio는 R만 개발할 수 있는 IDE로 느껴집니다. 그래서 그들은 선택을 한 겁니다. 우리 프로그램에 R 이름 뗄 테니까, Python, Julia 등 다른 언어 쓰는 사람들도 우리 개발환경으로 들어오라고요.\n\n\n\n2. A Large Community\nR community는 RStudio를 중심으로 비교적 잘 운영되고 있습니다. 하지만 위에서 언급한것처럼 규모 측면이나 확장성 측면에서 한계도 명확하죠. RStudio는 이번 Posit으로의 개편을 통해 다른 커뮤니티와의 융합을 목적으로 두고 있습니다. 그렇다고 R에서 Python으로의 전환이 이뤄지진 않을 겁니다.\n\n“I’m not going to stop writing R code. I’m not going to learn Python.”\n\n해들리 위컴이 이렇게 밝힌 이상 Python으로의 거대한 전환은 없을 것 같네요. Posit으로의 변화에 발맞춰 또 다른 변화가 있으니 바로 Quarto입니다. 차세대 Rmarkdown인 Quarto에서는 Jupyter, VS code, Observable Javascript를 기본적으로 실행할 수 있다고 합니다. Quarto에 대해서는 다음 포스트를 통해 더 깊이 이야기를 해보도록 하겠습니다. 여튼 개편될 Posit은 아마 8월 이후에나 만나볼 수 있을 것 같습니다. 홈페이지는 8월 중으로 오픈 예정이라고 합니다."
+  },
+  {
+    "objectID": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#section",
+    "href": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#section",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "",
+    "text": "R을 공부하는 제 입장에서 이번 RStudio의 변화는 반길일입니다."
+  },
+  {
+    "objectID": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#posit의-뜻은",
+    "href": "posts/220821_Rstudio-is-becoming-Posit/post_220821.html#posit의-뜻은",
+    "title": "RStudio가 Posit으로 이름을 바꾼다",
+    "section": "Posit의 뜻은",
+    "text": "Posit의 뜻은\nPosit을 사전에서 찾아보면 설치하다, ~을 사실로 가정하다, 아이디어 및 이론을 제시하다로 나옵니다. 토론 과정에서 아이디어를 제시하는 경우 posit이라는 단어를 쓰는 셈인거죠. RStudio(IDE 이름이 회사 이름이기도 합니다)에서는 posit이라는 단어가 데이터 분석가, 데이터 과학자들의 업무와 잘 어울린다는 판단을 했고, RStudio의 새로운 이름으로 Posit을 결정했다고 발표했습니다. 회사명도 Posit으로 바뀔 예정입니다.\n조금 더 지켜봐야겠지만 R을 공부하는 제 입장에서 이번 RStudio의 변화는 반길만한 일입니다. 여러 언어 환경에 있는 사람들을 한 IDE에 모아둘 수 있다면 협업도 더 원활하게 이뤄질테니까요. 앞으로 발표될 Posit에 대한 정보는 꾸준히 정리해보겠습니다."
   }
 ]

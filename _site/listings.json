@@ -9,8 +9,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/220821_Rstudio-is-becoming-Posit/post_220821.html",
       "/posts/post-with-code/post-with-code.html",
-      "/posts/welcome/index.html",
       "/posts/blog_post/post.html"
     ]
   }
