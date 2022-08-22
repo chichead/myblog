@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://orangemansion.com/blog.html</loc>
-    <lastmod>2022-08-21T13:16:15.790Z</lastmod>
+    <lastmod>2022-08-22T14:43:33.338Z</lastmod>
   </url>
   <url>
     <loc>https://orangemansion.com/index.html</loc>
-    <lastmod>2022-08-21T13:16:15.354Z</lastmod>
+    <lastmod>2022-08-22T14:43:32.928Z</lastmod>
   </url>
   <url>
     <loc>https://orangemansion.com/posts/blog_post/post.html</loc>
@@ -27,5 +27,21 @@
   <url>
     <loc>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/post_220821.html</loc>
     <lastmod>2022-08-21T13:19:56.808Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orangemansion.com/posts/210502_tibble-package/index.html</loc>
+    <lastmod>2022-08-22T14:37:18.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</loc>
+    <lastmod>2022-08-22T12:49:40.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orangemansion.com/posts/220220_ggbump-package/index.html</loc>
+    <lastmod>2022-08-22T14:37:23.538Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orangemansion.com/posts/220527_palmerpenguins-package/index.html</loc>
+    <lastmod>2022-08-22T14:43:32.517Z</lastmod>
   </url>
 </urlset>

@@ -9,9 +9,10 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/220821_Rstudio-is-becoming-Posit/post_220821.html",
-      "/posts/post-with-code/post-with-code.html",
-      "/posts/blog_post/post.html"
+      "/posts/220821_Rstudio-is-becoming-Posit/index.html",
+      "/posts/220220_ggbump-package/index.html",
+      "/posts/220527_palmerpenguins-package/index.html",
+      "/posts/210502_tibble-package/index.html"
     ]
   }
 ]

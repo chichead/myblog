@@ -14,7 +14,7 @@
 <item>
   <title>RStudio가 Posit으로 이름을 바꾼다</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/post_220821.html</link>
+  <link>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</link>
   <description><![CDATA[ 
 
 
@@ -60,209 +60,451 @@
  ]]></description>
   <category>R</category>
   <category>IDE</category>
-  <guid>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/post_220821.html</guid>
+  <guid>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</guid>
   <pubDate>Sat, 20 Aug 2022 15:00:00 GMT</pubDate>
   <media:content url="https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Post With Code</title>
-  <dc:creator>Harlow Malloc</dc:creator>
-  <link>https://orangemansion.com/posts/post-with-code/post-with-code.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>This is a post with executable code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="dv" style="color: #AD0000;">1</span> <span class="sc" style="color: #5E5E5E;">+</span> <span class="dv" style="color: #AD0000;">1</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>code</category>
-  <category>analysis</category>
-  <guid>https://orangemansion.com/posts/post-with-code/post-with-code.html</guid>
-  <pubDate>Fri, 12 Aug 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orangemansion.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>더미 블로그 / This is a dummy blog posts</title>
+  <title>bump chart를 그리고 싶을 때, ggbump package</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orangemansion.com/posts/blog_post/post.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="heading-1" class="level1 page-columns page-full">
-<h1>Heading 1</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit est nec dui eleifend, at dictum elit ullamcorper. Aliquam feugiat dictum bibendum. Praesent fermentum laoreet quam, cursus volutpat odio dapibus in. Fusce luctus porttitor vehicula. Donec ac tortor nisi. Donec at lectus tortor. Morbi tempor, nibh non euismod viverra, metus arcu aliquet elit, sed fringilla urna leo vel purus.</p>
-<p>구독자 혹시 맬서스라는 이름 들어봤어? 윗글은 영국의 고전 경제학자 토마스 맬서스가 1798년 쓴 &lt;인구론&gt;의 일부야. 맬서스는 &lt;인구론&gt;을 통해 임금, 토지, 식량 등의 생존 자원은 1, 2, 3, 4… 이렇게 산술급수로 증가하지만 인구는 1, 2, 4, 8… 기하급수적으로 증가한다는 걸 지적했어.</p>
-<p>인구 증가 문제를 해결하지 않으면 사회적으로 큰 문제가 생길 것이라고 경고했지.</p>
-<p>맬서스의 경고가 가장 극심했던 시절은 1960년대야. 1968년 전 세계의 인구 증가율이 역대 최대치인 2.1%를 기록했고, “이대로 가다간 인구 폭발로 세계가 종말을 맞이하는 것 아니야”라는 불안한 목소리가 여기저기 나오기도 했어. 이 영향으로 만들어진 정책이 바로 산아제한 정책이야. “덮어놓고 낳다 보면 거지꼴을 못 면한다”는 구호로 진행된 우리나라를 포함해 일본, 중국 등 동아시아에서 산아제한 정책은 효과적이었어.</p>
-<section id="merriweather" class="level2">
-<h2 class="anchored" data-anchor-id="merriweather">Merriweather</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit est nec dui eleifend, at dictum elit ullamcorper. <strong>Aliquam feugiat dictum bibendum.</strong> Praesent fermentum laoreet quam, cursus volutpat odio dapibus in. <a href="https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss">Fusce luctus</a> porttitor vehicula. Donec ac tortor nisi. Donec at lectus tortor. Morbi tempor, nibh non euismod viverra, metus arcu aliquet elit, sed fringilla urna leo vel purus.</p>
-<section id="code" class="level3">
-<h3 class="anchored" data-anchor-id="code">3 - Code</h3>
-<p>This is <code>inline</code> code plus a small code chunk.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
-<span id="cb1-2"></span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">ggplot</span>(mpg) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb1-4">  <span class="fu" style="color: #4758AB;">geom_jitter</span>(<span class="fu" style="color: #4758AB;">aes</span>(cty, hwy), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">4</span>, <span class="at" style="color: #657422;">alpha =</span> <span class="fl" style="color: #AD0000;">0.5</span>) </span></code></pre></div>
-<div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/blog_post/post_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="tabsets" class="level3">
-<h3 class="anchored" data-anchor-id="tabsets">3 - Tabsets</h3>
-<div class="cell">
-
-</div>
-<div class="panel-tabset">
-<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Transforming OLS estimates</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Maximizing likelihood</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">preds_lm <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb2-2">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(body_mass_g, bill_length_mm, <span class="at" style="color: #657422;">col =</span> correct)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-3">  <span class="fu" style="color: #4758AB;">geom_jitter</span>(<span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">4</span>, <span class="at" style="color: #657422;">alpha =</span> <span class="fl" style="color: #AD0000;">0.6</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-4">  <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="fu" style="color: #4758AB;">vars</span>(species)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-5">  <span class="fu" style="color: #4758AB;">scale_color_manual</span>(<span class="at" style="color: #657422;">values =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">'grey60'</span>, thematic<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">okabe_ito</span>(<span class="dv" style="color: #AD0000;">3</span>)[<span class="dv" style="color: #AD0000;">3</span>])) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-6">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">breaks =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">3000</span>, <span class="dv" style="color: #AD0000;">6000</span>, <span class="dv" style="color: #AD0000;">1000</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-7">  <span class="fu" style="color: #4758AB;">theme_minimal</span>(<span class="at" style="color: #657422;">base_size =</span> <span class="dv" style="color: #AD0000;">12</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-8">  <span class="fu" style="color: #4758AB;">theme</span>(</span>
-<span id="cb2-9">    <span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">'top'</span>, </span>
-<span id="cb2-10">    <span class="at" style="color: #657422;">panel.background =</span> <span class="fu" style="color: #4758AB;">element_rect</span>(<span class="at" style="color: #657422;">color =</span> <span class="st" style="color: #20794D;">'black'</span>),</span>
-<span id="cb2-11">    <span class="at" style="color: #657422;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;">element_blank</span>()</span>
-<span id="cb2-12">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-13">  <span class="fu" style="color: #4758AB;">labs</span>(</span>
-<span id="cb2-14">    <span class="at" style="color: #657422;">x =</span> <span class="st" style="color: #20794D;">'Body mass (in g)'</span>,</span>
-<span id="cb2-15">    <span class="at" style="color: #657422;">y =</span> <span class="st" style="color: #20794D;">'Bill length (in mm)'</span></span>
-<span id="cb2-16">  )</span></code></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/blog_post/post_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<div class="cell" data-fig.showtext="true">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">glm.mod <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">glm</span>(sex <span class="sc" style="color: #5E5E5E;">~</span> body_mass_g <span class="sc" style="color: #5E5E5E;">+</span> bill_length_mm <span class="sc" style="color: #5E5E5E;">+</span> species, <span class="at" style="color: #657422;">family =</span> binomial, <span class="at" style="color: #657422;">data =</span> dat)</span>
-<span id="cb3-2"></span>
-<span id="cb3-3">preds <span class="ot" style="color: #003B4F;">&lt;-</span> dat <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;">mutate</span>(</span>
-<span id="cb3-5">    <span class="at" style="color: #657422;">prob.fit =</span> glm.mod<span class="sc" style="color: #5E5E5E;">$</span>fitted.values,</span>
-<span id="cb3-6">    <span class="at" style="color: #657422;">prediction =</span> <span class="fu" style="color: #4758AB;">if_else</span>(prob.fit <span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fl" style="color: #AD0000;">0.5</span>, <span class="st" style="color: #20794D;">'male'</span>, <span class="st" style="color: #20794D;">'female'</span>),</span>
-<span id="cb3-7">    <span class="at" style="color: #657422;">correct =</span> <span class="fu" style="color: #4758AB;">if_else</span>(sex <span class="sc" style="color: #5E5E5E;">==</span> prediction, <span class="st" style="color: #20794D;">'correct'</span>, <span class="st" style="color: #20794D;">'incorrect'</span>)</span>
-<span id="cb3-8">  )</span>
-<span id="cb3-9"></span>
-<span id="cb3-10"></span>
-<span id="cb3-11">preds <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb3-12">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(body_mass_g, bill_length_mm, <span class="at" style="color: #657422;">col =</span> correct)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-13">  <span class="fu" style="color: #4758AB;">geom_jitter</span>(<span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">4</span>, <span class="at" style="color: #657422;">alpha =</span> <span class="fl" style="color: #AD0000;">0.6</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-14">  <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="fu" style="color: #4758AB;">vars</span>(species)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-15">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">breaks =</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">3000</span>, <span class="dv" style="color: #AD0000;">6000</span>, <span class="dv" style="color: #AD0000;">1000</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-16">  <span class="fu" style="color: #4758AB;">scale_color_manual</span>(<span class="at" style="color: #657422;">values =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">'grey60'</span>, thematic<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">okabe_ito</span>(<span class="dv" style="color: #AD0000;">3</span>)[<span class="dv" style="color: #AD0000;">3</span>])) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-17">  <span class="fu" style="color: #4758AB;">theme_minimal</span>(<span class="at" style="color: #657422;">base_size =</span> <span class="dv" style="color: #AD0000;">10</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-18">  <span class="fu" style="color: #4758AB;">theme</span>(</span>
-<span id="cb3-19">    <span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">'top'</span>, </span>
-<span id="cb3-20">    <span class="at" style="color: #657422;">panel.background =</span> <span class="fu" style="color: #4758AB;">element_rect</span>(<span class="at" style="color: #657422;">color =</span> <span class="st" style="color: #20794D;">'black'</span>),</span>
-<span id="cb3-21">    <span class="at" style="color: #657422;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;">element_blank</span>()</span>
-<span id="cb3-22">  ) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-23">  <span class="fu" style="color: #4758AB;">labs</span>(</span>
-<span id="cb3-24">    <span class="at" style="color: #657422;">x =</span> <span class="st" style="color: #20794D;">'Body mass (in g)'</span>,</span>
-<span id="cb3-25">    <span class="at" style="color: #657422;">y =</span> <span class="st" style="color: #20794D;">'Bill length (in mm)'</span></span>
-<span id="cb3-26">  )</span></code></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/blog_post/post_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section id="some-math-stuff" class="level4">
-<h4 class="anchored" data-anchor-id="some-math-stuff">4 - Some math stuff</h4>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint_0%5E1%20f(x)%20%5C%20dx%0A"></p>
-</section>
-</section>
-</section>
-<section id="columns" class="level2">
-<h2 class="anchored" data-anchor-id="columns">2 - Columns</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" data-fig.showtext="true" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;">geom_density</span>(</span>
-<span id="cb4-2">  <span class="at" style="color: #657422;">mapping =</span> <span class="cn" style="color: #8f5902;">NULL</span>,</span>
-<span id="cb4-3">  <span class="at" style="color: #657422;">data =</span> <span class="cn" style="color: #8f5902;">NULL</span>,</span>
-<span id="cb4-4">  <span class="at" style="color: #657422;">stat =</span> <span class="st" style="color: #20794D;">"density"</span>,</span>
-<span id="cb4-5">  <span class="at" style="color: #657422;">position =</span> <span class="st" style="color: #20794D;">"identity"</span>,</span>
-<span id="cb4-6">  ...,</span>
-<span id="cb4-7">  <span class="at" style="color: #657422;">na.rm =</span> <span class="cn" style="color: #8f5902;">FALSE</span>,</span>
-<span id="cb4-8">  <span class="at" style="color: #657422;">orientation =</span> <span class="cn" style="color: #8f5902;">NA</span>,</span>
-<span id="cb4-9">  <span class="at" style="color: #657422;">show.legend =</span> <span class="cn" style="color: #8f5902;">NA</span>,</span>
-<span id="cb4-10">  <span class="at" style="color: #657422;">inherit.aes =</span> <span class="cn" style="color: #8f5902;">TRUE</span>,</span>
-<span id="cb4-11">  <span class="at" style="color: #657422;">outline.type =</span> <span class="st" style="color: #20794D;">"upper"</span></span>
-<span id="cb4-12">)</span></code></pre></div>
-</div>
-<div class="cell quarto-layout-cell" data-fig.showtext="true" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;">stat_density</span>(</span>
-<span id="cb5-2">  <span class="at" style="color: #657422;">mapping =</span> <span class="cn" style="color: #8f5902;">NULL</span>,</span>
-<span id="cb5-3">  <span class="at" style="color: #657422;">data =</span> <span class="cn" style="color: #8f5902;">NULL</span>,</span>
-<span id="cb5-4">  <span class="at" style="color: #657422;">geom =</span> <span class="st" style="color: #20794D;">"area"</span>,</span>
-<span id="cb5-5">  <span class="at" style="color: #657422;">position =</span> <span class="st" style="color: #20794D;">"stack"</span>,</span>
-<span id="cb5-6">  ...,</span>
-<span id="cb5-7">  <span class="at" style="color: #657422;">bw =</span> <span class="st" style="color: #20794D;">"nrd0"</span>,</span>
-<span id="cb5-8">  <span class="at" style="color: #657422;">adjust =</span> <span class="dv" style="color: #AD0000;">1</span>,</span>
-<span id="cb5-9">  <span class="at" style="color: #657422;">kernel =</span> <span class="st" style="color: #20794D;">"gaussian"</span>,</span>
-<span id="cb5-10">  <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">512</span>,</span>
-<span id="cb5-11">  <span class="at" style="color: #657422;">trim =</span> <span class="cn" style="color: #8f5902;">FALSE</span>,</span>
-<span id="cb5-12">  <span class="at" style="color: #657422;">na.rm =</span> <span class="cn" style="color: #8f5902;">FALSE</span>,</span>
-<span id="cb5-13">  <span class="at" style="color: #657422;">orientation =</span> <span class="cn" style="color: #8f5902;">NA</span>,</span>
-<span id="cb5-14">  <span class="at" style="color: #657422;">show.legend =</span> <span class="cn" style="color: #8f5902;">NA</span>,</span>
-<span id="cb5-15">  <span class="at" style="color: #657422;">inherit.aes =</span> <span class="cn" style="color: #8f5902;">TRUE</span></span>
-<span id="cb5-16">)</span></code></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="margin-captions" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="margin-captions">2 - Margin captions</h2>
-<div class="cell page-columns page-full" data-fig.showtext="true">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;">ggplot</span>(<span class="at" style="color: #657422;">data =</span> gapminder<span class="sc" style="color: #5E5E5E;">::</span>gapminder, <span class="at" style="color: #657422;">mapping =</span> <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> lifeExp, <span class="at" style="color: #657422;">fill =</span> continent)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb6-2">  <span class="fu" style="color: #4758AB;">stat_density</span>(<span class="at" style="color: #657422;">position =</span> <span class="st" style="color: #20794D;">"identity"</span>, <span class="at" style="color: #657422;">alpha =</span> <span class="fl" style="color: #AD0000;">0.5</span>)</span></code></pre></div>
-<div class="cell-output-display page-columns page-full">
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="https://orangemansion.com/posts/blog_post/post_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption margin-caption">Bla bla bla. This is a caption in the margin. Super cool isn’t it?</figcaption><p></p>
+  <link>https://orangemansion.com/posts/220220_ggbump-package/index.html</link>
+  <description><![CDATA[ <section id="ggbump-package" class="level2"><h2 class="anchored" data-anchor-id="ggbump-package">ggbump package</h2>
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<section id="ggbumps-name" class="level3"><h3 class="anchored" data-anchor-id="ggbumps-name">ggbump’s name</h3>
+<p>ggplot2는 grammar of graphics(a.k.a. gg)을 토대로 시각화를 만드는 패키지입니다. 2는 ver.2의 의미를 담았죠. gg는 릴랜드 윌킨스의 동명의 책 The Grammar of Graphics에서 따온 건데, 이 책에서 릴랜드는 데이터를 어떻게 시각적으로 표현할 것인지에 대해 다룹니다. gg에 대한 이야기는 나중에 다른 포스트에서 다루도록 하겠습니다.</p>
+<p>ggplot2 패키지의 문법 기반 위에서 돌아가는 서브 패키지들은 보통 gg라는 접두사로 시작됩니다. ggbump 역시 ggplot2의 일원이라고 이해할 수 있어요. 그렇다면 bump는 무엇을 의미하는 걸까요? 자동차의 범퍼, 혹은 놀이동산의 범퍼카를 떠올리면 bump의 의미를 유추할 수 있어요. bump는 바로, 충돌을 의미합니다. 충돌과 차트, 어떤 연관이 있는 걸까요?</p>
+<p><br></p>
+</section><section id="bump-chart" class="level3"><h3 class="anchored" data-anchor-id="bump-chart">bump chart</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://orangemansion.com/posts/220220_ggbump-package/may_bump.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">2022 May Bumps, Corpus Christi College</figcaption><p></p>
 </figure>
 </div>
+<p>영국의 케임브리지 대학에는 The bump라고 불리는 조정 경기가 있습니다. 케임브리지를 가로지르는 캠 강(river Cam) 은 나란히 경주하기에는 너무 좁아서 한 줄로 경주하는 독특한 조정 경주를 진행해왔어요. 19세기 초부터 시작된 이 경기 이름이 바로 The bump입니다. The bump의 경주 방식은 이렇습니다. 우선 강을 따라 한 줄로 경기를 시작합니다. 각 선수들은 전속력으로 노를 저어 앞에 있는 보트를 따라잡고 충돌(bump)하죠. 그렇게 되면 앞에 있는 조정 팀을 추월한 것으로 인정, 순위가 올라가게 됩니다. 주최 측에서는 경기의 진행 상황을 매핑하는 차트를 그려서 제공했는데, 이 차트를 bump chart라고 불렀습니다. 아래 차트는 2020년 사순절에 치러진 대회(Lent Bump)의 남자부 경기 결과입니다. 어떤 차트인지 감이 오죠?</p>
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/bumpchart_thebump.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+</section><section id="ggbumps-logo" class="level3"><h3 class="anchored" data-anchor-id="ggbumps-logo">ggbump’s logo</h3>
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/ggbump%20logo.png" class="img-fluid" style="width:25.0%"></p>
+<p>로고에는 3개의 노드(점), 노드에 연결된 시그모이드 곡선이 보입니다. 시그모이드(Sigmoid) 곡선은 S자 모양의 부드러운 곡선을 의미합니다. Sigmoid라는 단어의 뜻이 S자 모양이거든요. 시그모이드 곡선은 로지스틱 방정식, 정규분포의 누적분포함수에서 확인할 수 있습니다. 아래 차트를 보면 정규분포의 누적분포함수의 부드러운 S자 곡선을 확인할 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># ggplot2에서 주요 확률분포 곡선을 그릴 때는 stat_function을 활용하면 됩니다</span>
+<span class="co" style="color: #5E5E5E;"># 정규분포(norm)의 누적분포함수를 그릴 땐 fun = pnorm 조건을 쓰세요</span>
+<span class="co" style="color: #5E5E5E;"># 마찬가지로 지수분포(exp)에서 누적분포함수를 그릴 땐 fun = pexp 조건을 쓰면 됩니다.</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;">(</span>X <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">3</span>, <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">X</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">stat_function</a></span><span class="op" style="color: #5E5E5E;">(</span>fun <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">pnorm</span>, colour <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"black"</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Cumulative Normal Distribution of X ~ N(0,1)"</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 참고로 접두사 p는 누적분포함수(CDF)를 의미하고, </span>
+<span class="co" style="color: #5E5E5E;"># 접두사 q는 누적분포함수(CDF)의 역함수인 분위수함수를, </span>
+<span class="co" style="color: #5E5E5E;"># 접두사 r은 무작위 난수 샘플을 의미합니다</span></code></pre></div>
+</div>
+<p>ggbump package를 활용하면 시그모이드 곡선도 그릴 수 있습니다. 그럼 본격적으로 ggbump 패키지에 대해서 살펴보도록 하죠.</p>
+<p><br></p>
+</section></section><section id="all-about-ggbump" class="level2"><h2 class="anchored" data-anchor-id="all-about-ggbump">All about ggbump</h2>
+<section id="geom_sigmoid" class="level3"><h3 class="anchored" data-anchor-id="geom_sigmoid">geom_sigmoid</h3>
+<div class="cell">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">ggbump</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">df</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">6</span>,
+                 y <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">10</span>,
+                 xend <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">7</span>,
+                 yend <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  x  y xend yend
+1 1  5    7   -5
+2 2  6    7   -4
+3 3  7    7   -3
+4 4  8    7   -2
+5 5  9    7   -1
+6 6 10    7    0</code></pre>
+</div>
+</div>
+<p>시그모이드 곡선에 필요한 변수는 시작점, 끝점, 그룹 정도입니다. 시작점의 위치는 (x, y) 변수에, 끝점의 위치는 (xend, yend) 변수에 넣으면 되죠. 그리고 어떤 점끼리 이어지는지 그룹을 결정해주면 됩니다. 위의 데이터를 가지고 시그모이드 곡선을 그려보면 총 6개의 선이 그려집니다. (1, 5)와 (7, -5)를 잇는 곡선을 포함해서 말이죠.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">ggbump</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># geom_sigmoid 함수에서 x, y, xend, yend, group 변수를 지정해주면 됩니다.</span>
+<span class="co" style="color: #5E5E5E;"># geom_sigmoid 외의 함수는 점(geom_point)과 라벨(geom_text)을 위한 함수입니다.</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/ggbump/man/geom_sigmoid.html">geom_sigmoid</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">x</span>, xend <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">xend</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">y</span>, yend <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">yend</span>, group <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>, color <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"black"</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">x</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">y</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">xend</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">yend</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">x</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">y</span>, label <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"("</span>, <span class="va" style="color: #111111;">x</span>, <span class="st" style="color: #20794D;">", "</span>, <span class="va" style="color: #111111;">y</span>, <span class="st" style="color: #20794D;">")"</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>, vjust <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1.8</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">xend</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">yend</span>, label <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"("</span>, <span class="va" style="color: #111111;">xend</span>, <span class="st" style="color: #20794D;">", "</span>, <span class="va" style="color: #111111;">yend</span>, <span class="st" style="color: #20794D;">")"</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>, 
+            vjust <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1.4</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section><section id="geom_bump" class="level3"><h3 class="anchored" data-anchor-id="geom_bump">geom_bump</h3>
+<p>bump chart를 그리기 위해선 geom_bump 함수를 사용하면 됩니다. 간단하게 가상의 데이터를 만들어 보겠습니다. 대한민국을 포함해 총 5개 국가(Korea, Japan, China, Russia, India)의 임의 데이터입니다. 아래와 같이 나라명과 연도(2020, 2021, 2022), 그리고 임의의 value값이 포함돼있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va" style="color: #111111;">df</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>country <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Korea"</span>, <span class="st" style="color: #20794D;">"Korea"</span>, <span class="st" style="color: #20794D;">"Korea"</span>, <span class="st" style="color: #20794D;">"Japan"</span>, <span class="st" style="color: #20794D;">"Japan"</span>, <span class="st" style="color: #20794D;">"Japan"</span>, <span class="st" style="color: #20794D;">"China"</span>, <span class="st" style="color: #20794D;">"China"</span>, <span class="st" style="color: #20794D;">"China"</span>, <span class="st" style="color: #20794D;">"Russia"</span>, <span class="st" style="color: #20794D;">"Russia"</span>, <span class="st" style="color: #20794D;">"Russia"</span>, <span class="st" style="color: #20794D;">"India"</span>, <span class="st" style="color: #20794D;">"India"</span>, <span class="st" style="color: #20794D;">"India"</span><span class="op" style="color: #5E5E5E;">)</span>,
+             year <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">2020</span>, <span class="fl" style="color: #AD0000;">2021</span>, <span class="fl" style="color: #AD0000;">2022</span>, <span class="fl" style="color: #AD0000;">2020</span>, <span class="fl" style="color: #AD0000;">2021</span>, <span class="fl" style="color: #AD0000;">2022</span>, <span class="fl" style="color: #AD0000;">2020</span>, <span class="fl" style="color: #AD0000;">2021</span>, <span class="fl" style="color: #AD0000;">2022</span>, <span class="fl" style="color: #AD0000;">2020</span>, <span class="fl" style="color: #AD0000;">2021</span>, <span class="fl" style="color: #AD0000;">2022</span>, <span class="fl" style="color: #AD0000;">2020</span>, <span class="fl" style="color: #AD0000;">2021</span>, <span class="fl" style="color: #AD0000;">2022</span><span class="op" style="color: #5E5E5E;">)</span>,
+             value <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">500</span>, <span class="fl" style="color: #AD0000;">200</span>, <span class="fl" style="color: #AD0000;">100</span>, <span class="fl" style="color: #AD0000;">400</span>, <span class="fl" style="color: #AD0000;">300</span>, <span class="fl" style="color: #AD0000;">400</span>, <span class="fl" style="color: #AD0000;">200</span>, <span class="fl" style="color: #AD0000;">400</span>, <span class="fl" style="color: #AD0000;">200</span>, <span class="fl" style="color: #AD0000;">500</span>, <span class="fl" style="color: #AD0000;">400</span>, <span class="fl" style="color: #AD0000;">300</span>, <span class="fl" style="color: #AD0000;">300</span>, <span class="fl" style="color: #AD0000;">300</span>, <span class="fl" style="color: #AD0000;">100</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country  year value
+  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 Korea    2020   500
+2 Korea    2021   200
+3 Korea    2022   100
+4 Japan    2020   400
+5 Japan    2021   300
+6 Japan    2022   400</code></pre>
+</div>
+</div>
+<p>geom_bump 함수를 사용하려면 rank 값이 필요합니다. 각 연도별로 묶어서 value값에 따라 rank 값을 부여하면 되겠습니다. rank 함수를 사용하면 됩니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># ties.method는 만일 value값이 동등할경우 어떻게 계산할 것인지 결정하는 부분입니다.</span>
+<span class="co" style="color: #5E5E5E;"># 보통은 min(동률 순위 중 낮은 값 출력), max(동률 순위 중 높은 값 출력)을 사용합니다.</span>
+<span class="co" style="color: #5E5E5E;"># 여기선 그냥 겹치지 않게 그리기 위해 random method(순서 상관없이 랜덤)를 선택했습니다.</span>
+
+<span class="va" style="color: #111111;">df</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="va" style="color: #111111;">df</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;">(</span>rank <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">value</span>, ties.method <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"random"</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country  year value  rank
+  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1 Korea    2020   500     4
+2 Korea    2021   200     1
+3 Korea    2022   100     1
+4 Japan    2020   400     3
+5 Japan    2021   300     3
+6 Japan    2022   400     5</code></pre>
+</div>
+</div>
+<p>rank값이 잘 나왔군요. rank값은 값이 크면 클수록 더 높은 숫자가 부여됩니다. 2020년 한국의 value는 500, 일본의 value는 400인데 한국이 4위, 일본이 3위인 걸 보면 알 수 있죠. 우리가 보통 생각하는 순위와는 반대입니다. 위에서 rank를 계산할 때 -value로 계산한다면 이 부분은 해결할 수 있습니다. 여기선 그래프를 그릴 때 y축을 돌려버리는 걸로 처리하겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://github.com/karthik/wesanderson">wesanderson</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span>, <span class="va" style="color: #111111;">rank</span>, color <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">country</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html">geom_bump</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;">(</span>legend.position <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"none"</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;">(</span>values <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/wesanderson/man/wes_palette.html">wes_palette</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Zissou1"</span>, n <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>부드러운 시그모이드 곡선으로 이뤄진 범프 차트가 만들어졌습니다. scale_color_manual에 들어있는 wes_palette는 이름에서 유추할 수 있듯 웨스 앤더슨 감독의 색감이 담긴 컬러 팔레트입니다. 이 차트에서는 웨스 앤더슨 감독의 2004년 작 &lt;스티브 지소와의 해저 생활(The Life Aquatic With Steve Zissou)&gt;의 색상을 사용했습니다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://orangemansion.com/posts/220220_ggbump-package/zissou.gif" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">The Life Aquatic with Steve Zissou, Wes Anderson</figcaption><p></p>
+</figure>
+</div>
+<p>여기서 조금 더 꾸며볼까요? bump line의 폭을 늘리고 점도 찍어보고, 해당 라인이 어떤 국가를 의미하는지 라벨도 달아보겠습니다. 축은 있으면 보기 싫으니 선을 다 없애버립시다. 그리고 x축은 정수 연도만 남겨야 할 것 같고요. 정리해보면 이렇게 될 겁니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span>, <span class="va" style="color: #111111;">rank</span>, color <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">country</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html">geom_bump</a></span><span class="op" style="color: #5E5E5E;">(</span>size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span>, smooth <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">8</span>, alpha <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">0.8</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;">(</span>size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;">(</span>data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">df</span> <span class="op" style="color: #5E5E5E;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span> <span class="op" style="color: #5E5E5E;">==</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>,
+            <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">year</span>, label <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">country</span><span class="op" style="color: #5E5E5E;">)</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span>, hjust <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">0</span>, vjust <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;">(</span>data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">df</span> <span class="op" style="color: #5E5E5E;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span> <span class="op" style="color: #5E5E5E;">==</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">year</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>,
+            <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">year</span>, label <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">country</span><span class="op" style="color: #5E5E5E;">)</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span>, hjust <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span>, vjust <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;">(</span>legend.position <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"none"</span>,
+        panel.grid.major <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op" style="color: #5E5E5E;">(</span>limits <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">2019.95</span>, <span class="fl" style="color: #AD0000;">2022.05</span><span class="op" style="color: #5E5E5E;">)</span>,
+                     breaks <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">2020</span>, <span class="fl" style="color: #AD0000;">2022</span>, <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op" style="color: #5E5E5E;">(</span>limits <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">5</span>, <span class="fl" style="color: #AD0000;">0.5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op" style="color: #5E5E5E;">(</span>y <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"RANK"</span>,
+       x <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;">(</span>values <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/wesanderson/man/wes_palette.html">wes_palette</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Zissou1"</span>, n <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
-</section>
-</section>
+</section></section> ]]></description>
+  <category>R package</category>
+  <category>ggbump</category>
+  <guid>https://orangemansion.com/posts/220220_ggbump-package/index.html</guid>
+  <pubDate>Sat, 19 Feb 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orangemansion.com/posts/220220_ggbump-package/thumbnail.png" medium="image" type="image/png" height="62" width="144"/>
+</item>
+<item>
+  <title>iris 대신 귀여운 penguins package 씁시다</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orangemansion.com/posts/220527_palmerpenguins-package/index.html</link>
+  <description><![CDATA[ <section id="palmerpenguins-package" class="level2"><h2 class="anchored" data-anchor-id="palmerpenguins-package">palmerpenguins package</h2>
+<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
+<p>오늘 소개할 R package는 palmerpenguins package입니다. 남극의 파머 군도에 있는 3곳의 섬에서 관찰된 3종의 펭귄 데이터가 담겨져 있죠.</p>
+<section id="paler-penguins" class="level3"><h3 class="anchored" data-anchor-id="paler-penguins">paler penguins</h3>
+<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/penguins.png" class="img-fluid" style="width:100.0%"></p>
+<p>파머 군도에 있는 Dreams Island, Torgersen Island, Biscoe Point에는 세 종의 펭귄이 살고 있습니다. 턱끈 펭귄(Chinstrap), 젠투 펭귄(Gentoo), 아델리 펭귄(Adélie) 이렇게 말이죠. palmerpenguins package에는 이 세 펭귄의 크기, 성별 정보가 담겨있습니다. 펭귄들의 데이터는 미국의 장기 생태 연구 네트워크(US Long Term Ecological Research Network)에서 운영하는 프로그램의 일부로, 파머 군도에서 2007년부터 2009년까지 크리스틴 고먼 박사에 의해 수집됐습니다.</p>
+<p><br></p>
+</section><section id="no-iris-yes-penguin" class="level3"><h3 class="anchored" data-anchor-id="no-iris-yes-penguin">No iris, Yes penguin</h3>
+<p>R을 이용하는 유저 중에 iris 데이터를 한 번이라도 안 써본 유저는 없을 겁니다. iris 데이터는 로널드 피셔(Ronald Fisher)의 1936년 논문에 포함되어 있던 유서 깊은 자료입니다. R에 기본적으로 내장되어 있는 데이터이기도 하고 기본적인 R 연산, 시각화를 공부하는데 iris만한 데이터가 없죠. 그런데 이 iris 데이터를 이제 그만 쓰자는 목소리가 나오고 있어요. 바로 로널드 피셔 때문이죠.</p>
+<p><br></p>
+</section><section id="ronald-fisher" class="level3"><h3 class="anchored" data-anchor-id="ronald-fisher">Ronald Fisher</h3>
+<p>피셔는 통계학자이자 유전학자이자 진화생물학자였습니다. 현대 통계학에 지대한 공을 세운 학자로 알려져있습니다. 통계학자 앤더스 할(Anders Hald)은 피셔를 두고 현대 통계학의 토대를 거의 혼자서 만들어낸 천재로 지칭할 정도죠. Bootstrap을 처음으로 제안한 브래들리 에프론(스탠퍼드 대학교 통계학과 교수)도 로널드 피셔를 20세기 통계에서 가장 중요한 인물이라고 말할 정도입니다.</p>
+<p>F-검정, F-분포의 F가 바로 피셔의 F입니다. 피셔가 F-분포를 처음 제안했고, 조지 W 스네데코가 이후에 완성하면서 처음 제안한 피셔를 기려 F-분포, F-검정이라고 명명한거죠. 그래서 F-분포를 피셔-스네데코 분포라고도 합니다. ggplot2에서 제공해주는 stat_function을 활용해서 간단한 F-분포를 그려봤습니다. `</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
 
- ]]></description>
-  <category>123</category>
-  <category>Second Tag</category>
-  <guid>https://orangemansion.com/posts/blog_post/post.html</guid>
-  <pubDate>Tue, 31 May 2022 15:00:00 GMT</pubDate>
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">0</span>, <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">x</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">stat_function</a></span><span class="op" style="color: #5E5E5E;">(</span>fun <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"df"</span>, args <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span>df1 <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span>, df2 <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">)</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 자유도가 (a, b)인 F-분포를 그리려면 args의 df1, df2에 a, b를 넣으면 됩니다.</span>
+<span class="co" style="color: #5E5E5E;"># 위의 그래프는 자유도가 5, 10인 F-분포입니다.</span></code></pre></div>
+</div>
+<p>전체 대상(모집단)의 특성(모수)을 파악하기 위해 표본을 추출해 추론하는 건 현대 통계에서 아주 당연한 접근방식이죠? 이 흐름을 만든 게 바로 로널드 피셔입니다. 피셔는 모집단과 표본집단을 구분짓고, 일부(표본집단)를 통해 전체(모집단)에 대한 분석이 가능하다는 걸 귀무가설로 증명해 냈습니다. 귀무가설(null hypothesis)도 피셔가 정의한 개념입니다.</p>
+<p>그리고 이걸 발전시켜서 추측통계학, 이른바 추계학(stochastic)을 탄생시키죠. 추계학은 통계의 범위를 수학뿐만 아니라 여론조사, 제품검사, 의약품의 효과 등 사회과학의 방법론까지 확장시켰습니다. 20세기 통계에서 가장 중요한 인물이라고 칭하는 게 부족함이 없어보입니다.</p>
+<p>그런데 그 대단한 피셔가 우생학자로도 유명했습니다. BLM 시위 이후 피셔의 우생학자로서의 삶이 다시 재조명되면서 과학 분야 전반에서 정화의 흐름이 나오고 있습니다. 영국의 명문대학 유니버시티 칼리지 런던은 피셔의 이름이 붙은 연구 센터의 이름을 Center for Computational Biology로 바꾸기도 했죠. 그래서 iris를 과연 계속 써야하는지에 대한 논의가 나온 겁니다. 그 대안으로 떠오른 데이터셋이 바로 palmerpenguins package의 펭귄 데이터입니다.</p>
+<p><br></p>
+</section></section><section id="all-about-package" class="level2"><h2 class="anchored" data-anchor-id="all-about-package">All about package</h2>
+<section id="penguins" class="level3"><h3 class="anchored" data-anchor-id="penguins">penguins</h3>
+<p>파머 군도에서 수집된 원자료는 penguins_raw에 담겨있습니다. 관측치를 모두 활용하고 싶다면 penguins_raw를 불러오면 됩니다. 아마 대부분의 경우에는 penguins 데이터면 충분할겁니다. penguins 데이터에는 8개의 변수, 344개의 개체 정보가 들어가 있습니다. bill_length와 bill_depth는 펭귄의 부리의 크기를 나타낸 정보입니다. 아래 그림을 보면 length와 depth의 차이를 알 수 있어요.</p>
+<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
+<div class="cell">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">palmerpenguins</span><span class="fu" style="color: #4758AB;">::</span><span class="va" style="color: #111111;"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">penguins</a></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span>
+<span class="co" style="color: #5E5E5E;"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span>
+<span class="co" style="color: #5E5E5E;"># bill_length_mm : 펭귄 부리의 길이를 ㎜단위로 나타낸 number형 변수</span>
+<span class="co" style="color: #5E5E5E;"># bill_depth_mm : 펭귄 부리의 깊이를 ㎜단위로 나타낸 number형 변수</span>
+<span class="co" style="color: #5E5E5E;"># flipper_length_mm : 펭귄 물갈퀴의 길이를 ㎜단위로 나타낸 integer형 변수</span>
+<span class="co" style="color: #5E5E5E;"># body_mass_g : 펭귄 몸무게를 g단위로 나타낸 integer형 변수</span>
+<span class="co" style="color: #5E5E5E;"># sex : 펭귄 성별을 나타낸 factor형 변수(female, male)</span>
+<span class="co" style="color: #5E5E5E;"># year : 연구 시점이 담긴 integer형 변수(2007, 2008, 2009)</span></code></pre></div>
+</div>
+</section><section id="simpsons-paradox" class="level3"><h3 class="anchored" data-anchor-id="simpsons-paradox">Simpson’s paradox</h3>
+<p>iris대신 제시되는 데이터셋인만큼 기본적인 시각화를 연습하는데 penguins 패키지는 부족함이 없습니다. 펭귄 부리의 길이와 깊이를 가지고 scatter plot을 그려보겠습니다. geom_smooth로 상관관계를 살펴보면 음의 상관관계가 있다고 볼 수 있겠네요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span>data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">penguins</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">bill_length_mm</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">bill_depth_mm</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;">(</span>size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op" style="color: #5E5E5E;">(</span>method <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"lm"</span>, se <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>하지만 종별로 나눠서 살펴보면 어떨까요? 이번엔 Adélie, Chinstrap, Gentoo 세 종별로 scatter plot을 그려서 상관관계를 살펴보겠습니다. 종별로 보면 부리의 길이와 깊이는 양의 상관관계가 있어 보입니다. 야생의 데이터에서 확인할 수 있는 심슨의 역설(Simpson’s Paradox)의 아주 좋은 사례입니다. 영국의 통계학자 에드워드 심슨이 정리한 이 역설은 각각의 변수를 살피지 않고 전체 통계만 보고 판단하다가 발생할 수 있는 함정입니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span>data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">penguins</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">bill_length_mm</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">bill_depth_mm</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>color <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">species</span>, 
+                 shape <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">species</span><span class="op" style="color: #5E5E5E;">)</span>,
+             size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span> 
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op" style="color: #5E5E5E;">(</span>method <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"lm"</span>, se <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span>color <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">species</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;">(</span>values <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"darkorange"</span>,<span class="st" style="color: #20794D;">"darkorchid"</span>,<span class="st" style="color: #20794D;">"cyan4"</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;">(</span>legend.position <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"none"</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section></section> ]]></description>
+  <category>R package</category>
+  <category>palmerpenguins</category>
+  <guid>https://orangemansion.com/posts/220527_palmerpenguins-package/index.html</guid>
+  <pubDate>Sat, 19 Feb 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orangemansion.com/posts/220527_palmerpenguins-package/penguin.gif" medium="image" type="image/gif"/>
+</item>
+<item>
+  <title>data frame의 진화, tibble package</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orangemansion.com/posts/210502_tibble-package/index.html</link>
+  <description><![CDATA[ <section id="tibble-package" class="level2"><h2 class="anchored" data-anchor-id="tibble-package">tibble package</h2>
+<p><img src="https://orangemansion.com/posts/210502_tibble-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<p>tidyverse 패키지를 사용하면 data.frame 대신 사용하게되는 tibble. 오늘 알아볼 R package는 tibble입니다. tibble 패키지의 역사부터 기존의 data.frame과는 어떻게 다른지 정리해봅니다.</p>
+<p><br></p>
+<section id="tibbles-name" class="level3"><h3 class="anchored" data-anchor-id="tibbles-name">tibble’s name</h3>
+<p>2014년 1월, dplyr 패키지에선 data.frame을 tbl_df이라는 서브클래스로 사용했습니다. 이전의 data.frame과 다르게 출력된 결과가 콘솔창을 다 뒤덮지도 않고 칼럼명 아래에 자료형을 표현해주는 강점이 있었죠. 이 tbl_df가 지금의 tibble 패키지의 시초입니다. tbl_df를 [티블-디프]로 읽다가 뒤에 df는 떨어져나가고 tbl남 남아 결국엔 tibble이 되었죠. 참고로 패키지를 만든 <a href="https://github.com/hadley">해들리 위컴</a>은 뉴질랜드 사람인데, 뉴질랜드인들이 table을 tibble이라고 발음한다고 합니다.</p>
+<p><br></p>
+</section><section id="tibbles-logo" class="level3"><h3 class="anchored" data-anchor-id="tibbles-logo">tibble’s logo</h3>
+<p>위대한 패키지 tidyverse의 일원인만큼 tibble 로고의 뒷 배경은 tidyverse 세계관을 공유하고 있습니다. 우주 배경을 뒤에 두고 표가 그려져있죠. 그 위엔 TIBBLE 이라는 이름표가 적혀있고요. 폰트 스타일은 스타트랙을 닮았는데, 스타트랙에는 tibble과 유사한 tribble이라는 크리쳐가 등장합니다. tribble은 tibble 패키지의 함수로도 등장하는데 이건 뒤에서 설명 드리겠습니다. tibble 이름표를 잘 보면 TI33으로도 읽을 수 있는데 공학용 계산기로 유명한 텍사스 인스트루먼트(TI)에서 만든 동명의 모델이 있죠. (물론 의도한지는 모르겠지만요)</p>
+<p><br></p>
+</section></section><section id="all-about-tibble" class="level2"><h2 class="anchored" data-anchor-id="all-about-tibble">All about tibble</h2>
+<section id="as.tibble" class="level3"><h3 class="anchored" data-anchor-id="as.tibble">as.tibble</h3>
+<p>아이리스(붓꽃) 데이터가 담겨있는 iris 데이터를 가지고 살펴보겠습니다. 총 150개의 로(row)와 5개의 칼럼(column)으로 이뤄진 데이터프레임(data.frame)입니다. 만일 코드에 그냥 iris라고 입력한다면 콘솔창에는 150개의 행을 보실 수 있을텐데요. 그걸 막기 위해 iris 데이터의 머릿부분만 불러오라는 함수 head( )를 써보았어요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">iris</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<p>이번엔 tibble 패키지를 이용해볼까요. 여기서 사용할 함수는 as_tibble( )입니다. 무언가를 tibble로 만들어주는 고마운 함수입니다. 새로운 iris tibble 녀석을 tbl_iris에 할당했습니다. 그리고 불러와봅시다. tibble은 그냥 tbl_iris라고 입력해도 콘솔창을 다 뒤덮지않는군요. 10개의 행을 보여주고는 나머지 140개가 남아있다고 깨알같이 설명해줍니다. 게다가 5개의 칼럼이 어떤 녀석인지 밑에다가 자료형을 설명해주고 있군요. 착한 녀석이죠. 혹여나 이러한 편의를 무시하고 모든 행을 다 보고 싶은 경우에는 옵션을 통해 바꿔줄 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">tbl_iris</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">iris</span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="va" style="color: #111111;">tbl_iris</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 150 × 5
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+ 1          5.1         3.5          1.4         0.2 setosa 
+ 2          4.9         3            1.4         0.2 setosa 
+ 3          4.7         3.2          1.3         0.2 setosa 
+ 4          4.6         3.1          1.5         0.2 setosa 
+ 5          5           3.6          1.4         0.2 setosa 
+ 6          5.4         3.9          1.7         0.4 setosa 
+ 7          4.6         3.4          1.4         0.3 setosa 
+ 8          5           3.4          1.5         0.2 setosa 
+ 9          4.4         2.9          1.4         0.2 setosa 
+10          4.9         3.1          1.5         0.1 setosa 
+# … with 140 more rows</code></pre>
+</div>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 행이 n개를 넘어가면 m개만 출력하고 싶다면</span>
+<span class="co" style="color: #5E5E5E;"># options(tibble.print_max = n, tibble.print_min = m)</span>
+
+<span class="co" style="color: #5E5E5E;"># 모든 행을 다 보고 싶다면</span>
+<span class="co" style="color: #5E5E5E;"># option(tibble.print_max = Inf)</span>
+
+<span class="co" style="color: #5E5E5E;"># 콘솔창의 폭은 고려말고 모든 열을 다 보고 싶다면</span>
+<span class="co" style="color: #5E5E5E;"># option(tibble.width = Inf)</span></code></pre></div>
+</div>
+<p><br></p>
+</section><section id="tibble" class="level3"><h3 class="anchored" data-anchor-id="tibble">tibble</h3>
+<p>본격적으로 tibble을 만들어봅니다. tibble( )을 이용하면 후딱 tibble을 생성할 수 있답니다. tibble( ) 함수는 data.frame( ) 함수와는 다르게 변수의 이름을 바꾸지 않아요. 예를 들어볼게요. <strong>오렌지 맨숀</strong>라는 칼럼에 숫자 1을 넣은 data.frame을 만들어볼거에요. 동일하게 tibble로도 만들어보고요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 오렌지 맨숀이라는 이름의 칼럼을 가진 데이터를 만들어봅니다</span>
+
+<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;">(</span>`오렌지 맨숀` <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  오렌지.맨숀
+1           1</code></pre>
+</div>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>`오렌지 맨숀` <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `오렌지 맨숀`
+          &lt;dbl&gt;
+1             1</code></pre>
+</div>
+</div>
+<p>칼럼 이름에 공백이 들어가게 되면 data.frame은 공백을 온점으로 바꿔줍니다. <strong>오렌지 맨숀</strong> 대신 <strong>오렌지.맨숀</strong>이 되었죠? 반면 tibble은 변수의 이름을 바꾸지 않고 그대로 내비두죠. 이러한 tibble의 유연함은 공백말고 다른 비정상적인 문자도 칼럼 이름에 넣을 수 있게 했어요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># tibble은 비정상적 문자도 칼럼명에 넣을 수 있습니다</span>
+<span class="co" style="color: #5E5E5E;"># 물론 백틱(`)으로 묶어야 합니다</span>
+
+<span class="va" style="color: #111111;">tb</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  `:^)` <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"smile"</span>, 
+  ` ` <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"space"</span>,
+  `2021` <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"number"</span>
+<span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">tb</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  `:^)` ` `   `2021`
+  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; 
+1 smile space number</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="tribble" class="level3"><h3 class="anchored" data-anchor-id="tribble">tribble</h3>
+<p><img src="https://orangemansion.com/posts/210502_tibble-package/tribble.gif" class="img-fluid" style="width:40.0%"></p>
+<p>tibble을 만들 수 있는 또다른 방법은 함수 tribble을 사용하는겁니다. 스타 트렉의 커크 함장에게 눈처럼 내리는 동물이 바로 트리블이랍니다. 트리블은 복실복실한 털과 귀여운 목소리 탓에 애완용으로 많이 키워졌는데 다만 한가지 주의해야할 부분은 바로 번식이랍니다. 한 번 번식을 시작하면 끝도 없이 증식해버려서 자칫하면 손을 쓸 수 없을지도 몰라요.</p>
+<p>tibble 패키지에 있는 tribble은 <strong>tr</strong>ansposed t<strong>ibble</strong>의 줄임말입니다. 단어 그대로 전치된 티블이라는 뜻이지요. 기존의 tibble 입력 형식이 colname = data 같은 가로형이었다면 tribble에서는 세로형으로 입력할 수 있지요. 간단하게 적은 양의 데이터를 코드로 입력할 때에는 tribble을 쓰면 편리합니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># tribble 함수에서 칼럼명은 ~로 시작해야 합니다</span>
+<span class="co" style="color: #5E5E5E;"># 데이터 구분은 ,로 하고요</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  <span class="op" style="color: #5E5E5E;">~</span><span class="va" style="color: #111111;">x</span>, <span class="op" style="color: #5E5E5E;">~</span><span class="va" style="color: #111111;">y</span>, <span class="op" style="color: #5E5E5E;">~</span><span class="va" style="color: #111111;">z</span>,
+  <span class="st" style="color: #20794D;">"a"</span>, <span class="fl" style="color: #AD0000;">21</span>, <span class="st" style="color: #20794D;">"2000"</span>,
+  <span class="st" style="color: #20794D;">"b"</span>, <span class="fl" style="color: #AD0000;">31</span>, <span class="st" style="color: #20794D;">"1990"</span>
+<span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  x         y z    
+  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;
+1 a        21 2000 
+2 b        31 1990 </code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="tibble_row" class="level3"><h3 class="anchored" data-anchor-id="tibble_row">tibble_row</h3>
+<p>tibble을 만들 수 있는 또 다른 방법. tibble_row( )가 있어요. 기본적으로 data.frame과 tibble은 벡터들의 모음입니다. 여기서 잠깐, 벡터는 동일한 유형의 데이터가 여러개 묶여있는 형식을 뜻해요. 수치형 벡터도 있을 테고, 문자형 벡터도 있을 거고요, 논리형 벡터도 존재해요. 함수 등과 같이 특별한 타입의 데이터들은 벡터가 아니여요. class를 가지고 있는 일부 요소들은 벡터이기도 하고 아닌 녀석도 있죠.</p>
+<p>tibble_row 이야기를 하는데 갑자기 벡터 이야기를 해서 뜬금없다고 생각할 수 있지만 다 이유가 있답니다. 기존 함수들로는 벡터가 아닌 데이터(스칼라)를 tibble 안에 담을 수 없었어요. 하지만 tibble_row 함수와 함께라면 스칼라도 tibble 안에 넣을 수 있게 되죠. tibble_row 함수는 한 행(row)을 차지하는 데이터프레임을 구성해줍니다. 즉 한 열에 크기가 1인 녀석만 들어갈 수 있지만 그 대신 스칼라 데이터도 넣을 수 있게 된 거죠. 참고로 저장되는 스칼라는 list 형태로 포장됩니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># vector가 아닌 scalar 데이터를 만들어봅니다</span>
+<span class="co" style="color: #5E5E5E;"># lm(linear model)과 time 데이터를 써 보겠습니다</span>
+
+<span class="va" style="color: #111111;">model</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">y</span> <span class="op" style="color: #5E5E5E;">~</span> <span class="va" style="color: #111111;">x</span>, <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;">(</span>x <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">5</span>, y <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">7</span><span class="op" style="color: #5E5E5E;">)</span>, model <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="va" style="color: #111111;">time</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">time</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  time               
+  &lt;dttm&gt;             
+1 2022-08-22 22:38:37</code></pre>
+</div>
+</div>
+<p>model의 경우 vector가 아니여서 tibble에 담기지 않아요. 반면 time 데이터는 들어갈 수 있어요. 하지만 tibble_row 함수를 사용한다면 어떨까요. tibble_row와 함께라면 vector와 scalar 상관없이 tibble에 담을 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble_row</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">model</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  model 
+  &lt;list&gt;
+1 &lt;lm&gt;  </code></pre>
+</div>
+</div>
+
+
+</section></section> ]]></description>
+  <category>R package</category>
+  <category>tibble</category>
+  <guid>https://orangemansion.com/posts/210502_tibble-package/index.html</guid>
+  <pubDate>Sat, 01 May 2021 15:00:00 GMT</pubDate>
+  <media:content url="https://orangemansion.com/posts/210502_tibble-package/thumbnail.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

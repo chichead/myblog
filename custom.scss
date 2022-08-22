@@ -73,6 +73,11 @@ code.sourceCode {
   font-size: 14px;
 }
 
+code {
+  font-family: 'd2coding', monospace;
+  font-size: 14px;
+}
+
 div.listing-date {
   font-family: "IBM Plex Mono";
   font-size: 13px;
@@ -97,4 +102,9 @@ div.listing-reading-time {
 
 .category {
   font-size: 14px;
+}
+
+.figure-caption {
+  font-size: 12px;
+  text-align: center;
 }

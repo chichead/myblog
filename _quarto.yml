@@ -18,8 +18,12 @@ website:
   google-analytics: G-YZCBLF5F53
 format:
   html:
+    smooth-scroll: true
     theme: 
       - styles.css
       - custom.scss
+    toc: true
+    toc-location: right
+    code-link: true
 
 
