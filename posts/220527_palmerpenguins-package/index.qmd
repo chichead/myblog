@@ -1,6 +1,6 @@
 ---
 title: 'iris 대신 귀여운 penguins package 씁시다'
-date: '2022-02-20'
+date: '2022-05-27'
 categories: ['R package', 'palmerpenguins']
 description: 'R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package'
 image: penguin.gif
