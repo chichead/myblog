@@ -6,15 +6,153 @@
       version="2.0">
 <channel>
 <title>오렌지 맨숀🍊</title>
-<link>https://orangemansion.com/blog.html</link>
-<atom:link href="https://orangemansion.com/blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://orange-mansion.com/blog.html</link>
+<atom:link href="https://orange-mansion.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Sat, 20 Aug 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 26 Aug 2022 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>R Markdown의 차세대 포맷, Quarto</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/posts/220827_quarto/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="quarto가-뭐지" class="level2">
+<h2 class="anchored" data-anchor-id="quarto가-뭐지">Quarto가 뭐지</h2>
+<p><img src="https://orange-mansion.com/posts/220827_quarto/quarto%20thumbnail.jpeg" class="img-fluid" style="width:100.0%"></p>
+<p>RStudio는 자사의 2022년 컨퍼런스 rstudio::conf(2022)에서 발표한 여러 소식 가운데 가장 중요한 소식으로 이렇게 4가지를 꼽았습니다.</p>
+<ol type="1">
+<li><p>RStudio의 이름은 Posit으로 바꾼다</p></li>
+<li><p>새로운 오픈소스 기반의 과학기술 출판 시스템, Quarto</p></li>
+<li><p>Shiny 생태계의 새로운 발전</p></li>
+<li><p>tidymodel의 업데이트</p></li>
+</ol>
+<p>1번은 이미 <a href="https://orange-mansion.com/posts/220821_rstudio-is-becoming-posit/">이 포스트</a>에서 다루었죠? 그 연장선이라고 볼 수 있는 Quarto가 이번 게시물의 주제입니다. Quarto는 R Markdown에 이은 RStudio의 차세대 R 출판 플랫폼입니다. 기존의 R Markdown을 이용하면 R code sript를 Word, HTML, PDF, PPT 등 다양한 문서 형식으로 만들 수 있었습니다. 웹을 통한 출판(Bookdown)까지도 가능했죠.</p>
+<p><img src="https://orange-mansion.com/posts/220827_quarto/rmarkdown%20env.png" class="img-fluid" style="width:100.0%"></p>
+<p>그런데 이 R Markdwon이 어느새 10년 가까이 지났습니다. 기능의 편리함은 지적할만한 게 없었지만 R Markdown 생태계가 너무 커져버렸죠. 관련 생태계가 커졌다는 건 오히려 반길 일이지만 덕지덕지 붙어버린 서드파티 패키지들이 많아진 게 문제였습니다. 더 이상 통일된 하나의 R Markdown의 제작과 작업이 되질 못했습니다. 과학, 기술 블로그를 만들 땐 distill package를 사용하고, 웹 프레젠테이션 파일을 만들 땐 xaringan(사륜안) package를 사용하고…</p>
+<p>그래서 등장한 게 바로 이 Quarto입니다. R Markdown과 마찬가지로 Knitr와 Pandoc을 기반으로 하고 있고요. 궁극적으로 R Studio는 Quarto 생태계에 다른 언어를 사용하는 사람들끼리 모을 생각을 하고 있습니다. 그래서 저번 Posit 이야기의 연장선이라고 말씀을 드린 겁니다. 그 이유 때문인지 Quarto는 R의 내장 라이브러리가 아닌 독립 소프트웨어로 제작되었습니다. 새로운 시스템 Quarto 단어가 생소할 텐데, Quarto는 4절판을 의미합니다. 8페이지 분량의 텍스트를 두 번 접어서 네 장을 만드는 형식을 뜻하죠. 출판 역사에 의미가 있는 단어를 골랐다고 합니다.</p>
+<p><br></p>
+<section id="quarto-다운받기" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-다운받기">Quarto 다운받기</h4>
+<p><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></p>
+<p>Quarto는 위 링크에서 받을 수 있습니다. 링크를 들어가면 나오는 홈페이지에서도 확인할 수 있지만 Quarto는 R 뿐만 아니라 VS code, Jupyter에서도 활용할 수 있습니다.</p>
+<p><br></p>
+</section>
+</section>
+<section id="r-markdown과-차이점" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown과-차이점">R Markdown과 차이점</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220827_quarto/rmarkdown%20sys.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Quarto의 구조를 알기 위해선 R Markdown에 대한 이해가 필요합니다. 일단 R Markdown 시스템은 위의 그림과 같습니다. Rmd(R 마크다운) 파일을 knitr package를 통해 md(마크다운) 파일로 만들고, pandoc 라이브러리를 통해 문서, PPT, 웹페이지, 책의 형태로 퍼블리싱되는 거죠. knitr은 2012년 Yihui Xie에 의해 개발된 패키지입니다. Knitr 패키지를 이용하면 동적 리포트를 생성할 수 있게 해주죠. md 파일을 다양한 형식으로 변환할 때에는 pandoc 라이브러리를 활용합니다. 정리해보면 기존 R Markdown은 Rmd 파일을 여러 가지 형태의 문서로 퍼블리싱해주는 시스템이라고 할 수 있겠네요.</p>
+<p><img src="https://orange-mansion.com/posts/220827_quarto/quarto.png" class="img-fluid" style="width:100.0%"></p>
+<p>Quarto도 비슷합니다. R Markdown과 마찬가지로 Knitr과 pandoc을 활용합니다. 달라진 건 적용 대상입니다. 기존 시스템에선 Rmd만 가능했다면 이제는 Python도 가능합니다. jupyter까지 활용하게 되면서 Python에서 qmd(Qarto markdown) 파일을 작성하면 jupyter를 통해 md 파일로 변환해 다양한 결과물을 만들어 낼 수 있게 된 거죠.</p>
+<p><br></p>
+<section id="quarto-vs-r-markdown" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-vs-r-markdown">Quarto vs R Markdown</h4>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 32%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>R Markdown</th>
+<th>Quarto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>기본 포맷</td>
+<td>html_document<br>
+pdf_document<br>
+word_document</td>
+<td>html<br>
+pdf<br>
+word</td>
+</tr>
+<tr class="even">
+<td>비머 포맷(발표자료)</td>
+<td>beamer_presentation</td>
+<td>beamer</td>
+</tr>
+<tr class="odd">
+<td>PPT</td>
+<td>powerpoint_presentation</td>
+<td>pptx</td>
+</tr>
+<tr class="even">
+<td>HTML 슬라이드</td>
+<td>xaringan<br>
+ioslides<br>
+revealjs</td>
+<td><br>
+<br>
+revealjs</td>
+</tr>
+<tr class="odd">
+<td>블로그 및 웹사이트</td>
+<td>blogdown<br>
+distill</td>
+<td>Quarto Websites<br>
+Quarto Blogs</td>
+</tr>
+<tr class="even">
+<td>책</td>
+<td>bookdown</td>
+<td>Quarto Books</td>
+</tr>
+<tr class="odd">
+<td>인터랙티브</td>
+<td>Shiny Documents</td>
+<td>Quarto Interactive Documents</td>
+</tr>
+<tr class="even">
+<td>Paged HTML</td>
+<td>pagedown</td>
+<td>2022 여름 공개 예정</td>
+</tr>
+<tr class="odd">
+<td>Journal Articles</td>
+<td>rticles</td>
+<td>2022 여름 공개 예정</td>
+</tr>
+<tr class="even">
+<td>대시보드</td>
+<td>flexdashboard</td>
+<td>2022 가을 공개 예정</td>
+</tr>
+</tbody>
+</table>
+<p>다양한 포맷을 만들기 위해 여러 패키지를 사용했던 R Markdown과 달리, Quarto에서는 Quarto 시스템으로 다 들어왔습니다. 예전 R을 활용해 기술 블로그를 만들기 위해 distll package를 사용했지만, 이젠 Quarto의 Quarto Websites, Blogs를 활용하면 됩니다. 이 블로그도 Quarto Blogs를 이용해 만들었습니다. 아직 공개되지 않은 대시보드와 Journal Articles, Paged HTML도 곧 공개될 예정입니다.</p>
+<p><br></p>
+</section>
+</section>
+<section id="quarto의-미래" class="level2">
+<h2 class="anchored" data-anchor-id="quarto의-미래">Quarto의 미래</h2>
+<p>RStudio의 이번 Qaurto 발표는 결국 Posit과 비슷합니다. Python과 Julia 등 다른 언어들까지 포함하는 IDE인 Posit을 발표하고, 새롭게 출시한 Quarto에는 jupyter를 지원하면서 다른 언어 이용자들을 R 커뮤니티에 끌어들이겠다는 겁니다. Python 이용자들도 충분히 웹사이트와 블로그, 책을 만들 수 있다고 유혹하는 것이죠. RStudio의 CEO가 발표한 내용을 살펴보면 미래에는 마치 Google Docs에서 사람들이 자유롭게 문서를 편집하듯이 여러 언어를 사용하는 이용자들이 Quarto 문서를 통해 협업을 하길 구상하고 있더라고요. 물론 아직까지 그런 환경이 갖춰져 있는 건 아니지만, 꽤나 매력적인 미래의 모습입니다. 하루빨리 그런 환경이 오길 바라면서 이번 포스트를 마무리하겠습니다.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R Markdown</category>
+  <category>Quarto</category>
+  <guid>https://orange-mansion.com/posts/220827_quarto/index.html</guid>
+  <pubDate>Fri, 26 Aug 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/posts/220827_quarto/quarto%20thumbnail.jpeg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>RStudio가 Posit으로 이름을 바꾼다</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</link>
+  <link>https://orange-mansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</link>
   <description><![CDATA[ 
 
 
@@ -22,7 +160,7 @@
 
 <section id="rstudio-is-becoming-posit" class="level2">
 <h2 class="anchored" data-anchor-id="rstudio-is-becoming-posit">RStudio is becoming Posit</h2>
-<p><img src="https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" class="img-fluid" alt="posit logo" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" class="img-fluid" alt="posit logo" style="width:100.0%"></p>
 <p>프로그래밍 언어 그 자체를 가지고 명령어를 통해 작업을 하는 건 많이 어렵습니다. 불편하기도 하고요. 그럴 때 사용하는 게 바로 IDE(통합계발환경, Intergrated Development Environment)입니다. Python을 이용할 때 사용하는 PyCharm이나 Jupyter Notebook, 혹은 MS의 텍스트 에디터 VS Code가 대표적인 IDE라고 할 수 있을겁니다.</p>
 <p>RStudio는 R의 가장 대표 IDE입니다. 그런데 이 RStudio가 지난 7월 말, 본인들의 이름을 바꾼다고 선언했습니다. 아마 8월 중으로 이름표를 새로 바꿀 것 같은데요, 그들이 공개한 RStudio의 새로운 이름은 Posit입니다. RStudio는 왜 갑자기 이름을 Posit으로 바꾸려는걸까요?</p>
 <p><br></p>
@@ -60,19 +198,19 @@
  ]]></description>
   <category>R</category>
   <category>IDE</category>
-  <guid>https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</guid>
+  <guid>https://orange-mansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</guid>
   <pubDate>Sat, 20 Aug 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orangemansion.com/posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://orange-mansion.com/posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>iris 대신 귀여운 penguins package 씁시다</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orangemansion.com/posts/220527_palmerpenguins-package/index.html</link>
+  <link>https://orange-mansion.com/posts/220527_palmerpenguins-package/index.html</link>
   <description><![CDATA[ <section id="palmerpenguins-package" class="level2"><h2 class="anchored" data-anchor-id="palmerpenguins-package">palmerpenguins package</h2>
-<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘 소개할 R package는 palmerpenguins package입니다. 남극의 파머 군도에 있는 3곳의 섬에서 관찰된 3종의 펭귄 데이터가 담겨져 있죠.</p>
 <section id="paler-penguins" class="level3"><h3 class="anchored" data-anchor-id="paler-penguins">paler penguins</h3>
-<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/penguins.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/penguins.png" class="img-fluid" style="width:100.0%"></p>
 <p>파머 군도에 있는 Dreams Island, Torgersen Island, Biscoe Point에는 세 종의 펭귄이 살고 있습니다. 턱끈 펭귄(Chinstrap), 젠투 펭귄(Gentoo), 아델리 펭귄(Adélie) 이렇게 말이죠. palmerpenguins package에는 이 세 펭귄의 크기, 성별 정보가 담겨있습니다. 펭귄들의 데이터는 미국의 장기 생태 연구 네트워크(US Long Term Ecological Research Network)에서 운영하는 프로그램의 일부로, 파머 군도에서 2007년부터 2009년까지 크리스틴 고먼 박사에 의해 수집됐습니다.</p>
 <p><br></p>
 </section><section id="no-iris-yes-penguin" class="level3"><h3 class="anchored" data-anchor-id="no-iris-yes-penguin">No iris, Yes penguin</h3>
@@ -88,7 +226,7 @@
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">stat_function</a></span><span class="op" style="color: #5E5E5E;">(</span>fun <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"df"</span>, args <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span>df1 <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span>, df2 <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">)</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 자유도가 (a, b)인 F-분포를 그리려면 args의 df1, df2에 a, b를 넣으면 됩니다.</span>
 <span class="co" style="color: #5E5E5E;"># 위의 그래프는 자유도가 5, 10인 F-분포입니다.</span></code></pre></div>
@@ -100,7 +238,7 @@
 </section></section><section id="all-about-package" class="level2"><h2 class="anchored" data-anchor-id="all-about-package">All about package</h2>
 <section id="penguins" class="level3"><h3 class="anchored" data-anchor-id="penguins">penguins</h3>
 <p>파머 군도에서 수집된 원자료는 penguins_raw에 담겨있습니다. 관측치를 모두 활용하고 싶다면 penguins_raw를 불러오면 됩니다. 아마 대부분의 경우에는 penguins 데이터면 충분할겁니다. penguins 데이터에는 8개의 변수, 344개의 개체 정보가 들어가 있습니다. bill_length와 bill_depth는 펭귄의 부리의 크기를 나타낸 정보입니다. 아래 그림을 보면 length와 depth의 차이를 알 수 있어요.</p>
-<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
 <div class="cell">
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">palmerpenguins</span><span class="fu" style="color: #4758AB;">::</span><span class="va" style="color: #111111;"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">penguins</a></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -138,7 +276,7 @@
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op" style="color: #5E5E5E;">(</span>method <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"lm"</span>, se <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>하지만 종별로 나눠서 살펴보면 어떨까요? 이번엔 Adélie, Chinstrap, Gentoo 세 종별로 scatter plot을 그려서 상관관계를 살펴보겠습니다. 종별로 보면 부리의 길이와 깊이는 양의 상관관계가 있어 보입니다. 야생의 데이터에서 확인할 수 있는 심슨의 역설(Simpson’s Paradox)의 아주 좋은 사례입니다. 영국의 통계학자 에드워드 심슨이 정리한 이 역설은 각각의 변수를 살피지 않고 전체 통계만 보고 판단하다가 발생할 수 있는 함정입니다.</p>
@@ -154,7 +292,7 @@
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;">(</span>legend.position <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"none"</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -162,31 +300,31 @@
 </section></section> ]]></description>
   <category>R package</category>
   <category>palmerpenguins</category>
-  <guid>https://orangemansion.com/posts/220527_palmerpenguins-package/index.html</guid>
+  <guid>https://orange-mansion.com/posts/220527_palmerpenguins-package/index.html</guid>
   <pubDate>Thu, 26 May 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orangemansion.com/posts/220527_palmerpenguins-package/penguin.gif" medium="image" type="image/gif"/>
+  <media:content url="https://orange-mansion.com/posts/220527_palmerpenguins-package/penguin.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>bump chart를 그리고 싶을 때, ggbump package</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orangemansion.com/posts/220220_ggbump-package/index.html</link>
+  <link>https://orange-mansion.com/posts/220220_ggbump-package/index.html</link>
   <description><![CDATA[ <section id="ggbump-package" class="level2"><h2 class="anchored" data-anchor-id="ggbump-package">ggbump package</h2>
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
 <section id="ggbumps-name" class="level3"><h3 class="anchored" data-anchor-id="ggbumps-name">ggbump’s name</h3>
 <p>ggplot2는 grammar of graphics(a.k.a. gg)을 토대로 시각화를 만드는 패키지입니다. 2는 ver.2의 의미를 담았죠. gg는 릴랜드 윌킨스의 동명의 책 The Grammar of Graphics에서 따온 건데, 이 책에서 릴랜드는 데이터를 어떻게 시각적으로 표현할 것인지에 대해 다룹니다. gg에 대한 이야기는 나중에 다른 포스트에서 다루도록 하겠습니다.</p>
 <p>ggplot2 패키지의 문법 기반 위에서 돌아가는 서브 패키지들은 보통 gg라는 접두사로 시작됩니다. ggbump 역시 ggplot2의 일원이라고 이해할 수 있어요. 그렇다면 bump는 무엇을 의미하는 걸까요? 자동차의 범퍼, 혹은 놀이동산의 범퍼카를 떠올리면 bump의 의미를 유추할 수 있어요. bump는 바로, 충돌을 의미합니다. 충돌과 차트, 어떤 연관이 있는 걸까요?</p>
 <p><br></p>
 </section><section id="bump-chart" class="level3"><h3 class="anchored" data-anchor-id="bump-chart">bump chart</h3>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://orangemansion.com/posts/220220_ggbump-package/may_bump.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="https://orange-mansion.com/posts/220220_ggbump-package/may_bump.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
 <p></p><figcaption class="figure-caption">2022 May Bumps, Corpus Christi College</figcaption><p></p>
 </figure>
 </div>
 <p>영국의 케임브리지 대학에는 The bump라고 불리는 조정 경기가 있습니다. 케임브리지를 가로지르는 캠 강(river Cam) 은 나란히 경주하기에는 너무 좁아서 한 줄로 경주하는 독특한 조정 경주를 진행해왔어요. 19세기 초부터 시작된 이 경기 이름이 바로 The bump입니다. The bump의 경주 방식은 이렇습니다. 우선 강을 따라 한 줄로 경기를 시작합니다. 각 선수들은 전속력으로 노를 저어 앞에 있는 보트를 따라잡고 충돌(bump)하죠. 그렇게 되면 앞에 있는 조정 팀을 추월한 것으로 인정, 순위가 올라가게 됩니다. 주최 측에서는 경기의 진행 상황을 매핑하는 차트를 그려서 제공했는데, 이 차트를 bump chart라고 불렀습니다. 아래 차트는 2020년 사순절에 치러진 대회(Lent Bump)의 남자부 경기 결과입니다. 어떤 차트인지 감이 오죠?</p>
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/bumpchart_thebump.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/bumpchart_thebump.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
 </section><section id="ggbumps-logo" class="level3"><h3 class="anchored" data-anchor-id="ggbumps-logo">ggbump’s logo</h3>
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/ggbump%20logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/ggbump%20logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>로고에는 3개의 노드(점), 노드에 연결된 시그모이드 곡선이 보입니다. 시그모이드(Sigmoid) 곡선은 S자 모양의 부드러운 곡선을 의미합니다. Sigmoid라는 단어의 뜻이 S자 모양이거든요. 시그모이드 곡선은 로지스틱 방정식, 정규분포의 누적분포함수에서 확인할 수 있습니다. 아래 차트를 보면 정규분포의 누적분포함수의 부드러운 S자 곡선을 확인할 수 있습니다.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
@@ -200,7 +338,7 @@
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Cumulative Normal Distribution of X ~ N(0,1)"</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 참고로 접두사 p는 누적분포함수(CDF)를 의미하고, </span>
 <span class="co" style="color: #5E5E5E;"># 접두사 q는 누적분포함수(CDF)의 역함수인 분위수함수를, </span>
@@ -247,7 +385,7 @@
             vjust <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1.4</span>, size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -306,12 +444,12 @@
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;">(</span>values <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/wesanderson/man/wes_palette.html">wes_palette</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Zissou1"</span>, n <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>부드러운 시그모이드 곡선으로 이뤄진 범프 차트가 만들어졌습니다. scale_color_manual에 들어있는 wes_palette는 이름에서 유추할 수 있듯 웨스 앤더슨 감독의 색감이 담긴 컬러 팔레트입니다. 이 차트에서는 웨스 앤더슨 감독의 2004년 작 &lt;스티브 지소와의 해저 생활(The Life Aquatic With Steve Zissou)&gt;의 색상을 사용했습니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://orangemansion.com/posts/220220_ggbump-package/zissou.gif" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="https://orange-mansion.com/posts/220220_ggbump-package/zissou.gif" class="img-fluid figure-img" style="width:100.0%"></p>
 <p></p><figcaption class="figure-caption">The Life Aquatic with Steve Zissou, Wes Anderson</figcaption><p></p>
 </figure>
 </div>
@@ -334,7 +472,7 @@
        x <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
   <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;">(</span>values <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/wesanderson/man/wes_palette.html">wes_palette</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Zissou1"</span>, n <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orangemansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -342,16 +480,16 @@
 </section></section> ]]></description>
   <category>R package</category>
   <category>ggbump</category>
-  <guid>https://orangemansion.com/posts/220220_ggbump-package/index.html</guid>
+  <guid>https://orange-mansion.com/posts/220220_ggbump-package/index.html</guid>
   <pubDate>Sat, 19 Feb 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orangemansion.com/posts/220220_ggbump-package/thumbnail.png" medium="image" type="image/png" height="62" width="144"/>
+  <media:content url="https://orange-mansion.com/posts/220220_ggbump-package/thumbnail.png" medium="image" type="image/png" height="62" width="144"/>
 </item>
 <item>
   <title>data frame의 진화, tibble package</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orangemansion.com/posts/210502_tibble-package/index.html</link>
+  <link>https://orange-mansion.com/posts/210502_tibble-package/index.html</link>
   <description><![CDATA[ <section id="tibble-package" class="level2"><h2 class="anchored" data-anchor-id="tibble-package">tibble package</h2>
-<p><img src="https://orangemansion.com/posts/210502_tibble-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/posts/210502_tibble-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
 <p>tidyverse 패키지를 사용하면 data.frame 대신 사용하게되는 tibble. 오늘 알아볼 R package는 tibble입니다. tibble 패키지의 역사부터 기존의 data.frame과는 어떻게 다른지 정리해봅니다.</p>
 <p><br></p>
 <section id="tibbles-name" class="level3"><h3 class="anchored" data-anchor-id="tibbles-name">tibble’s name</h3>
@@ -448,7 +586,7 @@
 </div>
 <p><br></p>
 </section><section id="tribble" class="level3"><h3 class="anchored" data-anchor-id="tribble">tribble</h3>
-<p><img src="https://orangemansion.com/posts/210502_tibble-package/tribble.gif" class="img-fluid" style="width:40.0%"></p>
+<p><img src="https://orange-mansion.com/posts/210502_tibble-package/tribble.gif" class="img-fluid" style="width:40.0%"></p>
 <p>tibble을 만들 수 있는 또다른 방법은 함수 tribble을 사용하는겁니다. 스타 트렉의 커크 함장에게 눈처럼 내리는 동물이 바로 트리블이랍니다. 트리블은 복실복실한 털과 귀여운 목소리 탓에 애완용으로 많이 키워졌는데 다만 한가지 주의해야할 부분은 바로 번식이랍니다. 한 번 번식을 시작하면 끝도 없이 증식해버려서 자칫하면 손을 쓸 수 없을지도 몰라요.</p>
 <p>tibble 패키지에 있는 tribble은 <strong>tr</strong>ansposed t<strong>ibble</strong>의 줄임말입니다. 단어 그대로 전치된 티블이라는 뜻이지요. 기존의 tibble 입력 형식이 colname = data 같은 가로형이었다면 tribble에서는 세로형으로 입력할 수 있지요. 간단하게 적은 양의 데이터를 코드로 입력할 때에는 tribble을 쓰면 편리합니다.</p>
 <div class="cell">
@@ -502,9 +640,9 @@
 </section></section> ]]></description>
   <category>R package</category>
   <category>tibble</category>
-  <guid>https://orangemansion.com/posts/210502_tibble-package/index.html</guid>
+  <guid>https://orange-mansion.com/posts/210502_tibble-package/index.html</guid>
   <pubDate>Sat, 01 May 2021 15:00:00 GMT</pubDate>
-  <media:content url="https://orangemansion.com/posts/210502_tibble-package/thumbnail.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://orange-mansion.com/posts/210502_tibble-package/thumbnail.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>
