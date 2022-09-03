@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="chichead">
+<meta name="dcterms.date" content="2022-03-20">
+<meta name="description" content="geofacet package로 대한민국 카토그램 만들기">
+<title>오렌지 맨숀🍊 - 대선 득표율 지도 시각화 with R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
+</script><style>html{ scroll-behavior: smooth; }</style>
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">오렌지 맨숀🍊</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+<div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">대선 득표율 지도 시각화 with R</h1>
+                  <div>
+        <div class="description">
+          geofacet package로 대한민국 카토그램 만들기
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Visualization</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 20, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#geo_grid%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%8B%9C%EA%B0%81%ED%99%94" id="toc-geo_grid를-활용한-시각화" class="nav-link active" data-scroll-target="#geo_grid%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%8B%9C%EA%B0%81%ED%99%94">geo_grid를 활용한 시각화</a>
+  <ul class="collapse">
+<li><a href="#%ED%95%B4%EC%99%B8%EC%9D%98-%EC%84%A0%EA%B1%B0-%EC%8B%9C%EA%B0%81%ED%99%94" id="toc-해외의-선거-시각화" class="nav-link" data-scroll-target="#%ED%95%B4%EC%99%B8%EC%9D%98-%EC%84%A0%EA%B1%B0-%EC%8B%9C%EA%B0%81%ED%99%94">해외의 선거 시각화</a></li>
+  <li><a href="#geofacet-package" id="toc-geofacet-package" class="nav-link" data-scroll-target="#geofacet-package">geofacet package</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#geo_grid-ggplot" id="toc-geo_grid-ggplot" class="nav-link" data-scroll-target="#geo_grid-ggplot">geo_grid + ggplot</a>
+  <ul class="collapse">
+<li><a href="#%EC%84%A0%EA%B1%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0" id="toc-선거-데이터-만들기" class="nav-link" data-scroll-target="#%EC%84%A0%EA%B1%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0">선거 데이터 만들기</a></li>
+  <li><a href="#long-form-%EC%9C%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0" id="toc-long-form-으로-만들기" class="nav-link" data-scroll-target="#long-form-%EC%9C%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0">long form 으로 만들기</a></li>
+  <li><a href="#ggplot-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B7%B8%EB%A6%AC%EA%B8%B0" id="toc-ggplot-그래프-그리기" class="nav-link" data-scroll-target="#ggplot-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B7%B8%EB%A6%AC%EA%B8%B0">ggplot 그래프 그리기</a></li>
+  <li><a href="#%EC%B5%9C%EC%A2%85-%EC%8B%9C%EA%B0%81%ED%99%94" id="toc-최종-시각화" class="nav-link" data-scroll-target="#%EC%B5%9C%EC%A2%85-%EC%8B%9C%EA%B0%81%ED%99%94">최종 시각화</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="geo_grid를-활용한-시각화" class="level2"><h2 class="anchored" data-anchor-id="geo_grid를-활용한-시각화">geo_grid를 활용한 시각화</h2>
+<section id="해외의-선거-시각화" class="level4"><h4 class="anchored" data-anchor-id="해외의-선거-시각화">해외의 선거 시각화</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="fivethirtyeight_vote_graph.webp" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">FiveThirtyEight의 2020 미 대선 선거결과 시각화</figcaption><p></p>
+</figure>
+</div>
+<p>해외 언론에서 선거 결과를 시각화한 기사를 볼 때마다 드는 생각이 있습니다. “아 우리나라도 저렇게 격자형태로 시각화하면 멋드러지지 않을까…” 국내에서는 시군구 혹은 읍면동 단위로 색을 칠하는 형태가 대부분이지 그 안에 그래프를 넣어서 시각화하기가 힘들어요. 미국은 50개 주에 1개의 특별구로 이루어졌으니, 필요한 격자는 51개 뿐이지만 우리나라의 시군구는 250개. 큰 권역 구분 정도는 다양한 시각화를 시도할 수 있지만 시군구 단위로 하기엔 부담이 될 수 있는거죠.</p>
+<p><br></p>
+</section><section id="geofacet-package" class="level4"><h4 class="anchored" data-anchor-id="geofacet-package">geofacet package</h4>
+<p>그래도 해보고 싶습니다. 우리나라도 시군구 단위로 멋드러지게 만들고 싶어요. 그래서(!) 시군구 단위 그리드 만들어 봤습니다. 활용한 패키지는 <a href="https://hafen.github.io/geofacet/">geofacet</a>입니다. geofacet은 말 그대로 지리적 정보(geo)로 면(facet)을 분할해 볼 수 있는 패키지인데요, 이 패키지가 좋은 건 Grid Designer라는 기능을 통해 자기만의 그리드를 만들 수 있다는 거죠. 그래서 지도를 펼치고 250개 시군구의 위치를 하나하나 지정해가며 만들어 봤습니다. geofacet package에도 제출해 놓았습니다. <a href="https://github.com/hafen/geofacet/issues/358">여기에서</a> 확인할 수 있어요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
+<span class="va">mygrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"kr_sgg.csv"</span>, col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span>code <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_character</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mygrid</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  code    row   col name               
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;              
+1 11110     5     7 서울특별시 종로구  
+2 11140     6     7 서울특별시 중구    
+3 11170     7     7 서울특별시 용산구  
+4 11200     6     8 서울특별시 성동구  
+5 11215     7     8 서울특별시 광진구  
+6 11230     5     8 서울특별시 동대문구</code></pre>
+</div>
+</div>
+<p>만들어 놓은 대한민국 시군구 단위 그리드 구조는 아주 간단합니다. 이름, row, col, code 정도로 이루어져 있죠. geofacet 함수는 그리드의 행(row)과 열(col)을 인식해서 그 모양에 맞춰 facet해 주는 구조입니다. 이 그리드를 가지고 그려보면 이런 모양이 나옵니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">geofacet</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/grid_preview.html">grid_preview</a></span><span class="op">(</span><span class="va">mygrid</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>짜잔~ 면적이 서로 다른 시군구를 동일한 면적 단위로 표현했기때문에 실제 위치와는 차이가 있을 수 있습니다. 시군구 그리드에 적용된 코드는 행정안전부에서 제공하고 있는 행정표준코드를 따라서 만들어 놓았습니다. 종로구(11110), 중구(11140) 이런식으로 말이죠. 시군구 단위의 여러 데이터들을 합쳐서 시각화, 분석할 일 있으면 행정코드 기준으로 정리한다면 간단하게 할 수 있을 겁니다.</p>
+<p><br></p>
+</section></section><section id="geo_grid-ggplot" class="level2"><h2 class="anchored" data-anchor-id="geo_grid-ggplot">geo_grid + ggplot</h2>
+<section id="선거-데이터-만들기" class="level4"><h4 class="anchored" data-anchor-id="선거-데이터-만들기">선거 데이터 만들기</h4>
+<p>이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다. PE_20 데이터는 <a href="https://github.com/chichead/chichead.github.io/blob/master/_posts/geofacet_package/Presidential_Election_2022.xlsx">여기에서</a> 다운받을 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span>
+
+<span class="va">PE_20</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"Presidential_Election_2022.xlsx"</span><span class="op">)</span>
+<span class="va">PE_20</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">PE_20</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PE_20</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 21
+   code 구분  시군구명 선거인수 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 11110 서울… 종로구     129968 100629  46130  49172   3115     53    558     42
+2 11140 서울… 중구       111448  84998  38244  42906   2310     46    463     19
+3 11170 서울… 용산구     199077 152068  60063  85047   4374     67    755     37
+4 11200 서울… 성동구     252087 197240  84411 103880   5365    123    969     50
+5 11215 서울… 광진구     303582 235471 109922 113733   7072    155   1416     52
+6 11230 서울… 동대문구   300928 232106 108171 112890   6416    151   1304     44
+# … with 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;,
+#   김재연 &lt;dbl&gt;, 이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;,
+#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>PE_20 데이터에는 각 시군구 단위로 후보별 득표수를 넣어 두었습니다. 시군구별 선거인수, 후보별 득표수, 무효투표수, 기권수 등… 이 데이터로 시각화를 바로 할 순 없습니다. 우리에게 필요한 건 각 후보별 득표율이니까, 조금 더 정제할 필요가 있죠. 일단 득표율 TOP3 후보의 득표율을 계산해보겠습니다. 득표율은 후보별 투표수를 전체 투표수 - 무효투표수로 나누면 됩니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+
+<span class="va">PE_20</span> <span class="op">&lt;-</span> <span class="va">PE_20</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lee_R <span class="op">=</span> <span class="va">이재명</span> <span class="op">/</span> <span class="op">(</span><span class="va">투표수</span> <span class="op">-</span> <span class="va">무효투표수</span><span class="op">)</span>,
+                         yoon_R <span class="op">=</span> <span class="va">윤석열</span> <span class="op">/</span> <span class="op">(</span><span class="va">투표수</span> <span class="op">-</span> <span class="va">무효투표수</span><span class="op">)</span>,
+                         sim_R <span class="op">=</span> <span class="va">심상정</span> <span class="op">/</span> <span class="op">(</span><span class="va">투표수</span> <span class="op">-</span> <span class="va">무효투표수</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">PE_20_rate</span> <span class="op">&lt;-</span> <span class="va">PE_20</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">code</span>, <span class="va">lee_R</span>, <span class="va">yoon_R</span>, <span class="va">sim_R</span>, <span class="va">구분</span>, <span class="va">시군구명</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PE_20_rate</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+   code lee_R yoon_R  sim_R 구분       시군구명
+  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;   
+1 11110 0.464  0.495 0.0313 서울특별시 종로구  
+2 11140 0.454  0.510 0.0274 서울특별시 중구    
+3 11170 0.399  0.564 0.0290 서울특별시 용산구  
+4 11200 0.432  0.532 0.0275 서울특별시 성동구  
+5 11215 0.472  0.488 0.0304 서울특별시 광진구  
+6 11230 0.471  0.492 0.0279 서울특별시 동대문구</code></pre>
+</div>
+</div>
+<p>제대로 계산되었는지 비교해봅시다. 선관위 홈페이지에서 살펴보면 종로구에서 3명의 후보의 득표율이 46.42%, 49.48%, 3.13%였고, 중구에서의 득표율이 각각 45.42%, 50.96%, 2.74% 군요. 계산된 것과 비교해보니 맞는것 같습니다. 계산된 데이터는 wide form인데 시각화를 위해선 long form으로 조정할 필요가 있어요.</p>
+<p><br></p>
+</section><section id="long-form-으로-만들기" class="level4"><h4 class="anchored" data-anchor-id="long-form-으로-만들기">long form 으로 만들기</h4>
+<p>long form으로 바꾸는 법은 여러가지가 있지만 여기선 2개를 소개해드리겠습니다. 먼저 tidyr 패키지의 gather 함수. gather 함수가 직관적이지 않다면 그 대안으로 나온 pivot_longer를 사용하는 것도 방법입니다. 두 함수의 결과는 같으니까 원하는 것 사용하면 될 겁니다. tidyr 패키지 제작자인 해들리 위컴은 새로 나온 pivot_longer 함수를 추천하고 있어요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
+
+<span class="va">PE_20_final</span> <span class="op">&lt;-</span> <span class="va">PE_20_rate</span> |&gt; <span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span><span class="op">(</span>key <span class="op">=</span> <span class="st">"cand"</span>, value <span class="op">=</span> <span class="st">"rate"</span>, <span class="va">lee_R</span>, <span class="va">yoon_R</span>, <span class="va">sim_R</span><span class="op">)</span>
+
+<span class="co"># key: long form 데이터로 바꾸었을 때 이름이 될 칼럼명</span>
+<span class="co"># value: long form 데이터로 바꾸었을 때 값이 들어갈 칼럼명</span>
+<span class="co"># PE_20_rate의 칼럼 중 후보별 득표율 칼럼 3개(lee_R, yoon_R, sim_R)를 써주면 됩니다.</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PE_20_final</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   code 구분       시군구명 cand   rate
+  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;
+1 11110 서울특별시 종로구   lee_R 0.464
+2 11140 서울특별시 중구     lee_R 0.454
+3 11170 서울특별시 용산구   lee_R 0.399
+4 11200 서울특별시 성동구   lee_R 0.432
+5 11215 서울특별시 광진구   lee_R 0.472
+6 11230 서울특별시 동대문구 lee_R 0.471</code></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">PE_20_final2</span> <span class="op">&lt;-</span> <span class="va">PE_20_rate</span> |&gt; <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"R"</span><span class="op">)</span>, 
+                                           names_to <span class="op">=</span> <span class="st">"cand"</span>,
+                                           values_to <span class="op">=</span> <span class="st">"rate"</span><span class="op">)</span>
+
+<span class="co"># cols: long form 데이터로 바꾸고 싶은 칼럼들(lee_R, yoon_R, sim_R)</span>
+<span class="co"># ends_with: 동일한 단어로 끝나는 애들만 고를 때 사용하는 함수(tidyselect package의 함수)</span>
+<span class="co"># names_to : long form 데이터로 바꾸었을 때 lee_R, yoon_R, sim_R이 들어갈 칼럼 이름</span>
+<span class="co"># values_to : long form 데이터로 바꾸었을 때 value 값에 들어갈 칼럼 이름</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PE_20_final2</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   code 구분       시군구명 cand     rate
+  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;
+1 11110 서울특별시 종로구   lee_R  0.464 
+2 11110 서울특별시 종로구   yoon_R 0.495 
+3 11110 서울특별시 종로구   sim_R  0.0313
+4 11140 서울특별시 중구     lee_R  0.454 
+5 11140 서울특별시 중구     yoon_R 0.510 
+6 11140 서울특별시 중구     sim_R  0.0274</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="ggplot-그래프-그리기" class="level4"><h4 class="anchored" data-anchor-id="ggplot-그래프-그리기">ggplot 그래프 그리기</h4>
+<p>데이터도 정리가 되었겠다… 이제 이것을 가지고 그래프로 그려서 그리드에 넣으면 끝입니다. 일단 후보별 득표율을 가지고 지역별로 들어갈 바 차트가 어떤 모양이 될지, 샘플을 만들어보겠습니다. 서울특별시 종로구(code = 11110)를 가지고 예시로 그려봅시다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R">    <span class="co"># 그래프를 그렸을 때 기호순으로 나열될 수 있도록 factor level을 부여해줍니다.</span>
+    <span class="co"># coord_flip()를 사용하면 후보의 순서가 뒤집어지기때문에 factor level은 역순으로.</span>
+    <span class="co"># 각 후보에 맞춰서 컬러 팔레트 설정해줍니다.</span>
+
+    <span class="va">PE_20_final</span><span class="op">$</span><span class="va">cand</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">PE_20_final</span><span class="op">$</span><span class="va">cand</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sim_R"</span>, <span class="st">"yoon_R"</span>, <span class="st">"lee_R"</span><span class="op">)</span><span class="op">)</span>
+    <span class="va">data_11110</span> <span class="op">&lt;-</span> <span class="va">PE_20_final</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">code</span> <span class="op">==</span> <span class="fl">11110</span><span class="op">)</span>
+
+    <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data_11110</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cand</span>, y <span class="op">=</span> <span class="va">rate</span>, fill <span class="op">=</span> <span class="va">cand</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#F7EF99"</span>, <span class="st">"#fc7b84"</span>, <span class="st">"#008EC6"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>
+        strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
+        strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
+        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>
+        <span class="op">)</span> </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+</section><section id="최종-시각화" class="level4"><h4 class="anchored" data-anchor-id="최종-시각화">최종 시각화</h4>
+<p>이제 이 그래프를 250개 시군구에 넣으면 됩니다. 어떻게? geofacet::facet_geo 함수를 쓰면 단 한 줄이면 만들 수 있습니다. 전국 지도에서 3위 후보의 득표율이 보이질 않으니… 일단 제외하고 1, 2위 후보만 시각화를 해 보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 위의 코드에서 추가된 건 facet_geo()뿐</span>
+<span class="co"># 만들어 놓은 그리드(mygrid)와 join할 데이터(code)를 입력하면 끝</span>
+<span class="co"># 시각화 정리는 theme에서 약간의 조정으로 마무리</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hafen/geofacet">geofacet</a></span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">PE_20_final</span>, <span class="va">cand</span> <span class="op">!=</span> <span class="st">"sim_R"</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cand</span>, y <span class="op">=</span> <span class="va">rate</span>, fill <span class="op">=</span> <span class="va">cand</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#fc7b84"</span>, <span class="st">"#008EC6"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/geofacet/man/facet_geo.html">facet_geo</a></span><span class="op">(</span><span class="op">~</span> <span class="va">code</span>, grid <span class="op">=</span> <span class="va">mygrid</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>
+    strip.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
+    strip.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
+    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
+    axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">1</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<p>짜잔! 이러면 우리가 원했던 250개 시군구 그리드에 각각의 후보별 득표율을 그릴수 있게 되었습니다.</p>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
