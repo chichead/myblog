@@ -110,26 +110,25 @@ head(PE_20_final2)
 데이터도 정리가 되었겠다... 이제 이것을 가지고 그래프로 그려서 그리드에 넣으면 끝입니다. 일단 후보별 득표율을 가지고 지역별로 들어갈 바 차트가 어떤 모양이 될지, 샘플을 만들어보겠습니다. 서울특별시 종로구(code = 11110)를 가지고 예시로 그려봅시다.
 
 ```{r, fig.width=8, fig.height=4}
-    # 그래프를 그렸을 때 기호순으로 나열될 수 있도록 factor level을 부여해줍니다.
-    # coord_flip()를 사용하면 후보의 순서가 뒤집어지기때문에 factor level은 역순으로.
-    # 각 후보에 맞춰서 컬러 팔레트 설정해줍니다.
+# 그래프를 그렸을 때 기호순으로 나열될 수 있도록 factor level을 부여해줍니다.
+# coord_flip()를 사용하면 후보의 순서가 뒤집어지기때문에 factor level은 역순으로.
+# 각 후보에 맞춰서 컬러 팔레트 설정해줍니다.
 
-    PE_20_final$cand <- factor(PE_20_final$cand, levels = c("sim_R", "yoon_R", "lee_R"))
-    data_11110 <- PE_20_final |> filter(code == 11110)
+PE_20_final$cand <- factor(PE_20_final$cand, levels = c("sim_R", "yoon_R", "lee_R"))
+data_11110 <- PE_20_final |> filter(code == 11110)
 
-    library(tidyverse)
+library(tidyverse)
 
-    ggplot(data_11110, aes(x = cand, y = rate, fill = cand)) +
-      geom_col() +
-      coord_flip() +
-      scale_fill_manual(values = c("#F7EF99", "#fc7b84", "#008EC6")) +
-      theme_minimal() +
-      theme(
-        strip.background = element_blank(),
-        strip.text.x = element_blank(),
-        axis.text.y = element_blank()
-        ) 
-      
+ggplot(data_11110, aes(x = cand, y = rate, fill = cand)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_manual(values = c("#F7EF99", "#fc7b84", "#008EC6")) +
+  theme_minimal() +
+  theme(
+    strip.background = element_blank(),
+    strip.text.x = element_blank(),
+    axis.text.y = element_blank()
+    )
 ```
 
 #### 최종 시각화
