@@ -10,7 +10,95 @@
 <atom:link href="https://orange-mansion.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Fri, 26 Aug 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 03 Sep 2022 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>한글 폰트 깨짐 현상 Ragg package로 부셔드림</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/posts/220904_Ragg/index.html</link>
+  <description><![CDATA[ <section id="한글이-깨진다" class="level2"><h2 class="anchored" data-anchor-id="한글이-깨진다">한글이 깨진다</h2>
+<p>R에서 데이터를 잘 정제해서 시각화를 만들면 항상 한글의 벽에 부딫히곤 합니다. 한글을 인식하지 못하는 경우에는 인코딩을 해결하면 깨짐현상을 막을 수 있죠. 그렇다면 이미지를 추출할 때 한글이 깨지는 경우는 어떻게 할까요? 여기 그 예시가 있습니다. 대한민국의 주요 도시의 위치를 나타내기 위해 이런 데이터 셋을 만들어봤어요. tibble package에서 소개했던 <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tibble::tribble</a></code> 함수를 이용해봤습니다. 세계화 시대에 맞춰 도시명에는 한글과 영어, 그리고 한자까지 포함했고요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">ROK_city</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  <span class="op" style="color: #5E5E5E;">~</span><span class="va" style="color: #111111;">City</span>, <span class="op" style="color: #5E5E5E;">~</span><span class="va" style="color: #111111;">Lat</span>, <span class="op" style="color: #5E5E5E;">~</span><span class="va" style="color: #111111;">Lon</span>,
+  <span class="st" style="color: #20794D;">"울산(Ulsan, 蔚山)"</span>, <span class="fl" style="color: #AD0000;">35.549999</span>, <span class="fl" style="color: #AD0000;">129.316666</span>,
+  <span class="st" style="color: #20794D;">"광주(Gwangju, 光州)"</span>, <span class="fl" style="color: #AD0000;">35.166668</span>, <span class="fl" style="color: #AD0000;">126.916664</span>,
+  <span class="st" style="color: #20794D;">"대전(Daejeon, 大田)"</span>, <span class="fl" style="color: #AD0000;">36.351002</span>, <span class="fl" style="color: #AD0000;">127.385002</span>,
+  <span class="st" style="color: #20794D;">"대구(Daegu, 大邱)"</span>, <span class="fl" style="color: #AD0000;">35.866669</span>, <span class="fl" style="color: #AD0000;">128.600006</span>,
+  <span class="st" style="color: #20794D;">"부산(Busan, 釜山)"</span>, <span class="fl" style="color: #AD0000;">35.166668</span>, <span class="fl" style="color: #AD0000;">129.066666</span>,
+  <span class="st" style="color: #20794D;">"청주(Chungju, 淸州)"</span>, <span class="fl" style="color: #AD0000;">36.981304</span>, <span class="fl" style="color: #AD0000;">127.935905</span>,
+  <span class="st" style="color: #20794D;">"원주(Wonju, 原州)"</span>, <span class="fl" style="color: #AD0000;">37.342220</span>, <span class="fl" style="color: #AD0000;">127.920158</span>,
+  <span class="st" style="color: #20794D;">"인천(Incheon, 仁川)"</span>, <span class="fl" style="color: #AD0000;">37.456257</span>, <span class="fl" style="color: #AD0000;">126.705208</span>,
+  <span class="st" style="color: #20794D;">"서울(Seoul)"</span>, <span class="fl" style="color: #AD0000;">37.532600</span>,<span class="fl" style="color: #AD0000;">127.024612</span>
+<span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+</div>
+<p><br></p>
+<p>이 데이터셋을 바탕으로 지도를 그려봤습니다. 지도의 제목은 &lt;🇰🇷대한민국(大韓民國)의 주요 도시 위치&gt;로 해봤습니다. 그래프 제목에 이모지 정도는 써 줘야 그래도 웹 3.0 시대를 살고 있다고 할 수 있지 않겠습니까? 그렇게 만들어본 그래프의 모습입니다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://orange-mansion.com/posts/220904_Ragg/broken_image.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p>처참한 모습입니다. 영어를 제외한 모든 글자를 인식하지 못하는군요. 하지만 걱정하지 마세요. 해결책이 있습니다. 바로 Ragg package를 이용하면 됩니다.</p>
+<p><br></p>
+</section><section id="ragg-package" class="level2"><h2 class="anchored" data-anchor-id="ragg-package">Ragg Package</h2>
+<section id="ragg가-뭐지" class="level4"><h4 class="anchored" data-anchor-id="ragg가-뭐지">Ragg가 뭐지?</h4>
+<p><img src="https://orange-mansion.com/posts/220904_Ragg/logo.svg" class="img-fluid" style="width:25.0%"></p>
+<p>Rapp package는 Maxim Shemanarev라는 개발자가 개발한 AGG(Anti-Grain Geometry) 라이브러리를 기반으로 만들어진 R용 그래픽 패키지입니다. R과 AGG가 만나 Ragg package로 탄생했죠. Rag가 누더기, 조각이라는 뜻이 있는만큼 패키지 로고는 천 조각의 모습을 하고 있습니다. R의 그래픽 패키지로 가장 많이 알려진 건 grDevices package일 겁니다. 색상, 폰트를 자유롭게 이용하기 위해, 이제는 grDevices 대신 Ragg를 사용하면 됩니다. AGG는 grDevices에서 제공하는 표준 래스터 장치보다 더 높은 성능과 더 높은 품질을 제공하고 있습니다.</p>
+<p><br></p>
+</section><section id="rapp-package-사용법" class="level4"><h4 class="anchored" data-anchor-id="rapp-package-사용법">Rapp package 사용법</h4>
+<p>Rapp package를 사용하는 법은 아주 간단합니다. 일반적인 package를 설치하듯 R에 Rapp package를 설치하면 됩니다. <code>intall.package("ragg")</code> 이렇게 말이죠. <code>devtools::install_github("r-lib/ragg")</code>로 개발버전의 Rapp package를 사용해도 됩니다. 설치한 다음엔 RStudio의 옵션창으로 가 봅시다. 일반 옵션에서 Graphics 항목에서 Graphics Device를 기존 (Default)로 되어있던 것을 AGG로 변경하면 끝입니다. 아래 스크린샷을 참고하시면 이해하기 편할겁니다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://orange-mansion.com/posts/220904_Ragg/image1.png" class="img-fluid figure-img" style="width:88.0%"></p>
+</figure>
+</div>
+<p><br></p>
+</section><section id="app-환경에서-만드는-그래프" class="level4"><h4 class="anchored" data-anchor-id="app-환경에서-만드는-그래프">APP 환경에서 만드는 그래프</h4>
+<p>이제 다시 그래프를 만들어봅시다. 대한민국의 지도를 만들기 위해 rnaturalearth package의 ne_countries 함수를 이용했습니다. rnaturalearth package는 과학 데이터의 장벽을 낮추기 위한 프로젝트 중 하나인 ropensci package에 포함되어 있는데요, ropensci는 나중에 따로 다뤄보겠습니다. 여튼 <code><a href="https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html">rnaturalearth::ne_countries</a></code> 함수를 사용해보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va" style="color: #111111;">korea</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;">rnaturalearth</span><span class="fu" style="color: #4758AB;">::</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html">ne_countries</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  scale <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">10</span>, 
+  country <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"South Korea"</span>, 
+  returnclass <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"sf"</span>
+<span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+</div>
+<p>불러온 대한민국 데이터를 <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">ggplot2::geom_sf</a></code>에 넣어 지도를 그려보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://ragg.r-lib.org">ragg</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span> 
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">korea</span>, 
+    fill <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"#C3ECB1"</span>, 
+    colour <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"#D5D8DB"</span>, 
+    size <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">0.2</span>
+  <span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span> 
+  <span class="fu" style="color: #4758AB;">ggrepel</span><span class="fu" style="color: #4758AB;">::</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_label_repel</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">ROK_city</span>,
+    <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">Lon</span>, <span class="va" style="color: #111111;">Lat</span>, label <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">City</span><span class="op" style="color: #5E5E5E;">)</span>, 
+    fill <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"#FFFFFF88"</span>,
+    box.padding <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">5</span>, <span class="st" style="color: #20794D;">"mm"</span><span class="op" style="color: #5E5E5E;">)</span>
+  <span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span> 
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;">(</span>data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">ROK_city</span>, <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">Lon</span>, <span class="va" style="color: #111111;">Lat</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"대한민국(大韓民國)의 주요 도시 위치🇰🇷"</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span> <span class="op" style="color: #5E5E5E;">+</span>
+  <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;">(</span>panel.background <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"#AADAFE"</span><span class="op" style="color: #5E5E5E;">)</span>,
+        plot.title <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op" style="color: #5E5E5E;">(</span>margin <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">5</span>, <span class="fl" style="color: #AD0000;">5</span>, <span class="fl" style="color: #AD0000;">5</span>, <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<p><img src="https://orange-mansion.com/posts/220904_Ragg/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>짜잔~ rapp 패키지로 APP 환경을 이용하면 한글과 이모지, 한자가 깨지지 않는 이미지를 손쉽게 얻을 수 있습니다.</p>
+
+
+</section></section> ]]></description>
+  <category>R package</category>
+  <category>Ragg</category>
+  <guid>https://orange-mansion.com/posts/220904_Ragg/index.html</guid>
+  <pubDate>Sat, 03 Sep 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/posts/220904_Ragg/Ragg_thumb.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 <item>
   <title>R Markdown의 차세대 포맷, Quarto</title>
   <dc:creator>chichead</dc:creator>
