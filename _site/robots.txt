@@ -1,5 +1,1 @@
-User-agent: *
-
-Allow: /
-
 Sitemap: https://orange-mansion.com/sitemap.xml

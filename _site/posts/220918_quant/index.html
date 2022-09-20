@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="chichead">
+<meta name="dcterms.date" content="2022-09-18">
+<meta name="description" content="R고보면 쉬운 퀀트 분석 01 주식정보 불러오기">
+<title>오렌지 맨숀🍊 - 내가 원하는 주식 종목 정보 한번에 불러오기</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
+</script><style>html{ scroll-behavior: smooth; }</style>
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">오렌지 맨숀🍊</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+<div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">내가 원하는 주식 종목 정보 한번에 불러오기</h1>
+                  <div>
+        <div class="description">
+          R고보면 쉬운 퀀트 분석 01 주식정보 불러오기
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Quant</div>
+                <div class="quarto-category">tidyquant</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 18, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#tidyquant-package" id="toc-tidyquant-package" class="nav-link active" data-scroll-target="#tidyquant-package">tidyquant package</a></li>
+  <li>
+<a href="#%EC%A3%BC%EC%8B%9D%EC%A0%95%EB%B3%B4-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0" id="toc-주식정보-불러오기" class="nav-link" data-scroll-target="#%EC%A3%BC%EC%8B%9D%EC%A0%95%EB%B3%B4-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0">주식정보 불러오기</a>
+  <ul class="collapse">
+<li><a href="#tq_get" id="toc-tq_get" class="nav-link" data-scroll-target="#tq_get">tq_get()</a></li>
+  <li><a href="#%EC%A3%BC%EA%B0%80-%EC%8B%9C%EA%B0%81%ED%99%94" id="toc-주가-시각화" class="nav-link" data-scroll-target="#%EC%A3%BC%EA%B0%80-%EC%8B%9C%EA%B0%81%ED%99%94">주가 시각화</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="tidyquant-package" class="level2"><h2 class="anchored" data-anchor-id="tidyquant-package">tidyquant package</h2>
+<p><img src="tidyquant-logo.png" class="img-fluid" style="width:25.0%"></p>
+<p>R을 활용해 주식을 분석하는 방법엔 다양한 선택지가 있습니다. 주식정보 사이트에서 데이터를 크롤링해 분석하는 방법, 그리고 패키지를 활용하는 방법 등… R의 퀀트 분석에서 가장 유명한 패키지는 아마 quantmod package일 겁니다. quantmod package를 이용하면 주식, 환율, 원자재 등 다양한 경제 데이터를 활용해 분석할 수 있습니다. 하지만 오늘은 tidyquant package를 활용해 퀀트 분석을 정리해보려고 합니다.</p>
+<p>tidyquant package는 zoo, xts, quantmod, TTR 등의 정량 데이터 및 시계열 데이터 분석 패키지를 통합해 제공해주고 있습니다. 거기에 패키지 이름에서 알 수 있듯 tidyverse 생태계의 도구를 사용해서 퀀트 분석을 할 수 있도록 설계되어 있죠. ggplot2를 이용한 시각화도 물론 가능합니다. 그럼 본격적으로 tidyquant package를 이용해 퀀트 분석을 시작해보겠습니다.</p>
+<p><br></p>
+</section><section id="주식정보-불러오기" class="level2"><h2 class="anchored" data-anchor-id="주식정보-불러오기">주식정보 불러오기</h2>
+<p>우선 tidyquant package를 설치해야겠죠? <code>install.packages("tidyquant")</code>를 입력해 tidyquant package를 설치합니다. 설치된 패키지를 불러옵시다. 거기에 tidyverse까지 함께 불러오겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/tidyquant">tidyquant</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<section id="tq_get" class="level4"><h4 class="anchored" data-anchor-id="tq_get">tq_get()</h4>
+<p><code><a href="https://rdrr.io/pkg/tidyquant/man/tq_get.html">tq_get()</a></code> 함수는 주식 관련 정보를 불러오는 가장 기본 함수입니다. get에 어떤 매개변수를 넣느냐에 따라 어느때는 주식정보를 얻을 수 있고, 또 어느때는 원자재 데이터를 가지고 올 수 있습니다. <code><a href="https://rdrr.io/pkg/tidyquant/man/tq_get.html">tq_get()</a></code>함수의 주요 데이터 소스는 아래와 같습니다.</p>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead><tr class="header">
+<th>데이터 소스</th>
+<th>데이터</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Yahoo Finance</td>
+<td>기본적인 주가 정보는 Yahoo Finance의 API를 활용합니다</td>
+</tr>
+<tr class="even">
+<td>FRED</td>
+<td>금리, 원자재 등 경제 관련 다양한 데이터는 세인트루이스 연준에서 제공하는 FRED(Federal Reserve Economic Data)를 활용합니다</td>
+</tr>
+<tr class="odd">
+<td>Quandl</td>
+<td>경제, 에너지 등의 데이터를 다루는 캐나다의 데이터 공유 플랫폼 회사 Quandl의 금융 API를 활용합니다</td>
+</tr>
+<tr class="even">
+<td>Tiingo</td>
+<td>주가 데이터, 코인 데이터 등을 제공해주는 Tiingo API도 사용할 수 있습니다</td>
+</tr>
+<tr class="odd">
+<td>Alpha Vantage</td>
+<td>Tiingo와 비슷하게 주가, 코인 데이터 등을 제공해주는 Alpha Vantage API를 활용할 수 있습니다</td>
+</tr>
+<tr class="even">
+<td>Bloomberg</td>
+<td>블룸버그 경제 API도 사용할 수 있는데, 이 API는 유료 계정이 있어야 사용 가능합니다</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Yahoo Finance부터 Bloomberg까지 다양한 매개변수가 있지만 이번 포스트에선 주가 정보를 불러오는 것에 집중해보겠습니다. 주가 정보 데이터는 Yahoo Finance에서 가져옵니다. 함수에 입력할 변수들도 간단합니다. 원하는 회사의 종목명과 시점만 적어주면 끝이죠. 예를 들어 2000년 1월 1일부터 2022년 8월 31일까지 엔비디아의 주가를 불러와본다고 해 봅시다. 엔비디아의 종목명은 NVDA이고, 주식 가격을 불러오기 위해 get에 넣을 매개변수는 <code>stock.prices</code> 입니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_get.html">tq_get</a></span><span class="op">(</span><span class="st">"NVDA"</span>,
+       get <span class="op">=</span> <span class="st">"stock.prices"</span>,
+       from <span class="op">=</span> <span class="st">"2000-01-01"</span>,
+       to <span class="op">=</span> <span class="st">"2022-08-31"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5,702 × 8
+   symbol date        open  high   low close   volume adjusted
+   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 NVDA   2000-01-03 0.984 0.992 0.919 0.975 30091200    0.895
+ 2 NVDA   2000-01-04 0.958 0.961 0.901 0.949 30048000    0.871
+ 3 NVDA   2000-01-05 0.922 0.938 0.905 0.918 18835200    0.843
+ 4 NVDA   2000-01-06 0.918 0.918 0.823 0.858 12048000    0.788
+ 5 NVDA   2000-01-07 0.854 0.882 0.841 0.872  7118400    0.801
+ 6 NVDA   2000-01-10 0.875 0.938 0.859 0.901 23985600    0.827
+ 7 NVDA   2000-01-11 0.896 0.906 0.865 0.865 14812800    0.794
+ 8 NVDA   2000-01-12 0.865 0.866 0.831 0.842 12355200    0.773
+ 9 NVDA   2000-01-13 0.841 0.885 0.831 0.878 13219200    0.806
+10 NVDA   2000-01-14 0.891 0.952 0.888 0.915 60456000    0.840
+# … with 5,692 more rows</code></pre>
+</div>
+</div>
+<p>짜잔~ 함수를 돌리면 tibble 형태의 데이터가 불러와집니다. 총 8열의 데이터에는 개장 시점의 가격부터 일일 거래량까지 기본적인 주식 정보가 담겨 있습니다. <code>adjusted</code> 열에는 주식 분할 및 배당 등 시장이 마감된 이후 주가에 영향을 줄 수 있는 변수까지 적용된 수정 가격이 들어가 있습니다.</p>
+<p>해외 주식만 가능한 건 아닙니다. 물론 우리나라 주식도 가능하죠. 이번엔 2000년 1월 1일부터 2022년 8월 31일까지 삼성전자의 주식 정보를 가져와 보겠습니다. Yahoo Finance에서 삼성전자의 종목명은 <code>005930.KS</code> 입니다. 입력하면 마찬가지로 tibble 형태의 삼성전자 주가 데이터를 불러올 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_get.html">tq_get</a></span><span class="op">(</span><span class="st">"005930.KS"</span>,
+       get <span class="op">=</span> <span class="st">"stock.prices"</span>,
+       from <span class="op">=</span> <span class="st">"2000-01-01"</span>,
+       to <span class="op">=</span> <span class="st">"2022-08-31"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5,690 × 8
+   symbol    date        open  high   low close   volume adjusted
+   &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 005930.KS 2000-01-04  6000  6110  5660  6110 74195000    4623.
+ 2 005930.KS 2000-01-05  5800  6060  5520  5580 74680000    4222.
+ 3 005930.KS 2000-01-06  5750  5780  5580  5620 54390000    4253.
+ 4 005930.KS 2000-01-07  5560  5670  5360  5540 40305000    4192.
+ 5 005930.KS 2000-01-10  5600  5770  5580  5770 46880000    4366.
+ 6 005930.KS 2000-01-11  5820  6100  5770  5770 59745000    4366.
+ 7 005930.KS 2000-01-12  5610  5740  5600  5720 29220000    4328.
+ 8 005930.KS 2000-01-13  5600  5740  5560  5710 41190000    4321.
+ 9 005930.KS 2000-01-14  5720  5880  5680  5830 49375000    4412.
+10 005930.KS 2000-01-17  6000  6180  5920  6100 63505000    4616.
+# … with 5,680 more rows</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="주가-시각화" class="level4"><h4 class="anchored" data-anchor-id="주가-시각화">주가 시각화</h4>
+<p>엔비디아 주가 데이터(조정가)로 간단히 그래프를 그려보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">NV_prices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_get.html">tq_get</a></span><span class="op">(</span><span class="st">"NVDA"</span>,
+                    get <span class="op">=</span> <span class="st">"stock.prices"</span>,
+                    from <span class="op">=</span> <span class="st">"2000-01-01"</span>,
+                    to <span class="op">=</span> <span class="st">"2022-08-31"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">NV_prices</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">adjusted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<p>이번엔 삼성전자 주가 데이터로 그래프를 그려보겠습니다. 이번에는 최고가도 표시해봤습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span>
+
+<span class="va">SE_prices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_get.html">tq_get</a></span><span class="op">(</span><span class="st">"005930.KS"</span>,
+                    get <span class="op">=</span> <span class="st">"stock.prices"</span>,
+                    from <span class="op">=</span> <span class="st">"2000-01-01"</span>,
+                    to <span class="op">=</span> <span class="st">"2022-08-31"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">SE_prices</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">adjusted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">SE_prices</span>, <span class="va">adjusted</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">adjusted</span><span class="op">)</span><span class="op">)</span>, 
+             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">adjusted</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">SE_prices</span>, <span class="va">adjusted</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">adjusted</span><span class="op">)</span><span class="op">)</span>,
+             <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">date</span> <span class="op">-</span> <span class="fl">500</span>, <span class="va">adjusted</span>, label <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html">comma</a></span><span class="op">(</span><span class="va">adjusted</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="va">comma</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

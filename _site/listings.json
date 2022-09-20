@@ -9,6 +9,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/220918_quant/index.html",
       "/posts/220904_Ragg/index.html",
       "/posts/220827_quarto/index.html",
       "/posts/220821_Rstudio-is-becoming-Posit/index.html",

@@ -1,62 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://orange-mansion.com/</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/index.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/blog.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/220904_ragg/</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/220827_quarto/index.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/220821_rstudio-is-becoming-posit/</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/220527_palmerpenguins-package/index.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/220320_geofacet/index.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/220220_ggbump-package/index.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://orange-mansion.com/posts/210502_tibble-package/index.html</loc>
-  <lastmod>2022-09-08T00:40:54+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://orange-mansion.com/</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/index.html</loc>
+    <lastmod>2022-09-20T14:45:05.477Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/blog.html</loc>
+    <lastmod>2022-09-20T14:45:05.979Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220904_ragg/</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220827_quarto/index.html</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220821_rstudio-is-becoming-posit/</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220527_palmerpenguins-package/index.html</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220320_geofacet/index.html</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220220_ggbump-package/index.html</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/210502_tibble-package/index.html</loc>
+    <lastmod>2022-09-08T00:40:54+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/220918_quant/index.html</loc>
+    <lastmod>2022-09-20T14:45:05.114Z</lastmod>
+  </url>
 </urlset>
