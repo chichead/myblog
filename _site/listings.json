@@ -18,5 +18,11 @@
       "/posts/220220_ggbump-package/index.html",
       "/posts/210502_tibble-package/index.html"
     ]
+  },
+  {
+    "listing": "/daily.html",
+    "items": [
+      "/daily/211001/index.html"
+    ]
   }
 ]

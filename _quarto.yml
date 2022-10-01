@@ -7,8 +7,10 @@ website:
   description: "귤 향 가득한, 오렌지 맨숀입니다."
   navbar:
     right:
-      - text: Blog
+      - text: "Blog"
         href: blog.qmd
+      - text: "Daily"
+        file: daily.qmd
       - icon: github
         href: https://github.com/chichead
       - icon: instagram
