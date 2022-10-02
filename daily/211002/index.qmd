@@ -1,0 +1,111 @@
+---
+title: 'nest() : Creates a list-column of data frames'
+date: '2022-10-02'
+categories: ['tidyr']
+description: '데이터프레임을 중첩시킬 때'
+execute: 
+  message: false
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+## Today Function : nest
+
+![](logo.png){width="25%"}
+
+오늘의 함수는 tidyr 패키지의 `nest()` 함수입니다. <br/> 
+`nest()` 함수는 데이터프레임을 중첩시킬 때 사용합니다. <br/>
+중첩(nest)된 데이터프레임은 하나 이상의 열이 리스트인 데이터프레임을 의미합니다. <br/>
+
+<br/>
+
+### Usage
+
+```{r, eval=FALSE}
+nest(.data, ..., names_sep = NULL, .key = deprecated())
+```
+
+<br/>
+
+### Argument
+
+**.data** : data.frame, tibble을 넣을 수 있습니다. <br/> 
+**...** : 중첩될 칼럼을 입력합니다. tidy-select expression을 활용해 선택 가능합니다. <br/> 
+**name_sep** : 중첩될 칼럼의 이름을 정합니다. NULL(기본값)일 경우엔 기존 이름이 그래도 유지됩니다. <br/>
+**.key** : 예전 버전의 nest 함수에서 사용한 영역(중첩될 칼럼의 이름 설정)으로 현재 문법에서는 사용하지 않습니다.
+
+<br/>
+
+### Example
+
+```{r}
+library(tidyverse)
+
+# tibble 함수를 통해 중첩된 tibble을 만들어보겠습니다.
+# g와 data라는 2개의 열의 tibble이지만 data 열은 리스트의 형태입니다.
+df1 <- tibble(
+  g = c(1, 2, 3),
+  data = list(
+    tibble(x = 1, y = 2),
+    tibble(x = 4:5, y = 6:7),
+    tibble(x = 10)
+  )
+)
+
+df1
+
+# 이번엔 nest 함수를 통해 중첩된 tibble을 만들어보겠습니다.
+df2 <- tribble(
+  ~g, ~x, ~y,
+   1,  1,  2,
+   2,  4,  6,
+   2,  5,  7,
+   3, 10, NA
+)
+
+df2 |> nest(data = c(x, y))
+
+# tidy-select argument를 이용해서 데이터를 선택할 수도 있습니다.
+df2 |> nest(data = any_of(c("x", "y")))
+df2 |> nest(data = !g)
+
+```
+`nest()` 함수에는 중첩될 변수를 지정합니다. <br/>
+`any_of()`, `starts_with()` 등 tidy_select argument를 이용해서도 지정 가능합니다. <br/> 
+g를 기준으로 x와 y를 중첩하는 형태이기때문에 `nest()` 함수에 `c(x, y)`를 입력했습니다. 
+
+<br/>
+
+### Grouped data frames
+
+`dplyr::group_by()`를 이용하는 것도 방법입니다. <br/>
+중첩될 변수를 지정하는 것보다 `group_by()`를 이용해 중첩시키는 게 직관적입니다. <br/>
+
+```{r}
+library(dplyr)
+
+df2 |> group_by(g) |> nest()
+
+
+# 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.
+mtcars_nested <- mtcars |>
+  group_by(cyl) |>
+  nest()
+
+mtcars_nested
+
+# lm 모델 생성
+mtcars_nested <- mtcars_nested |>
+  mutate(model = map(data, function(df) lm(mpg ~ wt, data = df)))
+
+mtcars_nested
+
+# 만들어진 모델을 통해 예측값을 계산해봅니다.
+mtcars_nested <- mtcars_nested |>
+  mutate(model = map(model, predict))
+
+mtcars_nested
+```
+
+

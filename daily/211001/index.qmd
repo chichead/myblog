@@ -8,19 +8,13 @@ execute:
   warning: false
 editor_options: 
   chunk_output_type: console
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 ## Today Function : pull
 
 ![](logo.png){width="25%"}
 
-오늘의 함수는 dplyr 패키지의 `pull()` 함수입니다. <br/> `pull()` 함수는
-`$` 연산자와 비슷한 기능을 합니다. <br/> `$` 연산자는 R에서 데이터
-객체의 특정 부분을 추출할 때 사용하는데요. <br/> `pull()` 함수는 파이프
-연산자 내에서 `$`보다 사용하기 편리하다는 장점이 있습니다.
+오늘의 함수는 dplyr 패키지의 `pull()` 함수입니다. <br/> `pull()` 함수는 `$` 연산자와 비슷한 기능을 합니다. <br/> `$` 연산자는 R에서 데이터 객체의 특정 부분을 추출할 때 사용하는데요. <br/> `pull()` 함수는 파이프 연산자 내에서 `$`보다 사용하기 편리하다는 장점이 있습니다.
 
 <br/>
 
@@ -34,11 +28,7 @@ pull(.data, var = -1, name = NULL, ...)
 
 ### Argument
 
-**.data** : data.frame, tibble을 넣을 수 있습니다. 거기에 dbplyr, dtplyr
-package의 data.table backend도 가능합니다. <br/> **var** : 추출할 변수의
-이름을 넣습니다. 숫자도 가능한데 양수는 왼쪽부터 순서, 음수는 오른쪽부터
-순서를 나타냅니다. <br/> **name** : 변수 이름을 알 경우엔 name이라는
-파라미터를 써도 됩니다.
+**.data** : data.frame, tibble을 넣을 수 있습니다. 거기에 dbplyr, dtplyr package의 data.table backend도 가능합니다. <br/> **var** : 추출할 변수의 이름을 넣습니다. 숫자도 가능한데 양수는 왼쪽부터 순서, 음수는 오른쪽부터 순서를 나타냅니다. <br/> **name** : 변수 이름을 알 경우엔 name이라는 파라미터를 써도 됩니다.
 
 <br/>
 
@@ -69,10 +59,7 @@ mtcars |> pull(carb)
 
 ### select vs pull
 
-dplyr에 있는 또다른 비슷한 함수인 select와의 차이점은 뭘까요? 일단 결과 값이 다릅니다. <br/> 
-pull은 단일 열을 벡터로 변환해 결과로
-내보냅니다. 반면 select는 하나 이상의 열을 데이터프레임으로
-변환하죠.
+dplyr에 있는 또다른 비슷한 함수인 select와의 차이점은 뭘까요? 일단 결과 값이 다릅니다. <br/> pull은 단일 열을 벡터로 변환해 결과로 내보냅니다. 반면 select는 하나 이상의 열을 데이터프레임으로 변환하죠.
 
 ```{r}
 fruits <- data.frame(orange = 1:5, lemon = 5:1)
