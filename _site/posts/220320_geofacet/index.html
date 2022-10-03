@@ -134,15 +134,21 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">Blog</a>
+    <a class="nav-link" href="../../index.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../daily.html">Daily</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
 </i> 
  </a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
 </i> 
  </a>
   </li>  
@@ -266,17 +272,18 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PE_20</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 21
-   code 구분  시군구명 선거인수 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
-  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 11110 서울… 종로구     129968 100629  46130  49172   3115     53    558     42
-2 11140 서울… 중구       111448  84998  38244  42906   2310     46    463     19
-3 11170 서울… 용산구     199077 152068  60063  85047   4374     67    755     37
-4 11200 서울… 성동구     252087 197240  84411 103880   5365    123    969     50
-5 11215 서울… 광진구     303582 235471 109922 113733   7072    155   1416     52
-6 11230 서울… 동대문구   300928 232106 108171 112890   6416    151   1304     44
+   code 구분    시군…¹  선거…² 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 11110 서울특… 종로구  129968 100629  46130  49172   3115     53    558     42
+2 11140 서울특… 중구    111448  84998  38244  42906   2310     46    463     19
+3 11170 서울특… 용산구  199077 152068  60063  85047   4374     67    755     37
+4 11200 서울특… 성동구  252087 197240  84411 103880   5365    123    969     50
+5 11215 서울특… 광진구  303582 235471 109922 113733   7072    155   1416     52
+6 11230 서울특… 동대문… 300928 232106 108171 112890   6416    151   1304     44
 # … with 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;,
 #   김재연 &lt;dbl&gt;, 이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;,
-#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;</code></pre>
+#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;, and abbreviated variable names ¹​시군구명,
+#   ²​선거인수</code></pre>
 </div>
 </div>
 <p>PE_20 데이터에는 각 시군구 단위로 후보별 득표수를 넣어 두었습니다. 시군구별 선거인수, 후보별 득표수, 무효투표수, 기권수 등… 이 데이터로 시각화를 바로 할 순 없습니다. 우리에게 필요한 건 각 후보별 득표율이니까, 조금 더 정제할 필요가 있죠. 일단 득표율 TOP3 후보의 득표율을 계산해보겠습니다. 득표율은 후보별 투표수를 전체 투표수 - 무효투표수로 나누면 됩니다.</p>

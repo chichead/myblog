@@ -491,19 +491,20 @@ Quarto Blogs</td>
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">palmerpenguins</span><span class="fu" style="color: #4758AB;">::</span><span class="va" style="color: #111111;"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">penguins</a></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
- 1 Adelie  Torgersen           39.1          18.7               181        3750
- 2 Adelie  Torgersen           39.5          17.4               186        3800
- 3 Adelie  Torgersen           40.3          18                 195        3250
- 4 Adelie  Torgersen           NA            NA                  NA          NA
- 5 Adelie  Torgersen           36.7          19.3               193        3450
- 6 Adelie  Torgersen           39.3          20.6               190        3650
- 7 Adelie  Torgersen           38.9          17.8               181        3625
- 8 Adelie  Torgersen           39.2          19.6               195        4675
- 9 Adelie  Torgersen           34.1          18.1               193        3475
-10 Adelie  Torgersen           42            20.2               190        4250
-# … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007
+ 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007
+ 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007
+ 4 Adelie  Torgersen           NA            NA           NA      NA &lt;NA&gt;   2007
+ 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007
+ 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007
+ 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007
+ 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007
+ 9 Adelie  Torgersen           34.1          18.1        193    3475 &lt;NA&gt;   2007
+10 Adelie  Torgersen           42            20.2        190    4250 &lt;NA&gt;   2007
+# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+#   ²​body_mass_g</code></pre>
 </div>
 <div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span>
 <span class="co" style="color: #5E5E5E;"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span>
@@ -606,17 +607,18 @@ Quarto Blogs</td>
 <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">PE_20</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 21
-   code 구분  시군구명 선거인수 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
-  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 11110 서울… 종로구     129968 100629  46130  49172   3115     53    558     42
-2 11140 서울… 중구       111448  84998  38244  42906   2310     46    463     19
-3 11170 서울… 용산구     199077 152068  60063  85047   4374     67    755     37
-4 11200 서울… 성동구     252087 197240  84411 103880   5365    123    969     50
-5 11215 서울… 광진구     303582 235471 109922 113733   7072    155   1416     52
-6 11230 서울… 동대문구   300928 232106 108171 112890   6416    151   1304     44
+   code 구분    시군…¹  선거…² 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 11110 서울특… 종로구  129968 100629  46130  49172   3115     53    558     42
+2 11140 서울특… 중구    111448  84998  38244  42906   2310     46    463     19
+3 11170 서울특… 용산구  199077 152068  60063  85047   4374     67    755     37
+4 11200 서울특… 성동구  252087 197240  84411 103880   5365    123    969     50
+5 11215 서울특… 광진구  303582 235471 109922 113733   7072    155   1416     52
+6 11230 서울특… 동대문… 300928 232106 108171 112890   6416    151   1304     44
 # … with 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;,
 #   김재연 &lt;dbl&gt;, 이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;,
-#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;</code></pre>
+#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;, and abbreviated variable names ¹​시군구명,
+#   ²​선거인수</code></pre>
 </div>
 </div>
 <p>PE_20 데이터에는 각 시군구 단위로 후보별 득표수를 넣어 두었습니다. 시군구별 선거인수, 후보별 득표수, 무효투표수, 기권수 등… 이 데이터로 시각화를 바로 할 순 없습니다. 우리에게 필요한 건 각 후보별 득표율이니까, 조금 더 정제할 필요가 있죠. 일단 득표율 TOP3 후보의 득표율을 계산해보겠습니다. 득표율은 후보별 투표수를 전체 투표수 - 무효투표수로 나누면 됩니다.</p>
@@ -875,7 +877,7 @@ Quarto Blogs</td>
   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
 1 Korea    2020   500     4
 2 Korea    2021   200     1
-3 Korea    2022   100     1
+3 Korea    2022   100     2
 4 Japan    2020   400     3
 5 Japan    2021   300     3
 6 Japan    2022   400     5</code></pre>
@@ -1070,7 +1072,7 @@ Quarto Blogs</td>
 <pre><code># A tibble: 1 × 1
   time               
   &lt;dttm&gt;             
-1 2022-10-03 13:58:06</code></pre>
+1 2022-10-03 17:33:34</code></pre>
 </div>
 </div>
 <p>model의 경우 vector가 아니여서 tibble에 담기지 않아요. 반면 time 데이터는 들어갈 수 있어요. 하지만 tibble_row 함수를 사용한다면 어떨까요. tibble_row와 함께라면 vector와 scalar 상관없이 tibble에 담을 수 있습니다.</p>
