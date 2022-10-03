@@ -207,7 +207,7 @@
   <media:content url="https://orange-mansion.com/daily/211003/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
-  <title>nest() : Creates a list-column of data frames</title>
+  <title>nest() : Create a list-column of data frames</title>
   <dc:creator>chichead</dc:creator>
   <link>https://orange-mansion.com/daily/211002/index.html</link>
   <description><![CDATA[ <section id="today-function-nest" class="level2"><h2 class="anchored" data-anchor-id="today-function-nest">Today Function : nest</h2>

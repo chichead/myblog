@@ -1,0 +1,20 @@
+---
+title: "오렌지 맨숀"
+image: profile2.png
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/chichead
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/ahnhyemin/
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/anhyemin
+---
+
+방송국에서 데이터 저널리스트로 일하는 주인장이 꾸며갈
+
+귤 향 가득한, 오렌지 맨숀입니다.

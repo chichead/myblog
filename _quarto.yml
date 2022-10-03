@@ -8,13 +8,15 @@ website:
   navbar:
     right:
       - text: "Blog"
-        file: blog.qmd
+        file: index.qmd
       - text: "Daily"
         file: daily.qmd
-      - icon: github
-        href: https://github.com/chichead
+      - text: "About"
+        file: about.qmd
       - icon: instagram
         href: https://www.instagram.com/ahnhyemin
+      - icon: github
+        href: https://github.com/chichead
       - icon: linkedin
         href: https://www.linkedin.com/in/anhyemin
   google-analytics: G-YZCBLF5F53

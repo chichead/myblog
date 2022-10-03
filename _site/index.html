@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>오렌지 맨숀🍊 - 오렌지 맨숀</title>
+<title>오렌지 맨숀🍊</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,9 +25,12 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -52,6 +55,35 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-cateories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script>
 
 <script type="text/javascript">
@@ -63,10 +95,11 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-</head>
+<link rel="alternate" type="application/rss+xml" title="오렌지 맨숀🍊" href="index.xml"></head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,18 +114,21 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html">Blog</a>
+    <a class="nav-link active" href="./index.html" aria-current="page">Blog</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./daily.html">Daily</a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">About</a>
+  </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
 </i> 
  </a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
 </i> 
  </a>
   </li>  
@@ -108,44 +144,270 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quant">Quant <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R Markdown">R Markdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R package">R package <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Ragg">Ragg <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Visualization">Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggbump">ggbump <span class="quarto-category-count">(1)</span></div><div class="category" data-category="palmerpenguins">palmerpenguins <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyquant">tidyquant <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile2.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">오렌지 맨숀</h1>
-</div>
-<div class="quarto-title-meta">
+<main class="content column-page-left" id="quarto-document-content">
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>방송국에서 데이터 저널리스트로 일하는 주인장이 꾸며갈</p>
-<p>귤 향 가득한, 오렌지 맨숀입니다.</p>
-<p>오렌지 맨숀의 <a href="https://orange-mansion.com/blog.html">블로그</a>에는 R에 대한 글이 담겨있습니다.</p>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Quant,tidyquant" data-listing-date-sort="1663426800000" data-listing-file-modified-sort="1663685856979" data-listing-reading-time-sort="5.065">
+<div class="thumbnail">
+<p><a href="./posts/220918_quant/index.html"> <img src="./posts/220918_quant/tidyquant.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220918_quant/index.html">
+<h3 class="no-anchor listing-title">
+내가 원하는 주식 종목 정보 한번에 불러오기
+</h3>
+<div class="listing-subtitle">
 
-
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://github.com/chichead" class="about-link">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.instagram.com/ahnhyemin/" class="about-link">
-    <i class="bi bi-instagram"></i>
-     <span class="about-link-text">Instagram</span>
-  </a>
-  <a href="https://linkedin.com/in/anhyemin" class="about-link">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
+</div>
+<div class="listing-description">
+<p>R고보면 쉬운 퀀트 분석 01 주식정보 불러오기</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220918_quant/index.html">
+<div class="listing-date">
+2022/09/18
+</div>
+<div class="listing-reading-time">
+5 min
+</div>
+</a>
 </div>
 </div>
- <!-- /main -->
+<div class="quarto-post image-right" data-index="1" data-categories="R package,Ragg" data-listing-date-sort="1662217200000" data-listing-file-modified-sort="1662389284715" data-listing-reading-time-sort="2.29">
+<div class="thumbnail">
+<p><a href="./posts/220904_Ragg/index.html"> <img src="./posts/220904_Ragg/Ragg_thumb.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220904_Ragg/index.html">
+<h3 class="no-anchor listing-title">
+한글 폰트 깨짐 현상 Ragg package로 부셔드림
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>R아두면 쓸데있는 패키지 이야기 04 Ragg package</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220904_Ragg/index.html">
+<div class="listing-date">
+2022/09/04
+</div>
+<div class="listing-reading-time">
+2 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="R Markdown,Quarto" data-listing-date-sort="1661526000000" data-listing-file-modified-sort="1661648460348" data-listing-reading-time-sort="6.365">
+<div class="thumbnail">
+<p><a href="./posts/220827_quarto/index.html"> <img src="./posts/220827_quarto/quarto thumbnail.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220827_quarto/index.html">
+<h3 class="no-anchor listing-title">
+R Markdown의 차세대 포맷, Quarto
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>R, Python, Julia 모두 Quarto로 모여라</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220827_quarto/index.html">
+<div class="listing-date">
+2022/08/27
+</div>
+<div class="listing-reading-time">
+6 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="R,IDE" data-listing-date-sort="1661007600000" data-listing-file-modified-sort="1662280459164" data-listing-reading-time-sort="2.05">
+<div class="thumbnail">
+<p><a href="./posts/220821_Rstudio-is-becoming-Posit/index.html"> <img src="./posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220821_Rstudio-is-becoming-Posit/index.html">
+<h3 class="no-anchor listing-title">
+RStudio가 Posit으로 이름을 바꾼다
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>RStudio가 갑자기 Posit으로 이름을 고치는 이유는 뭘까</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220821_Rstudio-is-becoming-Posit/index.html">
+<div class="listing-date">
+2022/08/21
+</div>
+<div class="listing-reading-time">
+2 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="R package,palmerpenguins" data-listing-date-sort="1653577200000" data-listing-file-modified-sort="1661179626803" data-listing-reading-time-sort="3.35">
+<div class="thumbnail">
+<p><a href="./posts/220527_palmerpenguins-package/index.html"> <img src="./posts/220527_palmerpenguins-package/penguin.gif" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220527_palmerpenguins-package/index.html">
+<h3 class="no-anchor listing-title">
+iris 대신 귀여운 penguins package 씁시다
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220527_palmerpenguins-package/index.html">
+<div class="listing-date">
+2022/05/27
+</div>
+<div class="listing-reading-time">
+3 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="R,Visualization" data-listing-date-sort="1647702000000" data-listing-file-modified-sort="1662209026563" data-listing-reading-time-sort="4.595">
+<div class="thumbnail">
+<p><a href="./posts/220320_geofacet/index.html"> <img src="./posts/220320_geofacet/map.webp" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220320_geofacet/index.html">
+<h3 class="no-anchor listing-title">
+대선 득표율 지도 시각화 with R
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>geofacet package로 대한민국 카토그램 만들기</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220320_geofacet/index.html">
+<div class="listing-date">
+2022/03/20
+</div>
+<div class="listing-reading-time">
+4 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="R package,ggbump" data-listing-date-sort="1645282800000" data-listing-file-modified-sort="1661178764424" data-listing-reading-time-sort="5.23">
+<div class="thumbnail">
+<p><a href="./posts/220220_ggbump-package/index.html"> <img src="./posts/220220_ggbump-package/thumbnail.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/220220_ggbump-package/index.html">
+<h3 class="no-anchor listing-title">
+bump chart를 그리고 싶을 때, ggbump package
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>R아두면 쓸데있는 패키지 이야기 02 ggbump package</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/220220_ggbump-package/index.html">
+<div class="listing-date">
+2022/02/20
+</div>
+<div class="listing-reading-time">
+5 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="R package,tibble" data-listing-date-sort="1619881200000" data-listing-file-modified-sort="1661178763409" data-listing-reading-time-sort="3.28">
+<div class="thumbnail">
+<p><a href="./posts/210502_tibble-package/index.html"> <img src="./posts/210502_tibble-package/thumbnail.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/210502_tibble-package/index.html">
+<h3 class="no-anchor listing-title">
+data frame의 진화, tibble package
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>R아두면 쓸데있는 패키지 이야기 01 tibble package</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/210502_tibble-package/index.html">
+<div class="listing-date">
+2021/05/02
+</div>
+<div class="listing-reading-time">
+3 min
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -166,6 +428,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
