@@ -1,5 +1,5 @@
 ---
-title: 'unnest() : Creates a list-column of data frames'
+title: 'unnest() : Flatten back out into regular columns'
 date: '2022-10-03'
 categories: ['tidyr']
 description: '중첩된 데이터프레임을 풀 때'
