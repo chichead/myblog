@@ -10,7 +10,202 @@
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Sat, 01 Oct 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 02 Oct 2022 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>unnest() : Creates a list-column of data frames</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/daily/211003/index.html</link>
+  <description><![CDATA[ <section id="today-function-unnest" class="level2"><h2 class="anchored" data-anchor-id="today-function-unnest">Today Function : unnest</h2>
+<p><img src="https://orange-mansion.com/daily/211003/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p>오늘의 함수는 tidyr 패키지의 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수입니다. <br></p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수는 중첩된 데이터프레임을 풀 때 사용합니다.</p>
+<p><br></p>
+<section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">unnest</span><span class="op" style="color: #5E5E5E;">(</span>
+  <span class="va" style="color: #111111;">data</span>,
+  <span class="va" style="color: #111111;">cols</span>,
+  <span class="va" style="color: #111111;">...</span>,
+  keep_empty <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span>,
+  ptype <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+  names_sep <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+  names_repair <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"check_unique"</span>,
+  .drop <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Deprecated.html">deprecated</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>,
+  .id <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Deprecated.html">deprecated</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>,
+  .sep <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Deprecated.html">deprecated</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>,
+  .preserve <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/Deprecated.html">deprecated</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+</div>
+<p><br></p>
+</section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
+<p><strong>data</strong> : data.frame, tibble을 넣을 수 있습니다. <br><strong>col</strong> : 중첩된 상태를 해제할 칼럼을 입력합니다. tidy-select expression을 활용해 선택 가능합니다. <br><strong>keep_empty</strong> : 기본적으로 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수는 각 요소별로 하나의 출력 행을 가져옵니다. <code>NULL</code>값이나 비어있는 경우엔 해당 행이 출력에서 삭제됩니다. 모든 행을 출력하려면 <code>keep_empty = TRUE</code>로 표시해야 합니다. <br><strong>name_sep</strong> : 풀어지는 칼럼의 이름을 정합니다. NULL(기본값)일 경우엔 기존 이름이 그래도 유지됩니다. <br><strong>names_repair</strong> : 출력되는 데이터프레임에 유효한 이름이 있는지 확인하는 데 사용합니다.</p>
+<p><br></p>
+</section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># tibble 함수를 통해 중첩된 tibble을 만들어보겠습니다.</span>
+<span class="va" style="color: #111111;">df1</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  x <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span>,
+  y <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    <span class="cn" style="color: #8f5902;">NULL</span>,
+    <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>a <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span>, b <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">)</span>,
+    <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>a <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span>, b <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span>
+  <span class="op" style="color: #5E5E5E;">)</span>
+<span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">df1</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+      x y               
+  &lt;int&gt; &lt;list&gt;          
+1     1 &lt;NULL&gt;          
+2     2 &lt;tibble [1 × 2]&gt;
+3     3 &lt;tibble [3 × 2]&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># unnest 함수를 통해 중첩된 tibble을 unnest 해보겠습니다.</span>
+<span class="va" style="color: #111111;">df1</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">y</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+      x     a     b
+  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     2     1     2
+2     3     1     3
+3     3     2     2
+4     3     3     1</code></pre>
+</div>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># keep_empty = TRUE로 처리할 경우 NULL값이 들어있던 1행도 출력됩니다.</span>
+<span class="va" style="color: #111111;">df1</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">y</span>, keep_empty <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">TRUE</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+      x     a     b
+  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     1    NA    NA
+2     2     1     2
+3     3     1     3
+4     3     2     2
+5     3     3     1</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="names" class="level3"><h3 class="anchored" data-anchor-id="names">names</h3>
+<p>이번에는 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수를 통해 중첩을 푸는 과정에서 칼럼의 이름이 어떻게 결정되는지 확인해보겠습니다. <code>palmerpenguins</code> 패키지에 있는 펭귄 데이터를 불러와 종별로 총 4가지의 데이터(펭귄의 부리 길이, 깊이, 물갈퀴 길이, 몸무게)의 분위값을 정리해보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">penguins</span> |&gt; 
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">species</span>, <span class="va" style="color: #111111;">bill_depth_mm</span>, <span class="va" style="color: #111111;">bill_length_mm</span>, <span class="va" style="color: #111111;">flipper_length_mm</span>, <span class="va" style="color: #111111;">body_mass_g</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">species</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all</a></span><span class="op" style="color: #5E5E5E;">(</span>.funs <span class="op" style="color: #5E5E5E;">=</span> <span class="kw" style="color: #003B4F;">function</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span><span class="op" style="color: #5E5E5E;">)</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span>, probs <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">0.25</span>, <span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.75</span><span class="op" style="color: #5E5E5E;">)</span>, na.rm <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">TRUE</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  species   bill_depth_mm    bill_length_mm   flipper_length_mm body_mass_g     
+  &lt;fct&gt;     &lt;list&gt;           &lt;list&gt;           &lt;list&gt;            &lt;list&gt;          
+1 Adelie    &lt;tibble [3 × 2]&gt; &lt;tibble [3 × 2]&gt; &lt;tibble [3 × 2]&gt;  &lt;tibble [3 × 2]&gt;
+2 Chinstrap &lt;tibble [3 × 2]&gt; &lt;tibble [3 × 2]&gt; &lt;tibble [3 × 2]&gt;  &lt;tibble [3 × 2]&gt;
+3 Gentoo    &lt;tibble [3 × 2]&gt; &lt;tibble [3 × 2]&gt; &lt;tibble [3 × 2]&gt;  &lt;tibble [3 × 2]&gt;</code></pre>
+</div>
+</div>
+<p>펭귄 종 별로 4가지 데이터에 대한 분위값이 각각 tibble 형태로 담겨 있습니다. 이걸 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수를 통해 풀어보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va" style="color: #111111;">penguins</span> |&gt; 
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">species</span>, <span class="va" style="color: #111111;">bill_depth_mm</span>, <span class="va" style="color: #111111;">bill_length_mm</span>, <span class="va" style="color: #111111;">flipper_length_mm</span>, <span class="va" style="color: #111111;">body_mass_g</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">species</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all</a></span><span class="op" style="color: #5E5E5E;">(</span>.funs <span class="op" style="color: #5E5E5E;">=</span> <span class="kw" style="color: #003B4F;">function</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span><span class="op" style="color: #5E5E5E;">)</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span>, probs <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">0.25</span>, <span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.75</span><span class="op" style="color: #5E5E5E;">)</span>, na.rm <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">TRUE</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 9
+  species   name  value name1 value1 name2 value2 name3 value3
+  &lt;fct&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+1 Adelie    25%    17.5 25%     36.8 25%      186 25%    3350 
+2 Adelie    50%    18.4 50%     38.8 50%      190 50%    3700 
+3 Adelie    75%    19   75%     40.8 75%      195 75%    4000 
+4 Chinstrap 25%    17.5 25%     46.3 25%      191 25%    3488.
+5 Chinstrap 50%    18.4 50%     49.6 50%      196 50%    3700 
+6 Chinstrap 75%    19.4 75%     51.1 75%      201 75%    3950 
+7 Gentoo    25%    14.2 25%     45.3 25%      212 25%    4700 
+8 Gentoo    50%    15   50%     47.3 50%      216 50%    5000 
+9 Gentoo    75%    15.7 75%     49.6 75%      221 75%    5500 </code></pre>
+</div>
+</div>
+<p>문제가 발생했습니다. 중첩이 풀린 데이터의 칼럼이 모두 name과 value로 표시되어 구분할 수 없게 되었습니다. 이럴때 사용하는 게 바로 <code>names_repair</code>와 <code>names_sep</code>입니다. 우선 <code>names_repair</code>는 <code>check_unique</code>가 기본값으로 되어 있습니다. 겹치는 변수가 없도록 name, name2, name3 같은 고유의 이름을 부여해주죠. 하지만 우리는 각 칼럼이 어떤 데이터인지 이름을 알고 싶습니다. 이럴 땐 <code>name_sep</code>을 사용합니다. 구분자를 무엇으로 할 지 설정해주면 해당 칼럼과 구분자를 합쳐서 칼럼명을 부여해줍니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># names_sep = "_" 입력</span>
+<span class="va" style="color: #111111;">penguins</span> |&gt; 
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">species</span>, <span class="va" style="color: #111111;">bill_depth_mm</span>, <span class="va" style="color: #111111;">bill_length_mm</span>, <span class="va" style="color: #111111;">flipper_length_mm</span>, <span class="va" style="color: #111111;">body_mass_g</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">species</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all</a></span><span class="op" style="color: #5E5E5E;">(</span>.funs <span class="op" style="color: #5E5E5E;">=</span> <span class="kw" style="color: #003B4F;">function</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span><span class="op" style="color: #5E5E5E;">)</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span>, probs <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">0.25</span>, <span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.75</span><span class="op" style="color: #5E5E5E;">)</span>, na.rm <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">TRUE</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
+  <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span>names_sep <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"_"</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 9
+  species   bill_depth…¹ bill_…² bill_…³ bill_…⁴ flipp…⁵ flipp…⁶ body_…⁷ body_…⁸
+  &lt;fct&gt;     &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+1 Adelie    25%             17.5 25%        36.8 25%         186 25%       3350 
+2 Adelie    50%             18.4 50%        38.8 50%         190 50%       3700 
+3 Adelie    75%             19   75%        40.8 75%         195 75%       4000 
+4 Chinstrap 25%             17.5 25%        46.3 25%         191 25%       3488.
+5 Chinstrap 50%             18.4 50%        49.6 50%         196 50%       3700 
+6 Chinstrap 75%             19.4 75%        51.1 75%         201 75%       3950 
+7 Gentoo    25%             14.2 25%        45.3 25%         212 25%       4700 
+8 Gentoo    50%             15   50%        47.3 50%         216 50%       5000 
+9 Gentoo    75%             15.7 75%        49.6 75%         221 75%       5500 
+# … with abbreviated variable names ¹​bill_depth_mm_name, ²​bill_depth_mm_value,
+#   ³​bill_length_mm_name, ⁴​bill_length_mm_value, ⁵​flipper_length_mm_name,
+#   ⁶​flipper_length_mm_value, ⁷​body_mass_g_name, ⁸​body_mass_g_value</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="lists-of-lists" class="level3"><h3 class="anchored" data-anchor-id="lists-of-lists">lists of lists</h3>
+<p>리스트와 리스트가 중첩된 복잡한 데이터프레임을 풀려면 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수를 두 번 사용하면 됩니다. 복잡하게 중첩된 데이터라면 <code><a href="https://tidyr.tidyverse.org/reference/hoist.html">hoist()</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/hoist.html">unnest_wider()</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/hoist.html">unnest_longer()</a></code> 함수를 사용하면 좋습니다. 위 3개의 함수는 이른바 <code>rectangling</code> 작업에 사용되는 함수인데 이 녀석들은 나중에 따로 정리해보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va" style="color: #111111;">df2</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  a <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"a"</span>, <span class="st" style="color: #20794D;">"b"</span><span class="op" style="color: #5E5E5E;">)</span>, <span class="st" style="color: #20794D;">"c"</span><span class="op" style="color: #5E5E5E;">)</span>,
+  b <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">2</span>, <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span>,
+  c <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">11</span>, <span class="fl" style="color: #AD0000;">22</span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="va" style="color: #111111;">df2</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  a         b             c
+  &lt;list&gt;    &lt;list&gt;    &lt;dbl&gt;
+1 &lt;chr [2]&gt; &lt;int [2]&gt;    11
+2 &lt;chr [1]&gt; &lt;dbl [1]&gt;    22</code></pre>
+</div>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># unnest를 이용해 동시에 여러 열의 중첩을 해제할 수 있습니다.</span>
+<span class="va" style="color: #111111;">df2</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">a</span>, <span class="va" style="color: #111111;">b</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  a         b     c
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 a         1    11
+2 b         2    11
+3 c         3    22</code></pre>
+</div>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 단계적으로 중첩을 해제하면 다음과 같은 결과를 얻습니다.</span>
+<span class="va" style="color: #111111;">df2</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">a</span><span class="op" style="color: #5E5E5E;">)</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">b</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  a         b     c
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 a         1    11
+2 a         2    11
+3 b         1    11
+4 b         2    11
+5 c         3    22</code></pre>
+</div>
+</div>
+
+
+</section></section> ]]></description>
+  <category>tidyr</category>
+  <guid>https://orange-mansion.com/daily/211003/index.html</guid>
+  <pubDate>Sun, 02 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211003/logo.png" medium="image" type="image/png" height="166" width="144"/>
+</item>
 <item>
   <title>nest() : Creates a list-column of data frames</title>
   <dc:creator>chichead</dc:creator>
@@ -106,7 +301,18 @@
 2     2 &lt;tibble [2 × 2]&gt;
 3     3 &lt;tibble [1 × 2]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.</span>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># group_by + nest = group_nest</span>
+<span class="co" style="color: #5E5E5E;"># dplyr 패키지의 group_nest는 tibble을 중첩할 때 두 과정을 한번에 처리합니다.</span>
+<span class="va" style="color: #111111;">df2</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_nest.html">group_nest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">g</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+      g               data
+  &lt;dbl&gt; &lt;list&lt;tibble[,2]&gt;&gt;
+1     1            [1 × 2]
+2     2            [2 × 2]
+3     3            [1 × 2]</code></pre>
+</div>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.</span>
 <span class="va" style="color: #111111;">mtcars_nested</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="va" style="color: #111111;">mtcars</span> |&gt;
   <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">cyl</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;
   <span class="fu" style="color: #4758AB;"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span>
@@ -121,7 +327,7 @@
 2     4 &lt;tibble [11 × 10]&gt;
 3     8 &lt;tibble [14 × 10]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># lm 모델 생성</span>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># lm 모델 생성</span>
 <span class="va" style="color: #111111;">mtcars_nested</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="va" style="color: #111111;">mtcars_nested</span> |&gt;
   <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;">(</span>model <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">data</span>, <span class="kw" style="color: #003B4F;">function</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df</span><span class="op" style="color: #5E5E5E;">)</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">mpg</span> <span class="op" style="color: #5E5E5E;">~</span> <span class="va" style="color: #111111;">wt</span>, data <span class="op" style="color: #5E5E5E;">=</span> <span class="va" style="color: #111111;">df</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>
 
@@ -135,7 +341,7 @@
 2     4 &lt;tibble [11 × 10]&gt; &lt;lm&gt;  
 3     8 &lt;tibble [14 × 10]&gt; &lt;lm&gt;  </code></pre>
 </div>
-<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 만들어진 모델을 통해 예측값을 계산해봅니다.</span>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 만들어진 모델을 통해 예측값을 계산해봅니다.</span>
 <span class="va" style="color: #111111;">mtcars_nested</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="va" style="color: #111111;">mtcars_nested</span> |&gt;
   <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;">(</span>model <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">model</span>, <span class="va" style="color: #111111;">predict</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>
 

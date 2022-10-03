@@ -1,5 +1,5 @@
 ---
-title: 'nest() : Creates a list-column of data frames'
+title: 'nest() : Create a list-column of data frames'
 date: '2022-10-02'
 categories: ['tidyr']
 description: '데이터프레임을 중첩시킬 때'
@@ -86,6 +86,10 @@ g를 기준으로 x와 y를 중첩하는 형태이기때문에 `nest()` 함수�
 library(dplyr)
 
 df2 |> group_by(g) |> nest()
+
+# group_by + nest = group_nest
+# dplyr 패키지의 group_nest는 tibble을 중첩할 때 두 과정을 한번에 처리합니다.
+df2 |> group_nest(g)
 
 
 # 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.

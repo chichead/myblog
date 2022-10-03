@@ -7,7 +7,7 @@
 <meta name="author" content="chichead">
 <meta name="dcterms.date" content="2022-10-02">
 <meta name="description" content="데이터프레임을 중첩시킬 때">
-<title>오렌지 맨숀🍊 - nest() : Creates a list-column of data frames</title>
+<title>오렌지 맨숀🍊 - nest() : Create a list-column of data frames</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -302,7 +302,18 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 2     2 &lt;tibble [2 × 2]&gt;
 3     3 &lt;tibble [1 × 2]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># group_by + nest = group_nest</span>
+<span class="co"># dplyr 패키지의 group_nest는 tibble을 중첩할 때 두 과정을 한번에 처리합니다.</span>
+<span class="va">df2</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_nest.html">group_nest</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+      g               data
+  &lt;dbl&gt; &lt;list&lt;tibble[,2]&gt;&gt;
+1     1            [1 × 2]
+2     2            [2 × 2]
+3     3            [1 × 2]</code></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.</span>
 <span class="va">mtcars_nested</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span><span class="op">)</span>
@@ -317,7 +328,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 2     4 &lt;tibble [11 × 10]&gt;
 3     8 &lt;tibble [14 × 10]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># lm 모델 생성</span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># lm 모델 생성</span>
 <span class="va">mtcars_nested</span> <span class="op">&lt;-</span> <span class="va">mtcars_nested</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">data</span>, <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
@@ -331,7 +342,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 2     4 &lt;tibble [11 × 10]&gt; &lt;lm&gt;  
 3     8 &lt;tibble [14 × 10]&gt; &lt;lm&gt;  </code></pre>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 만들어진 모델을 통해 예측값을 계산해봅니다.</span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 만들어진 모델을 통해 예측값을 계산해봅니다.</span>
 <span class="va">mtcars_nested</span> <span class="op">&lt;-</span> <span class="va">mtcars_nested</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">predict</span><span class="op">)</span><span class="op">)</span>
 
