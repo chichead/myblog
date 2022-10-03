@@ -1,6 +1,6 @@
 ---
 title: "오렌지 맨숀"
-image: profie2.png
+image: profile2.png
 about:
   template: jolla
   links:

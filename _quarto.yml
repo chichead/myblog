@@ -8,7 +8,7 @@ website:
   navbar:
     right:
       - text: "Blog"
-        href: blog.qmd
+        file: blog.qmd
       - text: "Daily"
         file: daily.qmd
       - icon: github
