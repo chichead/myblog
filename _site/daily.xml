@@ -10,7 +10,63 @@
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Sun, 02 Oct 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 03 Oct 2022 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>jsonedit() : Provide a flexible interactive view of lists</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/daily/211004/index.html</link>
+  <description><![CDATA[ <section id="today-function-jsonedit" class="level2"><h2 class="anchored" data-anchor-id="today-function-jsonedit">Today Function : jsonedit()</h2>
+<p>오늘의 함수는 listviewer 패키지의 <code><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit()</a></code> 함수입니다. listviewer 패키지는 list 형태의 데이터를 인터랙티브 페이지에서 수정할 수 있는 함수들을 제공합니다. 그 중 하나인 <code><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit()</a></code> 함수를 살펴보도록 하겠습니다.</p>
+<p><br></p>
+<section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">jsonedit</span><span class="op" style="color: #5E5E5E;">(</span>listdata <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>, 
+         mode <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"tree"</span>, 
+         modes <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"code"</span>, <span class="st" style="color: #20794D;">"form"</span>, <span class="st" style="color: #20794D;">"text"</span>, <span class="st" style="color: #20794D;">"tree"</span>, <span class="st" style="color: #20794D;">"view"</span><span class="op" style="color: #5E5E5E;">)</span>,
+         <span class="va" style="color: #111111;">...</span>, 
+         width <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>, 
+         height <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+         elementId <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+</div>
+<p><br></p>
+</section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
+<p><strong>listdata</strong> : 확인할 list, string 데이터를 넣습니다. list를 위한 함수이지만 다른 형태의 데이터도 JSON으로 변환되기 때문에 데이터프레임을 넣어도 사실 상관없습니다 <br><strong>mode</strong> : 인터랙티브 페이지에 처음으로 뜨는 mode를 설정합니다. 기본값은 tree입니다.</p>
+<p><br></p>
+</section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://github.com/timelyportfolio/listviewer">listviewer</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># tibble 함수를 통해 중첩된 tibble을 만들어보겠습니다.</span>
+<span class="va" style="color: #111111;">df1</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  x <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span>,
+  y <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span>
+    <span class="cn" style="color: #8f5902;">NULL</span>,
+    <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>a <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span>, b <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">)</span>,
+    <span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>a <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span>, b <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span>
+  <span class="op" style="color: #5E5E5E;">)</span>
+<span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># jsonedit 함수로 df1 살펴보기</span>
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df1</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-90b7d8430a7d32b9fe0b" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-90b7d8430a7d32b9fe0b">{"x":{"data":{"x":[1,2,3],"y":[null,{"a":[1],"b":[2]},{"a":[1,2,3],"b":[3,2,1]}]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># data.frame도 jsonedit 함수에 입력이 가능합니다</span>
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">mtcars</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-a8ba3887c7278ee23672" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a8ba3887c7278ee23672">{"x":{"data":{"mpg":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"cyl":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],"disp":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"hp":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"drat":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],"wt":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"qsec":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"vs":[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],"am":[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],"gear":[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],"carb":[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section></section> ]]></description>
+  <category>listviewer</category>
+  <guid>https://orange-mansion.com/daily/211004/index.html</guid>
+  <pubDate>Mon, 03 Oct 2022 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>unnest() : Flatten back out into regular columns</title>
   <dc:creator>chichead</dc:creator>
