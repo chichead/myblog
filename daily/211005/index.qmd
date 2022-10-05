@@ -1,0 +1,66 @@
+---
+title: 'say() : Print messages with various animals'
+date: '2022-10-05'
+categories: ['cowsay']
+description: '아스키아트와 함께 메시지를 출력하고 싶을 때'
+execute: 
+  message: false
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+## Today Function : say()
+
+오늘의 함수는 cowsay 패키지의 `say()` 함수입니다. 패키지 이름에서 알 수 있듯 `say()` 함수를 사용하면 소를 비롯한 여러 동물들의 아스키아트로 텍스트를 출력할 수 있습니다. 
+
+<br/>
+
+### Usage
+
+```{r, eval=FALSE}
+say(what = "Hello world!",
+    by = "cat",
+    type = NULL,
+    what_color = NULL,
+    by_color = NULL,
+    length = 18,
+    fortune = NULL,
+    ...
+)
+```
+
+<br/>
+
+### Argument
+
+**what** : 출력하고 싶은 말을 넣으세요 <br/> 
+**by** : 어떤 동물이 말을 하도록 하고 싶나요? <br/>
+**type** : message(기본값), warning, print, string 등 출력 타입을 선택합니다 <br/>
+**what_color** : 출력할 말의 색깔을 정합니다 <br/>
+**by_color** : 동물의 색깔을 정합니다 <br/>
+**length** : 만일 longcat을 선택했다면 longcat의 길이를 정해주세요
+
+<br/>
+
+### Example
+
+```{r}
+library(cowsay)
+
+# 닭이 꼬끼오하고 울게 해보겠습니다.
+say("꼬끼오", by = "chicken")
+
+# cowsay 패키지에서 제공해주는 아스키아트는 총 44마리입니다.
+sort(names(animals))
+
+# 아스키아트에는 cat()함수를 이용해 접근할 수 있습니다.
+# 호박 아스키아트에 접근해보죠.
+pumpkin <- animals[["pumpkin"]]
+cat(pumpkin)
+
+# longcat에게 말을 시킨다면 longcat의 길이도 정해주세요
+say(what = "음메",
+    by = "longcat",
+    length = "20")
+```

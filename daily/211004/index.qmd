@@ -1,5 +1,5 @@
 ---
-title: 'jsonedit() : Provide a flexible interactive view of lists'
+title: 'jsonedit() : Provide a interactive view of lists'
 date: '2022-10-04'
 categories: ['listviewer']
 description: 'json 파일의 구조를 한 눈에 보고 싶을 때'

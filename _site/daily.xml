@@ -10,9 +10,139 @@
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Mon, 03 Oct 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 04 Oct 2022 15:00:00 GMT</lastBuildDate>
 <item>
-  <title>jsonedit() : Provide a flexible interactive view of lists</title>
+  <title>say() : Print messages with various animals</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/daily/211005/index.html</link>
+  <description><![CDATA[ <section id="today-function-say" class="level2"><h2 class="anchored" data-anchor-id="today-function-say">Today Function : say()</h2>
+<p>오늘의 함수는 cowsay 패키지의 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수입니다. 패키지 이름에서 알 수 있듯 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수를 사용하면 소를 비롯한 여러 동물들의 아스키아트로 텍스트를 출력할 수 있습니다.</p>
+<p><br></p>
+<section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">say</span><span class="op" style="color: #5E5E5E;">(</span>what <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"Hello world!"</span>,
+    by <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"cat"</span>,
+    type <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+    what_color <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+    by_color <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+    length <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">18</span>,
+    fortune <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>,
+    <span class="va" style="color: #111111;">...</span>
+<span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+</div>
+<p><br></p>
+</section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
+<p><strong>what</strong> : 출력하고 싶은 말을 넣으세요 <br><strong>by</strong> : 어떤 동물이 말을 하도록 하고 싶나요? <br><strong>type</strong> : message(기본값), warning, print, string 등 출력 타입을 선택합니다 <br><strong>what_color</strong> : 출력할 말의 색깔을 정합니다 <br><strong>by_color</strong> : 동물의 색깔을 정합니다 <br><strong>length</strong> : 만일 longcat을 선택했다면 longcat의 길이를 정해주세요</p>
+<p><br></p>
+</section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://github.com/sckott/cowsay">cowsay</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># 닭이 꼬끼오하고 울게 해보겠습니다.</span>
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"꼬끼오"</span>, by <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"chicken"</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ ----- 
+꼬끼오 
+ ------ 
+    \   
+     \
+         _
+       _/ }
+      `&gt;' \
+      `|   \
+       |   /'-.     .-.
+        \'     ';`--' .'
+         \'.    `'-./
+          '.`-..-;`
+            `;-..'
+            _| _|
+            /` /` [nosig]
+  </code></pre>
+</div>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># cowsay 패키지에서 제공해주는 아스키아트는 총 44마리입니다.</span>
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">animals</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ant"          "anxiouscat"   "bat"          "bat2"         "behindcat"   
+ [6] "bigcat"       "buffalo"      "cat"          "chicken"      "chuck"       
+[11] "clippy"       "cow"          "daemon"       "duck"         "duckling"    
+[16] "egret"        "endlesshorse" "facecat"      "fish"         "frog"        
+[21] "ghost"        "grumpycat"    "hypnotoad"    "longcat"      "longtailcat" 
+[26] "monkey"       "mushroom"     "owl"          "pig"          "poop"        
+[31] "pumpkin"      "rabbit"       "shark"        "shortcat"     "signbunny"   
+[36] "smallcat"     "snowman"      "spider"       "squirrel"     "squirrel2"   
+[41] "stretchycat"  "trilobite"    "turkey"       "yoda"        </code></pre>
+</div>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 아스키아트에는 cat()함수를 이용해 접근할 수 있습니다.</span>
+<span class="co" style="color: #5E5E5E;"># 호박 아스키아트에 접근해보죠.</span>
+<span class="va" style="color: #111111;">pumpkin</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="va" style="color: #111111;">animals</span><span class="op" style="color: #5E5E5E;">[[</span><span class="st" style="color: #20794D;">"pumpkin"</span><span class="op" style="color: #5E5E5E;">]</span><span class="op" style="color: #5E5E5E;">]</span>
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">pumpkin</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ ----- 
+%s 
+ ------ 
+    \   
+     \
+                  ___
+               ___)__|_
+          .-*'          '*-,
+         /      /|   |\     \
+        ;      /_|   |_\     ;
+        ;   |\           /|  ;
+        ;   | ''--...--'' |  ;
+         \  ''---.....--''  /
+          ''*-.,_______,.-*'  [nosig]
+  </code></pre>
+</div>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># longcat에게 말을 시킨다면 longcat의 길이도 정해주세요</span>
+<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op" style="color: #5E5E5E;">(</span>what <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"음메"</span>,
+    by <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"longcat"</span>,
+    length <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"20"</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ ----- 
+음메 
+ ------ 
+    \   
+     \
+    .ﾊ,,ﾊ
+    ( ﾟωﾟ)
+    |つ  つ
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    U "  U
+        [BoingBoing]
+    </code></pre>
+</div>
+</div>
+
+
+</section></section> ]]></description>
+  <category>cowsay</category>
+  <guid>https://orange-mansion.com/daily/211005/index.html</guid>
+  <pubDate>Tue, 04 Oct 2022 15:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>jsonedit() : Provide a interactive view of lists</title>
   <dc:creator>chichead</dc:creator>
   <link>https://orange-mansion.com/daily/211004/index.html</link>
   <description><![CDATA[ <section id="today-function-jsonedit" class="level2"><h2 class="anchored" data-anchor-id="today-function-jsonedit">Today Function : jsonedit()</h2>
@@ -50,14 +180,14 @@
 <span class="co" style="color: #5E5E5E;"># jsonedit 함수로 df1 살펴보기</span>
 <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df1</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-90b7d8430a7d32b9fe0b" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-90b7d8430a7d32b9fe0b">{"x":{"data":{"x":[1,2,3],"y":[null,{"a":[1],"b":[2]},{"a":[1,2,3],"b":[3,2,1]}]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3707ddbc90330a35e03a" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3707ddbc90330a35e03a">{"x":{"data":{"x":[1,2,3],"y":[null,{"a":[1],"b":[2]},{"a":[1,2,3],"b":[3,2,1]}]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># data.frame도 jsonedit 함수에 입력이 가능합니다</span>
 <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">mtcars</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-a8ba3887c7278ee23672" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a8ba3887c7278ee23672">{"x":{"data":{"mpg":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"cyl":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],"disp":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"hp":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"drat":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],"wt":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"qsec":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"vs":[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],"am":[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],"gear":[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],"carb":[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-68ec5ea57698260c5745" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-68ec5ea57698260c5745">{"x":{"data":{"mpg":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"cyl":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],"disp":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"hp":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"drat":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],"wt":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"qsec":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"vs":[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],"am":[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],"gear":[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],"carb":[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
