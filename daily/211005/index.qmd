@@ -12,6 +12,8 @@ editor_options:
 
 ## Today Function : say()
 
+![](ascii.gif){width="50%"}
+
 오늘의 함수는 cowsay 패키지의 `say()` 함수입니다. 패키지 이름에서 알 수 있듯 `say()` 함수를 사용하면 소를 비롯한 여러 동물들의 아스키 아트로 텍스트를 출력할 수 있습니다. 아스키 아트는 텍스트와 특수문자만을 이용해서 그림을 표현하는 것을 말합니다.
 
 <br/>
@@ -34,12 +36,7 @@ say(what = "Hello world!",
 
 ### Argument
 
-**what** : 출력하고 싶은 말을 넣으세요 <br/> 
-**by** : 어떤 동물이 말을 하도록 하고 싶나요? <br/>
-**type** : message(기본값), warning, print, string 등 출력 타입을 선택합니다 <br/>
-**what_color** : 출력할 말의 색깔을 정합니다 <br/>
-**by_color** : 동물의 색깔을 정합니다 <br/>
-**length** : 만일 longcat을 선택했다면 longcat의 길이를 정해주세요
+**what** : 출력하고 싶은 말을 넣으세요 <br/> **by** : 어떤 동물이 말을 하도록 하고 싶나요? <br/> **type** : message(기본값), warning, print, string 등 출력 타입을 선택합니다 <br/> **what_color** : 출력할 말의 색깔을 정합니다 <br/> **by_color** : 동물의 색깔을 정합니다 <br/> **length** : 만일 longcat을 선택했다면 longcat의 길이를 정해주세요
 
 <br/>
 
