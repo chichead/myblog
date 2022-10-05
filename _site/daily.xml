@@ -16,7 +16,7 @@
   <dc:creator>chichead</dc:creator>
   <link>https://orange-mansion.com/daily/211005/index.html</link>
   <description><![CDATA[ <section id="today-function-say" class="level2"><h2 class="anchored" data-anchor-id="today-function-say">Today Function : say()</h2>
-<p>오늘의 함수는 cowsay 패키지의 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수입니다. 패키지 이름에서 알 수 있듯 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수를 사용하면 소를 비롯한 여러 동물들의 아스키아트로 텍스트를 출력할 수 있습니다.</p>
+<p>오늘의 함수는 cowsay 패키지의 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수입니다. 패키지 이름에서 알 수 있듯 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수를 사용하면 소를 비롯한 여러 동물들의 아스키 아트로 텍스트를 출력할 수 있습니다. 아스키 아트는 텍스트와 특수문자만을 이용해서 그림을 표현하는 것을 말합니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
 <div class="cell">

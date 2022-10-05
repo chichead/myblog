@@ -2,7 +2,7 @@
 title: 'say() : Print messages with various animals'
 date: '2022-10-05'
 categories: ['cowsay']
-description: '아스키아트와 함께 메시지를 출력하고 싶을 때'
+description: '아스키 아트와 함께 메시지를 출력하고 싶을 때'
 execute: 
   message: false
   warning: false
@@ -12,7 +12,7 @@ editor_options:
 
 ## Today Function : say()
 
-오늘의 함수는 cowsay 패키지의 `say()` 함수입니다. 패키지 이름에서 알 수 있듯 `say()` 함수를 사용하면 소를 비롯한 여러 동물들의 아스키아트로 텍스트를 출력할 수 있습니다. 
+오늘의 함수는 cowsay 패키지의 `say()` 함수입니다. 패키지 이름에서 알 수 있듯 `say()` 함수를 사용하면 소를 비롯한 여러 동물들의 아스키 아트로 텍스트를 출력할 수 있습니다. 아스키 아트는 텍스트와 특수문자만을 이용해서 그림을 표현하는 것을 말합니다.
 
 <br/>
 
