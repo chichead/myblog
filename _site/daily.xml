@@ -10,7 +10,93 @@
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Tue, 04 Oct 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 05 Oct 2022 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>enframe() : Convert vectors to data frames</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/daily/211006/index.html</link>
+  <description><![CDATA[ <section id="today-function-enframe" class="level2"><h2 class="anchored" data-anchor-id="today-function-enframe">Today Function : enframe()</h2>
+<p><img src="https://orange-mansion.com/daily/211006/tibble_logo.png" class="img-fluid" style="width:25.0%"></p>
+<p>오늘의 함수는 tibble 패키지의 <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수입니다. <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수는 atomic vector나 리스트를 1개 혹은 2개의 칼럼을 가진 데이터프레임으로 만들어줍니다. 리스트를 <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수에 넣고 돌리면 중첩된 tibble이 나옵니다. 만일 2개의 칼럼의 데이터프레임을 vector 혹은 리스트로 변환하고 싶으면 <code><a href="https://tibble.tidyverse.org/reference/enframe.html">deframe()</a></code> 함수를 사용하면 됩니다.</p>
+<p><br></p>
+<section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">enframe</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span>, name <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"name"</span>, value <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"value"</span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;">deframe</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">x</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+</div>
+<p><br></p>
+</section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
+<p><strong>x</strong> : <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수에는 벡터가, <code><a href="https://tibble.tidyverse.org/reference/enframe.html">deframe()</a></code> 함수에는 1~2열 짜리 데이터프레임이 들어갑니다 <br><strong>name, value</strong> : name과 value로 지정하고 싶은 텍스트를 입력합니다. 만약 name이 NULL이라면 1열의 데이터프레임이 출력됩니다.</p>
+<p><br></p>
+</section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="co" style="color: #5E5E5E;"># 1부터 3까지 Unnamed Numeric vector를 enframe에 넣으면</span>
+<span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+   name value
+  &lt;int&gt; &lt;int&gt;
+1     1     1
+2     2     2
+3     3     3</code></pre>
+</div>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 이번엔 Named Numeric vector를 입력해봅니다</span>
+<span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span>a <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span>, b <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">2</span>, c <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  name  value
+  &lt;chr&gt; &lt;dbl&gt;
+1 a         1
+2 b         2
+3 c         3</code></pre>
+</div>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># list를 입력하면 중첩된 tibble이 나옵니다</span>
+<span class="va" style="color: #111111;">list_example</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;">(</span>
+  a <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span>,
+  b <span class="op" style="color: #5E5E5E;">=</span> <span class="st" style="color: #20794D;">"orange"</span>,
+  c <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">2</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span>,
+  d <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span>delta <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">4</span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="op" style="color: #5E5E5E;">)</span>
+
+<span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">list_example</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  name  value    
+  &lt;chr&gt; &lt;list&gt;   
+1 a     &lt;dbl [1]&gt;
+2 b     &lt;chr [1]&gt;
+3 c     &lt;int [2]&gt;
+4 d     &lt;dbl [1]&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># deframe은 1~2개의 칼럼을 가지고 있는 데이터프레임만 사용가능합니다</span>
+<span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">deframe</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 2 3 
+3 2 1 </code></pre>
+</div>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/enframe.html">deframe</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fu" style="color: #4758AB;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;">(</span>a <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/list.html">as.list</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1
+
+[[2]]
+[1] 2
+
+[[3]]
+[1] 3</code></pre>
+</div>
+</div>
+
+
+</section></section> ]]></description>
+  <category>tibble</category>
+  <guid>https://orange-mansion.com/daily/211006/index.html</guid>
+  <pubDate>Wed, 05 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211006/tibble_logo.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
 <item>
   <title>say() : Print messages with various animals</title>
   <dc:creator>chichead</dc:creator>
