@@ -1,0 +1,53 @@
+---
+title: 'accumulate() : Accumulate intermediate results'
+date: '2022-10-08'
+categories: ['purrr']
+description: 'reduce와 유사하지만 중간 단계를 다 유지한다'
+execute: 
+  message: false
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+## Today Function : reduce()
+
+![](logo.png){width="25%"}
+
+오늘의 함수는 purrr 패키지의 `accumulate()` 함수입니다. `Two-Table Verbs` 함수를 사용해서 3개 이상의 데이터테이블을 처리할 땐 `reduce()` 함수를 사용합니다. 그런데 그와 유사한 `accumulate()` 함수는 중간 단계를 모두 유지해줍니다.
+
+<br/>
+
+### Usage
+
+```{r, eval=FALSE}
+accumulate(.x, .f, ..., .init, .dir = c("forward", "backward"))
+
+accumulate2(.x, .y, .f, ..., .init)
+```
+
+<br/>
+
+### Argument
+
+**.x** : 리스트나 atomic vector가 들어갑니다 <br/> 
+**.f** : `accumulate()` 함수에서는 `Two-Table Verbs` 함수가, `accumulate2()` 함수에는 그 이상의 함수를 사용할 수 있습니다. <br/>
+**.dir** : `accumulate`의 방향을 정합니다.
+
+<br/>
+
+### Example
+
+```{r}
+library(tidyverse)
+library(purrr)
+
+number <- sample(10)
+number
+
+# reduce 함수로 다 더하면?
+number |> reduce(`+`)
+
+# accumulate는 각 단계를 유지해서 누적합을 계산합니다.
+number |> accumulate(`+`)
+```

@@ -7,7 +7,7 @@ listing:
   categories: true
   sort-ui: true
   filter-ui: false
-  fields: [date, title, description, reading-time]
+  fields: [date, title, description, categories]
   date-format: "YYYY/MM/DD"
   feed: true
 page-layout: full

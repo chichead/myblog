@@ -65,7 +65,7 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -149,7 +149,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="cowsay">cowsay <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dplyr">dplyr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="listviewer">listviewer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyr">tidyr <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="cowsay">cowsay <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dplyr">dplyr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="listviewer">listviewer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="purrr">purrr <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyr">tidyr <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -210,12 +210,40 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 Description
 </th>
 <th>
-Reading Time
+Categories
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="tibble" data-listing-date-sort="1664982000000" data-listing-file-modified-sort="1665064286418" data-listing-reading-time-sort="0.645" data-listing-title-sort="enframe() : Convert vectors to data frames" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="purrr" data-listing-date-sort="1665154800000" data-listing-file-modified-sort="1665377801759" data-listing-reading-time-sort="0.42" data-listing-title-sort="accumulate() : Accumulate intermediate results" data-listing-filename-sort="index.qmd">
+<td class="listing-date">
+2022/10/08
+</td>
+<td class="listing-title">
+<a href="./daily/211008/index.html" class="title">accumulate() : Accumulate intermediate results</a>
+</td>
+<td class="listing-description">
+reduce와 유사하지만 중간 단계를 다 유지한다
+</td>
+<td class="listing-categories">
+purrr
+</td>
+</tr>
+<tr data-index="1" data-categories="purrr" data-listing-date-sort="1665068400000" data-listing-file-modified-sort="1665376858969" data-listing-reading-time-sort="1.04" data-listing-title-sort="reduce() : Reduce a list to a single value" data-listing-filename-sort="index.qmd">
+<td class="listing-date">
+2022/10/07
+</td>
+<td class="listing-title">
+<a href="./daily/211007/index.html" class="title">reduce() : Reduce a list to a single value</a>
+</td>
+<td class="listing-description">
+벡터 요소들을 하나의 값으로 결합하고 싶을 때
+</td>
+<td class="listing-categories">
+purrr
+</td>
+</tr>
+<tr data-index="2" data-categories="tibble" data-listing-date-sort="1664982000000" data-listing-file-modified-sort="1665064286418" data-listing-reading-time-sort="0.645" data-listing-title-sort="enframe() : Convert vectors to data frames" data-listing-filename-sort="index.qmd">
 <td class="listing-date">
 2022/10/06
 </td>
@@ -225,11 +253,11 @@ Reading Time
 <td class="listing-description">
 벡터를 데이터프레임으로 바꾸고 싶을 때
 </td>
-<td class="listing-reading-time">
-0 min
+<td class="listing-categories">
+tibble
 </td>
 </tr>
-<tr data-index="1" data-categories="cowsay" data-listing-date-sort="1664895600000" data-listing-file-modified-sort="1664979204272" data-listing-reading-time-sort="0.855" data-listing-title-sort="say() : Print messages with various animals" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="cowsay" data-listing-date-sort="1664895600000" data-listing-file-modified-sort="1664979204272" data-listing-reading-time-sort="0.855" data-listing-title-sort="say() : Print messages with various animals" data-listing-filename-sort="index.qmd">
 <td class="listing-date">
 2022/10/05
 </td>
@@ -239,11 +267,11 @@ Reading Time
 <td class="listing-description">
 아스키 아트와 함께 메시지를 출력하고 싶을 때
 </td>
-<td class="listing-reading-time">
-0 min
+<td class="listing-categories">
+cowsay
 </td>
 </tr>
-<tr data-index="2" data-categories="listviewer" data-listing-date-sort="1664809200000" data-listing-file-modified-sort="1664978133172" data-listing-reading-time-sort="0.91" data-listing-title-sort="jsonedit() : Provide a interactive view of lists" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="listviewer" data-listing-date-sort="1664809200000" data-listing-file-modified-sort="1664978133172" data-listing-reading-time-sort="0.91" data-listing-title-sort="jsonedit() : Provide a interactive view of lists" data-listing-filename-sort="index.qmd">
 <td class="listing-date">
 2022/10/04
 </td>
@@ -253,11 +281,11 @@ Reading Time
 <td class="listing-description">
 json 파일의 구조를 한 눈에 보고 싶을 때
 </td>
-<td class="listing-reading-time">
-0 min
+<td class="listing-categories">
+listviewer
 </td>
 </tr>
-<tr data-index="3" data-categories="tidyr" data-listing-date-sort="1664722800000" data-listing-file-modified-sort="1664773464925" data-listing-reading-time-sort="2.34" data-listing-title-sort="unnest() : Flatten back out into regular columns" data-listing-filename-sort="index.qmd">
+<tr data-index="5" data-categories="tidyr" data-listing-date-sort="1664722800000" data-listing-file-modified-sort="1664773464925" data-listing-reading-time-sort="2.34" data-listing-title-sort="unnest() : Flatten back out into regular columns" data-listing-filename-sort="index.qmd">
 <td class="listing-date">
 2022/10/03
 </td>
@@ -267,11 +295,11 @@ json 파일의 구조를 한 눈에 보고 싶을 때
 <td class="listing-description">
 중첩된 데이터프레임을 풀 때
 </td>
-<td class="listing-reading-time">
-2 min
+<td class="listing-categories">
+tidyr
 </td>
 </tr>
-<tr data-index="4" data-categories="tidyr" data-listing-date-sort="1664636400000" data-listing-file-modified-sort="1664724014001" data-listing-reading-time-sort="1.52" data-listing-title-sort="nest() : Create a list-column of data frames" data-listing-filename-sort="index.qmd">
+<tr data-index="6" data-categories="tidyr" data-listing-date-sort="1664636400000" data-listing-file-modified-sort="1664724014001" data-listing-reading-time-sort="1.52" data-listing-title-sort="nest() : Create a list-column of data frames" data-listing-filename-sort="index.qmd">
 <td class="listing-date">
 2022/10/02
 </td>
@@ -281,11 +309,11 @@ json 파일의 구조를 한 눈에 보고 싶을 때
 <td class="listing-description">
 데이터프레임을 중첩시킬 때
 </td>
-<td class="listing-reading-time">
-1 min
+<td class="listing-categories">
+tidyr
 </td>
 </tr>
-<tr data-index="5" data-categories="dplyr" data-listing-date-sort="1664550000000" data-listing-file-modified-sort="1664785887538" data-listing-reading-time-sort="0.99" data-listing-title-sort="pull() : Extract a single column" data-listing-filename-sort="index.qmd">
+<tr data-index="7" data-categories="dplyr" data-listing-date-sort="1664550000000" data-listing-file-modified-sort="1664785887538" data-listing-reading-time-sort="0.99" data-listing-title-sort="pull() : Extract a single column" data-listing-filename-sort="index.qmd">
 <td class="listing-date">
 2022/10/01
 </td>
@@ -295,8 +323,8 @@ json 파일의 구조를 한 눈에 보고 싶을 때
 <td class="listing-description">
 $ 연산자와 비슷한 함수
 </td>
-<td class="listing-reading-time">
-0 min
+<td class="listing-categories">
+dplyr
 </td>
 </tr>
 </tbody>
