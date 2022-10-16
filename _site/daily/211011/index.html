@@ -5,9 +5,9 @@
 <meta name="generator" content="quarto-1.0.38">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="chichead">
-<meta name="dcterms.date" content="2022-10-04">
-<meta name="description" content="$ 연산자와 비슷한 함수">
-<title>오렌지 맨숀🍊 - pull() : Extract a single column</title>
+<meta name="dcterms.date" content="2022-10-11">
+<meta name="description" content="아스키 아트와 함께 메시지를 출력하고 싶을 때">
+<title>오렌지 맨숀🍊 - say() : Print messages with various animals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -163,14 +163,14 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">pull() : Extract a single column</h1>
+      <h1 class="title">say() : Print messages with various animals</h1>
                   <div>
         <div class="description">
-          $ 연산자와 비슷한 함수
+          아스키 아트와 함께 메시지를 출력하고 싶을 때
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">dplyr</div>
+                <div class="quarto-category">cowsay</div>
               </div>
                   </div>
   </div>
@@ -188,7 +188,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 4, 2022</p>
+        <p class="date">October 11, 2022</p>
       </div>
     </div>
       
@@ -203,81 +203,134 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
    
   <ul>
 <li>
-<a href="#today-function-pull" id="toc-today-function-pull" class="nav-link active" data-scroll-target="#today-function-pull">Today Function : pull</a>
+<a href="#today-function-say" id="toc-today-function-say" class="nav-link active" data-scroll-target="#today-function-say">Today Function : say()</a>
   <ul class="collapse">
 <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   <li><a href="#argument" id="toc-argument" class="nav-link" data-scroll-target="#argument">Argument</a></li>
-  <li><a href="#value" id="toc-value" class="nav-link" data-scroll-target="#value">Value</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  <li><a href="#select-vs-pull" id="toc-select-vs-pull" class="nav-link" data-scroll-target="#select-vs-pull">select vs pull</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="today-function-pull" class="level2"><h2 class="anchored" data-anchor-id="today-function-pull">Today Function : pull</h2>
-<p><img src="logo.png" class="img-fluid" style="width:25.0%"></p>
-<p>오늘의 함수는 dplyr 패키지의 <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수입니다. <br><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수는 <code>$</code> 연산자와 비슷한 기능을 합니다. <br><code>$</code> 연산자는 R에서 데이터 객체의 특정 부분을 추출할 때 사용하는데요. <br><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수는 파이프 연산자 내에서 <code>$</code>보다 사용하기 편리하다는 장점이 있습니다.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="today-function-say" class="level2"><h2 class="anchored" data-anchor-id="today-function-say">Today Function : say()</h2>
+<p><img src="ascii.gif" class="img-fluid" style="width:50.0%"></p>
+<p>오늘의 함수는 cowsay 패키지의 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수입니다. 패키지 이름에서 알 수 있듯 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수를 사용하면 소를 비롯한 여러 동물들의 아스키 아트로 텍스트를 출력할 수 있습니다. 아스키 아트는 텍스트와 특수문자만을 이용해서 그림을 표현하는 것을 말합니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">pull</span><span class="op">(</span><span class="va">.data</span>, var <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, name <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">say</span><span class="op">(</span>what <span class="op">=</span> <span class="st">"Hello world!"</span>,
+    by <span class="op">=</span> <span class="st">"cat"</span>,
+    type <span class="op">=</span> <span class="cn">NULL</span>,
+    what_color <span class="op">=</span> <span class="cn">NULL</span>,
+    by_color <span class="op">=</span> <span class="cn">NULL</span>,
+    length <span class="op">=</span> <span class="fl">18</span>,
+    fortune <span class="op">=</span> <span class="cn">NULL</span>,
+    <span class="va">...</span>
+<span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
-<p><strong>.data</strong> : data.frame, tibble을 넣을 수 있습니다. 거기에 dbplyr, dtplyr package의 data.table backend도 가능합니다. <br><strong>var</strong> : 추출할 변수의 이름을 넣습니다. 숫자도 가능한데 양수는 왼쪽부터 순서, 음수는 오른쪽부터 순서를 나타냅니다. <br><strong>name</strong> : 변수 이름을 알 경우엔 name이라는 파라미터를 써도 됩니다.</p>
-<p><br></p>
-</section><section id="value" class="level3"><h3 class="anchored" data-anchor-id="value">Value</h3>
-<p>입력한 데이터와 동일한 사이즈의 vector가 나옵니다.</p>
+<p><strong>what</strong> : 출력하고 싶은 말을 넣으세요 <br><strong>by</strong> : 어떤 동물이 말을 하도록 하고 싶나요? <br><strong>type</strong> : message(기본값), warning, print, string 등 출력 타입을 선택합니다 <br><strong>what_color</strong> : 출력할 말의 색깔을 정합니다 <br><strong>by_color</strong> : 동물의 색깔을 정합니다 <br><strong>length</strong> : 만일 longcat을 선택했다면 longcat의 길이를 정해주세요</p>
 <p><br></p>
 </section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sckott/cowsay">cowsay</a></span><span class="op">)</span>
 
-<span class="co"># mtcars 데이터를 가지고 pull() 함수의 예를 들어보겠습니다.</span>
-<span class="co"># mtcars 데이터의 구조는 이러합니다.</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co"># 닭이 꼬끼오하고 울게 해보겠습니다.</span>
+<span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"꼬끼오"</span>, by <span class="op">=</span> <span class="st">"chicken"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
-Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre><code>
+ ----- 
+꼬끼오 
+ ------ 
+    \   
+     \
+         _
+       _/ }
+      `&gt;' \
+      `|   \
+       |   /'-.     .-.
+        \'     ';`--' .'
+         \'.    `'-./
+          '.`-..-;`
+            `;-..'
+            _| _|
+            /` /` [nosig]
+  </code></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># -1을 입력하면 mtcars 데이터의 맨 오른쪽 칼럼인 carb가 나옵니다</span>
-<span class="va">mtcars</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># cowsay 패키지에서 제공해주는 아스키아트는 총 44마리입니다.</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 4 4 1 1 2 1 4 2 2 4 4 3 3 3 4 4 4 1 2 1 1 2 2 4 2 1 2 2 4 6 8 2</code></pre>
+<pre><code> [1] "ant"          "anxiouscat"   "bat"          "bat2"         "behindcat"   
+ [6] "bigcat"       "buffalo"      "cat"          "chicken"      "chuck"       
+[11] "clippy"       "cow"          "daemon"       "duck"         "duckling"    
+[16] "egret"        "endlesshorse" "facecat"      "fish"         "frog"        
+[21] "ghost"        "grumpycat"    "hypnotoad"    "longcat"      "longtailcat" 
+[26] "monkey"       "mushroom"     "owl"          "pig"          "poop"        
+[31] "pumpkin"      "rabbit"       "shark"        "shortcat"     "signbunny"   
+[36] "smallcat"     "snowman"      "spider"       "squirrel"     "squirrel2"   
+[41] "stretchycat"  "trilobite"    "turkey"       "yoda"        </code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 칼럼 명 'carb'을 바로 써도 같은 결과가 나옵니다</span>
-<span class="va">mtcars</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">carb</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 아스키아트에는 cat()함수를 이용해 접근할 수 있습니다.</span>
+<span class="co"># 호박 아스키아트에 접근해보죠.</span>
+<span class="va">pumpkin</span> <span class="op">&lt;-</span> <span class="va">animals</span><span class="op">[[</span><span class="st">"pumpkin"</span><span class="op">]</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">pumpkin</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 4 4 1 1 2 1 4 2 2 4 4 3 3 3 4 4 4 1 2 1 1 2 2 4 2 1 2 2 4 6 8 2</code></pre>
+<pre><code>
+ ----- 
+%s 
+ ------ 
+    \   
+     \
+                  ___
+               ___)__|_
+          .-*'          '*-,
+         /      /|   |\     \
+        ;      /_|   |_\     ;
+        ;   |\           /|  ;
+        ;   | ''--...--'' |  ;
+         \  ''---.....--''  /
+          ''*-.,_______,.-*'  [nosig]
+  </code></pre>
 </div>
-</div>
-<p><br></p>
-</section><section id="select-vs-pull" class="level3"><h3 class="anchored" data-anchor-id="select-vs-pull">select vs pull</h3>
-<p>dplyr에 있는 또다른 비슷한 함수인 select와의 차이점은 뭘까요? 일단 결과 값이 다릅니다. <br> pull은 단일 열을 벡터로 변환해 결과로 내보냅니다. 반면 select는 하나 이상의 열을 데이터프레임으로 변환하죠.</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>orange <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, lemon <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>
-
-<span class="co"># select를 써서 orange 열(1개의 열)을 가져오면 data.frame이 나옵니다</span>
-<span class="va">fruits</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">orange</span><span class="op">)</span> |&gt;<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># longcat에게 말을 시킨다면 longcat의 길이도 정해주세요</span>
+<span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"음메"</span>,
+    by <span class="op">=</span> <span class="st">"longcat"</span>,
+    length <span class="op">=</span> <span class="st">"20"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   5 obs. of  1 variable:
- $ orange: int  1 2 3 4 5</code></pre>
-</div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 이번엔 pull을 이용하면 int value가 들어간 벡터가 나옵니다</span>
-<span class="va">fruits</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">orange</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> int [1:5] 1 2 3 4 5</code></pre>
-</div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># data.frame에서 pull과 의미가 동일한 함수 -&gt; .[, "name"]</span>
-<span class="va">fruits</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">.</span><span class="op">[</span> , <span class="st">"orange"</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> int [1:5] 1 2 3 4 5</code></pre>
+<pre><code>
+ ----- 
+음메 
+ ------ 
+    \   
+     \
+    .ﾊ,,ﾊ
+    ( ﾟωﾟ)
+    |つ  つ
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    U "  U
+        [BoingBoing]
+    </code></pre>
 </div>
 </div>
 

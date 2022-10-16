@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="chichead">
 <meta name="dcterms.date" content="2022-10-05">
-<meta name="description" content="아스키 아트와 함께 메시지를 출력하고 싶을 때">
-<title>오렌지 맨숀🍊 - say() : Print messages with various animals</title>
+<meta name="description" content="데이터프레임을 중첩시킬 때">
+<title>오렌지 맨숀🍊 - nest() : Create a list-column of data frames</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -163,14 +163,14 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">say() : Print messages with various animals</h1>
+      <h1 class="title">nest() : Create a list-column of data frames</h1>
                   <div>
         <div class="description">
-          아스키 아트와 함께 메시지를 출력하고 싶을 때
+          데이터프레임을 중첩시킬 때
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">cowsay</div>
+                <div class="quarto-category">tidyr</div>
               </div>
                   </div>
   </div>
@@ -203,134 +203,161 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
    
   <ul>
 <li>
-<a href="#today-function-say" id="toc-today-function-say" class="nav-link active" data-scroll-target="#today-function-say">Today Function : say()</a>
+<a href="#today-function-nest" id="toc-today-function-nest" class="nav-link active" data-scroll-target="#today-function-nest">Today Function : nest</a>
   <ul class="collapse">
 <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
   <li><a href="#argument" id="toc-argument" class="nav-link" data-scroll-target="#argument">Argument</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#grouped-data-frames" id="toc-grouped-data-frames" class="nav-link" data-scroll-target="#grouped-data-frames">Grouped data frames</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="today-function-say" class="level2"><h2 class="anchored" data-anchor-id="today-function-say">Today Function : say()</h2>
-<p><img src="ascii.gif" class="img-fluid" style="width:50.0%"></p>
-<p>오늘의 함수는 cowsay 패키지의 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수입니다. 패키지 이름에서 알 수 있듯 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수를 사용하면 소를 비롯한 여러 동물들의 아스키 아트로 텍스트를 출력할 수 있습니다. 아스키 아트는 텍스트와 특수문자만을 이용해서 그림을 표현하는 것을 말합니다.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="today-function-nest" class="level2"><h2 class="anchored" data-anchor-id="today-function-nest">Today Function : nest</h2>
+<p><img src="logo.png" class="img-fluid" style="width:25.0%"></p>
+<p>오늘의 함수는 tidyr 패키지의 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">nest()</a></code> 함수입니다. <br><code><a href="https://tidyr.tidyverse.org/reference/nest.html">nest()</a></code> 함수는 데이터프레임을 중첩시킬 때 사용합니다. <br> 중첩(nest)된 데이터프레임은 하나 이상의 열이 리스트인 데이터프레임을 의미합니다. <br></p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">say</span><span class="op">(</span>what <span class="op">=</span> <span class="st">"Hello world!"</span>,
-    by <span class="op">=</span> <span class="st">"cat"</span>,
-    type <span class="op">=</span> <span class="cn">NULL</span>,
-    what_color <span class="op">=</span> <span class="cn">NULL</span>,
-    by_color <span class="op">=</span> <span class="cn">NULL</span>,
-    length <span class="op">=</span> <span class="fl">18</span>,
-    fortune <span class="op">=</span> <span class="cn">NULL</span>,
-    <span class="va">...</span>
-<span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">nest</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, names_sep <span class="op">=</span> <span class="cn">NULL</span>, .key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Deprecated.html">deprecated</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
-<p><strong>what</strong> : 출력하고 싶은 말을 넣으세요 <br><strong>by</strong> : 어떤 동물이 말을 하도록 하고 싶나요? <br><strong>type</strong> : message(기본값), warning, print, string 등 출력 타입을 선택합니다 <br><strong>what_color</strong> : 출력할 말의 색깔을 정합니다 <br><strong>by_color</strong> : 동물의 색깔을 정합니다 <br><strong>length</strong> : 만일 longcat을 선택했다면 longcat의 길이를 정해주세요</p>
+<p><strong>.data</strong> : data.frame, tibble을 넣을 수 있습니다. <br><strong>…</strong> : 중첩될 칼럼을 입력합니다. tidy-select expression을 활용해 선택 가능합니다. <br><strong>name_sep</strong> : 중첩될 칼럼의 이름을 정합니다. NULL(기본값)일 경우엔 기존 이름이 그래도 유지됩니다. <br><strong>.key</strong> : 예전 버전의 nest 함수에서 사용한 영역(중첩될 칼럼의 이름 설정)으로 현재 문법에서는 사용하지 않습니다.</p>
 <p><br></p>
 </section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sckott/cowsay">cowsay</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
-<span class="co"># 닭이 꼬끼오하고 울게 해보겠습니다.</span>
-<span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"꼬끼오"</span>, by <span class="op">=</span> <span class="st">"chicken"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co"># tibble 함수를 통해 중첩된 tibble을 만들어보겠습니다.</span>
+<span class="co"># g와 data라는 2개의 열의 tibble이지만 data 열은 리스트의 형태입니다.</span>
+<span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  g <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,
+  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span>, y <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>,
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
- ----- 
-꼬끼오 
- ------ 
-    \   
-     \
-         _
-       _/ }
-      `&gt;' \
-      `|   \
-       |   /'-.     .-.
-        \'     ';`--' .'
-         \'.    `'-./
-          '.`-..-;`
-            `;-..'
-            _| _|
-            /` /` [nosig]
-  </code></pre>
+<pre><code># A tibble: 3 × 2
+      g data            
+  &lt;dbl&gt; &lt;list&gt;          
+1     1 &lt;tibble [1 × 2]&gt;
+2     2 &lt;tibble [2 × 2]&gt;
+3     3 &lt;tibble [1 × 1]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># cowsay 패키지에서 제공해주는 아스키아트는 총 44마리입니다.</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 이번엔 nest 함수를 통해 중첩된 tibble을 만들어보겠습니다.</span>
+<span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+  <span class="op">~</span><span class="va">g</span>, <span class="op">~</span><span class="va">x</span>, <span class="op">~</span><span class="va">y</span>,
+   <span class="fl">1</span>,  <span class="fl">1</span>,  <span class="fl">2</span>,
+   <span class="fl">2</span>,  <span class="fl">4</span>,  <span class="fl">6</span>,
+   <span class="fl">2</span>,  <span class="fl">5</span>,  <span class="fl">7</span>,
+   <span class="fl">3</span>, <span class="fl">10</span>, <span class="cn">NA</span>
+<span class="op">)</span>
+
+<span class="va">df2</span> |&gt; <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "ant"          "anxiouscat"   "bat"          "bat2"         "behindcat"   
- [6] "bigcat"       "buffalo"      "cat"          "chicken"      "chuck"       
-[11] "clippy"       "cow"          "daemon"       "duck"         "duckling"    
-[16] "egret"        "endlesshorse" "facecat"      "fish"         "frog"        
-[21] "ghost"        "grumpycat"    "hypnotoad"    "longcat"      "longtailcat" 
-[26] "monkey"       "mushroom"     "owl"          "pig"          "poop"        
-[31] "pumpkin"      "rabbit"       "shark"        "shortcat"     "signbunny"   
-[36] "smallcat"     "snowman"      "spider"       "squirrel"     "squirrel2"   
-[41] "stretchycat"  "trilobite"    "turkey"       "yoda"        </code></pre>
+<pre><code># A tibble: 3 × 2
+      g data            
+  &lt;dbl&gt; &lt;list&gt;          
+1     1 &lt;tibble [1 × 2]&gt;
+2     2 &lt;tibble [2 × 2]&gt;
+3     3 &lt;tibble [1 × 2]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 아스키아트에는 cat()함수를 이용해 접근할 수 있습니다.</span>
-<span class="co"># 호박 아스키아트에 접근해보죠.</span>
-<span class="va">pumpkin</span> <span class="op">&lt;-</span> <span class="va">animals</span><span class="op">[[</span><span class="st">"pumpkin"</span><span class="op">]</span><span class="op">]</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">pumpkin</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># tidy-select argument를 이용해서 데이터를 선택할 수도 있습니다.</span>
+<span class="va">df2</span> |&gt; <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
- ----- 
-%s 
- ------ 
-    \   
-     \
-                  ___
-               ___)__|_
-          .-*'          '*-,
-         /      /|   |\     \
-        ;      /_|   |_\     ;
-        ;   |\           /|  ;
-        ;   | ''--...--'' |  ;
-         \  ''---.....--''  /
-          ''*-.,_______,.-*'  [nosig]
-  </code></pre>
+<pre><code># A tibble: 3 × 2
+      g data            
+  &lt;dbl&gt; &lt;list&gt;          
+1     1 &lt;tibble [1 × 2]&gt;
+2     2 &lt;tibble [2 × 2]&gt;
+3     3 &lt;tibble [1 × 2]&gt;</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># longcat에게 말을 시킨다면 longcat의 길이도 정해주세요</span>
-<span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"음메"</span>,
-    by <span class="op">=</span> <span class="st">"longcat"</span>,
-    length <span class="op">=</span> <span class="st">"20"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df2</span> |&gt; <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span>data <span class="op">=</span> <span class="op">!</span><span class="va">g</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
- ----- 
-음메 
- ------ 
-    \   
-     \
-    .ﾊ,,ﾊ
-    ( ﾟωﾟ)
-    |つ  つ
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    |    |
-    U "  U
-        [BoingBoing]
-    </code></pre>
+<pre><code># A tibble: 3 × 2
+      g data            
+  &lt;dbl&gt; &lt;list&gt;          
+1     1 &lt;tibble [1 × 2]&gt;
+2     2 &lt;tibble [2 × 2]&gt;
+3     3 &lt;tibble [1 × 2]&gt;</code></pre>
+</div>
+</div>
+<p><code><a href="https://tidyr.tidyverse.org/reference/nest.html">nest()</a></code> 함수에는 중첩될 변수를 지정합니다. <br><code><a href="https://tidyselect.r-lib.org/reference/all_of.html">any_of()</a></code>, <code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with()</a></code> 등 tidy_select argument를 이용해서도 지정 가능합니다. <br> g를 기준으로 x와 y를 중첩하는 형태이기때문에 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">nest()</a></code> 함수에 <code>c(x, y)</code>를 입력했습니다.</p>
+<p><br></p>
+</section><section id="grouped-data-frames" class="level3"><h3 class="anchored" data-anchor-id="grouped-data-frames">Grouped data frames</h3>
+<p><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by()</a></code>를 이용하는 것도 방법입니다. <br> 중첩될 변수를 지정하는 것보다 <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>를 이용해 중첩시키는 게 직관적입니다. <br></p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+
+<span class="va">df2</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+# Groups:   g [3]
+      g data            
+  &lt;dbl&gt; &lt;list&gt;          
+1     1 &lt;tibble [1 × 2]&gt;
+2     2 &lt;tibble [2 × 2]&gt;
+3     3 &lt;tibble [1 × 2]&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># group_by + nest = group_nest</span>
+<span class="co"># dplyr 패키지의 group_nest는 tibble을 중첩할 때 두 과정을 한번에 처리합니다.</span>
+<span class="va">df2</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_nest.html">group_nest</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+      g               data
+  &lt;dbl&gt; &lt;list&lt;tibble[,2]&gt;&gt;
+1     1            [1 × 2]
+2     2            [2 × 2]
+3     3            [1 × 2]</code></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 중첩된 데이터프레임을 만들어서 각각의 그룹에 따라 모델을 만들고, 예측 list도 생성할 수 있습니다.</span>
+<span class="va">mtcars_nested</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="va">mtcars_nested</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+# Groups:   cyl [3]
+    cyl data              
+  &lt;dbl&gt; &lt;list&gt;            
+1     6 &lt;tibble [7 × 10]&gt; 
+2     4 &lt;tibble [11 × 10]&gt;
+3     8 &lt;tibble [14 × 10]&gt;</code></pre>
+</div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># lm 모델 생성</span>
+<span class="va">mtcars_nested</span> <span class="op">&lt;-</span> <span class="va">mtcars_nested</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">data</span>, <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">mtcars_nested</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+# Groups:   cyl [3]
+    cyl data               model 
+  &lt;dbl&gt; &lt;list&gt;             &lt;list&gt;
+1     6 &lt;tibble [7 × 10]&gt;  &lt;lm&gt;  
+2     4 &lt;tibble [11 × 10]&gt; &lt;lm&gt;  
+3     8 &lt;tibble [14 × 10]&gt; &lt;lm&gt;  </code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 만들어진 모델을 통해 예측값을 계산해봅니다.</span>
+<span class="va">mtcars_nested</span> <span class="op">&lt;-</span> <span class="va">mtcars_nested</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>model <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">predict</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">mtcars_nested</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+# Groups:   cyl [3]
+    cyl data               model     
+  &lt;dbl&gt; &lt;list&gt;             &lt;list&gt;    
+1     6 &lt;tibble [7 × 10]&gt;  &lt;dbl [7]&gt; 
+2     4 &lt;tibble [11 × 10]&gt; &lt;dbl [11]&gt;
+3     8 &lt;tibble [14 × 10]&gt; &lt;dbl [14]&gt;</code></pre>
 </div>
 </div>
 

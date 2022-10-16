@@ -1,6 +1,6 @@
 ---
 title: 'accumulate() : Accumulate intermediate results'
-date: '2022-10-08'
+date: '2022-10-14'
 categories: ['purrr']
 description: 'reduce와 유사하지만 중간 단계를 다 유지한다'
 execute: 

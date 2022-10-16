@@ -10,13 +10,13 @@
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Fri, 07 Oct 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 13 Oct 2022 15:00:00 GMT</lastBuildDate>
 <item>
   <title>accumulate() : Accumulate intermediate results</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211008/index.html</link>
+  <link>https://orange-mansion.com/daily/211014/index.html</link>
   <description><![CDATA[ <section id="today-function-reduce" class="level2"><h2 class="anchored" data-anchor-id="today-function-reduce">Today Function : reduce()</h2>
-<p><img src="https://orange-mansion.com/daily/211008/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211014/logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘의 함수는 purrr 패키지의 <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate()</a></code> 함수입니다. <code>Two-Table Verbs</code> 함수를 사용해서 3개 이상의 데이터테이블을 처리할 땐 <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code> 함수를 사용합니다. 그런데 그와 유사한 <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate()</a></code> 함수는 중간 단계를 모두 유지해줍니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
@@ -37,7 +37,7 @@
 <span class="va" style="color: #111111;">number</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">)</span>
 <span class="va" style="color: #111111;">number</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  4  7  8  3 10  9  6  5</code></pre>
+<pre><code> [1]  6 10  8  9  3  2  7  4  1  5</code></pre>
 </div>
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># reduce 함수로 다 더하면?</span>
 <span class="va" style="color: #111111;">number</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">`+`</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
@@ -47,23 +47,23 @@
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># accumulate는 각 단계를 유지해서 누적합을 계산합니다.</span>
 <span class="va" style="color: #111111;">number</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">`+`</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  3  7 14 22 25 35 44 50 55</code></pre>
+<pre><code> [1]  6 16 24 33 36 38 45 49 50 55</code></pre>
 </div>
 </div>
 
 
 </section></section> ]]></description>
   <category>purrr</category>
-  <guid>https://orange-mansion.com/daily/211008/index.html</guid>
-  <pubDate>Fri, 07 Oct 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211008/logo.png" medium="image" type="image/png" height="167" width="144"/>
+  <guid>https://orange-mansion.com/daily/211014/index.html</guid>
+  <pubDate>Thu, 13 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211014/logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>reduce() : Reduce a list to a single value</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211007/index.html</link>
+  <link>https://orange-mansion.com/daily/211013/index.html</link>
   <description><![CDATA[ <section id="today-function-reduce" class="level2"><h2 class="anchored" data-anchor-id="today-function-reduce">Today Function : reduce()</h2>
-<p><img src="https://orange-mansion.com/daily/211007/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211013/logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘의 함수는 purrr 패키지의 <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code> 함수입니다. r에서 데이터테이블을 <code>join</code>하거나 교집합(<code>intersect</code>)을 한다거나 혹은 합집합(<code>union</code>)을 하려면 테이블이 2개일 경우에만 가능합니다. 그래서 이런 함수들을 <code>Two-Table Verbs</code>라고도 하죠. 그런데 그 이상의 데이터테이블을 가지고 교집합, 합집한 등의 함수를 적용하고 싶다면 어떻게 해야할까요? 그럴 때 사용하는 함수가 바로 <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code>입니다. <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code>함수는 벡터의 요소를 하나의 값으로 결합, 반복해주는 작업을 실행합니다. 이런 식입니다. 1:3에다가 f라는 함수를 <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code>하면 <code>f(f(1, 2), 3)</code> 이런 식으로 적용합니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
@@ -175,16 +175,16 @@ $trt
 
 </section></section></section> ]]></description>
   <category>purrr</category>
-  <guid>https://orange-mansion.com/daily/211007/index.html</guid>
-  <pubDate>Thu, 06 Oct 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211007/logo.png" medium="image" type="image/png" height="167" width="144"/>
+  <guid>https://orange-mansion.com/daily/211013/index.html</guid>
+  <pubDate>Wed, 12 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211013/logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>enframe() : Convert vectors to data frames</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211006/index.html</link>
+  <link>https://orange-mansion.com/daily/211012/index.html</link>
   <description><![CDATA[ <section id="today-function-enframe" class="level2"><h2 class="anchored" data-anchor-id="today-function-enframe">Today Function : enframe()</h2>
-<p><img src="https://orange-mansion.com/daily/211006/tibble_logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211012/tibble_logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘의 함수는 tibble 패키지의 <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수입니다. <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수는 atomic vector나 리스트를 1개 혹은 2개의 칼럼을 가진 데이터프레임으로 만들어줍니다. 리스트를 <code><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe()</a></code> 함수에 넣고 돌리면 중첩된 tibble이 나옵니다. 만일 2개의 칼럼의 데이터프레임을 vector 혹은 리스트로 변환하고 싶으면 <code><a href="https://tibble.tidyverse.org/reference/enframe.html">deframe()</a></code> 함수를 사용하면 됩니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
@@ -261,16 +261,16 @@ $trt
 
 </section></section> ]]></description>
   <category>tibble</category>
-  <guid>https://orange-mansion.com/daily/211006/index.html</guid>
-  <pubDate>Wed, 05 Oct 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211006/tibble_logo.png" medium="image" type="image/png" height="167" width="144"/>
+  <guid>https://orange-mansion.com/daily/211012/index.html</guid>
+  <pubDate>Tue, 11 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211012/tibble_logo.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>say() : Print messages with various animals</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211005/index.html</link>
+  <link>https://orange-mansion.com/daily/211011/index.html</link>
   <description><![CDATA[ <section id="today-function-say" class="level2"><h2 class="anchored" data-anchor-id="today-function-say">Today Function : say()</h2>
-<p><img src="https://orange-mansion.com/daily/211005/ascii.gif" class="img-fluid" style="width:50.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211011/ascii.gif" class="img-fluid" style="width:50.0%"></p>
 <p>오늘의 함수는 cowsay 패키지의 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수입니다. 패키지 이름에서 알 수 있듯 <code><a href="https://rdrr.io/pkg/cowsay/man/say.html">say()</a></code> 함수를 사용하면 소를 비롯한 여러 동물들의 아스키 아트로 텍스트를 출력할 수 있습니다. 아스키 아트는 텍스트와 특수문자만을 이용해서 그림을 표현하는 것을 말합니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
@@ -393,14 +393,14 @@ $trt
 
 </section></section> ]]></description>
   <category>cowsay</category>
-  <guid>https://orange-mansion.com/daily/211005/index.html</guid>
-  <pubDate>Tue, 04 Oct 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211005/ascii.gif" medium="image" type="image/gif"/>
+  <guid>https://orange-mansion.com/daily/211011/index.html</guid>
+  <pubDate>Mon, 10 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211011/ascii.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>jsonedit() : Provide a interactive view of lists</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211004/index.html</link>
+  <link>https://orange-mansion.com/daily/211007/index.html</link>
   <description><![CDATA[ <section id="today-function-jsonedit" class="level2"><h2 class="anchored" data-anchor-id="today-function-jsonedit">Today Function : jsonedit()</h2>
 <p>오늘의 함수는 listviewer 패키지의 <code><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit()</a></code> 함수입니다. listviewer 패키지는 list 형태의 데이터를 인터랙티브 페이지에서 수정할 수 있는 함수들을 제공합니다. 그 중 하나인 <code><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit()</a></code> 함수를 살펴보도록 하겠습니다.</p>
 <p><br></p>
@@ -436,29 +436,29 @@ $trt
 <span class="co" style="color: #5E5E5E;"># jsonedit 함수로 df1 살펴보기</span>
 <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">df1</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-3707ddbc90330a35e03a" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3707ddbc90330a35e03a">{"x":{"data":{"x":[1,2,3],"y":[null,{"a":[1],"b":[2]},{"a":[1,2,3],"b":[3,2,1]}]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6d23a99c28409c05ff6d" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6d23a99c28409c05ff6d">{"x":{"data":{"x":[1,2,3],"y":[null,{"a":[1],"b":[2]},{"a":[1,2,3],"b":[3,2,1]}]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># data.frame도 jsonedit 함수에 입력이 가능합니다</span>
 <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/pkg/listviewer/man/jsonedit.html">jsonedit</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">mtcars</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-68ec5ea57698260c5745" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
-<script type="application/json" data-for="htmlwidget-68ec5ea57698260c5745">{"x":{"data":{"mpg":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"cyl":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],"disp":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"hp":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"drat":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],"wt":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"qsec":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"vs":[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],"am":[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],"gear":[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],"carb":[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aa765a219019cc01230a" style="width:100%;height:464px;" class="jsonedit html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aa765a219019cc01230a">{"x":{"data":{"mpg":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"cyl":[6,6,4,6,8,6,8,4,4,6,6,8,8,8,8,8,8,4,4,4,4,8,8,8,8,4,4,4,8,6,8,4],"disp":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"hp":[110,110,93,110,175,105,245,62,95,123,123,180,180,180,205,215,230,66,52,65,97,150,150,245,175,66,91,113,264,175,335,109],"drat":[3.9,3.9,3.85,3.08,3.15,2.76,3.21,3.69,3.92,3.92,3.92,3.07,3.07,3.07,2.93,3,3.23,4.08,4.93,4.22,3.7,2.76,3.15,3.73,3.08,4.08,4.43,3.77,4.22,3.62,3.54,4.11],"wt":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"qsec":[16.46,17.02,18.61,19.44,17.02,20.22,15.84,20,22.9,18.3,18.9,17.4,17.6,18,17.98,17.82,17.42,19.47,18.52,19.9,20.01,16.87,17.3,15.41,17.05,18.9,16.7,16.9,14.5,15.5,14.6,18.6],"vs":[0,0,1,1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1],"am":[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1],"gear":[4,4,4,3,3,3,3,4,4,4,4,3,3,3,3,3,3,4,4,4,3,3,3,3,3,4,5,5,5,5,5,4],"carb":[4,4,1,1,2,1,4,2,2,4,4,3,3,3,4,4,4,1,2,1,1,2,2,4,2,1,2,2,4,6,8,2]},"options":{"mode":"tree","modes":["code","form","text","tree","view"]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
 
 </section></section> ]]></description>
   <category>listviewer</category>
-  <guid>https://orange-mansion.com/daily/211004/index.html</guid>
-  <pubDate>Mon, 03 Oct 2022 15:00:00 GMT</pubDate>
+  <guid>https://orange-mansion.com/daily/211007/index.html</guid>
+  <pubDate>Thu, 06 Oct 2022 15:00:00 GMT</pubDate>
 </item>
 <item>
   <title>unnest() : Flatten back out into regular columns</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211003/index.html</link>
+  <link>https://orange-mansion.com/daily/211006/index.html</link>
   <description><![CDATA[ <section id="today-function-unnest" class="level2"><h2 class="anchored" data-anchor-id="today-function-unnest">Today Function : unnest</h2>
-<p><img src="https://orange-mansion.com/daily/211003/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211006/logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘의 함수는 tidyr 패키지의 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수입니다. <br></p>
 <p><code><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest()</a></code> 함수는 중첩된 데이터프레임을 풀 때 사용합니다.</p>
 <p><br></p>
@@ -644,16 +644,16 @@ $trt
 
 </section></section> ]]></description>
   <category>tidyr</category>
-  <guid>https://orange-mansion.com/daily/211003/index.html</guid>
-  <pubDate>Sun, 02 Oct 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211003/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <guid>https://orange-mansion.com/daily/211006/index.html</guid>
+  <pubDate>Wed, 05 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211006/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>nest() : Create a list-column of data frames</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211002/index.html</link>
+  <link>https://orange-mansion.com/daily/211005/index.html</link>
   <description><![CDATA[ <section id="today-function-nest" class="level2"><h2 class="anchored" data-anchor-id="today-function-nest">Today Function : nest</h2>
-<p><img src="https://orange-mansion.com/daily/211002/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211005/logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘의 함수는 tidyr 패키지의 <code><a href="https://tidyr.tidyverse.org/reference/nest.html">nest()</a></code> 함수입니다. <br><code><a href="https://tidyr.tidyverse.org/reference/nest.html">nest()</a></code> 함수는 데이터프레임을 중첩시킬 때 사용합니다. <br> 중첩(nest)된 데이터프레임은 하나 이상의 열이 리스트인 데이터프레임을 의미합니다. <br></p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
@@ -802,16 +802,16 @@ $trt
 
 </section></section> ]]></description>
   <category>tidyr</category>
-  <guid>https://orange-mansion.com/daily/211002/index.html</guid>
-  <pubDate>Sat, 01 Oct 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211002/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <guid>https://orange-mansion.com/daily/211005/index.html</guid>
+  <pubDate>Tue, 04 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211005/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>pull() : Extract a single column</title>
   <dc:creator>chichead</dc:creator>
-  <link>https://orange-mansion.com/daily/211001/index.html</link>
+  <link>https://orange-mansion.com/daily/211004/index.html</link>
   <description><![CDATA[ <section id="today-function-pull" class="level2"><h2 class="anchored" data-anchor-id="today-function-pull">Today Function : pull</h2>
-<p><img src="https://orange-mansion.com/daily/211001/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/daily/211004/logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘의 함수는 dplyr 패키지의 <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수입니다. <br><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수는 <code>$</code> 연산자와 비슷한 기능을 합니다. <br><code>$</code> 연산자는 R에서 데이터 객체의 특정 부분을 추출할 때 사용하는데요. <br><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수는 파이프 연산자 내에서 <code>$</code>보다 사용하기 편리하다는 장점이 있습니다.</p>
 <p><br></p>
 <section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
@@ -879,9 +879,9 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 
 </section></section> ]]></description>
   <category>dplyr</category>
-  <guid>https://orange-mansion.com/daily/211001/index.html</guid>
-  <pubDate>Fri, 30 Sep 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/daily/211001/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <guid>https://orange-mansion.com/daily/211004/index.html</guid>
+  <pubDate>Mon, 03 Oct 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/daily/211004/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 </channel>
 </rss>
