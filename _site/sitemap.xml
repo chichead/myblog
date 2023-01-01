@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/index.html</loc>
-    <lastmod>2022-10-05T14:11:09.229Z</lastmod>
+    <lastmod>2023-01-01T10:01:15.984Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/blog.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220527_palmerpenguins-package/index.html</loc>
-    <lastmod>2022-10-03T08:34:48.897Z</lastmod>
+    <lastmod>2022-12-31T15:08:52.457Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220320_geofacet/index.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220918_quant/index.html</loc>
-    <lastmod>2022-10-03T08:35:42.361Z</lastmod>
+    <lastmod>2023-01-01T09:57:34.591Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/daily.html</loc>
@@ -111,5 +111,9 @@
   <url>
     <loc>https://orange-mansion.com/daily/211011/index.html</loc>
     <lastmod>2022-10-16T12:11:08.425Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/230101_purrr/index.html</loc>
+    <lastmod>2023-01-01T10:01:15.546Z</lastmod>
   </url>
 </urlset>

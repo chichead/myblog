@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -27,6 +32,8 @@ ul.task-list{list-style: none;}
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -86,13 +93,29 @@ ul.task-list{list-style: none;}
   </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script>
 
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 </script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  });
+});
+</script> 
+  
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -105,37 +128,42 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">오렌지 맨숀🍊</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Blog</a>
+    <a class="nav-link active" href="./index.html" aria-current="page">
+ <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./daily.html">Daily</a>
+    <a class="nav-link" href="./daily.html">
+ <span class="menu-text">Daily</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"><i class="bi bi-linkedin" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -149,7 +177,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quant">Quant <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R Markdown">R Markdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R package">R package <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Ragg">Ragg <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Visualization">Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggbump">ggbump <span class="quarto-category-count">(1)</span></div><div class="category" data-category="palmerpenguins">palmerpenguins <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyquant">tidyquant <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quant">Quant <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R Markdown">R Markdown <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R package">R package <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Ragg">Ragg <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Visualization">Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggbump">ggbump <span class="quarto-category-count">(1)</span></div><div class="category" data-category="palmerpenguins">palmerpenguins <span class="quarto-category-count">(1)</span></div><div class="category" data-category="purrr">purrr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tibble">tibble <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tidyquant">tidyquant <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -179,7 +207,35 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
   </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Quant,tidyquant" data-listing-date-sort="1663426800000" data-listing-file-modified-sort="1663685856979" data-listing-reading-time-sort="5.065">
+<div class="quarto-post image-right" data-index="0" data-categories="R package,purrr" data-listing-date-sort="1672498800000" data-listing-file-modified-sort="1672567270300" data-listing-reading-time-sort="3.48">
+<div class="thumbnail">
+<p><a href="./posts/230101_purrr/index.html"> <img src="./posts/230101_purrr/cat.webp" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/230101_purrr/index.html">
+<h3 class="no-anchor listing-title">
+pure function과 친해지려면 purrr 합시다
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<p>R아두면 쓸데있는 패키지 이야기 05 purrr package</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/230101_purrr/index.html">
+<div class="listing-date">
+2023/01/01
+</div>
+<div class="listing-reading-time">
+3 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Quant,tidyquant" data-listing-date-sort="1663426800000" data-listing-file-modified-sort="1663685856979" data-listing-reading-time-sort="5.065">
 <div class="thumbnail">
 <p><a href="./posts/220918_quant/index.html"> <img src="./posts/220918_quant/tidyquant.png" class="thumnail-image"> </a></p>
 </div>
@@ -207,7 +263,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R package,Ragg" data-listing-date-sort="1662217200000" data-listing-file-modified-sort="1662389284715" data-listing-reading-time-sort="2.29">
+<div class="quarto-post image-right" data-index="2" data-categories="R package,Ragg" data-listing-date-sort="1662217200000" data-listing-file-modified-sort="1662389284715" data-listing-reading-time-sort="2.29">
 <div class="thumbnail">
 <p><a href="./posts/220904_Ragg/index.html"> <img src="./posts/220904_Ragg/Ragg_thumb.png" class="thumnail-image"> </a></p>
 </div>
@@ -235,7 +291,7 @@ gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R Markdown,Quarto" data-listing-date-sort="1661526000000" data-listing-file-modified-sort="1661648460348" data-listing-reading-time-sort="6.365">
+<div class="quarto-post image-right" data-index="3" data-categories="R Markdown,Quarto" data-listing-date-sort="1661526000000" data-listing-file-modified-sort="1661648460348" data-listing-reading-time-sort="6.365">
 <div class="thumbnail">
 <p><a href="./posts/220827_quarto/index.html"> <img src="./posts/220827_quarto/quarto thumbnail.jpeg" class="thumnail-image"> </a></p>
 </div>
@@ -263,7 +319,7 @@ R Markdown의 차세대 포맷, Quarto
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,IDE" data-listing-date-sort="1661007600000" data-listing-file-modified-sort="1662280459164" data-listing-reading-time-sort="2.05">
+<div class="quarto-post image-right" data-index="4" data-categories="R,IDE" data-listing-date-sort="1661007600000" data-listing-file-modified-sort="1662280459164" data-listing-reading-time-sort="2.05">
 <div class="thumbnail">
 <p><a href="./posts/220821_Rstudio-is-becoming-Posit/index.html"> <img src="./posts/220821_Rstudio-is-becoming-Posit/posit.jpeg" class="thumnail-image"> </a></p>
 </div>
@@ -291,7 +347,7 @@ RStudio가 Posit으로 이름을 바꾼다
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R package,palmerpenguins" data-listing-date-sort="1653577200000" data-listing-file-modified-sort="1661179626803" data-listing-reading-time-sort="3.35">
+<div class="quarto-post image-right" data-index="5" data-categories="R package,palmerpenguins" data-listing-date-sort="1653577200000" data-listing-file-modified-sort="1661179626803" data-listing-reading-time-sort="3.35">
 <div class="thumbnail">
 <p><a href="./posts/220527_palmerpenguins-package/index.html"> <img src="./posts/220527_palmerpenguins-package/penguin.gif" class="thumnail-image"> </a></p>
 </div>
@@ -319,7 +375,7 @@ iris 대신 귀여운 penguins package 씁시다
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,Visualization" data-listing-date-sort="1647702000000" data-listing-file-modified-sort="1662209026563" data-listing-reading-time-sort="4.595">
+<div class="quarto-post image-right" data-index="6" data-categories="R,Visualization" data-listing-date-sort="1647702000000" data-listing-file-modified-sort="1662209026563" data-listing-reading-time-sort="4.595">
 <div class="thumbnail">
 <p><a href="./posts/220320_geofacet/index.html"> <img src="./posts/220320_geofacet/map.webp" class="thumnail-image"> </a></p>
 </div>
@@ -347,7 +403,7 @@ iris 대신 귀여운 penguins package 씁시다
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R package,ggbump" data-listing-date-sort="1645282800000" data-listing-file-modified-sort="1661178764424" data-listing-reading-time-sort="5.23">
+<div class="quarto-post image-right" data-index="7" data-categories="R package,ggbump" data-listing-date-sort="1645282800000" data-listing-file-modified-sort="1661178764424" data-listing-reading-time-sort="5.23">
 <div class="thumbnail">
 <p><a href="./posts/220220_ggbump-package/index.html"> <img src="./posts/220220_ggbump-package/thumbnail.png" class="thumnail-image"> </a></p>
 </div>
@@ -375,7 +431,7 @@ bump chart를 그리고 싶을 때, ggbump package
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R package,tibble" data-listing-date-sort="1619881200000" data-listing-file-modified-sort="1661178763409" data-listing-reading-time-sort="3.28">
+<div class="quarto-post image-right" data-index="8" data-categories="R package,tibble" data-listing-date-sort="1619881200000" data-listing-file-modified-sort="1661178763409" data-listing-reading-time-sort="3.28">
 <div class="thumbnail">
 <p><a href="./posts/210502_tibble-package/index.html"> <img src="./posts/210502_tibble-package/thumbnail.png" class="thumnail-image"> </a></p>
 </div>
@@ -449,7 +505,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -477,35 +550,59 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+  </div>
+</footer>
 
 
 
