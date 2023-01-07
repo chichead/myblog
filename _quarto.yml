@@ -23,6 +23,8 @@ website:
   cookie-consent: true
   comments: 
     hypothesis: true
+      theme: clean
+      openSidebar: false
 format:
   html:
     smooth-scroll: true
