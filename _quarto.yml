@@ -21,6 +21,8 @@ website:
         href: https://www.linkedin.com/in/anhyemin
   google-analytics: G-YZCBLF5F53
   cookie-consent: true
+  comments: 
+    hypothesis: true
 format:
   html:
     smooth-scroll: true
