@@ -22,7 +22,7 @@ website:
   google-analytics: G-YZCBLF5F53
   cookie-consent: true
   comments: 
-    hypothesis: true
+    hypothesis:
       theme: clean
       openSidebar: false
 format:
