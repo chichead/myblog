@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/index.html</loc>
-    <lastmod>2023-01-07T09:40:47.268Z</lastmod>
+    <lastmod>2023-01-15T09:58:48.657Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/blog.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220827_quarto/index.html</loc>
-    <lastmod>2022-10-03T08:35:09.837Z</lastmod>
+    <lastmod>2023-01-15T03:55:08.523Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220821_rstudio-is-becoming-posit/</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220918_quant/index.html</loc>
-    <lastmod>2023-01-07T09:40:59.020Z</lastmod>
+    <lastmod>2023-01-08T14:21:22.232Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/daily.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/about.html</loc>
-    <lastmod>2023-01-07T09:40:44.033Z</lastmod>
+    <lastmod>2023-01-15T08:49:22.398Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/orange.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220904_Ragg/index.html</loc>
-    <lastmod>2022-10-03T08:35:23.630Z</lastmod>
+    <lastmod>2023-01-15T03:11:31.545Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/220821_Rstudio-is-becoming-Posit/index.html</loc>
@@ -114,6 +114,10 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/posts/230101_purrr/index.html</loc>
-    <lastmod>2023-01-07T09:40:54.353Z</lastmod>
+    <lastmod>2023-01-15T04:01:56.863Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/230108_quarto_yaml/index.html</loc>
+    <lastmod>2023-01-15T09:58:48.130Z</lastmod>
   </url>
 </urlset>
