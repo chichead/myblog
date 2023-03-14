@@ -10,7 +10,118 @@
 <atom:link href="https://orange-mansion.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.2.313</generator>
-<lastBuildDate>Sat, 07 Jan 2023 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 04 Feb 2023 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>뜯어먹는 Quarto ②Markdown</title>
+  <dc:creator>chichead</dc:creator>
+  <link>https://orange-mansion.com/posts/230205_quarto_markdown/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="about-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="about-markdown">About Markdown</h2>
+<section id="quarto-복습하기" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-복습하기">Quarto 복습하기</h4>
+</section>
+<section id="텍스트는-markdown-문법으로" class="level4">
+<h4 class="anchored" data-anchor-id="텍스트는-markdown-문법으로">텍스트는 Markdown 문법으로</h4>
+</section>
+</section>
+<section id="markdown-문법-정리" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-문법-정리">Markdown 문법 정리</h2>
+<section id="headers" class="level4">
+<h4 class="anchored" data-anchor-id="headers">Headers</h4>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1">머리글(Headers) 표현법</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;"># 큰 제목(H1)은 이렇게 표현합니다</span></span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;">## 작은 제목(H2)는 이렇게 표현하고요</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;">### 더 작은 제목(H3)는 이렇게 표현합니다</span></span></code></pre></div>
+<p>우선 게시물의 제목을 표현하는데 사용하는 머리글의 표현 방식입니다. <code>#</code>을 이용해서 머리글의 레벨을 구분지을 수 있습니다. <code>#</code>을 하나만 사용하면 가장 큰 제목(1st Level Header)를 표현할 수 있고, <code>##</code>처럼 <code>#</code>을 2개를 사용하면 다음 레벨의 헤더를 쓸 수 있죠. <code>#</code>의 갯수를 늘려가면 H1부터 최대 H6 단계까지의 글 제목을 사용할 수 있어요. 참고로 오렌지 맨숀 블로그에서 가장 큰 제목은 2nd level의 헤더(H2)이고 소제목은 4th level(H4)를 사용하고 있습니다.</p>
+<p><br></p>
+</section>
+<section id="text-formattings" class="level4">
+<h4 class="anchored" data-anchor-id="text-formattings">Text formattings</h4>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1">주요 텍스트 서식</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">**bold(강조)**</span>
+<span id="cb2-4">*italics(이탤릭)*</span>
+<span id="cb2-5">~~strikethrough(취소선)~~</span>
+<span id="cb2-6"></span>
+<span id="cb2-7">supersript(윗첨자)^2^</span>
+<span id="cb2-8">subscript(아래첨자)~2~</span></code></pre></div>
+<p>이번엔 볼드, 이탤릭같은 텍스트 서식을 마크다운 문법으로 어떻게 표현하는지 살펴보겠습니다. 볼드와 이탤릭은 모두 <code>*</code>를 이용해 표현합니다. <code>**</code>이렇게 별표를 두 번 사용하면 <strong>강조</strong>가 되고, 하나만 사용하면 <em>이탤릭</em>으로 표현할 수 있죠. 취소선은 <code>~</code>표시를 활용하면 됩니다. <del>이렇게 말이죠</del></p>
+<p>첨자 표시는 <code>^</code>와 <code>~</code>를 사용해서 표현할 수 있습니다. 윗<sup>첨자</sup>는 <code>^</code>을 이용해서 나타내면 되고, 아래<sub>첨자</sub>는 <code>~</code>를 쓰면 됩니다. 취소선에선 <code>~</code>가 2개 사용됐지만 아래첨자에선 하나만 사용됩니다.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1">**밤편지**</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">이 밤 그날의 *반딧불*을  </span>
+<span id="cb3-4">당신의 창 가까이 보낼게요  </span>
+<span id="cb3-5">음 사랑^1^한다는 말이에요  </span>
+<span id="cb3-6"></span>
+<span id="cb3-7">나 우리의 첫 ~~입맞춤~~을 떠올려  </span>
+<span id="cb3-8">그럼 언제든 눈~2~을 감고  </span>
+<span id="cb3-9">음 가장 먼 곳으로 가요  </span></code></pre></div>
+<p>주요 텍스트 서식 문법을 활용해 위와 같은 문서를 작성했다고 해보죠. 마크다운 문법에 따라 아래와 같은 글이 표시될 겁니다.</p>
+<p><strong>밤편지</strong></p>
+<p>이 밤 그날의 <em>반딧불</em>을<br>
+당신의 창 가까이 보낼게요<br>
+음 사랑<sup>1</sup>한다는 말이에요</p>
+<p>나 우리의 첫 <del>입맞춤</del>을 떠올려<br>
+그럼 언제든 눈<sub>2</sub>을 감고<br>
+음 가장 먼 곳으로 가요</p>
+<p><br></p>
+</section>
+<section id="list" class="level4">
+<h4 class="anchored" data-anchor-id="list">List</h4>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><span class="ss" style="color: #20794D;">* </span>unordered list</span>
+<span id="cb4-2"><span class="ss" style="color: #20794D;">    + </span>sub-item 1</span>
+<span id="cb4-3"><span class="ss" style="color: #20794D;">    + </span>sub-item 2</span>
+<span id="cb4-4"><span class="ss" style="color: #20794D;">        - </span>sub-sub-item 1</span>
+<span id="cb4-5"><span class="ss" style="color: #20794D;">* </span>undordered list2  </span>
+<span id="cb4-6">    Countinued(indent 4 spaces)</span>
+<span id="cb4-7"></span>
+<span id="cb4-8"><span class="ss" style="color: #20794D;">1. </span>ordered list</span>
+<span id="cb4-9"><span class="ss" style="color: #20794D;">2. </span>item 2</span>
+<span id="cb4-10">    i) sub-item 1</span>
+<span id="cb4-11">         A.  sub-sub-item 1</span></code></pre></div>
+<ul>
+<li>unordered list
+<ul>
+<li>sub-item 1</li>
+<li>sub-item 2
+<ul>
+<li>sub-sub-item 1</li>
+</ul></li>
+</ul></li>
+<li>undordered list2<br>
+Countinued(indent 4 spaces)</li>
+</ul>
+<ol type="1">
+<li>ordered list</li>
+<li>item 2
+<ol type="i">
+<li>sub-item 1
+<ol type="A">
+<li>sub-sub-item 1</li>
+</ol></li>
+</ol></li>
+</ol>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>R Markdown</category>
+  <category>Quarto</category>
+  <category>Markdown</category>
+  <guid>https://orange-mansion.com/posts/230205_quarto_markdown/index.html</guid>
+  <pubDate>Sat, 04 Feb 2023 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/posts/230205_quarto_markdown/penguins_telescope_2.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>뜯어먹는 Quarto ①YAML</title>
   <dc:creator>chichead</dc:creator>

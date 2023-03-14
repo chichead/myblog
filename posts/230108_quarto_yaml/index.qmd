@@ -248,7 +248,7 @@ R studio를 사용하고 있다면 YAML 문법을 하나하나 외우고 있을 
 #### YAML Options
 
 | Format                | Options Reference                                                       |
-|------------------|------------------------------------------------------|
+|--------------------|----------------------------------------------------|
 | HTML                  | <https://quarto.org/docs/reference/formats/html.html>                   |
 | PDF                   | <https://quarto.org/docs/reference/formats/pdf.html>                    |
 | MS Word               | <https://quarto.org/docs/reference/formats/docx.html>                   |
