@@ -80,3 +80,13 @@ Edge 수준의 예측의 한 가지 예는 이미지 장면 이해(Image scene u
 :::
 
 메모리 효율을 고려한다면 인접성 목록으로 희소 행렬(sparse matrices)을 표현할 수도 있습니다. 인접성 목록의 k번째 항목에는 Node $n_i$와 Node $n_j$ 사이의 Edge $e_k$의 연결성을 나타냅니다. 희소 행렬이니만큼 Edge 수가 행렬의 항목 수 $n^2_{nodes}$) 보다 훨씬 적을 테고, 그만큼 그래프에서 연결되어 있지 않는 부분에 대한 계산과 저장을 피할 수 있습니다. 예시에서 본 그림에서는 Node, Edge, Global에 스칼라 값을 사용했지만, 대부분의 실제 텐서 표현에서는 그래프의 각 속성당 벡터를 사용합니다.
+
+<br/>
+
+### A Gentle Introduction to GNNs
+
+> [1. 그래프는 세상 어디에나 있다](https://orange-mansion.com/posts/230316_gnn_intro_1/)
+>
+> 2. 그래프 데이터로 풀 수 있는 문제
+>
+> [3. 그래프 신경망](https://orange-mansion.com/posts/230401_gnn_intro_3/)

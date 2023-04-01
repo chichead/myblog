@@ -1,0 +1,14 @@
+{
+  "hash": "eed6c431a96b5ab1cf782ca0637fccad",
+  "result": {
+    "markdown": "---\ntitle: 'test'\ndate: '2023-03-17'\ncategories: ['GNN', 'GRAPH', 'TRANSLATION']\ndescription: \"[번역] A Gentle Introduction to Graph Neural Networks ②\"\nimage: gnn_thumbnail.gif\nengine: knitr\nexecute: \n  message: false\n  warning: false\neditor_options: \n  chunk_output_type: console\n---\n\n::: {.cell}\n\n```{.python .cell-code}\nimport torch\nprint(\"PyTorch has verson {}\".format(torch.__version__))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nPyTorch has verson 2.0.0\n```\n:::\n:::\n\n::: {.cell}\n\n```{.python .cell-code}\nimport torch\nfrom torch_geometric.data import Data\n\nedge_index = torch.tensor([[0, 1, 1, 2],\n                           [1, 0, 2, 1]], dtype = torch.long)\nx = torch.tensor([[-1], [0], [1]], dtype = torch.float)\n\ndata = Data(x = x, edge_index = edge_index)\n\nData(edge_index = [2, 4], x = [3, 1])\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nData(x=[2], edge_index=[2])\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

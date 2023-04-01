@@ -139,3 +139,13 @@ U : Global (or Master node) attributes, 전역 혹은 Master Node 속성
 컴퓨터 비전(CV, Computer Vision)에서는 시각적 장면에 포함된 객체에 태그를 지정하고 싶을 때가 있습니다. 이런 경우에는 객체를 Node로, 객체 간의 관계를 Edge로 처리해서 그래프를 만들 수 있습니다. 머신러닝 모델, 프로그래밍 코드, 수식 역시 그래프로 표현 가능합니다. 이 경우엔 변수를 Node로 연산을 Edge로 보면 되죠. Tensorflow 등에서 등장하는 Dataflow graph(데이터 흐름도)가 바로 그 예시입니다.
 
 현실 세계에 존재하는 그래프들의 구조는 데이터 유형에 따라 크게 달라질 수 있을 겁니다. 어떤 그래프에선 Node가 많지만 서로 연결이 적을 수도 있고, 또 어떤 그래프에선 Node는 적지만 연결이 엄청나게 많을 수도 있죠. 그래서 그래프 데이터셋은 Node, Edge, Node의 연결성 등의 측면을 고려했을 때 매우 다양한 형태를 가질 수 있습니다.
+
+<br/>
+
+### A Gentle Introduction to GNNs
+
+> 1. 그래프는 세상 어디에나 있다
+>
+> [2. 그래프 데이터로 풀 수 있는 문제](https://orange-mansion.com/posts/230317_gnn_intro_2/)
+>
+> [3. 그래프 신경망](https://orange-mansion.com/posts/230401_gnn_intro_3/)
