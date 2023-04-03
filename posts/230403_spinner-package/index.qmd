@@ -3,7 +3,7 @@ title: 'r에서 Spinner로 만드는 Graph Net'
 date: '2023-04-03'
 categories: ['R package', 'GNN']
 description: 'R아두면 쓸데있는 패키지 이야기 05 Spinner package'
-image: penguin.gif
+image: Gromit_knitting.gif
 execute: 
   message: false
   warning: false

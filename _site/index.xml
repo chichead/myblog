@@ -111,7 +111,7 @@ epoch:  10    Train loss:  0.7193506    Val loss:  0.6954241
 epoch:  20    Train loss:  0.6814125    Val loss:  0.6942275 
 epoch:  30    Train loss:  0.6652368    Val loss:  0.7037159 
 early stop at epoch:  34    Train loss:  0.6795753    Val loss:  0.7075669 
-time: 14.421 sec elapsed</code></pre>
+time: 15.376 sec elapsed</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -175,7 +175,7 @@ An `nn_module` containing 2 parameters.
   <category>GNN</category>
   <guid>https://orange-mansion.com/posts/230403_spinner-package/index.html</guid>
   <pubDate>Sun, 02 Apr 2023 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/posts/230403_spinner-package/penguin.gif" medium="image" type="image/gif"/>
+  <media:content url="https://orange-mansion.com/posts/230403_spinner-package/Gromit_knitting.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>그래프 신경망</title>
