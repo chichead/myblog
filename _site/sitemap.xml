@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://orange-mansion.com/index.html</loc>
-    <lastmod>2023-04-01T10:41:05.320Z</lastmod>
+    <lastmod>2023-04-03T14:10:05.719Z</lastmod>
   </url>
   <url>
     <loc>https://orange-mansion.com/blog.html</loc>
@@ -139,5 +139,9 @@
   <url>
     <loc>https://orange-mansion.com/posts/230401_GNN_intro_3/index.html</loc>
     <lastmod>2023-04-01T10:41:04.836Z</lastmod>
+  </url>
+  <url>
+    <loc>https://orange-mansion.com/posts/230403_spinner-package/index.html</loc>
+    <lastmod>2023-04-03T14:10:05.235Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="chichead">
+<meta name="dcterms.date" content="2023-04-03">
+<meta name="description" content="R아두면 쓸데있는 패키지 이야기 05 Spinner package">
+<title>오렌지 맨숀🍊 - r에서 Spinner로 만드는 Graph Net</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
+</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  });
+});
+</script><style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script><script async="" src="https://hypothes.is/embed.js"></script>
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">오렌지 맨숀🍊</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../daily.html">
+ <span class="menu-text">Daily</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">r에서 Spinner로 만드는 Graph Net</h1>
+                  <div>
+        <div class="description">
+          R아두면 쓸데있는 패키지 이야기 05 Spinner package
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R package</div>
+                <div class="quarto-category">GNN</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 3, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#spinner-package" id="toc-spinner-package" class="nav-link active" data-scroll-target="#spinner-package">spinner package</a>
+  <ul>
+<li>
+<a href="#graph-layer" id="toc-graph-layer" class="nav-link" data-scroll-target="#graph-layer">Graph Layer</a>
+  <ul class="collapse">
+<li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a></li>
+  <li><a href="#graph-net-layers" id="toc-graph-net-layers" class="nav-link" data-scroll-target="#graph-net-layers">Graph Net Layers</a></li>
+  <li><a href="#output-transformation" id="toc-output-transformation" class="nav-link" data-scroll-target="#output-transformation">Output Transformation</a></li>
+  </ul>
+</li>
+  <li><a href="#examples-with-a-graph" id="toc-examples-with-a-graph" class="nav-link" data-scroll-target="#examples-with-a-graph">Examples with a graph</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="spinner-package" class="level2"><h2 class="anchored" data-anchor-id="spinner-package">spinner package</h2>
+<p><img src="spinner.png" class="img-fluid" style="width:25.0%"></p>
+<p>오늘 소개할 R package는 Spinner package입니다. 로고에도 그려진 것처럼 Spinner는 실을 만드는 방적기, 방적공을 의미합니다. Spinner package는 토치(Torch)를 기반으로 Graph Net을 구현해주는 패키지입니다. 자세한 내용은 Spinner package를 만든 <a href="https://www.linkedin.com/in/gvercellino/">Giancarlo Vercellino</a>의 <a href="https://rpubs.com/giancarlo_vercellino/spinner">Rpub</a>을 참조하세요.</p>
+<p><br></p>
+<section id="graph-layer" class="level3"><h3 class="anchored" data-anchor-id="graph-layer">Graph Layer</h3>
+<p>Graph Net은 그래프(혹은 구조화된 데이터)를 처리하기 위해 설계된 신경망 아키텍처입니다. Distill의 <a href="https://orange-mansion.com/posts/230401_gnn_intro_3/">&lt;A Gentle Introduction to Graph Neural Networks&gt;</a> 논문을 정리해보면서 이미 Graph Net을 살펴본 바 있습니다. 이웃한 노드나 엣지가 서로 정보를 교환해서 각각의 노드의 상태를 업데이트하는 Massage Passing을 이용한 Layer를 다루었죠. 그 중에서 노드에서 노드로, 엣지에서 엣지로, 노드에서 엣지로, 엣지에서 노드로, 혹은 이 4가지 방법을 모두 결합해서 마치 천을 직조하듯 구성한 Weave Layer도 살펴봤습니다.</p>
+<p>기본적인 Graph Net의 연산과 마찬가지로 Spinner package는 그래프의 노드와 엣지 간에 정보를 전파하는 메시지 전달 연산(Message-Passing Operations), 그리고 수신된 메시지를 기반으로 새로운 노드, 엣지의 Feature를 계산하는 업데이트 함수로 구성됩니다.</p>
+<p><br></p>
+<p><img src="process_of_spinner.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
+<section id="data-preparation" class="level4"><h4 class="anchored" data-anchor-id="data-preparation">Data Preparation</h4>
+<p>Spinner package는 그래프 샘플링(Graph Sampling)과 특징 추출(Feature Extraction)이라는 두 가지 작업에서부터 시작됩니다. 거대한 그래프의 경우에는 샘플링 값을 설정하고 Graph Density Threshold를 조정해서 하위 그래프를 샘플링할 수 있습니다. 그런 다음 Spinner package는 특징(Feature)을 추출합니다. 그래프에 Feature 값이 없는 경우에는 알고리즘은 Null value, 인접 임베딩 또는 라플라시안 임베딩을 이용해서 New Feature를 계산합니다. Null value는 관련 정보가 없다는 의미이고, 인접 임베딩은 그래프의 인접 행렬을 통해 노드 간의 관계를 포착합니다. 라플라시안 임베딩은 라플라시안 행렬을 분해하여 로컬 및 글로벌 속성을 포착합니다. 결측값이 있는 특징의 경우 empirical distribution을 사용하여 무작위 대입을 수행합니다.</p>
+<p><br></p>
+</section><section id="graph-net-layers" class="level4"><h4 class="anchored" data-anchor-id="graph-net-layers">Graph Net Layers</h4>
+<p>Spinner가 생성한 레이어는 Message Passing과 graph-independent forward network로 구성됩니다. Message Passing에서 그래프의 각 노드는 인접 노드로부터 메시지를 받고, 받은 메시지는 노드의 Feature 표현을 업데이트하는 데 사용됩니다. update_order 조건을 사용하면 다양한 옵션을 사용할 수 있죠. 업데이트의 조합은 선형 변환을 기반으로 합니다. graph-independent forward network는 업데이트된 Feature 표현을 가져와 DNN 변환을 적용합니다. 이 과정은 선택한 수의 레이어에 대해 반복되므로 알고리즘이 기능을 세분화하고 그래프의 더 복잡한 표현을 구축할 수 있습니다.</p>
+<p><br></p>
+</section><section id="output-transformation" class="level4"><h4 class="anchored" data-anchor-id="output-transformation">Output Transformation</h4>
+<p>Graph Net Layers가 완료되면 optional skip shortcut을 적용할 수 있습니다. skip shortcut을 사용하면 알고리즘이 특정 레이어를 건너뛰고 입력을 출력 레이어에 직접 연결하여 알고리즘의 효율성을 개선할 수 있죠. 출력 단계에선 Regression Tasks에 대한 선형 변환(Continuous range에 매핑하는 선형 변환 / Label Feature의 경우엔 확률 분포에 매핑하는 softmax/sigmoid activation)이 이뤄집니다. 마지막 단계에선 주어진 그래프 특징에 대한 예측 값 또는 확률을 나타내는 그래프 넷 알고리즘의 최종 출력을 생성합니다.</p>
+<p><br></p>
+</section></section><section id="examples-with-a-graph" class="level3"><h3 class="anchored" data-anchor-id="examples-with-a-graph">Examples with a graph</h3>
+<p>이제부터 본격적으로 그래프를 가지고 진행해보겠습니다. r에서 그래프를 그리기 위해 <code>igraph package</code>와 ggplot2 환경에서 그래프를 그리게 해주는 <code>ggnetwork package</code>를 이용하겠습니다. 우선 100개의 노드를 가지고 있는 작은 더미 그래프를 만들어보죠. 그래프에는 노드와 엣지에 각각 2개의 Feature를 넣어두겠습니다. 먼저 하나는 정규화된 연결 중심성(Degree Centrality, 한 노드에 연결된 엣지의 개수)이고, 또 하나는 cut of betweenness statstics입니다. 컨텍스트/글로벌 그래프에 대한 특징 값은 따로 없습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org">igraph</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/briatte/ggnetwork">ggnetwork</a></span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1004</span><span class="op">)</span>
+<span class="va">dummy_graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/erdos.renyi.game.html">random.graph.game</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">0.05</span><span class="op">)</span> <span class="co"># 100개의 노드, 노드간 엣지 연결 확률 0.05인 그래프 생성</span>
+
+<span class="co"># Feature 넣어주기</span>
+<span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span><span class="op">$</span><span class="va">node_feat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/degree.html">degree</a></span><span class="op">(</span><span class="va">dummy_graph</span>, normalized <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span><span class="op">$</span><span class="va">node_feat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/betweenness.html">betweenness</a></span><span class="op">(</span><span class="va">dummy_graph</span>, normalized <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/igraph/man/E.html">E</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span><span class="op">$</span><span class="va">edge_feat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/degree.html">degree</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/make_line_graph.html">line.graph</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span>, normalized <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/gsize.html">ecount</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/igraph/man/E.html">E</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span><span class="op">$</span><span class="va">edge_feat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/betweenness.html">betweenness</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/make_line_graph.html">line.graph</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span>, normalized <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggnetwork/man/ggnetwork.html">ggnetwork</a></span><span class="op">(</span><span class="va">dummy_graph</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggnetwork/man/geom_edges.html">geom_edges</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">edge_feat2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/ggnetwork/man/geom_nodes.html">geom_nodes</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">node_feat1</span>, color <span class="op">=</span> <span class="va">node_feat2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>size <span class="op">=</span> <span class="st">'none'</span>, color <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu">viridis</span><span class="fu">::</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html">viridis</a></span><span class="op">(</span><span class="fl">15</span>, direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, option <span class="op">=</span> <span class="st">"B"</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">9</span>, <span class="fl">12</span>, <span class="fl">15</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<p>spinner 함수에 필요한 최소한의 파라미터는 그래프, 예측 대상(노드나 엣지), 노드, 에지 및 컨텍스트 Feature에 대한 레이블입니다. (위에서도 이야기 했지만 Feature가 없는 경우엔 임베딩 방법을 사용하여 새로운 특징을 계산합니다. Feature가 없는 경우 기본 임베딩 크기는 5이고 relative arguments를 사용하여 노드, 엣지 및 컨텍스트에 대해 수정할 수 있습니다) 이번 연습에서는 모든 노드와 엣지의 Feature를 사용하고(기본 옵션으로 컨텍스트를 5개의 0 벡터로 초기화) 엣지에 예측 타깃을 설정하여 2-folds, 3-repetitions의 cross-validation을 해보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpubs.com/giancarlo_vercellino/spinner">spinner</a></span><span class="op">)</span>
+
+<span class="va">example1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spinner/man/spinner.html">spinner</a></span><span class="op">(</span><span class="va">dummy_graph</span>, target <span class="op">=</span> <span class="st">"edge"</span>, 
+                    node_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"node_feat1"</span>, <span class="st">"node_feat2"</span><span class="op">)</span>, 
+                    edge_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"edge_feat1"</span>, <span class="st">"edge_feat2"</span><span class="op">)</span>, 
+                    holdout <span class="op">=</span> <span class="fl">0.6</span>, 
+                    reps <span class="op">=</span> <span class="fl">3</span>, 
+                    folds <span class="op">=</span> <span class="fl">2</span>, 
+                    n_layers <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoch:  10    Train loss:  0.6820657    Val loss:  0.6711463 
+epoch:  20    Train loss:  0.6089707    Val loss:  0.6455721 
+epoch:  30    Train loss:  0.6605015    Val loss:  0.6717189 
+epoch:  40    Train loss:  0.5759389    Val loss:  0.6358511 
+early stop at epoch:  41    Train loss:  0.6066641    Val loss:  0.6683025 
+epoch:  10    Train loss:  0.7671983    Val loss:  0.661452 
+epoch:  20    Train loss:  0.7404004    Val loss:  0.6647233 
+epoch:  30    Train loss:  0.7611908    Val loss:  0.7213398 
+early stop at epoch:  39    Train loss:  0.7686964    Val loss:  0.6944773 
+epoch:  10    Train loss:  0.6721007    Val loss:  0.6914219 
+epoch:  20    Train loss:  0.7303004    Val loss:  0.7528074 
+epoch:  30    Train loss:  0.6592697    Val loss:  0.7057204 
+epoch:  40    Train loss:  0.698299    Val loss:  0.6622039 
+early stop at epoch:  44    Train loss:  0.6732623    Val loss:  0.7268654 
+epoch:  10    Train loss:  0.6426511    Val loss:  0.7335425 
+epoch:  20    Train loss:  0.7605699    Val loss:  0.7579686 
+epoch:  30    Train loss:  0.7845948    Val loss:  0.7324713 
+epoch:  40    Train loss:  0.7046131    Val loss:  0.7116204 
+early stop at epoch:  48    Train loss:  0.5067006    Val loss:  0.7423382 
+epoch:  10    Train loss:  0.5613942    Val loss:  0.6729948 
+epoch:  20    Train loss:  0.6164793    Val loss:  0.6531799 
+epoch:  30    Train loss:  0.6119072    Val loss:  0.683926 
+early stop at epoch:  32    Train loss:  0.6206366    Val loss:  0.6946394 
+epoch:  10    Train loss:  0.896782    Val loss:  0.7952279 
+epoch:  20    Train loss:  0.9012119    Val loss:  0.7725604 
+epoch:  30    Train loss:  0.493989    Val loss:  0.7581556 
+epoch:  40    Train loss:  0.63601    Val loss:  0.7295729 
+epoch:  50    Train loss:  0.9077    Val loss:  0.7525882 
+epoch:  60    Train loss:  0.4619842    Val loss:  0.7336836 
+epoch:  70    Train loss:  0.9050267    Val loss:  0.7550592 
+epoch:  80    Train loss:  0.8885249    Val loss:  0.7225138 
+epoch:  90    Train loss:  0.8951436    Val loss:  0.7863429 
+epoch:  100    Train loss:  0.892521    Val loss:  0.7861573 
+epoch:  10    Train loss:  0.7193506    Val loss:  0.6954241 
+epoch:  20    Train loss:  0.6814125    Val loss:  0.6942275 
+epoch:  30    Train loss:  0.6652368    Val loss:  0.7037159 
+early stop at epoch:  34    Train loss:  0.6795753    Val loss:  0.7075669 
+time: 14.421 sec elapsed</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>함수를 돌리면 나오는 결과값에는 출력에는 그래프(원본 or 샘플링), 모델 설명 및 요약, 새 그래프 데이터에 대한 예측, 교차 검증 및 요약 오류, 손실 함수에 대한 플롯(최종 학습 및 테스트용) 및 시간 로그가 포함되어 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">example1</span><span class="op">$</span><span class="va">model_description</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "model with 1 GraphNet layers, 1 classification tasks and 1 regression tasks (1029 parameters)"</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">example1</span><span class="op">$</span><span class="va">model_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$GraphNetLayer1
+An `nn_module` containing 1,027 parameters.
+
+── Modules ─────────────────────────────────────────────────────────────────────
+• context_to_edge: &lt;nn_pooling_from_context_to_edges_layer&gt; #18 parameters
+• context_to_node: &lt;nn_pooling_from_context_to_nodes_layer&gt; #24 parameters
+• edge_to_context: &lt;nn_pooling_from_edges_to_context_layer&gt; #20 parameters
+• edge_to_node: &lt;nn_pooling_from_edges_to_nodes_layer&gt; #16 parameters
+• node_to_context: &lt;nn_pooling_from_nodes_to_context_layer&gt; #25 parameters
+• node_to_edge: &lt;nn_pooling_from_nodes_to_edges_layer&gt; #15 parameters
+• node_fusion: &lt;nn_linear&gt; #3 parameters
+• edge_fusion: &lt;nn_linear&gt; #3 parameters
+• context_fusion: &lt;nn_linear&gt; #3 parameters
+• independent_layer: &lt;nn_graph_independent_forward_layer&gt; #900 parameters
+
+$classif1
+An `nn_module` containing 0 parameters.
+
+$regr1
+An `nn_module` containing 2 parameters.
+
+── Parameters ──────────────────────────────────────────────────────────────────
+• weight: Float [1:1, 1:1]
+• bias: Float [1:1]</code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">example1</span><span class="op">$</span><span class="va">cv_errors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  reps folds     train validation
+1    1     1 0.6066641  0.6683025
+2    1     2 0.7686964  0.6944773
+3    2     1 0.6732623  0.7268654
+4    2     2 0.5067006  0.7423382
+5    3     1 0.6206366  0.6946394
+6    3     2 0.8925210  0.7861573</code></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">example1</span><span class="op">$</span><span class="va">summary_errors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                train validation.validation                  test 
+            0.6795753             0.7187967             0.7075669 </code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">example1</span><span class="op">$</span><span class="va">history</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+  </div>
+</footer>
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
