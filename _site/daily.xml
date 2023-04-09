@@ -9,7 +9,7 @@
 <link>https://orange-mansion.com/daily.html</link>
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
-<generator>quarto-1.0.38</generator>
+<generator>quarto-1.2.313</generator>
 <lastBuildDate>Thu, 13 Oct 2022 15:00:00 GMT</lastBuildDate>
 <item>
   <title>accumulate() : Accumulate intermediate results</title>
