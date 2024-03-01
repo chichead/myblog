@@ -1,53 +1,62 @@
 /*-- scss:rules --*/
 
-// import google fonts
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
-@import url('https://webfontworld.github.io/ridi/RidiBatang.css');
+// import fonts
+//@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+//@import url('https://webfontworld.github.io/ridi/RidiBatang.css');
 @import url('https://webfontworld.github.io/pretendard/Pretendard.css');
 @import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css');
 @import url('https://webfontworld.github.io/heungkuk/SimKyungha.css');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
 
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Rg.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
 
 // navbar
-
 .navbar-title {
-  font-family: 'SimKyungha';
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  font-size: 27px;
-
-  &:hover {
-    color: #F95700;
-    opacity: 0.8;
-  }
+  font-family: 'KIMM_Bold';
+  //text-transform: uppercase;
+  font-size: 24px;
 }
 
 .nav-item {
-  font-family: "Noto Sans KR";
-  font-size: 17px;
-  
-    &:hover {
-    color: #F95700;
-  }
+  font-family: "LINESeedKR-Rg";
+  font-size: 16px;
 }
 
+
 div.navbar-container container-fluid {
-  font-family: "Noto Sans KR";
+  font-family: "Pretendard";
   font-size: 1rem;
 }
 
 // TOC
-
 #toc-title {
-  font-family: "Noto Sans KR";
+  font-family: "Pretendard";
   font-size: 14px;
 }
 
 
 // font style
-
 p {
   font-family: "Pretendard";
   font-weight: inherit;
@@ -64,7 +73,7 @@ h5 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "RIDIBatang";
+  font-family: "LINESeedKR-Rg";
   color: #595959;
 }
 
@@ -97,7 +106,7 @@ div.listing-reading-time {
 }
 
 .quarto-listing-category-title {
-  font-family: "Noto Sans KR";
+  font-family: "Pretendard";
 }
 
 .category {

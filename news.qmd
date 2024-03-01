@@ -1,20 +1,20 @@
 ---
-title: POSTS ✏️
+title: NEWS 🗞
 listing:
-  contents: posts/**/*.qmd
+  contents: news/**/*.qmd
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
   sort-ui: true
   filter-ui: false
-  fields: [date, title, reading-time, description, categories, image]
+  fields: [date, title, description, categories, image]
   date-format: "YYYY/MM/DD"
   feed: true
 page-layout: full
 title-block-banner: false
 ---
 
-Hands-on DATAVIZ + ML + DL 
+관심있는 소식을 요약해 정리합니다.
 
 ::: {#sample-listings}
 :::

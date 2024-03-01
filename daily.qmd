@@ -1,20 +1,20 @@
 ---
-title: Daily Function
+title: DIARY 🤯
 listing:
   contents: daily/**/*.qmd
   sort: "date desc"
-  type: table
+  type: grid
   categories: true
   sort-ui: true
   filter-ui: false
-  fields: [date, title, description, categories]
+  fields: [date, title, description, categories, image]
   date-format: "YYYY/MM/DD"
   feed: true
 page-layout: full
 title-block-banner: false
 ---
 
-하루에 하나씩, R function을 정리합니다
+이것 저것 잡다한 생각들
 
 ::: {#sample-listings}
 :::

@@ -1,7 +1,4 @@
 /*-- scss:defaults --*/
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap');
-
 $theme: "litera" !default;
 
 //
@@ -81,7 +78,6 @@ $input-border-color:                    rgba(0, 0, 0, .1) !default;
 $input-group-addon-bg:                  $gray-200 !default !default;
 
 // Navbar
-
 $navbar-dark-color:                 rgba($white, .6) !default;
 $navbar-dark-hover-color:           $white !default;
 $navbar-light-hover-color:          $body-color !default;

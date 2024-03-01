@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.313">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="chichead">
 <meta name="dcterms.date" content="2023-01-08">
 <meta name="description" content="YAML Ain’t Markup Language">
-<title>오렌지 맨숀🍊 - 뜯어먹는 Quarto ①YAML</title>
+
+<title>🍊오렌지 맨숀 - 뜯어먹는 Quarto ①YAML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,6 +88,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -103,7 +107,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -121,13 +126,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/plain" cookie-consent="tracking">
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script>
+
+<script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
-</script><script type="text/javascript" charset="UTF-8">
+</script>
+
+<script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
 cookieconsent.run({
   "notice_banner_type":"simple",
@@ -140,29 +150,51 @@ cookieconsent.run({
   "website_name":""
   });
 });
-</script><style>html{ scroll-behavior: smooth; }</style>
+</script> 
+  
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean",
   "openSidebar": false
 }
-</script><script async="" src="https://hypothes.is/embed.js"></script>
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
 </head>
+
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">오렌지 맨숀🍊</span>
+    <span class="navbar-title">🍊오렌지 맨숀</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html">
+ <span class="menu-text">NEWS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">POSTS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../daily.html">
+ <span class="menu-text">DIARY</span></a>
+  </li>  
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
@@ -190,10 +222,14 @@ cookieconsent.run({
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-<div id="quarto-search" class="" title="Search"></div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">뜯어먹는 Quarto ①YAML</h1>
                   <div>
@@ -234,31 +270,37 @@ cookieconsent.run({
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#quarto-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0" id="toc-quarto-뜯어보기" class="nav-link active" data-scroll-target="#quarto-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0">Quarto 뜯어보기</a>
+  <li><a href="#quarto-뜯어보기" id="toc-quarto-뜯어보기" class="nav-link active" data-scroll-target="#quarto-뜯어보기">Quarto 뜯어보기</a>
   <ul>
-<li><a href="#%EC%B0%A8%EC%84%B8%EB%8C%80-%ED%8F%AC%EB%A7%B7-qaurto" id="toc-차세대-포맷-qaurto" class="nav-link" data-scroll-target="#%EC%B0%A8%EC%84%B8%EB%8C%80-%ED%8F%AC%EB%A7%B7-qaurto">차세대 포맷 Qaurto</a></li>
-  <li><a href="#quarto%EC%9D%98-%EA%B5%AC%EC%A1%B0" id="toc-quarto의-구조" class="nav-link" data-scroll-target="#quarto%EC%9D%98-%EA%B5%AC%EC%A1%B0">Quarto의 구조</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#about-yaml" id="toc-about-yaml" class="nav-link" data-scroll-target="#about-yaml">About YAML</a>
+  <li><a href="#차세대-포맷-qaurto" id="toc-차세대-포맷-qaurto" class="nav-link" data-scroll-target="#차세대-포맷-qaurto">차세대 포맷 Qaurto</a></li>
+  <li><a href="#quarto의-구조" id="toc-quarto의-구조" class="nav-link" data-scroll-target="#quarto의-구조">Quarto의 구조</a></li>
+  </ul></li>
+  <li><a href="#about-yaml" id="toc-about-yaml" class="nav-link" data-scroll-target="#about-yaml">About YAML</a>
   <ul>
-<li><a href="#yaml-aint-markup-language" id="toc-yaml-aint-markup-language" class="nav-link" data-scroll-target="#yaml-aint-markup-language">YAML Ain’t Markup Language</a></li>
+  <li><a href="#yaml-aint-markup-language" id="toc-yaml-aint-markup-language" class="nav-link" data-scroll-target="#yaml-aint-markup-language">YAML Ain’t Markup Language</a></li>
   <li><a href="#quarto-with-yaml" id="toc-quarto-with-yaml" class="nav-link" data-scroll-target="#quarto-with-yaml">Quarto with YAML</a></li>
   <li><a href="#yaml-options" id="toc-yaml-options" class="nav-link" data-scroll-target="#yaml-options">YAML Options</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="quarto-뜯어보기" class="level2"><h2 class="anchored" data-anchor-id="quarto-뜯어보기">Quarto 뜯어보기</h2>
-<section id="차세대-포맷-qaurto" class="level4"><h4 class="anchored" data-anchor-id="차세대-포맷-qaurto">차세대 포맷 Qaurto</h4>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="quarto-뜯어보기" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-뜯어보기">Quarto 뜯어보기</h2>
+<section id="차세대-포맷-qaurto" class="level4">
+<h4 class="anchored" data-anchor-id="차세대-포맷-qaurto">차세대 포맷 Qaurto</h4>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="penguins_meteor.png" class="img-fluid figure-img" alt="Two penguins looking happily up at a Quarto logo &quot;meteor&quot; that is flying overhead."></p>
+<figure class="figure">
+<p><img src="penguins_meteor.png" class="img-fluid figure-img" alt="Two penguins looking happily up at a Quarto logo &quot;meteor&quot; that is flying overhead."></p>
 <p></p><figcaption class="figure-caption">R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
 </figure>
 </div>
@@ -298,10 +340,13 @@ cookieconsent.run({
 </div>
 </div>
 <p><br></p>
-</section><section id="quarto의-구조" class="level4"><h4 class="anchored" data-anchor-id="quarto의-구조">Quarto의 구조</h4>
+</section>
+<section id="quarto의-구조" class="level4">
+<h4 class="anchored" data-anchor-id="quarto의-구조">Quarto의 구조</h4>
 <p>Quarto라는 녀석이 CLI라는 건 그렇게 중요하지 않습니다. 왜냐면 우리가 Quarto를 이용해서 얻고자 하는 건 글을 쓰고, 블로그를 쓰고, 책을 출간하고, 발표자료를 만들려고 하는 거니까요. 그러려면 우선 Quarto 문서(.qmd)를 작성해야 합니다. 이번 게시물에선 Quarto 문서, 그 자체에 집중해서 이야기를 나눠보도록 하겠습니다. 먼저 Quarto 문서가 어떻게 구성되어 있는지 살펴보겠습니다. Quarto 문서는 크게 3가지 요소로 구분할 수 있습니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="quarto_anatomy.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figure class="figure">
+<p><img src="quarto_anatomy.png" class="img-fluid figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 <ul>
@@ -311,7 +356,8 @@ cookieconsent.run({
 </ul>
 <p>이 세 가지 요소를 잘 버무려서 Quarto 문서를 작성하면 다양한 형태의 콘텐츠를 제작할 수 있습니다. 지금 이 게시물 역시 Metadata와 Text, Code 이렇게 3가지 요소로 만든 qmd 파일을 html로 렌더링 한 거죠.</p>
 <p><br></p>
-<section id="metadata" class="level5"><h5 class="anchored" data-anchor-id="metadata">1. Metadata</h5>
+<section id="metadata" class="level5">
+<h5 class="anchored" data-anchor-id="metadata">1. Metadata</h5>
 <p>먼저 Metadata가 담겨있는 YAML header입니다. 지금 이 게시글의 YAML header는 요런 모습입니다.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">'뜯어먹는 Quarto ①YAML'</span></span>
@@ -326,35 +372,40 @@ cookieconsent.run({
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>YAML header의 내용을 보면 꽤나 직관적입니다. title에는 게시물 제목이, date에는 작성 시점이, cateogories에는 이 게시물의 카테고리가 표시되어 있죠. YAML header에는 이 문서의 메타데이터를 표시해 줍니다. 메타데이터는 다른 데이터를 설명해 주는 데이터를 뜻합니다. 메타데이터의 메타(Meta)는 about(~에 관하여)과 같은 의미를 갖고 있죠. 이론을 대상으로 하는 이론을 뜻하는 메타이론(metatheory), 수학으로 수학 자체를 연구하는 메타수학(Metamathematics)의 메타와 같아요.</p>
 <p><br></p>
-</section><section id="text" class="level5"><h5 class="anchored" data-anchor-id="text">2. Text</h5>
+</section>
+<section id="text" class="level5">
+<h5 class="anchored" data-anchor-id="text">2. Text</h5>
 <p>두 번째는 텍스트 항목입니다.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quarto 뜯어보기</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>지난 게시물에선 R Markdown의 차세대 포맷, Quarto의 등장 배경에 대해 살펴봤습니다. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Quarto에서는 마크업 언어의 일종인 마크다운(Markdown)을 이용해 텍스트를 작성합니다. HTML 문서를 무작정 작성하려고 하면 온갖 다양한 태그를 사용하게 되는데 그걸 일일이 작성하긴 어려우니까요. 마크다운(Markdown)을 이용하면 훨씬 쓰기 쉽고, 읽기 쉬운 형태의 문서를 쓸 수 있습니다.</p>
 <p><br></p>
-</section><section id="code" class="level5"><h5 class="anchored" data-anchor-id="code">3. Code</h5>
+</section>
+<section id="code" class="level5">
+<h5 class="anchored" data-anchor-id="code">3. Code</h5>
 <p>마지막은 코드입니다. R을 사용하는 사람들은 knitr 엔진을, python을 사용하는 사람들은 jupyter 엔진을 활용해 인라인 코드를 작성하고, 시각화를 구현할 수 있습니다. 이런 식으로 말이죠.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">airquality</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Temp</span>, <span class="va">Ozone</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"loess"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
-</section></section></section><section id="about-yaml" class="level2"><h2 class="anchored" data-anchor-id="about-yaml">About YAML</h2>
-<section id="yaml-aint-markup-language" class="level4"><h4 class="anchored" data-anchor-id="yaml-aint-markup-language">YAML Ain’t Markup Language</h4>
+</section>
+</section>
+</section>
+<section id="about-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="about-yaml">About YAML</h2>
+<section id="yaml-aint-markup-language" class="level4">
+<h4 class="anchored" data-anchor-id="yaml-aint-markup-language">YAML Ain’t Markup Language</h4>
 <p>세 요소 중에서도 YAML에 대해서 조금 더 이야기를 나눠보도록 하겠습니다. YAML은 <strong>Y</strong>et <strong>A</strong>nother <strong>M</strong>arkup <strong>L</strong>anguage라는 뜻을 가진 마크업 언어입니다. [야믈], [야멜] 등으로 읽을 수 있겠습니다. YAML은 2001년 클라크 에반스가 고안한 언어로 기존의 JSON이 가지고 있는 단점(주석을 달 수 없다, 문법이 유연하지 않다)들을 해소하기 위해 만들어졌습니다.</p>
 <p>YAML은 마크업 언어지만 스스로 마크업 언어가 아니라고 이야기합니다. YAML을 또 다르게 풀어보면 <strong>Y</strong>AML <strong>A</strong>in’t <strong>M</strong>arkup <strong>L</strong>anguage라고도 할 수 있거든요. “YAML은 마크업 문서가 아니다”라고 이야기하는 이유는 바로 YAML의 정체성을 마크업이 아닌 데이터에 두겠다는 거죠. 데이터에 방점을 둔 YAML은 JSON과 XML과 비교해 압도적으로 간결하고 가독성 높은 구조로 만들어졌습니다. 직접 한 번 비교해보시면 그 차이가 느껴질겁니다. 이렇게 간결한 구조는 YAML 문서가 여러 프레임워크에서 설정파일로 자리잡는데 큰 힘이 되었어요.</p>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">YAML</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">JSON</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">XML</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">YAML</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">JSON</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">XML</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
@@ -391,9 +442,12 @@ cookieconsent.run({
 </div>
 <p>Quarto도 마찬가지입니다. 서두에서 이야기한 것처럼 YAML header에는 메타데이터가 담겨있습니다. Quarto 문서의 다양한 설정을 YAML header에 담아두면 됩니다. 간단한 구조와 간결한 문법을 활용해서 말이죠. Quarto는 매번 모든 옵션을 수동으로 입력하지 않도록 하기 위해 YAML header를 활용합니다. 입력된 메타데이터들은 최종적으로 퍼블리싱되는 포맷에 영향을 주죠. 퍼블리싱, 렌더링 과정에 참여하는 pandoc, quarto, knitr이 YAML header에 담긴 정보를 읽고 처리합니다.</p>
 <p><br></p>
-</section><section id="quarto-with-yaml" class="level4"><h4 class="anchored" data-anchor-id="quarto-with-yaml">Quarto with YAML</h4>
+</section>
+<section id="quarto-with-yaml" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-with-yaml">Quarto with YAML</h4>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="penguins_telescope_2.png" class="img-fluid figure-img" style="width:100.0%" alt="Two penguins in a room made of ice, looking out a window. One penguin is holding an icicle as a pointer, pointing at a Quarto logo &quot;moon&quot; in the sky, while the other penguin looks on."></p>
+<figure class="figure">
+<p><img src="penguins_telescope_2.png" class="img-fluid figure-img" style="width:100.0%" alt="Two penguins in a room made of ice, looking out a window. One penguin is holding an icicle as a pointer, pointing at a Quarto logo &quot;moon&quot; in the sky, while the other penguin looks on."></p>
 <p></p><figcaption class="figure-caption">R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
 </figure>
 </div>
@@ -445,10 +499,12 @@ cookieconsent.run({
 <col style="width: 24%">
 <col style="width: 75%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Option</th>
 <th>설명</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>title</code></td>
@@ -490,12 +546,16 @@ cookieconsent.run({
 </table>
 <p>위의 표는 HTML format에서 제목과 작성자와 관련된 옵션을 정리한 겁니다. 옵션의 수는 너무나도 많아서 여기에다 정리하긴 어려울 것 같고요. Quarto의 공식 홈페이지를 들어가 보면 <a href="https://quarto.org/docs/reference/formats/html.html">HTML option</a>들을 확인할 수 있을 겁니다. 공식 홈페이지에는 HTML뿐 아니라 PDF, MS Word, OpenOffice, ePub, Presentations 등 다양한 포맷들의 option을 정리해두고 있습니다. 주요 포맷들의 option과 guide 링크를 소개하는 것으로 이번 게시물은 마무리하도록 하겠습니다.</p>
 <p><br></p>
-</section><section id="yaml-options" class="level4"><h4 class="anchored" data-anchor-id="yaml-options">YAML Options</h4>
+</section>
+<section id="yaml-options" class="level4">
+<h4 class="anchored" data-anchor-id="yaml-options">YAML Options</h4>
 <table class="table">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Format</th>
 <th>Options Reference</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td>HTML</td>
@@ -533,7 +593,11 @@ cookieconsent.run({
 </table>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -665,13 +729,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
       <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
   </div>
 </footer>
+
 
 
 <script src="../../site_libs/quarto-html/zenscroll-min.js"></script>

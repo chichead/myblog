@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.313">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="chichead">
 <meta name="dcterms.date" content="2022-05-27">
 <meta name="description" content="R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package">
-<title>오렌지 맨숀🍊 - iris 대신 귀여운 penguins package 씁시다</title>
+
+<title>🍊Orange Mansion - iris 대신 귀여운 penguins package 씁시다</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,6 +88,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -103,7 +107,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -121,13 +126,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/plain" cookie-consent="tracking">
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script>
+
+<script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
-</script><script type="text/javascript" charset="UTF-8">
+</script>
+
+<script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
 cookieconsent.run({
   "notice_banner_type":"simple",
@@ -140,21 +150,29 @@ cookieconsent.run({
   "website_name":""
   });
 });
-</script><style>html{ scroll-behavior: smooth; }</style>
+</script> 
+  
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean",
   "openSidebar": false
 }
-</script><script async="" src="https://hypothes.is/embed.js"></script>
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
 </head>
+
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">오렌지 맨숀🍊</span>
+    <span class="navbar-title">🍊Orange Mansion</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -162,7 +180,7 @@ cookieconsent.run({
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
@@ -190,10 +208,14 @@ cookieconsent.run({
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-<div id="quarto-search" class="" title="Search"></div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">iris 대신 귀여운 penguins package 씁시다</h1>
                   <div>
@@ -233,62 +255,75 @@ cookieconsent.run({
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#palmerpenguins-package" id="toc-palmerpenguins-package" class="nav-link active" data-scroll-target="#palmerpenguins-package">palmerpenguins package</a>
+  <li><a href="#palmerpenguins-package" id="toc-palmerpenguins-package" class="nav-link active" data-scroll-target="#palmerpenguins-package">palmerpenguins package</a>
   <ul>
-<li><a href="#paler-penguins" id="toc-paler-penguins" class="nav-link" data-scroll-target="#paler-penguins">paler penguins</a></li>
+  <li><a href="#paler-penguins" id="toc-paler-penguins" class="nav-link" data-scroll-target="#paler-penguins">paler penguins</a></li>
   <li><a href="#no-iris-yes-penguin" id="toc-no-iris-yes-penguin" class="nav-link" data-scroll-target="#no-iris-yes-penguin">No iris, Yes penguin</a></li>
   <li><a href="#ronald-fisher" id="toc-ronald-fisher" class="nav-link" data-scroll-target="#ronald-fisher">Ronald Fisher</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#all-about-package" id="toc-all-about-package" class="nav-link" data-scroll-target="#all-about-package">All about package</a>
+  </ul></li>
+  <li><a href="#all-about-package" id="toc-all-about-package" class="nav-link" data-scroll-target="#all-about-package">All about package</a>
   <ul>
-<li><a href="#penguins" id="toc-penguins" class="nav-link" data-scroll-target="#penguins">penguins</a></li>
+  <li><a href="#penguins" id="toc-penguins" class="nav-link" data-scroll-target="#penguins">penguins</a></li>
   <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox">Simpson’s paradox</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="palmerpenguins-package" class="level2"><h2 class="anchored" data-anchor-id="palmerpenguins-package">palmerpenguins package</h2>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="palmerpenguins-package" class="level2">
+<h2 class="anchored" data-anchor-id="palmerpenguins-package">palmerpenguins package</h2>
 <p><img src="palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘 소개할 R package는 palmerpenguins package입니다. 남극의 파머 군도에 있는 3곳의 섬에서 관찰된 3종의 펭귄 데이터가 담겨져 있죠.</p>
-<section id="paler-penguins" class="level3"><h3 class="anchored" data-anchor-id="paler-penguins">paler penguins</h3>
+<section id="paler-penguins" class="level3">
+<h3 class="anchored" data-anchor-id="paler-penguins">paler penguins</h3>
 <p><img src="penguins.png" class="img-fluid" style="width:100.0%"></p>
 <p>파머 군도에 있는 Dreams Island, Torgersen Island, Biscoe Point에는 세 종의 펭귄이 살고 있습니다. 턱끈 펭귄(Chinstrap), 젠투 펭귄(Gentoo), 아델리 펭귄(Adélie) 이렇게 말이죠. palmerpenguins package에는 이 세 펭귄의 크기, 성별 정보가 담겨있습니다. 펭귄들의 데이터는 미국의 장기 생태 연구 네트워크(US Long Term Ecological Research Network)에서 운영하는 프로그램의 일부로, 파머 군도에서 2007년부터 2009년까지 크리스틴 고먼 박사에 의해 수집됐습니다.</p>
 <p><br></p>
-</section><section id="no-iris-yes-penguin" class="level3"><h3 class="anchored" data-anchor-id="no-iris-yes-penguin">No iris, Yes penguin</h3>
+</section>
+<section id="no-iris-yes-penguin" class="level3">
+<h3 class="anchored" data-anchor-id="no-iris-yes-penguin">No iris, Yes penguin</h3>
 <p>R을 이용하는 유저 중에 iris 데이터를 한 번이라도 안 써본 유저는 없을 겁니다. iris 데이터는 로널드 피셔(Ronald Fisher)의 1936년 논문에 포함되어 있던 유서 깊은 자료입니다. R에 기본적으로 내장되어 있는 데이터이기도 하고 기본적인 R 연산, 시각화를 공부하는데 iris만한 데이터가 없죠. 그런데 이 iris 데이터를 이제 그만 쓰자는 목소리가 나오고 있어요. 바로 로널드 피셔 때문이죠.</p>
 <p><br></p>
-</section><section id="ronald-fisher" class="level3"><h3 class="anchored" data-anchor-id="ronald-fisher">Ronald Fisher</h3>
+</section>
+<section id="ronald-fisher" class="level3">
+<h3 class="anchored" data-anchor-id="ronald-fisher">Ronald Fisher</h3>
 <p>피셔는 통계학자이자 유전학자이자 진화생물학자였습니다. 현대 통계학에 지대한 공을 세운 학자로 알려져있습니다. 통계학자 앤더스 할(Anders Hald)은 피셔를 두고 현대 통계학의 토대를 거의 혼자서 만들어낸 천재로 지칭할 정도죠. Bootstrap을 처음으로 제안한 브래들리 에프론(스탠퍼드 대학교 통계학과 교수)도 로널드 피셔를 20세기 통계에서 가장 중요한 인물이라고 말할 정도입니다.</p>
 <p>F-검정, F-분포의 F가 바로 피셔의 F입니다. 피셔가 F-분포를 처음 제안했고, 조지 W 스네데코가 이후에 완성하면서 처음 제안한 피셔를 기려 F-분포, F-검정이라고 명명한거죠. 그래서 F-분포를 피셔-스네데코 분포라고도 합니다. ggplot2에서 제공해주는 stat_function을 활용해서 간단한 F-분포를 그려봤습니다. `</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">stat_function</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="st">"df"</span>, args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>df1 <span class="op">=</span> <span class="fl">5</span>, df2 <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="st">"df"</span>, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df1 =</span> <span class="dv">5</span>, <span class="at">df2 =</span> <span class="dv">10</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 자유도가 (a, b)인 F-분포를 그리려면 args의 df1, df2에 a, b를 넣으면 됩니다.</span>
-<span class="co"># 위의 그래프는 자유도가 5, 10인 F-분포입니다.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 자유도가 (a, b)인 F-분포를 그리려면 args의 df1, df2에 a, b를 넣으면 됩니다.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 위의 그래프는 자유도가 5, 10인 F-분포입니다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>전체 대상(모집단)의 특성(모수)을 파악하기 위해 표본을 추출해 추론하는 건 현대 통계에서 아주 당연한 접근방식이죠? 이 흐름을 만든 게 바로 로널드 피셔입니다. 피셔는 모집단과 표본집단을 구분짓고, 일부(표본집단)를 통해 전체(모집단)에 대한 분석이 가능하다는 걸 귀무가설로 증명해 냈습니다. 귀무가설(null hypothesis)도 피셔가 정의한 개념입니다.</p>
 <p>그리고 이걸 발전시켜서 추측통계학, 이른바 추계학(stochastic)을 탄생시키죠. 추계학은 통계의 범위를 수학뿐만 아니라 여론조사, 제품검사, 의약품의 효과 등 사회과학의 방법론까지 확장시켰습니다. 20세기 통계에서 가장 중요한 인물이라고 칭하는 게 부족함이 없어보입니다.</p>
 <p>그런데 그 대단한 피셔가 우생학자로도 유명했습니다. BLM 시위 이후 피셔의 우생학자로서의 삶이 다시 재조명되면서 과학 분야 전반에서 정화의 흐름이 나오고 있습니다. 영국의 명문대학 유니버시티 칼리지 런던은 피셔의 이름이 붙은 연구 센터의 이름을 Center for Computational Biology로 바꾸기도 했죠. 그래서 iris를 과연 계속 써야하는지에 대한 논의가 나온 겁니다. 그 대안으로 떠오른 데이터셋이 바로 palmerpenguins package의 펭귄 데이터입니다.</p>
 <p><br></p>
-</section></section><section id="all-about-package" class="level2"><h2 class="anchored" data-anchor-id="all-about-package">All about package</h2>
-<section id="penguins" class="level3"><h3 class="anchored" data-anchor-id="penguins">penguins</h3>
+</section>
+</section>
+<section id="all-about-package" class="level2">
+<h2 class="anchored" data-anchor-id="all-about-package">All about package</h2>
+<section id="penguins" class="level3">
+<h3 class="anchored" data-anchor-id="penguins">penguins</h3>
 <p>파머 군도에서 수집된 원자료는 penguins_raw에 담겨있습니다. 관측치를 모두 활용하고 싶다면 penguins_raw를 불러오면 됩니다. 아마 대부분의 경우에는 penguins 데이터면 충분할겁니다. penguins 데이터에는 8개의 변수, 344개의 개체 정보가 들어가 있습니다. bill_length와 bill_depth는 펭귄의 부리의 크기를 나타낸 정보입니다. 아래 그림을 보면 length와 depth의 차이를 알 수 있어요.</p>
 <p><img src="culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">palmerpenguins</span><span class="fu">::</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">penguins</a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>palmerpenguins<span class="sc">::</span>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
    species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
@@ -306,47 +341,53 @@ cookieconsent.run({
 # … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
 #   ²​body_mass_g</code></pre>
 </div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span>
-<span class="co"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span>
-<span class="co"># bill_length_mm : 펭귄 부리의 길이를 ㎜단위로 나타낸 number형 변수</span>
-<span class="co"># bill_depth_mm : 펭귄 부리의 깊이를 ㎜단위로 나타낸 number형 변수</span>
-<span class="co"># flipper_length_mm : 펭귄 물갈퀴의 길이를 ㎜단위로 나타낸 integer형 변수</span>
-<span class="co"># body_mass_g : 펭귄 몸무게를 g단위로 나타낸 integer형 변수</span>
-<span class="co"># sex : 펭귄 성별을 나타낸 factor형 변수(female, male)</span>
-<span class="co"># year : 연구 시점이 담긴 integer형 변수(2007, 2008, 2009)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># bill_length_mm : 펭귄 부리의 길이를 ㎜단위로 나타낸 number형 변수</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># bill_depth_mm : 펭귄 부리의 깊이를 ㎜단위로 나타낸 number형 변수</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># flipper_length_mm : 펭귄 물갈퀴의 길이를 ㎜단위로 나타낸 integer형 변수</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># body_mass_g : 펭귄 몸무게를 g단위로 나타낸 integer형 변수</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sex : 펭귄 성별을 나타낸 factor형 변수(female, male)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># year : 연구 시점이 담긴 integer형 변수(2007, 2008, 2009)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="simpsons-paradox" class="level3"><h3 class="anchored" data-anchor-id="simpsons-paradox">Simpson’s paradox</h3>
+</section>
+<section id="simpsons-paradox" class="level3">
+<h3 class="anchored" data-anchor-id="simpsons-paradox">Simpson’s paradox</h3>
 <p>iris대신 제시되는 데이터셋인만큼 기본적인 시각화를 연습하는데 penguins 패키지는 부족함이 없습니다. 펭귄 부리의 길이와 깊이를 가지고 scatter plot을 그려보겠습니다. geom_smooth로 상관관계를 살펴보면 음의 상관관계가 있다고 볼 수 있겠네요.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">bill_length_mm</span>, y <span class="op">=</span> <span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>하지만 종별로 나눠서 살펴보면 어떨까요? 이번엔 Adélie, Chinstrap, Gentoo 세 종별로 scatter plot을 그려서 상관관계를 살펴보겠습니다. 종별로 보면 부리의 길이와 깊이는 양의 상관관계가 있어 보입니다. 야생의 데이터에서 확인할 수 있는 심슨의 역설(Simpson’s Paradox)의 아주 좋은 사례입니다. 영국의 통계학자 에드워드 심슨이 정리한 이 역설은 각각의 변수를 살피지 않고 전체 통계만 보고 판단하다가 발생할 수 있는 함정입니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">bill_length_mm</span>, y <span class="op">=</span> <span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">species</span>, 
-                 shape <span class="op">=</span> <span class="va">species</span><span class="op">)</span>,
-             size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"darkorange"</span>,<span class="st">"darkorchid"</span>,<span class="st">"cyan4"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkorchid"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -478,13 +519,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
       <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
   </div>
 </footer>
+
 
 
 <script src="../../site_libs/quarto-html/zenscroll-min.js"></script>

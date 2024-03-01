@@ -10,8 +10,6 @@
       "/posts/230101_purrr/index.html",
       "/posts/220918_quant/index.html",
       "/posts/220904_Ragg/index.html",
-      "/posts/220827_quarto/index.html",
-      "/posts/220821_Rstudio-is-becoming-Posit/index.html",
       "/posts/220527_palmerpenguins-package/index.html",
       "/posts/220320_geofacet/index.html",
       "/posts/220220_ggbump-package/index.html",
@@ -42,6 +40,13 @@
       "/daily/211006/index.html",
       "/daily/211005/index.html",
       "/daily/211004/index.html"
+    ]
+  },
+  {
+    "listing": "/news.html",
+    "items": [
+      "/news/220827_quarto/index.html",
+      "/news/220821_Rstudio-is-becoming-Posit/index.html"
     ]
   }
 ]

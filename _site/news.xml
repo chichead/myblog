@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>🍊오렌지맨숀</title>
+<link>https://orange-mansion.com/news.html</link>
+<atom:link href="https://orange-mansion.com/news.xml" rel="self" type="application/rss+xml"/>
+<description>귤 향 가득한, 오렌지 맨숀입니다.</description>
+<generator>quarto-1.2.313</generator>
+<lastBuildDate>Fri, 26 Aug 2022 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>R Markdown의 차세대 포맷, Quarto</title>
+  <link>https://orange-mansion.com/news/220827_quarto/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="quarto가-뭐지" class="level2">
+<h2 class="anchored" data-anchor-id="quarto가-뭐지">Quarto가 뭐지</h2>
+<p><img src="https://orange-mansion.com/news/220827_quarto/quarto thumbnail.jpeg" class="img-fluid" style="width:100.0%"></p>
+<p>RStudio는 자사의 2022년 컨퍼런스 rstudio::conf(2022)에서 발표한 여러 소식 가운데 가장 중요한 소식으로 이렇게 4가지를 꼽았습니다.</p>
+<ol type="1">
+<li><p>RStudio의 이름은 Posit으로 바꾼다</p></li>
+<li><p>새로운 오픈소스 기반의 과학기술 출판 시스템, Quarto</p></li>
+<li><p>Shiny 생태계의 새로운 발전</p></li>
+<li><p>tidymodel의 업데이트</p></li>
+</ol>
+<p>1번은 이미 <a href="https://orange-mansion.com/posts/220821_rstudio-is-becoming-posit/">이 포스트</a>에서 다루었죠? 그 연장선이라고 볼 수 있는 Quarto가 이번 게시물의 주제입니다. Quarto는 R Markdown에 이은 RStudio의 차세대 R 출판 플랫폼입니다. 기존의 R Markdown을 이용하면 R code sript를 Word, HTML, PDF, PPT 등 다양한 문서 형식으로 만들 수 있었습니다. 웹을 통한 출판(Bookdown)까지도 가능했죠.</p>
+<p><img src="https://orange-mansion.com/news/220827_quarto/rmarkdown_env.png" class="img-fluid" style="width:100.0%"></p>
+<p>그런데 이 R Markdwon이 어느새 10년 가까이 지났습니다. 기능의 편리함은 지적할만한 게 없었지만 R Markdown 생태계가 너무 커져버렸죠. 관련 생태계가 커졌다는 건 오히려 반길 일이지만 덕지덕지 붙어버린 서드파티 패키지들이 많아진 게 문제였습니다. 더 이상 통일된 하나의 R Markdown의 제작과 작업이 되질 못했습니다. 과학, 기술 블로그를 만들 땐 distill package를 사용하고, 웹 프레젠테이션 파일을 만들 땐 xaringan(사륜안) package를 사용하고…</p>
+<p>그래서 등장한 게 바로 이 Quarto입니다. R Markdown과 마찬가지로 Knitr와 Pandoc을 기반으로 하고 있고요. 궁극적으로 R Studio는 Quarto 생태계에 다른 언어를 사용하는 사람들끼리 모을 생각을 하고 있습니다. 그래서 저번 Posit 이야기의 연장선이라고 말씀을 드린 겁니다. 그 이유 때문인지 Quarto는 R의 내장 라이브러리가 아닌 독립 소프트웨어로 제작되었습니다. 새로운 시스템 Quarto 단어가 생소할 텐데, Quarto는 4절판을 의미합니다. 8페이지 분량의 텍스트를 두 번 접어서 네 장을 만드는 형식을 뜻하죠. 출판 역사에 의미가 있는 단어를 골랐다고 합니다.</p>
+<p><br></p>
+<section id="quarto-다운받기" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-다운받기">Quarto 다운받기</h4>
+<p><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></p>
+<p>Quarto는 위 링크에서 받을 수 있습니다. 링크를 들어가면 나오는 홈페이지에서도 확인할 수 있지만 Quarto는 R 뿐만 아니라 VS code, Jupyter에서도 활용할 수 있습니다.</p>
+<p><br></p>
+</section>
+</section>
+<section id="r-markdown과-차이점" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown과-차이점">R Markdown과 차이점</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://orange-mansion.com/news/220827_quarto/rmarkdown_sys.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Quarto의 구조를 알기 위해선 R Markdown에 대한 이해가 필요합니다. 일단 R Markdown 시스템은 위의 그림과 같습니다. Rmd(R 마크다운) 파일을 knitr package를 통해 md(마크다운) 파일로 만들고, pandoc 라이브러리를 통해 문서, PPT, 웹페이지, 책의 형태로 퍼블리싱되는 거죠. knitr은 2012년 Yihui Xie에 의해 개발된 패키지입니다. Knitr 패키지를 이용하면 동적 리포트를 생성할 수 있게 해주죠. md 파일을 다양한 형식으로 변환할 때에는 pandoc 라이브러리를 활용합니다. 정리해보면 기존 R Markdown은 Rmd 파일을 여러 가지 형태의 문서로 퍼블리싱해주는 시스템이라고 할 수 있겠네요.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://orange-mansion.com/news/220827_quarto/quarto.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
+</figure>
+</div>
+<p>Quarto도 비슷합니다. R Markdown과 마찬가지로 Knitr과 pandoc을 활용합니다. 달라진 건 적용 대상입니다. 기존 시스템에선 Rmd만 가능했다면 이제는 Python도 가능합니다. jupyter까지 활용하게 되면서 Python에서 qmd(Qarto markdown) 파일을 작성하면 jupyter를 통해 md 파일로 변환해 다양한 결과물을 만들어 낼 수 있게 된 거죠.</p>
+<p><br></p>
+<section id="quarto-vs-r-markdown" class="level4">
+<h4 class="anchored" data-anchor-id="quarto-vs-r-markdown">Quarto vs R Markdown</h4>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 32%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>R Markdown</th>
+<th>Quarto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>기본 포맷</td>
+<td>html_document<br>
+pdf_document<br>
+word_document</td>
+<td>html<br>
+pdf<br>
+word</td>
+</tr>
+<tr class="even">
+<td>비머 포맷(발표자료)</td>
+<td>beamer_presentation</td>
+<td>beamer</td>
+</tr>
+<tr class="odd">
+<td>PPT</td>
+<td>powerpoint_presentation</td>
+<td>pptx</td>
+</tr>
+<tr class="even">
+<td>HTML 슬라이드</td>
+<td>xaringan<br>
+ioslides<br>
+revealjs</td>
+<td><br>
+<br>
+revealjs</td>
+</tr>
+<tr class="odd">
+<td>블로그 및 웹사이트</td>
+<td>blogdown<br>
+distill</td>
+<td>Quarto Websites<br>
+Quarto Blogs</td>
+</tr>
+<tr class="even">
+<td>책</td>
+<td>bookdown</td>
+<td>Quarto Books</td>
+</tr>
+<tr class="odd">
+<td>인터랙티브</td>
+<td>Shiny Documents</td>
+<td>Quarto Interactive Documents</td>
+</tr>
+<tr class="even">
+<td>Paged HTML</td>
+<td>pagedown</td>
+<td>2022 여름 공개 예정</td>
+</tr>
+<tr class="odd">
+<td>Journal Articles</td>
+<td>rticles</td>
+<td>2022 여름 공개 예정</td>
+</tr>
+<tr class="even">
+<td>대시보드</td>
+<td>flexdashboard</td>
+<td>2022 가을 공개 예정</td>
+</tr>
+</tbody>
+</table>
+<p>다양한 포맷을 만들기 위해 여러 패키지를 사용했던 R Markdown과 달리, Quarto에서는 Quarto 시스템으로 다 들어왔습니다. 예전 R을 활용해 기술 블로그를 만들기 위해 distll package를 사용했지만, 이젠 Quarto의 Quarto Websites, Blogs를 활용하면 됩니다. 이 블로그도 Quarto Blogs를 이용해 만들었습니다. 아직 공개되지 않은 대시보드와 Journal Articles, Paged HTML도 곧 공개될 예정입니다.</p>
+<p><br></p>
+</section>
+</section>
+<section id="quarto의-미래" class="level2">
+<h2 class="anchored" data-anchor-id="quarto의-미래">Quarto의 미래</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://orange-mansion.com/news/220827_quarto/qaurto2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
+</figure>
+</div>
+<p>RStudio의 이번 Qaurto 발표는 결국 Posit과 비슷합니다. Python과 Julia 등 다른 언어들까지 포함하는 IDE인 Posit을 발표하고, 새롭게 출시한 Quarto에는 jupyter를 지원하면서 다른 언어 이용자들을 R 커뮤니티에 끌어들이겠다는 겁니다. Python 이용자들도 충분히 웹사이트와 블로그, 책을 만들 수 있다고 유혹하는 것이죠. RStudio의 CEO가 발표한 내용을 살펴보면 미래에는 마치 Google Docs에서 사람들이 자유롭게 문서를 편집하듯이 여러 언어를 사용하는 이용자들이 Quarto 문서를 통해 협업을 하길 구상하고 있더라고요. 물론 아직까지 그런 환경이 갖춰져 있는 건 아니지만, 꽤나 매력적인 미래의 모습입니다. 하루빨리 그런 환경이 오길 바라면서 이번 포스트를 마무리하겠습니다.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R Markdown</category>
+  <category>Quarto</category>
+  <guid>https://orange-mansion.com/news/220827_quarto/index.html</guid>
+  <pubDate>Fri, 26 Aug 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/news/220827_quarto/quarto%20thumbnail.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>RStudio가 Posit으로 이름을 바꾼다</title>
+  <link>https://orange-mansion.com/news/220821_Rstudio-is-becoming-Posit/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="rstudio-is-becoming-posit" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-is-becoming-posit">RStudio is becoming Posit</h2>
+<p><img src="https://orange-mansion.com/news/220821_Rstudio-is-becoming-Posit/posit.jpeg" class="img-fluid" style="width:100.0%" alt="posit logo"></p>
+<p>프로그래밍 언어 그 자체를 가지고 명령어를 통해 작업을 하는 건 많이 어렵습니다. 불편하기도 하고요. 그럴 때 사용하는 게 바로 IDE(통합계발환경, Intergrated Development Environment)입니다. Python을 이용할 때 사용하는 PyCharm이나 Jupyter Notebook, 혹은 MS의 텍스트 에디터 VS Code가 대표적인 IDE라고 할 수 있을겁니다.</p>
+<p>RStudio는 R의 가장 대표 IDE입니다. 그런데 이 RStudio가 지난 7월 말, 본인들의 이름을 바꾼다고 선언했습니다. 아마 8월 중으로 이름표를 새로 바꿀 것 같은데요, 그들이 공개한 RStudio의 새로운 이름은 Posit입니다. RStudio는 왜 갑자기 이름을 Posit으로 바꾸려는걸까요?</p>
+<p><br></p>
+</section>
+<section id="rstudio가-이름을-바꾸는-이유는" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio가-이름을-바꾸는-이유는">RStudio가 이름을 바꾸는 이유는</h2>
+<section id="a-broader-focus" class="level4">
+<h4 class="anchored" data-anchor-id="a-broader-focus">1. A Broader Focus</h4>
+<blockquote class="blockquote">
+<p>“That name has started to feel increasing constraining.”</p>
+</blockquote>
+<p>데이터 관련 분석 프로그래밍, 혹은 데이터 사이언스에서 R은 항상 Python과 비교됩니다. 데이터 관련 공부를 시작하면서 R과 Python 사이의 양자택일은 쉽지 않은 고민이죠. 전반적인 흐름은 Python에게 웃어주고 있는 모양세입니다. 여기에 Julia까지 참전하면서 R의 입지는 점점 줄어들고 있습니다. R 이름을 딱 박고 있는 RStudio 입장에서 반길일이 아니죠.</p>
+<p>RStudio가 여지껏 가만히 있었던 건 아닙니다. RStudio는 이미 Python을 지원하고 있습니다. R 인터페이스로 Python을 할 수 있는 reticulate 패키지도 있고요. 하지만 Python 이용자가 RStudio를 이용하는 건 쉽지 않은 선택입니다. 이미 잘 갖춰진 Python 전용 IDE를 쓰지 뭣하러 RStudio를 씁니까. 아니면 호환성 좋은 VS code를 쓰면 되죠.</p>
+<p>RStudio의 수석과학자 해들리 위컴은 RStudio라는 이름이 가지는 한계를 인정했습니다. 누가봐도 RStudio는 R만 개발할 수 있는 IDE로 느껴집니다. 그래서 그들은 선택을 한 겁니다. 우리 프로그램에 R 이름 뗄 테니까, Python, Julia 등 다른 언어 쓰는 사람들도 우리 개발환경으로 들어오라고요.</p>
+<p><br></p>
+</section>
+<section id="a-large-community" class="level4">
+<h4 class="anchored" data-anchor-id="a-large-community">2. A Large Community</h4>
+<p>R community는 RStudio를 중심으로 비교적 잘 운영되고 있습니다. 하지만 위에서 언급한것처럼 규모 측면이나 확장성 측면에서 한계도 명확하죠. RStudio는 이번 Posit으로의 개편을 통해 다른 커뮤니티와의 융합을 목적으로 두고 있습니다. 그렇다고 R에서 Python으로의 전환이 이뤄지진 않을 겁니다.</p>
+<blockquote class="blockquote">
+<p>“I’m not going to stop writing R code. I’m not going to learn Python.”</p>
+</blockquote>
+<p>해들리 위컴이 이렇게 밝힌 이상 Python으로의 거대한 전환은 없을 것 같네요. Posit으로의 변화에 발맞춰 또 다른 변화가 있으니 바로 Quarto입니다. 차세대 Rmarkdown인 Quarto에서는 Jupyter, VS code, Observable Javascript를 기본적으로 실행할 수 있다고 합니다. Quarto에 대해서는 다음 포스트를 통해 더 깊이 이야기를 해보도록 하겠습니다. 여튼 개편될 Posit은 아마 10월 이후에나 만나볼 수 있을 것 같습니다. <a href="https://posit.co">홈페이지</a>는 10월 중으로 오픈 예정이라고 합니다.</p>
+<p><br></p>
+</section>
+</section>
+<section id="posit의-뜻은" class="level2">
+<h2 class="anchored" data-anchor-id="posit의-뜻은">Posit의 뜻은</h2>
+<p>Posit을 사전에서 찾아보면 설치하다, ~을 사실로 가정하다, 아이디어 및 이론을 제시하다로 나옵니다. 토론 과정에서 아이디어를 제시하는 경우 posit이라는 단어를 쓰는 셈인거죠. RStudio(IDE 이름이 회사 이름이기도 합니다)에서는 posit이라는 단어가 데이터 분석가, 데이터 과학자들의 업무와 잘 어울린다는 판단을 했고, RStudio의 새로운 이름으로 Posit을 결정했다고 발표했습니다. 회사명도 Posit으로 바뀔 예정입니다.</p>
+<p>조금 더 지켜봐야겠지만 R을 공부하는 제 입장에서 이번 RStudio의 변화는 반길만한 일입니다. 여러 언어 환경에 있는 사람들을 한 IDE에 모아둘 수 있다면 협업도 더 원활하게 이뤄질테니까요. 앞으로 발표될 Posit에 대한 정보는 꾸준히 정리해보겠습니다.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>IDE</category>
+  <guid>https://orange-mansion.com/news/220821_Rstudio-is-becoming-Posit/index.html</guid>
+  <pubDate>Sat, 20 Aug 2022 15:00:00 GMT</pubDate>
+  <media:content url="https://orange-mansion.com/news/220821_Rstudio-is-becoming-Posit/posit.jpeg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

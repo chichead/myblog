@@ -5,7 +5,7 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>오렌지 맨숀🍊</title>
+<title>🍊오렌지맨숀</title>
 <link>https://orange-mansion.com/daily.html</link>
 <atom:link href="https://orange-mansion.com/daily.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
@@ -15,44 +15,58 @@
   <title>accumulate() : Accumulate intermediate results</title>
   <dc:creator>chichead</dc:creator>
   <link>https://orange-mansion.com/daily/211014/index.html</link>
-  <description><![CDATA[ <section id="today-function-reduce" class="level2"><h2 class="anchored" data-anchor-id="today-function-reduce">Today Function : reduce()</h2>
-<p><img src="https://orange-mansion.com/daily/211014/logo.png" class="img-fluid" style="width:25.0%"></p>
-<p>오늘의 함수는 purrr 패키지의 <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate()</a></code> 함수입니다. <code>Two-Table Verbs</code> 함수를 사용해서 3개 이상의 데이터테이블을 처리할 땐 <code><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce()</a></code> 함수를 사용합니다. 그런데 그와 유사한 <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate()</a></code> 함수는 중간 단계를 모두 유지해줍니다.</p>
-<p><br></p>
-<section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
-<div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">accumulate</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">.x</span>, <span class="va" style="color: #111111;">.f</span>, <span class="va" style="color: #111111;">...</span>, <span class="va" style="color: #111111;">.init</span>, .dir <span class="op" style="color: #5E5E5E;">=</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"forward"</span>, <span class="st" style="color: #20794D;">"backward"</span><span class="op" style="color: #5E5E5E;">)</span><span class="op" style="color: #5E5E5E;">)</span>
+  <description><![CDATA[ 
 
-<span class="fu" style="color: #4758AB;">accumulate2</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">.x</span>, <span class="va" style="color: #111111;">.y</span>, <span class="va" style="color: #111111;">.f</span>, <span class="va" style="color: #111111;">...</span>, <span class="va" style="color: #111111;">.init</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+
+
+
+<section id="today-function-reduce" class="level2">
+<h2 class="anchored" data-anchor-id="today-function-reduce">Today Function : reduce()</h2>
+<p><img src="https://orange-mansion.com/daily/211014/logo.png" class="img-fluid" style="width:25.0%"></p>
+<p>오늘의 함수는 purrr 패키지의 <code>accumulate()</code> 함수입니다. <code>Two-Table Verbs</code> 함수를 사용해서 3개 이상의 데이터테이블을 처리할 땐 <code>reduce()</code> 함수를 사용합니다. 그런데 그와 유사한 <code>accumulate()</code> 함수는 중간 단계를 모두 유지해줍니다.</p>
+<p><br></p>
+<section id="usage" class="level3">
+<h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">accumulate</span>(.x, .f, ..., .init, <span class="at" style="color: #657422;">.dir =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"forward"</span>, <span class="st" style="color: #20794D;">"backward"</span>))</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;">accumulate2</span>(.x, .y, .f, ..., .init)</span></code></pre></div>
 </div>
 <p><br></p>
-</section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
-<p><strong>.x</strong> : 리스트나 atomic vector가 들어갑니다 <br><strong>.f</strong> : <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate()</a></code> 함수에서는 <code>Two-Table Verbs</code> 함수가, <code><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate2()</a></code> 함수에는 그 이상의 함수를 사용할 수 있습니다. <br><strong>.dir</strong> : <code>accumulate</code>의 방향을 정합니다.</p>
+</section>
+<section id="argument" class="level3">
+<h3 class="anchored" data-anchor-id="argument">Argument</h3>
+<p><strong>.x</strong> : 리스트나 atomic vector가 들어갑니다 <br> <strong>.f</strong> : <code>accumulate()</code> 함수에서는 <code>Two-Table Verbs</code> 함수가, <code>accumulate2()</code> 함수에는 그 이상의 함수를 사용할 수 있습니다. <br> <strong>.dir</strong> : <code>accumulate</code>의 방향을 정합니다.</p>
 <p><br></p>
-</section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
-<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op" style="color: #5E5E5E;">)</span>
-
-<span class="va" style="color: #111111;">number</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="fl" style="color: #AD0000;">10</span><span class="op" style="color: #5E5E5E;">)</span>
-<span class="va" style="color: #111111;">number</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">library</span>(purrr)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">number <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sample</span>(<span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb2-5">number</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  6 10  8  9  3  2  7  4  1  5</code></pre>
 </div>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># reduce 함수로 다 더하면?</span>
-<span class="va" style="color: #111111;">number</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">`+`</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;"># reduce 함수로 다 더하면?</span></span>
+<span id="cb4-2">number <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">reduce</span>(<span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">+</span><span class="st" style="color: #20794D;">`</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 55</code></pre>
 </div>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># accumulate는 각 단계를 유지해서 누적합을 계산합니다.</span>
-<span class="va" style="color: #111111;">number</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/accumulate.html">accumulate</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">`+`</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;"># accumulate는 각 단계를 유지해서 누적합을 계산합니다.</span></span>
+<span id="cb6-2">number <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">accumulate</span>(<span class="st" style="color: #20794D;">`</span><span class="at" style="color: #657422;">+</span><span class="st" style="color: #20794D;">`</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  6 16 24 33 36 38 45 49 50 55</code></pre>
 </div>
 </div>
 
 
-</section></section> ]]></description>
+</section>
+</section>
+
+ ]]></description>
   <category>purrr</category>
   <guid>https://orange-mansion.com/daily/211014/index.html</guid>
   <pubDate>Thu, 13 Oct 2022 15:00:00 GMT</pubDate>
@@ -79,7 +93,7 @@
 </section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="cell">
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;">)</span>
-<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op" style="color: #5E5E5E;">)</span>
+<span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op" style="color: #5E5E5E;">)</span>
 
 <span class="co" style="color: #5E5E5E;"># +로 예를 들어봅시다 1부터 3까지 reduce 함수로 더해봅니다</span>
 <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">3</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">`+`</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
@@ -810,28 +824,41 @@ $trt
   <title>pull() : Extract a single column</title>
   <dc:creator>chichead</dc:creator>
   <link>https://orange-mansion.com/daily/211004/index.html</link>
-  <description><![CDATA[ <section id="today-function-pull" class="level2"><h2 class="anchored" data-anchor-id="today-function-pull">Today Function : pull</h2>
+  <description><![CDATA[ 
+
+
+
+
+<section id="today-function-pull" class="level2">
+<h2 class="anchored" data-anchor-id="today-function-pull">Today Function : pull</h2>
 <p><img src="https://orange-mansion.com/daily/211004/logo.png" class="img-fluid" style="width:25.0%"></p>
-<p>오늘의 함수는 dplyr 패키지의 <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수입니다. <br><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수는 <code>$</code> 연산자와 비슷한 기능을 합니다. <br><code>$</code> 연산자는 R에서 데이터 객체의 특정 부분을 추출할 때 사용하는데요. <br><code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> 함수는 파이프 연산자 내에서 <code>$</code>보다 사용하기 편리하다는 장점이 있습니다.</p>
+<p>오늘의 함수는 dplyr 패키지의 <code>pull()</code> 함수입니다. <br> <code>pull()</code> 함수는 <code>$</code> 연산자와 비슷한 기능을 합니다. <br> <code>$</code> 연산자는 R에서 데이터 객체의 특정 부분을 추출할 때 사용하는데요. <br> <code>pull()</code> 함수는 파이프 연산자 내에서 <code>$</code>보다 사용하기 편리하다는 장점이 있습니다.</p>
 <p><br></p>
-<section id="usage" class="level3"><h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<section id="usage" class="level3">
+<h3 class="anchored" data-anchor-id="usage">Usage</h3>
 <div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;">pull</span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">.data</span>, var <span class="op" style="color: #5E5E5E;">=</span> <span class="op" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">1</span>, name <span class="op" style="color: #5E5E5E;">=</span> <span class="cn" style="color: #8f5902;">NULL</span>, <span class="va" style="color: #111111;">...</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">pull</span>(.data, <span class="at" style="color: #657422;">var =</span> <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">name =</span> <span class="cn" style="color: #8f5902;">NULL</span>, ...)</span></code></pre></div>
 </div>
 <p><br></p>
-</section><section id="argument" class="level3"><h3 class="anchored" data-anchor-id="argument">Argument</h3>
-<p><strong>.data</strong> : data.frame, tibble을 넣을 수 있습니다. 거기에 dbplyr, dtplyr package의 data.table backend도 가능합니다. <br><strong>var</strong> : 추출할 변수의 이름을 넣습니다. 숫자도 가능한데 양수는 왼쪽부터 순서, 음수는 오른쪽부터 순서를 나타냅니다. <br><strong>name</strong> : 변수 이름을 알 경우엔 name이라는 파라미터를 써도 됩니다.</p>
+</section>
+<section id="argument" class="level3">
+<h3 class="anchored" data-anchor-id="argument">Argument</h3>
+<p><strong>.data</strong> : data.frame, tibble을 넣을 수 있습니다. 거기에 dbplyr, dtplyr package의 data.table backend도 가능합니다. <br> <strong>var</strong> : 추출할 변수의 이름을 넣습니다. 숫자도 가능한데 양수는 왼쪽부터 순서, 음수는 오른쪽부터 순서를 나타냅니다. <br> <strong>name</strong> : 변수 이름을 알 경우엔 name이라는 파라미터를 써도 됩니다.</p>
 <p><br></p>
-</section><section id="value" class="level3"><h3 class="anchored" data-anchor-id="value">Value</h3>
+</section>
+<section id="value" class="level3">
+<h3 class="anchored" data-anchor-id="value">Value</h3>
 <p>입력한 데이터와 동일한 사이즈의 vector가 나옵니다.</p>
 <p><br></p>
-</section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op" style="color: #5E5E5E;">)</span>
-
-<span class="co" style="color: #5E5E5E;"># mtcars 데이터를 가지고 pull() 함수의 예를 들어보겠습니다.</span>
-<span class="co" style="color: #5E5E5E;"># mtcars 데이터의 구조는 이러합니다.</span>
-<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">mtcars</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(dplyr)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;"># mtcars 데이터를 가지고 pull() 함수의 예를 들어보겠습니다.</span></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;"># mtcars 데이터의 구조는 이러합니다.</span></span>
+<span id="cb2-5"><span class="fu" style="color: #4758AB;">head</span>(mtcars)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -841,43 +868,48 @@ Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 </div>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># -1을 입력하면 mtcars 데이터의 맨 오른쪽 칼럼인 carb가 나옵니다</span>
-<span class="va" style="color: #111111;">mtcars</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;"># -1을 입력하면 mtcars 데이터의 맨 오른쪽 칼럼인 carb가 나옵니다</span></span>
+<span id="cb4-2">mtcars <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">pull</span>(<span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 4 1 1 2 1 4 2 2 4 4 3 3 3 4 4 4 1 2 1 1 2 2 4 2 1 2 2 4 6 8 2</code></pre>
 </div>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 칼럼 명 'carb'을 바로 써도 같은 결과가 나옵니다</span>
-<span class="va" style="color: #111111;">mtcars</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">carb</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;"># 칼럼 명 'carb'을 바로 써도 같은 결과가 나옵니다</span></span>
+<span id="cb6-2">mtcars <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">pull</span>(carb)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 4 4 1 1 2 1 4 2 2 4 4 3 3 3 4 4 4 1 2 1 1 2 2 4 2 1 2 2 4 6 8 2</code></pre>
 </div>
 </div>
 <p><br></p>
-</section><section id="select-vs-pull" class="level3"><h3 class="anchored" data-anchor-id="select-vs-pull">select vs pull</h3>
+</section>
+<section id="select-vs-pull" class="level3">
+<h3 class="anchored" data-anchor-id="select-vs-pull">select vs pull</h3>
 <p>dplyr에 있는 또다른 비슷한 함수인 select와의 차이점은 뭘까요? 일단 결과 값이 다릅니다. <br> pull은 단일 열을 벡터로 변환해 결과로 내보냅니다. 반면 select는 하나 이상의 열을 데이터프레임으로 변환하죠.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va" style="color: #111111;">fruits</span> <span class="op" style="color: #5E5E5E;">&lt;-</span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;">(</span>orange <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">5</span>, lemon <span class="op" style="color: #5E5E5E;">=</span> <span class="fl" style="color: #AD0000;">5</span><span class="op" style="color: #5E5E5E;">:</span><span class="fl" style="color: #AD0000;">1</span><span class="op" style="color: #5E5E5E;">)</span>
-
-<span class="co" style="color: #5E5E5E;"># select를 써서 orange 열(1개의 열)을 가져오면 data.frame이 나옵니다</span>
-<span class="va" style="color: #111111;">fruits</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">orange</span><span class="op" style="color: #5E5E5E;">)</span> |&gt;<span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">fruits <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="at" style="color: #657422;">orange =</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">5</span>, <span class="at" style="color: #657422;">lemon =</span> <span class="dv" style="color: #AD0000;">5</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb8-2"></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;"># select를 써서 orange 열(1개의 열)을 가져오면 data.frame이 나옵니다</span></span>
+<span id="cb8-4">fruits <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">select</span>(orange) <span class="sc" style="color: #5E5E5E;">|&gt;</span><span class="fu" style="color: #4758AB;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   5 obs. of  1 variable:
  $ orange: int  1 2 3 4 5</code></pre>
 </div>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># 이번엔 pull을 이용하면 int value가 들어간 벡터가 나옵니다</span>
-<span class="va" style="color: #111111;">fruits</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="va" style="color: #111111;">orange</span><span class="op" style="color: #5E5E5E;">)</span> |&gt; <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;"># 이번엔 pull을 이용하면 int value가 들어간 벡터가 나옵니다</span></span>
+<span id="cb10-2">fruits <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">pull</span>(orange) <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> int [1:5] 1 2 3 4 5</code></pre>
 </div>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;"># data.frame에서 pull과 의미가 동일한 함수 -&gt; .[, "name"]</span>
-<span class="va" style="color: #111111;">fruits</span> <span class="op" style="color: #5E5E5E;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va" style="color: #111111;">.</span><span class="op" style="color: #5E5E5E;">[</span> , <span class="st" style="color: #20794D;">"orange"</span><span class="op" style="color: #5E5E5E;">]</span> <span class="op" style="color: #5E5E5E;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu" style="color: #4758AB;"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op" style="color: #5E5E5E;">(</span><span class="op" style="color: #5E5E5E;">)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;"># data.frame에서 pull과 의미가 동일한 함수 -&gt; .[, "name"]</span></span>
+<span id="cb12-2">fruits <span class="sc" style="color: #5E5E5E;">%&gt;%</span> .[ , <span class="st" style="color: #20794D;">"orange"</span>] <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="fu" style="color: #4758AB;">str</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> int [1:5] 1 2 3 4 5</code></pre>
 </div>
 </div>
 
 
-</section></section> ]]></description>
+</section>
+</section>
+
+ ]]></description>
   <category>dplyr</category>
   <guid>https://orange-mansion.com/daily/211004/index.html</guid>
   <pubDate>Mon, 03 Oct 2022 15:00:00 GMT</pubDate>
