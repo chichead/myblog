@@ -138,7 +138,7 @@ ggplot(df, aes(year, rank, color = country)) +
 
 부드러운 시그모이드 곡선으로 이뤄진 범프 차트가 만들어졌습니다. scale_color_manual에 들어있는 wes_palette는 이름에서 유추할 수 있듯 웨스 앤더슨 감독의 색감이 담긴 컬러 팔레트입니다. 이 차트에서는 웨스 앤더슨 감독의 2004년 작 \<스티브 지소와의 해저 생활(The Life Aquatic With Steve Zissou)\>의 색상을 사용했습니다.
 
-![The Life Aquatic with Steve Zissou, Wes Anderson](zissou.gif){width="100%"}
+![The Life Aquatic with Steve Zissou, Wes Anderson](zissou.gif){width="50%"}
 
 여기서 조금 더 꾸며볼까요? bump line의 폭을 늘리고 점도 찍어보고, 해당 라인이 어떤 국가를 의미하는지 라벨도 달아보겠습니다. 축은 있으면 보기 싫으니 선을 다 없애버립시다. 그리고 x축은 정수 연도만 남겨야 할 것 같고요. 정리해보면 이렇게 될 겁니다.
 
