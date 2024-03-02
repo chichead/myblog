@@ -27,7 +27,7 @@ website:
   page-footer: 
     border: false
     left: "Published with [Quarto](https://quarto.org/) | Hosted by [Netlify](https://www.netlify.com)"
-    right: "© 2024 [{{< fa brands github >}} chichead](https://github.com/chichead/) | [MIT License](https://www.quantumjitter.com/license)"
+    right: "© 2024 [{{< fa brands github >}} chichead](https://github.com/chichead/)"
   google-analytics: G-YZCBLF5F53
   cookie-consent: true
   comments: 
@@ -38,7 +38,6 @@ format:
   html:
     smooth-scroll: true
     theme: 
-#      - styles.css
       - custom.scss
     mainfont: Pretendard
     toc: true

@@ -658,6 +658,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 
 
 
+
 <section id="gnn-publication" class="level2">
 <h2 class="anchored" data-anchor-id="gnn-publication">GNN Publication</h2>
 <p>GNN 관련 내용을 공부하면서 찾게 된 좋은 간행물이나 논문 등을 번역 및 정리해서 올리려고 합니다. 그 첫 번째 순서로 지난 2021년 9월 2일 Distill에서 발행된 <a href="https://distill.pub/2021/gnn-intro/">&lt; A Gentle Introduction to Graph Neural Networks &gt;</a>입니다. 당시 Google Research 소속의 다섯 연구원이 작성한 글인데요, GNN 입문자에게 적당한 설명이 있는 것 같아 정리해 보았습니다.</p>
@@ -786,6 +787,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 
 
 
+
 <section id="quarto-뜯어보기" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-뜯어보기">Quarto 뜯어보기</h2>
 <section id="차세대-포맷-qaurto" class="level4">
@@ -793,7 +795,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://orange-mansion.com/posts/230108_quarto_yaml/penguins_meteor.png" class="img-fluid figure-img" alt="Two penguins looking happily up at a Quarto logo &quot;meteor&quot; that is flying overhead."></p>
-<p></p><figcaption class="figure-caption">R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
+<figcaption>R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption>
 </figure>
 </div>
 <p><a href="https://orange-mansion.com/posts/220827_quarto/">지난 게시물</a>에선 R Markdown의 차세대 포맷, Quarto의 등장 배경에 대해 살펴봤습니다. Quarto를 한 문장으로 정리해 보면 이렇게 이야기할 수 있습니다. Quarto는 “마크다운 등 일반 텍스트 형식(.qmd, .rmd, .md)과 혼합 형식(.ipynb, jupyter notebook)을 pandoc과 knitr 패키지를 통해 PDF/Word/HTML/책/웹사이트/프레젠테이션 등 다양한 형태로 렌더링 하는 명령줄 인터페이스(CLI)다”라고요.</p>
@@ -842,7 +844,7 @@ font-style: inherit;">--help</span></span></code></pre></div>
 <p>Quarto라는 녀석이 CLI라는 건 그렇게 중요하지 않습니다. 왜냐면 우리가 Quarto를 이용해서 얻고자 하는 건 글을 쓰고, 블로그를 쓰고, 책을 출간하고, 발표자료를 만들려고 하는 거니까요. 그러려면 우선 Quarto 문서(.qmd)를 작성해야 합니다. 이번 게시물에선 Quarto 문서, 그 자체에 집중해서 이야기를 나눠보도록 하겠습니다. 먼저 Quarto 문서가 어떻게 구성되어 있는지 살펴보겠습니다. Quarto 문서는 크게 3가지 요소로 구분할 수 있습니다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/230108_quarto_yaml/quarto_anatomy.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<p><img src="https://orange-mansion.com/posts/230108_quarto_yaml/quarto_anatomy.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 <ul>
@@ -999,7 +1001,11 @@ font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"loess"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/230108_quarto_yaml/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/230108_quarto_yaml/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><br></p>
@@ -1012,7 +1018,7 @@ font-style: inherit;">"loess"</span>)</span></code></pre></div>
 <h4 class="anchored" data-anchor-id="yaml-aint-markup-language">YAML Ain’t Markup Language</h4>
 <p>세 요소 중에서도 YAML에 대해서 조금 더 이야기를 나눠보도록 하겠습니다. YAML은 <strong>Y</strong>et <strong>A</strong>nother <strong>M</strong>arkup <strong>L</strong>anguage라는 뜻을 가진 마크업 언어입니다. [야믈], [야멜] 등으로 읽을 수 있겠습니다. YAML은 2001년 클라크 에반스가 고안한 언어로 기존의 JSON이 가지고 있는 단점(주석을 달 수 없다, 문법이 유연하지 않다)들을 해소하기 위해 만들어졌습니다.</p>
 <p>YAML은 마크업 언어지만 스스로 마크업 언어가 아니라고 이야기합니다. YAML을 또 다르게 풀어보면 <strong>Y</strong>AML <strong>A</strong>in’t <strong>M</strong>arkup <strong>L</strong>anguage라고도 할 수 있거든요. “YAML은 마크업 문서가 아니다”라고 이야기하는 이유는 바로 YAML의 정체성을 마크업이 아닌 데이터에 두겠다는 거죠. 데이터에 방점을 둔 YAML은 JSON과 XML과 비교해 압도적으로 간결하고 가독성 높은 구조로 만들어졌습니다. 직접 한 번 비교해보시면 그 차이가 느껴질겁니다. 이렇게 간결한 구조는 YAML 문서가 여러 프레임워크에서 설정파일로 자리잡는데 큰 힘이 되었어요.</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">YAML</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">JSON</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false">XML</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
@@ -1156,7 +1162,7 @@ font-style: inherit;">Servers</span>&gt;</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://orange-mansion.com/posts/230108_quarto_yaml/penguins_telescope_2.png" class="img-fluid figure-img" style="width:100.0%" alt="Two penguins in a room made of ice, looking out a window. One penguin is holding an icicle as a pointer, pointing at a Quarto logo &quot;moon&quot; in the sky, while the other penguin looks on."></p>
-<p></p><figcaption class="figure-caption">R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
+<figcaption>R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption>
 </figure>
 </div>
 <p>지금부터는 YAML header에 포함되는 Quarto의 옵션들을 살펴보겠습니다. 우선 가장 기본적인 Output Option입니다. 말 그대로 어떤 결과물을 만들고 싶은지를 선택하는 옵션입니다. 내가 qmd 문서를 HTML로, 혹은 PDF로, 아니면 revealjs 형태로 뽑아내고 싶다면 YAML header의 <code>format</code> 자리에 적어주면 됩니다. <code>format: html</code> 이렇게 말이죠. 참고로 <code>format: html</code>처럼 <code>key</code>값(여기선 <code>format</code>이 해당하겠죠)에 <code>html</code>이라는 <code>value</code>값을 대응시키는 구조를 <code>map</code>형식이라고 합니다.</p>
@@ -1461,6 +1467,7 @@ font-style: inherit;">---</span></span></code></pre></div>
 
 
 
+
 <section id="purrr-package" class="level2">
 <h2 class="anchored" data-anchor-id="purrr-package">purrr package</h2>
 <p><img src="https://orange-mansion.com/posts/230101_purrr/purrr_compressed.png" class="img-fluid" style="width:25.0%"></p>
@@ -1482,7 +1489,7 @@ font-style: inherit;">---</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://orange-mansion.com/posts/230101_purrr/1920px-Programming_paradigms.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Overview of the various programming paradigms according to Peter Van Roy</figcaption><p></p>
+<figcaption>Overview of the various programming paradigms according to Peter Van Roy</figcaption>
 </figure>
 </div>
 <p>명령형 프로그래밍은 프로그래밍의 상태와 상태를 변형시키는 구문의 관점에서 연산을 설명합니다. 우리가 일반적으로 누군가에게 명령(혹은 부탁)을 할 때 어떤 동작을 할 것인지를 표현하는 것처럼, 명령형 프로그래밍은 컴퓨터에게도 컴퓨터가 수행할 명령을 순서대로 말하는 방식을 의미합니다. 즉 명령형 프로그래밍은 컴퓨터에게 무엇(What)을 할 것인지에 방점을 찍어 설명하는 게 아니라 어떻게(How)할 것인지에 중심을 두고 설명합니다.</p>
@@ -1500,8 +1507,8 @@ font-style: inherit;">---</span></span></code></pre></div>
 <p>대표적인 게 바로 하스켈의 map함수입니다. 하스켈의 map함수는 purrr에서도 동일하게 등장합니다. map함수의 map은 수학에서 의미하는 매핑(mapping, 사상), 즉 일반적인 의미의 함수를 뜻합니다. 참고로 하스켈은 순수 함수형 프로그래밍 언어인데요, 하스켈 코드는 부작용(side effect)이 없다(!)는 장점을 가지고 있기도 하죠.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/230101_purrr/haskell_2x.png" class="img-fluid figure-img" style="width:30.0%"></p>
-<p></p><figcaption class="figure-caption">xkce_Haskell</figcaption><p></p>
+<p><img src="https://orange-mansion.com/posts/230101_purrr/haskell_2x.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+<figcaption>xkce_Haskell</figcaption>
 </figure>
 </div>
 <p>r에서 명령형 프로그래밍 방법과 함수형 프로그래밍 방법에 따라 1부터 10까지의 숫자들을 제곱해 보겠습니다. 먼저 나만의 소중한 제곱 함수를 만들어놓고 시작해 보죠. for loop에서는 1부터 10까지 각각의 i에 <code>my_square( )</code> 함수를 적용했습니다. 함수형 프로그래밍에선 고차함수 map( )에 <code>my_square( )</code>라는 함수를 값으로 취급해 넣었습니다. 당연히 두 결과는 같습니다.</p>
@@ -2049,368 +2056,283 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
   <title>한글 폰트 깨짐 현상 Ragg package로 부셔드림</title>
   <dc:creator>chichead </dc:creator>
   <link>https://orange-mansion.com/posts/220904_Ragg/</link>
-  <description><![CDATA[ <section id="한글이-깨진다" class="level2"><h2 class="anchored" data-anchor-id="한글이-깨진다">한글이 깨진다</h2>
-<p>R에서 데이터를 잘 정제해서 시각화를 만들면 항상 한글의 벽에 부딫히곤 합니다. 한글을 인식하지 못하는 경우에는 인코딩을 해결하면 깨짐현상을 막을 수 있죠. 그렇다면 이미지를 추출할 때 한글이 깨지는 경우는 어떻게 할까요? 여기 그 예시가 있습니다. 대한민국의 주요 도시의 위치를 나타내기 위해 이런 데이터 셋을 만들어봤어요. tibble package에서 소개했던 <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tibble::tribble</a></code> 함수를 이용해봤습니다. 세계화 시대에 맞춰 도시명에는 한글과 영어, 그리고 한자까지 포함했고요.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
+  <description><![CDATA[ 
 
-<span class="va" style="color: #111111;
+
+
+
+
+<section id="한글이-깨진다" class="level2">
+<h2 class="anchored" data-anchor-id="한글이-깨진다">한글이 깨진다</h2>
+<p>R에서 데이터를 잘 정제해서 시각화를 만들면 항상 한글의 벽에 부딫히곤 합니다. 한글을 인식하지 못하는 경우에는 인코딩을 해결하면 깨짐현상을 막을 수 있죠. 그렇다면 이미지를 추출할 때 한글이 깨지는 경우는 어떻게 할까요? 여기 그 예시가 있습니다. 대한민국의 주요 도시의 위치를 나타내기 위해 이런 데이터 셋을 만들어봤어요. tibble package에서 소개했던 <code>tibble::tribble</code> 함수를 이용해봤습니다. 세계화 시대에 맞춰 도시명에는 한글과 영어, 그리고 한자까지 포함했고요.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ROK_city</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(tibble)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">ROK_city <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tribble</span>(</span>
+<span id="cb1-4">  <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span>
-  <span class="op" style="color: #5E5E5E;
+font-style: inherit;">~</span>City, <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
+font-style: inherit;">~</span>Lat, <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">City</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Lat</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Lon</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">~</span>Lon,</span>
+<span id="cb1-5">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"울산(Ulsan, 蔚山)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">35.549999</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">129.316666</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">129.316666</span>,</span>
+<span id="cb1-6">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"광주(Gwangju, 光州)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">35.166668</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">126.916664</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">126.916664</span>,</span>
+<span id="cb1-7">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"대전(Daejeon, 大田)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">36.351002</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">127.385002</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">127.385002</span>,</span>
+<span id="cb1-8">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"대구(Daegu, 大邱)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">35.866669</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">128.600006</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">128.600006</span>,</span>
+<span id="cb1-9">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"부산(Busan, 釜山)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">35.166668</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">129.066666</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">129.066666</span>,</span>
+<span id="cb1-10">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"청주(Chungju, 淸州)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">36.981304</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">127.935905</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">127.935905</span>,</span>
+<span id="cb1-11">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"원주(Wonju, 原州)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">37.342220</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">127.920158</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">127.920158</span>,</span>
+<span id="cb1-12">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"인천(Incheon, 仁川)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">37.456257</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">126.705208</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">126.705208</span>,</span>
+<span id="cb1-13">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"서울(Seoul)"</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">37.532600</span>,<span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">127.024612</span>
-<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">127.024612</span></span>
+<span id="cb1-14">)</span></code></pre></div>
 </div>
 <p><br></p>
 <p>이 데이터셋을 바탕으로 지도를 그려봤습니다. 지도의 제목은 &lt;🇰🇷대한민국(大韓民國)의 주요 도시 위치&gt;로 해봤습니다. 그래프 제목에 이모지 정도는 써 줘야 그래도 웹 3.0 시대를 살고 있다고 할 수 있지 않겠습니까? 그렇게 만들어본 그래프의 모습입니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://orange-mansion.com/posts/220904_Ragg/broken_image.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220904_Ragg/broken_image.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>처참한 모습입니다. 영어를 제외한 모든 글자를 인식하지 못하는군요. 하지만 걱정하지 마세요. 해결책이 있습니다. 바로 Ragg package를 이용하면 됩니다.</p>
 <p><br></p>
-</section><section id="ragg-package" class="level2"><h2 class="anchored" data-anchor-id="ragg-package">Ragg Package</h2>
-<section id="ragg가-뭐지" class="level4"><h4 class="anchored" data-anchor-id="ragg가-뭐지">Ragg가 뭐지?</h4>
+</section>
+<section id="ragg-package" class="level2">
+<h2 class="anchored" data-anchor-id="ragg-package">Ragg Package</h2>
+<section id="ragg가-뭐지" class="level4">
+<h4 class="anchored" data-anchor-id="ragg가-뭐지">Ragg가 뭐지?</h4>
 <p><img src="https://orange-mansion.com/posts/220904_Ragg/logo.svg" class="img-fluid" style="width:25.0%"></p>
 <p>Rapp package는 Maxim Shemanarev라는 개발자가 개발한 AGG(Anti-Grain Geometry) 라이브러리를 기반으로 만들어진 R용 그래픽 패키지입니다. R과 AGG가 만나 Ragg package로 탄생했죠. Rag가 누더기, 조각이라는 뜻이 있는만큼 패키지 로고는 천 조각의 모습을 하고 있습니다. R의 그래픽 패키지로 가장 많이 알려진 건 grDevices package일 겁니다. 색상, 폰트를 자유롭게 이용하기 위해, 이제는 grDevices 대신 Ragg를 사용하면 됩니다. AGG는 grDevices에서 제공하는 표준 래스터 장치보다 더 높은 성능과 더 높은 품질을 제공하고 있습니다.</p>
 <p><br></p>
-</section><section id="rapp-package-사용법" class="level4"><h4 class="anchored" data-anchor-id="rapp-package-사용법">Rapp package 사용법</h4>
+</section>
+<section id="rapp-package-사용법" class="level4">
+<h4 class="anchored" data-anchor-id="rapp-package-사용법">Rapp package 사용법</h4>
 <p>Rapp package를 사용하는 법은 아주 간단합니다. 일반적인 package를 설치하듯 R에 Rapp package를 설치하면 됩니다. <code>intall.package("ragg")</code> 이렇게 말이죠. <code>devtools::install_github("r-lib/ragg")</code>로 개발버전의 Rapp package를 사용해도 됩니다. 설치한 다음엔 RStudio의 옵션창으로 가 봅시다. 일반 옵션에서 Graphics 항목에서 Graphics Device를 기존 (Default)로 되어있던 것을 AGG로 변경하면 끝입니다. 아래 스크린샷을 참고하시면 이해하기 편할겁니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://orange-mansion.com/posts/220904_Ragg/image1.png" class="img-fluid figure-img" style="width:88.0%"></p>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220904_Ragg/image1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:88.0%"></p>
 </figure>
 </div>
 <p><br></p>
-</section><section id="app-환경에서-만드는-그래프" class="level4"><h4 class="anchored" data-anchor-id="app-환경에서-만드는-그래프">APP 환경에서 만드는 그래프</h4>
-<p>이제 다시 그래프를 만들어봅시다. 대한민국의 지도를 만들기 위해 rnaturalearth package의 ne_countries 함수를 이용했습니다. rnaturalearth package는 과학 데이터의 장벽을 낮추기 위한 프로젝트 중 하나인 ropensci package에 포함되어 있는데요, ropensci는 나중에 따로 다뤄보겠습니다. 여튼 <code><a href="https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html">rnaturalearth::ne_countries</a></code> 함수를 사용해보겠습니다.</p>
+</section>
+<section id="app-환경에서-만드는-그래프" class="level4">
+<h4 class="anchored" data-anchor-id="app-환경에서-만드는-그래프">APP 환경에서 만드는 그래프</h4>
+<p>이제 다시 그래프를 만들어봅시다. 대한민국의 지도를 만들기 위해 rnaturalearth package의 ne_countries 함수를 이용했습니다. rnaturalearth package는 과학 데이터의 장벽을 낮추기 위한 프로젝트 중 하나인 ropensci package에 포함되어 있는데요, ropensci는 나중에 따로 다뤄보겠습니다. 여튼 <code>rnaturalearth::ne_countries</code> 함수를 사용해보겠습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va" style="color: #111111;
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">korea <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">korea</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnaturalearth</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">&lt;-</span> rnaturalearth<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html">ne_countries</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ne_countries</span>(</span>
+<span id="cb2-2">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>
-  scale <span class="op" style="color: #5E5E5E;
+font-style: inherit;">scale =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">10</span>, </span>
+<span id="cb2-3">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">10</span>, 
-  country <span class="op" style="color: #5E5E5E;
+font-style: inherit;">country =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+font-style: inherit;">"South Korea"</span>, </span>
+<span id="cb2-4">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">"South Korea"</span>, 
-  returnclass <span class="op" style="color: #5E5E5E;
+font-style: inherit;">returnclass =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"sf"</span>
-<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">"sf"</span></span>
+<span id="cb2-5">)</span></code></pre></div>
 </div>
-<p>불러온 대한민국 데이터를 <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">ggplot2::geom_sf</a></code>에 넣어 지도를 그려보겠습니다.</p>
+<p>불러온 대한민국 데이터를 <code>ggplot2::geom_sf</code>에 넣어 지도를 그려보겠습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">library</span>(ragg)</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span>
-<span class="kw" style="color: #003B4F;
+font-style: inherit;">+</span> </span>
+<span id="cb3-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_sf</span>(</span>
+<span id="cb3-6">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">data =</span> korea, </span>
+<span id="cb3-7">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ragg.r-lib.org">ragg</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
+font-style: inherit;">"#C3ECB1"</span>, </span>
+<span id="cb3-8">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">colour =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"#D5D8DB"</span>, </span>
+<span id="cb3-9">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">size =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">+</span> 
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">0.2</span></span>
+<span id="cb3-10">  ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>
-    data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">korea</span>, 
-    fill <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#C3ECB1"</span>, 
-    colour <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#D5D8DB"</span>, 
-    size <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.2</span>
-  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> 
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggrepel</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">+</span> </span>
+<span id="cb3-11">  ggrepel<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_label_repel</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_label_repel</span>(</span>
+<span id="cb3-12">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>
-    data <span class="op" style="color: #5E5E5E;
+font-style: inherit;">data =</span> ROK_city,</span>
+<span id="cb3-13">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">aes</span>(Lon, Lat, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">ROK_city</span>,
-    <span class="fu" style="color: #4758AB;
+font-style: inherit;">label =</span> City), </span>
+<span id="cb3-14">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">"#FFFFFF88"</span>,</span>
+<span id="cb3-15">    <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">Lon</span>, <span class="va" style="color: #111111;
+font-style: inherit;">box.padding =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">Lat</span>, label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">City</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, 
-    fill <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#FFFFFF88"</span>,
-    box.padding <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">unit</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"mm"</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"mm"</span>)</span>
+<span id="cb3-16">  ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span>
-  <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span> </span>
+<span id="cb3-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span> 
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">data =</span> ROK_city, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span>(Lon, Lat)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span>data <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb3-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">ggtitle</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">ROK_city</span>, <span class="fu" style="color: #4758AB;
+font-style: inherit;">"대한민국(大韓民國)의 주요 도시 위치🇰🇷"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb3-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">Lon</span>, <span class="va" style="color: #111111;
+font-style: inherit;">+</span></span>
+<span id="cb3-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">Lat</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">panel.background =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">element_rect</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">"#AADAFE"</span>),</span>
+<span id="cb3-21">        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">"대한민국(大韓民國)의 주요 도시 위치🇰🇷"</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">margin =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">margin</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>panel.background <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#AADAFE"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,
-        plot.title <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>margin <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">5</span>)))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220904_Ragg/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220904_Ragg/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>짜잔~ rapp 패키지로 APP 환경을 이용하면 한글과 이모지, 한자가 깨지지 않는 이미지를 손쉽게 얻을 수 있습니다.</p>
 
 
-</section></section> ]]></description>
+</section>
+</section>
+
+ ]]></description>
   <category>R package</category>
   <category>Ragg</category>
   <guid>https://orange-mansion.com/posts/220904_Ragg/</guid>
@@ -2422,6 +2344,7 @@ font-style: inherit;">)</span></code></pre></div>
   <dc:creator>chichead </dc:creator>
   <link>https://orange-mansion.com/posts/220527_palmerpenguins-package/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2498,7 +2421,11 @@ font-style: inherit;">+</span></span>
 background-color: null;
 font-style: inherit;">theme_classic</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -2613,7 +2540,11 @@ font-style: inherit;">+</span></span>
 background-color: null;
 font-style: inherit;">theme_classic</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>하지만 종별로 나눠서 살펴보면 어떨까요? 이번엔 Adélie, Chinstrap, Gentoo 세 종별로 scatter plot을 그려서 상관관계를 살펴보겠습니다. 종별로 보면 부리의 길이와 깊이는 양의 상관관계가 있어 보입니다. 야생의 데이터에서 확인할 수 있는 심슨의 역설(Simpson’s Paradox)의 아주 좋은 사례입니다. 영국의 통계학자 에드워드 심슨이 정리한 이 역설은 각각의 변수를 살피지 않고 전체 통계만 보고 판단하다가 발생할 수 있는 함정입니다.</p>
@@ -2697,7 +2628,11 @@ font-style: inherit;">legend.position =</span> <span class="st" style="color: #2
 background-color: null;
 font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -3277,214 +3212,173 @@ font-style: inherit;">1</span>))</span></code></pre></div>
   <title>bump chart를 그리고 싶을 때, ggbump package</title>
   <dc:creator>chichead </dc:creator>
   <link>https://orange-mansion.com/posts/220220_ggbump-package/</link>
-  <description><![CDATA[ <section id="ggbump-package" class="level2"><h2>ggbump package</h2>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="ggbump-package" class="level2">
+<h2 class="anchored" data-anchor-id="ggbump-package">ggbump package</h2>
 <p><img src="https://orange-mansion.com/posts/220220_ggbump-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
-<section id="ggbumps-name" class="level3"><h3>ggbump’s name</h3>
+<section id="ggbumps-name" class="level3">
+<h3 class="anchored" data-anchor-id="ggbumps-name">ggbump’s name</h3>
 <p>ggplot2는 grammar of graphics(a.k.a. gg)을 토대로 시각화를 만드는 패키지입니다. 2는 ver.2의 의미를 담았죠. gg는 릴랜드 윌킨스의 동명의 책 The Grammar of Graphics에서 따온 건데, 이 책에서 릴랜드는 데이터를 어떻게 시각적으로 표현할 것인지에 대해 다룹니다. gg에 대한 이야기는 나중에 다른 포스트에서 다루도록 하겠습니다.</p>
 <p>ggplot2 패키지의 문법 기반 위에서 돌아가는 서브 패키지들은 보통 gg라는 접두사로 시작됩니다. ggbump 역시 ggplot2의 일원이라고 이해할 수 있어요. 그렇다면 bump는 무엇을 의미하는 걸까요? 자동차의 범퍼, 혹은 놀이동산의 범퍼카를 떠올리면 bump의 의미를 유추할 수 있어요. bump는 바로, 충돌을 의미합니다. 충돌과 차트, 어떤 연관이 있는 걸까요?</p>
-<p><br></p>
-</section><section id="bump-chart" class="level3"><h3>bump chart</h3>
+<p><br c=""></p>
+</section>
+<section id="bump-chart" class="level3">
+<h3 class="anchored" data-anchor-id="bump-chart">bump chart</h3>
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img src="https://orange-mansion.com/posts/220220_ggbump-package/may_bump.jpeg" class="img-fluid" style="width:100.0%"></p>
-<p></p><figcaption>2022 May Bumps, Corpus Christi College</figcaption><p></p>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/may_bump.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>2022 May Bumps, Corpus Christi College</figcaption>
 </figure>
 </div>
 <p>영국의 케임브리지 대학에는 The bump라고 불리는 조정 경기가 있습니다. 케임브리지를 가로지르는 캠 강(river Cam) 은 나란히 경주하기에는 너무 좁아서 한 줄로 경주하는 독특한 조정 경주를 진행해왔어요. 19세기 초부터 시작된 이 경기 이름이 바로 The bump입니다. The bump의 경주 방식은 이렇습니다. 우선 강을 따라 한 줄로 경기를 시작합니다. 각 선수들은 전속력으로 노를 저어 앞에 있는 보트를 따라잡고 충돌(bump)하죠. 그렇게 되면 앞에 있는 조정 팀을 추월한 것으로 인정, 순위가 올라가게 됩니다. 주최 측에서는 경기의 진행 상황을 매핑하는 차트를 그려서 제공했는데, 이 차트를 bump chart라고 불렀습니다. 아래 차트는 2020년 사순절에 치러진 대회(Lent Bump)의 남자부 경기 결과입니다. 어떤 차트인지 감이 오죠?</p>
 <p><img src="https://orange-mansion.com/posts/220220_ggbump-package/bumpchart_thebump.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
-</section><section id="ggbumps-logo" class="level3"><h3>ggbump’s logo</h3>
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/ggbump%20logo.png" class="img-fluid" style="width:25.0%"></p>
+</section>
+<section id="ggbumps-logo" class="level3">
+<h3 class="anchored" data-anchor-id="ggbumps-logo">ggbump’s logo</h3>
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/ggbump logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>로고에는 3개의 노드(점), 노드에 연결된 시그모이드 곡선이 보입니다. 시그모이드(Sigmoid) 곡선은 S자 모양의 부드러운 곡선을 의미합니다. Sigmoid라는 단어의 뜻이 S자 모양이거든요. 시그모이드 곡선은 로지스틱 방정식, 정규분포의 누적분포함수에서 확인할 수 있습니다. 아래 차트를 보면 정규분포의 누적분포함수의 부드러운 S자 곡선을 확인할 수 있습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;"># ggplot2에서 주요 확률분포 곡선을 그릴 때는 stat_function을 활용하면 됩니다</span></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"># 정규분포(norm)의 누적분포함수를 그릴 땐 fun = pnorm 조건을 쓰세요</span></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span>
-
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 마찬가지로 지수분포(exp)에서 누적분포함수를 그릴 땐 fun = pexp 조건을 쓰면 됩니다.</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"># ggplot2에서 주요 확률분포 곡선을 그릴 때는 stat_function을 활용하면 됩니다</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"># 정규분포(norm)의 누적분포함수를 그릴 땐 fun = pnorm 조건을 쓰세요</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"># 마찬가지로 지수분포(exp)에서 누적분포함수를 그릴 땐 fun = pexp 조건을 쓰면 됩니다.</span>
-
-<span class="fu" style="color: #4758AB;
+font-style: inherit;">X =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span>X <span class="op" style="color: #5E5E5E;
+font-style: inherit;">3</span>)), <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">x =</span> X)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb1-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">stat_function</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">3</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">fun =</span> pnorm, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">colour =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"black"</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>, <span class="fu" style="color: #4758AB;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb1-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">ggtitle</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">X</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"Cumulative Normal Distribution of X ~ N(0,1)"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb1-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">stat_function</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>fun <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">pnorm</span>, colour <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"black"</span>, size <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Cumulative Normal Distribution of X ~ N(0,1)"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">theme_classic</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+</div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 참고로 접두사 p는 누적분포함수(CDF)를 의미하고, </span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 참고로 접두사 p는 누적분포함수(CDF)를 의미하고, </span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 접두사 q는 누적분포함수(CDF)의 역함수인 분위수함수를, </span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 접두사 q는 누적분포함수(CDF)의 역함수인 분위수함수를, </span></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 접두사 r은 무작위 난수 샘플을 의미합니다</span></code></pre></div>
+font-style: inherit;"># 접두사 r은 무작위 난수 샘플을 의미합니다</span></span></code></pre></div>
 </div>
 <p>ggbump package를 활용하면 시그모이드 곡선도 그릴 수 있습니다. 그럼 본격적으로 ggbump 패키지에 대해서 살펴보도록 하죠.</p>
 <p><br></p>
-</section></section><section id="all-about-ggbump" class="level2"><h2>All about ggbump</h2>
-<section id="geom_sigmoid" class="level3"><h3>geom_sigmoid</h3>
+</section>
+</section>
+<section id="all-about-ggbump" class="level2">
+<h2 class="anchored" data-anchor-id="all-about-ggbump">All about ggbump</h2>
+<section id="geom_sigmoid" class="level3">
+<h3 class="anchored" data-anchor-id="geom_sigmoid">geom_sigmoid</h3>
 <div class="cell">
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-<span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">ggbump</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-
-<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(ggbump)</span>
+<span id="cb3-3"></span>
+<span id="cb3-4">df <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">x =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">:</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">6</span>,</span>
+<span id="cb3-5">                 <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">6</span>,
-                 y <span class="op" style="color: #5E5E5E;
+font-style: inherit;">y =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">5</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">:</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">10</span>,</span>
+<span id="cb3-6">                 <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">10</span>,
-                 xend <span class="op" style="color: #5E5E5E;
+font-style: inherit;">xend =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">7</span>,</span>
+<span id="cb3-7">                 <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">7</span>,
-                 yend <span class="op" style="color: #5E5E5E;
+font-style: inherit;">yend =</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">5</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">:</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">0</span>)</span>
+<span id="cb3-8"></span>
+<span id="cb3-9"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">head</span>(df)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x  y xend yend
 1 1  5    7   -5
@@ -3497,263 +3391,155 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 <p>시그모이드 곡선에 필요한 변수는 시작점, 끝점, 그룹 정도입니다. 시작점의 위치는 (x, y) 변수에, 끝점의 위치는 (xend, yend) 변수에 넣으면 되죠. 그리고 어떤 점끼리 이어지는지 그룹을 결정해주면 됩니다. 위의 데이터를 가지고 시그모이드 곡선을 그려보면 총 6개의 선이 그려집니다. (1, 5)와 (7, -5)를 잇는 곡선을 포함해서 말이죠.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">library</span>(ggbump)</span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"># geom_sigmoid 함수에서 x, y, xend, yend, group 변수를 지정해주면 됩니다.</span></span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span>
-<span class="kw" style="color: #003B4F;
+font-style: inherit;"># geom_sigmoid 외의 함수는 점(geom_point)과 라벨(geom_text)을 위한 함수입니다.</span></span>
+<span id="cb5-6"></span>
+<span id="cb5-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span>(df) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">+</span></span>
+<span id="cb5-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ggbump</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_sigmoid</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span>
-
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"># geom_sigmoid 함수에서 x, y, xend, yend, group 변수를 지정해주면 됩니다.</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"># geom_sigmoid 외의 함수는 점(geom_point)과 라벨(geom_text)을 위한 함수입니다.</span>
-
-<span class="fu" style="color: #4758AB;
+font-style: inherit;">xend =</span> xend, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">y =</span> y, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">yend =</span> yend, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">df</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">group =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">factor</span>(x)), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/ggbump/man/geom_sigmoid.html">geom_sigmoid</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"black"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">+</span></span>
+<span id="cb5-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">x</span>, xend <span class="op" style="color: #5E5E5E;
+font-style: inherit;">y =</span> y)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">+</span></span>
+<span id="cb5-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">xend</span>, y <span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">y</span>, yend <span class="op" style="color: #5E5E5E;
+font-style: inherit;">x =</span> xend, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">y =</span> yend)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">yend</span>, group <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb5-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">geom_text</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">y =</span> y, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">label =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span>, color <span class="op" style="color: #5E5E5E;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+font-style: inherit;">"("</span>, x, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"black"</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">", "</span>, y, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">")"</span>)), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">vjust =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">1.8</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb5-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">geom_text</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">x</span>, y <span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">x =</span> xend, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">y =</span> yend, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">label =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">"("</span>, xend, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">", "</span>, yend, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">")"</span>)), </span>
+<span id="cb5-13">            <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">vjust =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">1.4</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">xend</span>, y <span class="op" style="color: #5E5E5E;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">+</span></span>
+<span id="cb5-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">yend</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">x</span>, y <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">y</span>, label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"("</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">x</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">", "</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">y</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">")"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, vjust <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.8</span>, size <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">xend</span>, y <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">yend</span>, label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"("</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">xend</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">", "</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">yend</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">")"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, 
-            vjust <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.4</span>, size <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">theme_classic</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><br></p>
-</section><section id="geom_bump" class="level3"><h3>geom_bump</h3>
+</section>
+<section id="geom_bump" class="level3">
+<h3 class="anchored" data-anchor-id="geom_bump">geom_bump</h3>
 <p>bump chart를 그리기 위해선 geom_bump 함수를 사용하면 됩니다. 간단하게 가상의 데이터를 만들어 보겠습니다. 대한민국을 포함해 총 5개 국가(Korea, Japan, China, Russia, India)의 임의 데이터입니다. 아래와 같이 나라명과 연도(2020, 2021, 2022), 그리고 임의의 value값이 포함돼있습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span> <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">df <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tibble</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>country <span class="op" style="color: #5E5E5E;
+font-style: inherit;">country =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Korea"</span>, <span class="st" style="color: #20794D;
 background-color: null;
@@ -3783,99 +3569,81 @@ font-style: inherit;">"India"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"India"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"India"</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"India"</span>),</span>
+<span id="cb6-2">             <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>,
-             year <span class="op" style="color: #5E5E5E;
+font-style: inherit;">year =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">2021</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2020</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2022</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2021</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2022</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2021</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2020</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2022</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2021</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2022</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2021</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2020</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2022</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2021</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2022</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2021</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2020</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2022</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2021</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2022</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2021</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2020</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">2022</span>),</span>
+<span id="cb6-3">             <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">2021</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">value =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">2022</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">)</span>,
-             value <span class="op" style="color: #5E5E5E;
+font-style: inherit;">500</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">200</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">100</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">500</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">300</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">200</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">100</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">200</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">400</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">300</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">200</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">400</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">500</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">200</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">400</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">400</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">300</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">200</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">300</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">500</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">300</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">400</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">100</span>))</span>
+<span id="cb6-4"></span>
+<span id="cb6-5"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">300</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">300</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">300</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">head</span>(df)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   country  year value
@@ -3890,75 +3658,51 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 <p>geom_bump 함수를 사용하려면 rank 값이 필요합니다. 각 연도별로 묶어서 value값에 따라 rank 값을 부여하면 되겠습니다. rank 함수를 사용하면 됩니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># ties.method는 만일 value값이 동등할경우 어떻게 계산할 것인지 결정하는 부분입니다.</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># ties.method는 만일 value값이 동등할경우 어떻게 계산할 것인지 결정하는 부분입니다.</span></span>
+<span id="cb8-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 보통은 min(동률 순위 중 낮은 값 출력), max(동률 순위 중 높은 값 출력)을 사용합니다.</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 보통은 min(동률 순위 중 낮은 값 출력), max(동률 순위 중 높은 값 출력)을 사용합니다.</span></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 여기선 그냥 겹치지 않게 그리기 위해 random method(순서 상관없이 랜덤)를 선택했습니다.</span>
-
-<span class="va" style="color: #111111;
+font-style: inherit;"># 여기선 그냥 겹치지 않게 그리기 위해 random method(순서 상관없이 랜덤)를 선택했습니다.</span></span>
+<span id="cb8-4"></span>
+<span id="cb8-5">df <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">df</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">&lt;-</span> df <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb8-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">df</span> |&gt;
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">group_by</span>(year) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb8-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">year</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">rank =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> |&gt;
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">rank</span>(value, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ties.method =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">(</span>rank <span class="op" style="color: #5E5E5E;
+font-style: inherit;">"random"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb8-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ungroup</span>()</span>
+<span id="cb8-9"></span>
+<span id="cb8-10"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">value</span>, ties.method <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"random"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> |&gt;
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">head</span>(df)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   country  year value  rank
   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
-1 Korea    2020   500     4
+1 Korea    2020   500     5
 2 Korea    2021   200     1
 3 Korea    2022   100     1
 4 Japan    2020   400     3
@@ -3968,435 +3712,277 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 <p>rank값이 잘 나왔군요. rank값은 값이 크면 클수록 더 높은 숫자가 부여됩니다. 2020년 한국의 value는 500, 일본의 value는 400인데 한국이 4위, 일본이 3위인 걸 보면 알 수 있죠. 우리가 보통 생각하는 순위와는 반대입니다. 위에서 rank를 계산할 때 -value로 계산한다면 이 부분은 해결할 수 있습니다. 여기선 그래프를 그릴 때 y축을 돌려버리는 걸로 처리하겠습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(wesanderson)</span>
+<span id="cb10-2"></span>
+<span id="cb10-3"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">ggplot</span>(df, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://github.com/karthik/wesanderson">wesanderson</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span>(year, rank, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
+font-style: inherit;">color =</span> country)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb10-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">geom_bump</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">df</span>, <span class="fu" style="color: #4758AB;
+font-style: inherit;">+</span></span>
+<span id="cb10-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme_classic</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">+</span></span>
+<span id="cb10-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">year</span>, <span class="va" style="color: #111111;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">rank</span>, color <span class="op" style="color: #5E5E5E;
+font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">"none"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">country</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb10-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">scale_y_reverse</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb10-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">scale_color_manual</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html">geom_bump</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">wes_palette</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">"Zissou1"</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>legend.position <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"none"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>values <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/wesanderson/man/wes_palette.html">wes_palette</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Zissou1"</span>, n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">5</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>부드러운 시그모이드 곡선으로 이뤄진 범프 차트가 만들어졌습니다. scale_color_manual에 들어있는 wes_palette는 이름에서 유추할 수 있듯 웨스 앤더슨 감독의 색감이 담긴 컬러 팔레트입니다. 이 차트에서는 웨스 앤더슨 감독의 2004년 작 &lt;스티브 지소와의 해저 생활(The Life Aquatic With Steve Zissou)&gt;의 색상을 사용했습니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img src="https://orange-mansion.com/posts/220220_ggbump-package/zissou.gif" class="img-fluid" style="width:100.0%"></p>
-<p></p><figcaption>The Life Aquatic with Steve Zissou, Wes Anderson</figcaption><p></p>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/zissou.gif" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>The Life Aquatic with Steve Zissou, Wes Anderson</figcaption>
 </figure>
 </div>
 <p>여기서 조금 더 꾸며볼까요? bump line의 폭을 늘리고 점도 찍어보고, 해당 라인이 어떤 국가를 의미하는지 라벨도 달아보겠습니다. 축은 있으면 보기 싫으니 선을 다 없애버립시다. 그리고 x축은 정수 연도만 남겨야 할 것 같고요. 정리해보면 이렇게 될 겁니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="downlit sourceCode r"><code class="sourceCode R"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span>(df, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">aes</span>(year, rank, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">df</span>, <span class="fu" style="color: #4758AB;
+font-style: inherit;">color =</span> country)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">geom_bump</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">year</span>, <span class="va" style="color: #111111;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">rank</span>, color <span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">smooth =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">country</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">8</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">0.8</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">+</span></span>
+<span id="cb11-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html">geom_bump</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>size <span class="op" style="color: #5E5E5E;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">5</span>, smooth <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">geom_text</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">8</span>, alpha <span class="op" style="color: #5E5E5E;
+font-style: inherit;">data =</span> df <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">0.8</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>size <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">year</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">filter</span>(year <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">min</span>(year)),</span>
+<span id="cb11-5">            <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">year</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">x =</span> year, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">label =</span> country), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>,
-            <span class="fu" style="color: #4758AB;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">hjust =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">year</span>, label <span class="op" style="color: #5E5E5E;
+font-style: inherit;">vjust =</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">country</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span>, size <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">geom_text</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">5</span>, hjust <span class="op" style="color: #5E5E5E;
+font-style: inherit;">data =</span> df <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">0</span>, vjust <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">df</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">year</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">filter</span>(year <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">max</span>(year)),</span>
+<span id="cb11-7">            <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">year</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">x =</span> year, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">label =</span> country), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>,
-            <span class="fu" style="color: #4758AB;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">hjust =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">year</span>, label <span class="op" style="color: #5E5E5E;
+font-style: inherit;">vjust =</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">country</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span>, size <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">5</span>, hjust <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">1</span>, vjust <span class="op" style="color: #5E5E5E;
+font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">"none"</span>,</span>
+<span id="cb11-10">        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">panel.grid.major =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">element_blank</span>()) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">scale_x_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>legend.position <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"none"</span>,
-        panel.grid.major <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>limits <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2019.95</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2022.05</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">2022.05</span>),</span>
+<span id="cb11-12">                     <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>,
-                     breaks <span class="op" style="color: #5E5E5E;
+font-style: inherit;">breaks =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">2022</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2020</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">2022</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">+</span></span>
+<span id="cb11-13">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">scale_y_reverse</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>limits <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">0.5</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">"RANK"</span>,</span>
+<span id="cb11-15">       <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">(</span>y <span class="op" style="color: #5E5E5E;
+font-style: inherit;">x =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+font-style: inherit;">NULL</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">"RANK"</span>,
-       x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">+</span></span>
+<span id="cb11-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+font-style: inherit;">scale_color_manual</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">NULL</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">wes_palette</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">+</span>
-  <span class="fu" style="color: #4758AB;
+font-style: inherit;">"Zissou1"</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span>values <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/wesanderson/man/wes_palette.html">wes_palette</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Zissou1"</span>, n <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">5</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">오렌지 맨숀🍊</span> <span class="hidden" data-render-id="quarto-int-navbar-title">오렌지 맨숀🍊</span> <span class="hidden" data-render-id="quarto-int-navbar:Blog">Blog</span> <span class="hidden" data-render-id="quarto-int-navbar:Daily">Daily</span> <span class="hidden" data-render-id="quarto-int-navbar:About">About</span> <span class="hidden" data-render-id="footer-center"></span></p>
 </div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden" data-render-id="quarto-metatitle">오렌지 맨숀🍊 - bump chart를 그리고 싶을 때, ggbump package</span> <span class="hidden" data-render-id="quarto-twittercardtitle">오렌지 맨숀🍊 - bump chart를 그리고 싶을 때, ggbump package</span> <span class="hidden" data-render-id="quarto-ogcardtitle">오렌지 맨숀🍊 - bump chart를 그리고 싶을 때, ggbump package</span> <span class="hidden" data-render-id="quarto-metasitename">오렌지 맨숀🍊</span></p>
-</div>
-</section></section> ]]></description>
+
+
+</section>
+</section>
+
+ ]]></description>
   <category>R package</category>
   <category>ggbump</category>
   <guid>https://orange-mansion.com/posts/220220_ggbump-package/</guid>
@@ -4406,29 +3992,37 @@ font-style: inherit;">)</span></code></pre></div>
   <title>data frame의 진화, tibble package</title>
   <dc:creator>chichead </dc:creator>
   <link>https://orange-mansion.com/posts/210502_tibble-package/</link>
-  <description><![CDATA[ <section id="tibble-package" class="level2"><h2 class="anchored" data-anchor-id="tibble-package">tibble package</h2>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="tibble-package" class="level2">
+<h2 class="anchored" data-anchor-id="tibble-package">tibble package</h2>
 <p><img src="https://orange-mansion.com/posts/210502_tibble-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
 <p>tidyverse 패키지를 사용하면 data.frame 대신 사용하게되는 tibble. 오늘 알아볼 R package는 tibble입니다. tibble 패키지의 역사부터 기존의 data.frame과는 어떻게 다른지 정리해봅니다.</p>
 <p><br></p>
-<section id="tibbles-name" class="level3"><h3 class="anchored" data-anchor-id="tibbles-name">tibble’s name</h3>
+<section id="tibbles-name" class="level3">
+<h3 class="anchored" data-anchor-id="tibbles-name">tibble’s name</h3>
 <p>2014년 1월, dplyr 패키지에선 data.frame을 tbl_df이라는 서브클래스로 사용했습니다. 이전의 data.frame과 다르게 출력된 결과가 콘솔창을 다 뒤덮지도 않고 칼럼명 아래에 자료형을 표현해주는 강점이 있었죠. 이 tbl_df가 지금의 tibble 패키지의 시초입니다. tbl_df를 [티블-디프]로 읽다가 뒤에 df는 떨어져나가고 tbl남 남아 결국엔 tibble이 되었죠. 참고로 패키지를 만든 <a href="https://github.com/hadley">해들리 위컴</a>은 뉴질랜드 사람인데, 뉴질랜드인들이 table을 tibble이라고 발음한다고 합니다.</p>
 <p><br></p>
-</section><section id="tibbles-logo" class="level3"><h3 class="anchored" data-anchor-id="tibbles-logo">tibble’s logo</h3>
+</section>
+<section id="tibbles-logo" class="level3">
+<h3 class="anchored" data-anchor-id="tibbles-logo">tibble’s logo</h3>
 <p>위대한 패키지 tidyverse의 일원인만큼 tibble 로고의 뒷 배경은 tidyverse 세계관을 공유하고 있습니다. 우주 배경을 뒤에 두고 표가 그려져있죠. 그 위엔 TIBBLE 이라는 이름표가 적혀있고요. 폰트 스타일은 스타트랙을 닮았는데, 스타트랙에는 tibble과 유사한 tribble이라는 크리쳐가 등장합니다. tribble은 tibble 패키지의 함수로도 등장하는데 이건 뒤에서 설명 드리겠습니다. tibble 이름표를 잘 보면 TI33으로도 읽을 수 있는데 공학용 계산기로 유명한 텍사스 인스트루먼트(TI)에서 만든 동명의 모델이 있죠. (물론 의도한지는 모르겠지만요)</p>
 <p><br></p>
-</section></section><section id="all-about-tibble" class="level2"><h2 class="anchored" data-anchor-id="all-about-tibble">All about tibble</h2>
-<section id="as.tibble" class="level3"><h3 class="anchored" data-anchor-id="as.tibble">as.tibble</h3>
+</section>
+</section>
+<section id="all-about-tibble" class="level2">
+<h2 class="anchored" data-anchor-id="all-about-tibble">All about tibble</h2>
+<section id="as.tibble" class="level3">
+<h3 class="anchored" data-anchor-id="as.tibble">as.tibble</h3>
 <p>아이리스(붓꽃) 데이터가 담겨있는 iris 데이터를 가지고 살펴보겠습니다. 총 150개의 로(row)와 5개의 칼럼(column)으로 이뤄진 데이터프레임(data.frame)입니다. 만일 코드에 그냥 iris라고 입력한다면 콘솔창에는 150개의 행을 보실 수 있을텐데요. 그걸 막기 위해 iris 데이터의 머릿부분만 불러오라는 함수 head( )를 써보았어요.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">iris</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">head</span>(iris)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 1          5.1         3.5          1.4         0.2  setosa
@@ -4441,32 +4035,16 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 <p>이번엔 tibble 패키지를 이용해볼까요. 여기서 사용할 함수는 as_tibble( )입니다. 무언가를 tibble로 만들어주는 고마운 함수입니다. 새로운 iris tibble 녀석을 tbl_iris에 할당했습니다. 그리고 불러와봅시다. tibble은 그냥 tbl_iris라고 입력해도 콘솔창을 다 뒤덮지않는군요. 10개의 행을 보여주고는 나머지 140개가 남아있다고 깨알같이 설명해줍니다. 게다가 5개의 칼럼이 어떤 녀석인지 밑에다가 자료형을 설명해주고 있군요. 착한 녀석이죠. 혹여나 이러한 편의를 무시하고 모든 행을 다 보고 싶은 경우에는 옵션을 통해 바꿔줄 수 있습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-
-<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">tbl_iris</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(tibble)</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">tbl_iris <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">iris</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">tbl_iris</span></code></pre></div>
+font-style: inherit;">as_tibble</span>(iris)</span>
+<span id="cb3-4">tbl_iris</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 150 × 5
    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -4483,71 +4061,71 @@ font-style: inherit;">tbl_iris</span></code></pre></div>
 10          4.9         3.1          1.5         0.1 setosa 
 # … with 140 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 행이 n개를 넘어가면 m개만 출력하고 싶다면</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 행이 n개를 넘어가면 m개만 출력하고 싶다면</span></span>
+<span id="cb5-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># options(tibble.print_max = n, tibble.print_min = m)</span>
-
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># options(tibble.print_max = n, tibble.print_min = m)</span></span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 모든 행을 다 보고 싶다면</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 모든 행을 다 보고 싶다면</span></span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># option(tibble.print_max = Inf)</span>
-
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># option(tibble.print_max = Inf)</span></span>
+<span id="cb5-6"></span>
+<span id="cb5-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 콘솔창의 폭은 고려말고 모든 열을 다 보고 싶다면</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># 콘솔창의 폭은 고려말고 모든 열을 다 보고 싶다면</span></span>
+<span id="cb5-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># option(tibble.width = Inf)</span></code></pre></div>
+font-style: inherit;"># option(tibble.width = Inf)</span></span></code></pre></div>
 </div>
 <p><br></p>
-</section><section id="tibble" class="level3"><h3 class="anchored" data-anchor-id="tibble">tibble</h3>
+</section>
+<section id="tibble" class="level3">
+<h3 class="anchored" data-anchor-id="tibble">tibble</h3>
 <p>본격적으로 tibble을 만들어봅니다. tibble( )을 이용하면 후딱 tibble을 생성할 수 있답니다. tibble( ) 함수는 data.frame( ) 함수와는 다르게 변수의 이름을 바꾸지 않아요. 예를 들어볼게요. <strong>오렌지 맨숀</strong>라는 칼럼에 숫자 1을 넣은 data.frame을 만들어볼거에요. 동일하게 tibble로도 만들어보고요.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 오렌지 맨숀이라는 이름의 칼럼을 가진 데이터를 만들어봅니다</span>
-
-<span class="kw" style="color: #003B4F;
+font-style: inherit;"># 오렌지 맨숀이라는 이름의 칼럼을 가진 데이터를 만들어봅니다</span></span>
+<span id="cb6-2"></span>
+<span id="cb6-3"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">library</span>(tibble)</span>
+<span id="cb6-4"></span>
+<span id="cb6-5"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">data.frame</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
+font-style: inherit;">오렌지 맨숀</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">(</span>`오렌지 맨숀` <span class="op" style="color: #5E5E5E;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  오렌지.맨숀
 1           1</code></pre>
 </div>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tibble</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">(</span>`오렌지 맨숀` <span class="op" style="color: #5E5E5E;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">오렌지 맨숀</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   `오렌지 맨숀`
@@ -4557,44 +4135,54 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 <p>칼럼 이름에 공백이 들어가게 되면 data.frame은 공백을 온점으로 바꿔줍니다. <strong>오렌지 맨숀</strong> 대신 <strong>오렌지.맨숀</strong>이 되었죠? 반면 tibble은 변수의 이름을 바꾸지 않고 그대로 내비두죠. 이러한 tibble의 유연함은 공백말고 다른 비정상적인 문자도 칼럼 이름에 넣을 수 있게 했어요.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># tibble은 비정상적 문자도 칼럼명에 넣을 수 있습니다</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># tibble은 비정상적 문자도 칼럼명에 넣을 수 있습니다</span></span>
+<span id="cb10-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 물론 백틱(`)으로 묶어야 합니다</span>
-
-<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">tb</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;"># 물론 백틱(`)으로 묶어야 합니다</span></span>
+<span id="cb10-3"></span>
+<span id="cb10-4">tb <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tibble</span>(</span>
+<span id="cb10-5">  <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">(</span>
-  `:^)` <span class="op" style="color: #5E5E5E;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+font-style: inherit;">:^)</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"smile"</span>, 
-  ` ` <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"space"</span>,
-  `2021` <span class="op" style="color: #5E5E5E;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"number"</span>
-<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"smile"</span>, </span>
+<span id="cb10-6">  <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">)</span>
-
-<span class="va" style="color: #111111;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">tb</span></code></pre></div>
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"space"</span>,</span>
+<span id="cb10-7">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">2021</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"number"</span></span>
+<span id="cb10-8">)</span>
+<span id="cb10-9"></span>
+<span id="cb10-10">tb</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   `:^)` ` `   `2021`
@@ -4603,53 +4191,45 @@ font-style: inherit;">tb</span></code></pre></div>
 </div>
 </div>
 <p><br></p>
-</section><section id="tribble" class="level3"><h3 class="anchored" data-anchor-id="tribble">tribble</h3>
+</section>
+<section id="tribble" class="level3">
+<h3 class="anchored" data-anchor-id="tribble">tribble</h3>
 <p><img src="https://orange-mansion.com/posts/210502_tibble-package/tribble.gif" class="img-fluid" style="width:40.0%"></p>
 <p>tibble을 만들 수 있는 또다른 방법은 함수 tribble을 사용하는겁니다. 스타 트렉의 커크 함장에게 눈처럼 내리는 동물이 바로 트리블이랍니다. 트리블은 복실복실한 털과 귀여운 목소리 탓에 애완용으로 많이 키워졌는데 다만 한가지 주의해야할 부분은 바로 번식이랍니다. 한 번 번식을 시작하면 끝도 없이 증식해버려서 자칫하면 손을 쓸 수 없을지도 몰라요.</p>
 <p>tibble 패키지에 있는 tribble은 <strong>tr</strong>ansposed t<strong>ibble</strong>의 줄임말입니다. 단어 그대로 전치된 티블이라는 뜻이지요. 기존의 tibble 입력 형식이 colname = data 같은 가로형이었다면 tribble에서는 세로형으로 입력할 수 있지요. 간단하게 적은 양의 데이터를 코드로 입력할 때에는 tribble을 쓰면 편리합니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># tribble 함수에서 칼럼명은 ~로 시작해야 합니다</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># tribble 함수에서 칼럼명은 ~로 시작해야 합니다</span></span>
+<span id="cb12-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># 데이터 구분은 ,로 하고요</span>
-
-<span class="fu" style="color: #4758AB;
+font-style: inherit;"># 데이터 구분은 ,로 하고요</span></span>
+<span id="cb12-3"></span>
+<span id="cb12-4"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tribble</span>(</span>
+<span id="cb12-5">  <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span>
-  <span class="op" style="color: #5E5E5E;
+font-style: inherit;">~</span>x, <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
+font-style: inherit;">~</span>y, <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">x</span>, <span class="op" style="color: #5E5E5E;
+font-style: inherit;">~</span>z,</span>
+<span id="cb12-6">  <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">y</span>, <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">z</span>,
-  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"a"</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">"a"</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">21</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"2000"</span>,
-  <span class="st" style="color: #20794D;
+font-style: inherit;">"2000"</span>,</span>
+<span id="cb12-7">  <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"b"</span>, <span class="fl" style="color: #AD0000;
+font-style: inherit;">"b"</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">31</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"1990"</span>
-<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">"1990"</span></span>
+<span id="cb12-8">)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   x         y z    
@@ -4659,81 +4239,57 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 </div>
 <p><br></p>
-</section><section id="tibble_row" class="level3"><h3 class="anchored" data-anchor-id="tibble_row">tibble_row</h3>
+</section>
+<section id="tibble_row" class="level3">
+<h3 class="anchored" data-anchor-id="tibble_row">tibble_row</h3>
 <p>tibble을 만들 수 있는 또 다른 방법. tibble_row( )가 있어요. 기본적으로 data.frame과 tibble은 벡터들의 모음입니다. 여기서 잠깐, 벡터는 동일한 유형의 데이터가 여러개 묶여있는 형식을 뜻해요. 수치형 벡터도 있을 테고, 문자형 벡터도 있을 거고요, 논리형 벡터도 존재해요. 함수 등과 같이 특별한 타입의 데이터들은 벡터가 아니여요. class를 가지고 있는 일부 요소들은 벡터이기도 하고 아닌 녀석도 있죠.</p>
 <p>tibble_row 이야기를 하는데 갑자기 벡터 이야기를 해서 뜬금없다고 생각할 수 있지만 다 이유가 있답니다. 기존 함수들로는 벡터가 아닌 데이터(스칼라)를 tibble 안에 담을 수 없었어요. 하지만 tibble_row 함수와 함께라면 스칼라도 tibble 안에 넣을 수 있게 되죠. tibble_row 함수는 한 행(row)을 차지하는 데이터프레임을 구성해줍니다. 즉 한 열에 크기가 1인 녀석만 들어갈 수 있지만 그 대신 스칼라 데이터도 넣을 수 있게 된 거죠. 참고로 저장되는 스칼라는 list 형태로 포장됩니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># vector가 아닌 scalar 데이터를 만들어봅니다</span>
-<span class="co" style="color: #5E5E5E;
+font-style: inherit;"># vector가 아닌 scalar 데이터를 만들어봅니다</span></span>
+<span id="cb14-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># lm(linear model)과 time 데이터를 써 보겠습니다</span>
-
-<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">model</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;"># lm(linear model)과 time 데이터를 써 보겠습니다</span></span>
+<span id="cb14-3"></span>
+<span id="cb14-4">model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">lm</span>(y <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
+font-style: inherit;">~</span> x, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">y</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">~</span> <span class="va" style="color: #111111;
+font-style: inherit;">x =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">x</span>, <span class="fu" style="color: #4758AB;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+font-style: inherit;">5</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">y =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">3</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">:</span><span class="fl" style="color: #AD0000;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>, y <span class="op" style="color: #5E5E5E;
+font-style: inherit;">7</span>), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+font-style: inherit;">model =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, model <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">time</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb14-5">time <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">Sys.time</span>()</span>
+<span id="cb14-6"></span>
+<span id="cb14-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>
-
-<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">time</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">tibble</span>(time)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   time               
@@ -4743,15 +4299,9 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 <p>model의 경우 vector가 아니여서 tibble에 담기지 않아요. 반면 time 데이터는 들어갈 수 있어요. 하지만 tibble_row 함수를 사용한다면 어떨까요. tibble_row와 함께라면 vector와 scalar 상관없이 tibble에 담을 수 있습니다.</p>
 <div class="cell">
-<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble_row</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">model</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></code></pre></div>
+font-style: inherit;">tibble_row</span>(model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   model 
@@ -4761,7 +4311,10 @@ font-style: inherit;">)</span></code></pre></div>
 </div>
 
 
-</section></section> ]]></description>
+</section>
+</section>
+
+ ]]></description>
   <category>R package</category>
   <category>tibble</category>
   <guid>https://orange-mansion.com/posts/210502_tibble-package/</guid>

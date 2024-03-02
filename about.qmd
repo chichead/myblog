@@ -1,6 +1,6 @@
 ---
 title: "오렌지맨숀"
-image: profile2.png
+image: profile.png
 about:
   template: jolla
   links:
