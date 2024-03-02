@@ -2,6 +2,7 @@ project:
   type: website
 
 website:
+  open-graph: true
   title: "🍊오렌지맨숀"
   site-url: https://orange-mansion.com
   description: "귤 향 가득한, 오렌지 맨숀입니다."
@@ -24,6 +25,10 @@ website:
         href: https://github.com/chichead
       - icon: linkedin
         href: https://www.linkedin.com/in/anhyemin
+  page-footer: 
+    border: false
+    left: "Published with [Quarto](https://quarto.org/) v<?quarto.version?> | Hosted by [{{< iconify simple-icons netlify >}}](https://www.netlify.com)"
+    right: "© 2024 [chichead](/about) | [MIT License](https://www.quantumjitter.com/license)"
   google-analytics: G-YZCBLF5F53
   cookie-consent: true
   comments: 
