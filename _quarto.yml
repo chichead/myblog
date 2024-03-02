@@ -15,20 +15,19 @@ website:
         file: news.qmd
       - text: "DIARY"
         file: daily.qmd
-
     right:
       - text: "ABOUT"
         file: about.qmd
       - icon: instagram
         href: https://www.instagram.com/ahnhyemin
-      - icon: github
-        href: https://github.com/chichead
       - icon: linkedin
         href: https://www.linkedin.com/in/anhyemin
+      - icon: github
+        href: https://github.com/chichead
   page-footer: 
     border: false
-    left: "Published with [Quarto](https://quarto.org/) v<?quarto.version?> | Hosted by [{{< iconify simple-icons netlify >}}](https://www.netlify.com)"
-    right: "© 2024 [chichead](/about) | [MIT License](https://www.quantumjitter.com/license)"
+    left: "Published with [Quarto](https://quarto.org/) | Hosted by [Netlify](https://www.netlify.com)"
+    right: "© 2024 [{{< fa brands github >}} chichead](/about) | [MIT License](https://www.quantumjitter.com/license) "
   google-analytics: G-YZCBLF5F53
   cookie-consent: true
   comments: 
@@ -39,7 +38,7 @@ format:
   html:
     smooth-scroll: true
     theme: 
-      - styles.css
+#      - styles.css
       - custom.scss
     mainfont: Pretendard
     toc: true

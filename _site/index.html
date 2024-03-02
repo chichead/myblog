@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -50,7 +50,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -59,8 +65,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -113,6 +121,8 @@ cookieconsent.run({
   "notice_banner_reject_button_hide":false,
   "preferences_center_close_button_hide":false,
   "website_name":""
+  ,
+"language":"en"
   });
 });
 </script> 
@@ -125,67 +135,102 @@ cookieconsent.run({
 }
 </script>
 <script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="alternate" type="application/rss+xml" title="🍊오렌지맨숀" href="index.xml"><meta property="og:title" content="🍊오렌지맨숀 - POSTS ✏️">
-<meta property="og:description" content="Hands-on DATAVIZ + ML + DL">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="🍊오렌지맨숀" href="index.xml" data-external="1"><meta property="og:title" content="🍊오렌지맨숀 - POSTS ✏️">
+<meta property="og:description" content="귤 향 가득한, 오렌지 맨숀입니다.">
 <meta property="og:image" content="https://orange-mansion.com/posts/230317_GNN_intro_2/gnn_thumbnail.gif">
-<meta property="og:site-name" content="🍊오렌지맨숀">
+<meta property="og:site_name" content="🍊오렌지맨숀">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">🍊오렌지맨숀</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
- <span class="menu-text">POSTS</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">POSTS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news.html">
- <span class="menu-text">NEWS</span></a>
+    <a class="nav-link" href="./news.html"> 
+<span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./daily.html">
- <span class="menu-text">DIARY</span></a>
+    <a class="nav-link" href="./daily.html"> 
+<span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">ABOUT</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">ABOUT</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"> <i class="bi bi-instagram" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/chichead"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://github.com/chichead"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -206,7 +251,7 @@ cookieconsent.run({
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -214,7 +259,9 @@ cookieconsent.run({
   </div>
   
 
+
 </header>
+
 
 <p>Hands-on DATAVIZ + ML + DL</p>
 <div id="sample-listings">
@@ -244,19 +291,19 @@ cookieconsent.run({
   </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R package,GNN" data-listing-date-sort="1680447600000" data-listing-file-modified-sort="1680531384082" data-listing-reading-time-sort="3.76">
+<div class="quarto-post image-right" data-index="0" data-categories="R package,GNN" data-listing-date-sort="1680447600000" data-listing-file-modified-sort="1680531384082" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="752">
 <div class="thumbnail">
-<p><a href="./posts/230403_spinner-package/index.html"> <img src="./posts/230403_spinner-package/Gromit_knitting.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/230403_spinner-package/index.html" class="no-external"></a></p><a href="./posts/230403_spinner-package/index.html" class="no-external">
+<p><img src="./posts/230403_spinner-package/Gromit_knitting.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/230403_spinner-package/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/230403_spinner-package/index.html">
 <h3 class="no-anchor listing-title">
-r에서 Spinner로 만드는 Graph Net
+<a href="./posts/230403_spinner-package/index.html" class="no-external">r에서 Spinner로 만드는 Graph Net</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/230403_spinner-package/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R package'); return false;">
 R package
@@ -265,36 +312,34 @@ R package
 GNN
 </div>
 </div>
-<a href="./posts/230403_spinner-package/index.html">
 <div class="listing-description">
-<p>R아두면 쓸데있는 패키지 이야기 05 Spinner package</p>
+<a href="./posts/230403_spinner-package/index.html" class="no-external">R아두면 쓸데있는 패키지 이야기 05 Spinner package</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/230403_spinner-package/index.html">
+<a href="./posts/230403_spinner-package/index.html" class="no-external">
 <div class="listing-date">
 2023/04/03
 </div>
 <div class="listing-reading-time">
-3 min
+4 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="GNN,GRAPH,TRANSLATION" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1680345662035" data-listing-reading-time-sort="5.655">
+<div class="quarto-post image-right" data-index="1" data-categories="GNN,GRAPH,TRANSLATION" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1680345662035" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1131">
 <div class="thumbnail">
-<p><a href="./posts/230401_GNN_intro_3/index.html"> <img src="./posts/230401_GNN_intro_3/RT.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/230401_GNN_intro_3/index.html" class="no-external"></a></p><a href="./posts/230401_GNN_intro_3/index.html" class="no-external">
+<p><img src="./posts/230401_GNN_intro_3/RT.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/230401_GNN_intro_3/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/230401_GNN_intro_3/index.html">
 <h3 class="no-anchor listing-title">
-그래프 신경망
+<a href="./posts/230401_GNN_intro_3/index.html" class="no-external">그래프 신경망</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/230401_GNN_intro_3/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('GNN'); return false;">
 GNN
@@ -306,36 +351,34 @@ GRAPH
 TRANSLATION
 </div>
 </div>
-<a href="./posts/230401_GNN_intro_3/index.html">
 <div class="listing-description">
-<p>[번역] A Gentle Introduction to Graph Neural Networks ③</p>
+<a href="./posts/230401_GNN_intro_3/index.html" class="no-external">[번역] A Gentle Introduction to Graph Neural Networks ③</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/230401_GNN_intro_3/index.html">
+<a href="./posts/230401_GNN_intro_3/index.html" class="no-external">
 <div class="listing-date">
 2023/04/01
 </div>
 <div class="listing-reading-time">
-5 min
+6 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="GNN,GRAPH,TRANSLATION" data-listing-date-sort="1678978800000" data-listing-file-modified-sort="1680345453651" data-listing-reading-time-sort="3.695">
+<div class="quarto-post image-right" data-index="2" data-categories="GNN,GRAPH,TRANSLATION" data-listing-date-sort="1678978800000" data-listing-file-modified-sort="1680345453651" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="739">
 <div class="thumbnail">
-<p><a href="./posts/230317_GNN_intro_2/index.html"> <img src="./posts/230317_GNN_intro_2/gnn_thumbnail.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/230317_GNN_intro_2/index.html" class="no-external"></a></p><a href="./posts/230317_GNN_intro_2/index.html" class="no-external">
+<p><img src="./posts/230317_GNN_intro_2/gnn_thumbnail.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/230317_GNN_intro_2/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/230317_GNN_intro_2/index.html">
 <h3 class="no-anchor listing-title">
-그래프 데이터로 풀 수 있는 문제
+<a href="./posts/230317_GNN_intro_2/index.html" class="no-external">그래프 데이터로 풀 수 있는 문제</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/230317_GNN_intro_2/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('GNN'); return false;">
 GNN
@@ -347,36 +390,34 @@ GRAPH
 TRANSLATION
 </div>
 </div>
-<a href="./posts/230317_GNN_intro_2/index.html">
 <div class="listing-description">
-<p>[번역] A Gentle Introduction to Graph Neural Networks ②</p>
+<a href="./posts/230317_GNN_intro_2/index.html" class="no-external">[번역] A Gentle Introduction to Graph Neural Networks ②</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/230317_GNN_intro_2/index.html">
+<a href="./posts/230317_GNN_intro_2/index.html" class="no-external">
 <div class="listing-date">
 2023/03/17
 </div>
 <div class="listing-reading-time">
-3 min
+4 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="GNN,GRAPH,TRANSLATION" data-listing-date-sort="1678892400000" data-listing-file-modified-sort="1680345388941" data-listing-reading-time-sort="5.36">
+<div class="quarto-post image-right" data-index="3" data-categories="GNN,GRAPH,TRANSLATION" data-listing-date-sort="1678892400000" data-listing-file-modified-sort="1680345388941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1072">
 <div class="thumbnail">
-<p><a href="./posts/230316_GNN_intro_1/index.html"> <img src="./posts/230316_GNN_intro_1/graph_thumbnail.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/230316_GNN_intro_1/index.html" class="no-external"></a></p><a href="./posts/230316_GNN_intro_1/index.html" class="no-external">
+<p><img src="./posts/230316_GNN_intro_1/graph_thumbnail.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/230316_GNN_intro_1/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/230316_GNN_intro_1/index.html">
 <h3 class="no-anchor listing-title">
-그래프는 세상 어디에나 있다
+<a href="./posts/230316_GNN_intro_1/index.html" class="no-external">그래프는 세상 어디에나 있다</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/230316_GNN_intro_1/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('GNN'); return false;">
 GNN
@@ -388,36 +429,34 @@ GRAPH
 TRANSLATION
 </div>
 </div>
-<a href="./posts/230316_GNN_intro_1/index.html">
 <div class="listing-description">
-<p>[번역] A Gentle Introduction to Graph Neural Networks ①</p>
+<a href="./posts/230316_GNN_intro_1/index.html" class="no-external">[번역] A Gentle Introduction to Graph Neural Networks ①</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/230316_GNN_intro_1/index.html">
+<a href="./posts/230316_GNN_intro_1/index.html" class="no-external">
 <div class="listing-date">
 2023/03/16
 </div>
 <div class="listing-reading-time">
-5 min
+6 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R Markdown,Quarto,YAML" data-listing-date-sort="1673103600000" data-listing-file-modified-sort="1678787483828" data-listing-reading-time-sort="8.765">
+<div class="quarto-post image-right" data-index="4" data-categories="R Markdown,Quarto,YAML" data-listing-date-sort="1673103600000" data-listing-file-modified-sort="1678787483828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1753">
 <div class="thumbnail">
-<p><a href="./posts/230108_quarto_yaml/index.html"> <img src="./posts/230108_quarto_yaml/penguins_telescope_2.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/230108_quarto_yaml/index.html" class="no-external"></a></p><a href="./posts/230108_quarto_yaml/index.html" class="no-external">
+<p><img src="./posts/230108_quarto_yaml/penguins_telescope_2.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/230108_quarto_yaml/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/230108_quarto_yaml/index.html">
 <h3 class="no-anchor listing-title">
-뜯어먹는 Quarto ①YAML
+<a href="./posts/230108_quarto_yaml/index.html" class="no-external">뜯어먹는 Quarto ①YAML</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/230108_quarto_yaml/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R Markdown'); return false;">
 R Markdown
@@ -429,36 +468,34 @@ Quarto
 YAML
 </div>
 </div>
-<a href="./posts/230108_quarto_yaml/index.html">
 <div class="listing-description">
-<p>YAML Ain’t Markup Language</p>
+<a href="./posts/230108_quarto_yaml/index.html" class="no-external">YAML Ain’t Markup Language</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/230108_quarto_yaml/index.html">
+<a href="./posts/230108_quarto_yaml/index.html" class="no-external">
 <div class="listing-date">
 2023/01/08
 </div>
 <div class="listing-reading-time">
-8 min
+9 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R package,purrr" data-listing-date-sort="1672498800000" data-listing-file-modified-sort="1672567270300" data-listing-reading-time-sort="3.48">
+<div class="quarto-post image-right" data-index="5" data-categories="R package,purrr" data-listing-date-sort="1672498800000" data-listing-file-modified-sort="1672567270300" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="696">
 <div class="thumbnail">
-<p><a href="./posts/230101_purrr/index.html"> <img src="./posts/230101_purrr/cat.webp" class="thumnail-image"> </a></p>
+<p><a href="./posts/230101_purrr/index.html" class="no-external"></a></p><a href="./posts/230101_purrr/index.html" class="no-external">
+<p><img src="./posts/230101_purrr/cat.webp" class="thumbnail-image"></p>
+</a><p><a href="./posts/230101_purrr/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/230101_purrr/index.html">
 <h3 class="no-anchor listing-title">
-pure function과 친해지려면 purrr 합시다
+<a href="./posts/230101_purrr/index.html" class="no-external">pure function과 친해지려면 purrr 합시다</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/230101_purrr/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R package'); return false;">
 R package
@@ -467,36 +504,34 @@ R package
 purrr
 </div>
 </div>
-<a href="./posts/230101_purrr/index.html">
 <div class="listing-description">
-<p>R아두면 쓸데있는 패키지 이야기 05 purrr package</p>
+<a href="./posts/230101_purrr/index.html" class="no-external">R아두면 쓸데있는 패키지 이야기 05 purrr package</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/230101_purrr/index.html">
+<a href="./posts/230101_purrr/index.html" class="no-external">
 <div class="listing-date">
 2023/01/01
 </div>
 <div class="listing-reading-time">
-3 min
+4 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Quant,tidyquant" data-listing-date-sort="1663426800000" data-listing-file-modified-sort="1663685856979" data-listing-reading-time-sort="5.065">
+<div class="quarto-post image-right" data-index="6" data-categories="Quant,tidyquant" data-listing-date-sort="1663426800000" data-listing-file-modified-sort="1663685856979" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1013">
 <div class="thumbnail">
-<p><a href="./posts/220918_quant/index.html"> <img src="./posts/220918_quant/tidyquant.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/220918_quant/index.html" class="no-external"></a></p><a href="./posts/220918_quant/index.html" class="no-external">
+<p><img src="./posts/220918_quant/tidyquant.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/220918_quant/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/220918_quant/index.html">
 <h3 class="no-anchor listing-title">
-내가 원하는 주식 종목 정보 한번에 불러오기
+<a href="./posts/220918_quant/index.html" class="no-external">내가 원하는 주식 종목 정보 한번에 불러오기</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/220918_quant/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Quant'); return false;">
 Quant
@@ -505,36 +540,34 @@ Quant
 tidyquant
 </div>
 </div>
-<a href="./posts/220918_quant/index.html">
 <div class="listing-description">
-<p>R고보면 쉬운 퀀트 분석 01 주식정보 불러오기</p>
+<a href="./posts/220918_quant/index.html" class="no-external">R고보면 쉬운 퀀트 분석 01 주식정보 불러오기</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/220918_quant/index.html">
+<a href="./posts/220918_quant/index.html" class="no-external">
 <div class="listing-date">
 2022/09/18
 </div>
 <div class="listing-reading-time">
-5 min
+6 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R package,Ragg" data-listing-date-sort="1662217200000" data-listing-file-modified-sort="1662389284715" data-listing-reading-time-sort="2.29">
+<div class="quarto-post image-right" data-index="7" data-categories="R package,Ragg" data-listing-date-sort="1662217200000" data-listing-file-modified-sort="1662389284715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="458">
 <div class="thumbnail">
-<p><a href="./posts/220904_Ragg/index.html"> <img src="./posts/220904_Ragg/Ragg_thumb.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/220904_Ragg/index.html" class="no-external"></a></p><a href="./posts/220904_Ragg/index.html" class="no-external">
+<p><img src="./posts/220904_Ragg/Ragg_thumb.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/220904_Ragg/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/220904_Ragg/index.html">
 <h3 class="no-anchor listing-title">
-한글 폰트 깨짐 현상 Ragg package로 부셔드림
+<a href="./posts/220904_Ragg/index.html" class="no-external">한글 폰트 깨짐 현상 Ragg package로 부셔드림</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/220904_Ragg/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R package'); return false;">
 R package
@@ -543,36 +576,34 @@ R package
 Ragg
 </div>
 </div>
-<a href="./posts/220904_Ragg/index.html">
 <div class="listing-description">
-<p>R아두면 쓸데있는 패키지 이야기 04 Ragg package</p>
+<a href="./posts/220904_Ragg/index.html" class="no-external">R아두면 쓸데있는 패키지 이야기 04 Ragg package</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/220904_Ragg/index.html">
+<a href="./posts/220904_Ragg/index.html" class="no-external">
 <div class="listing-date">
 2022/09/04
 </div>
 <div class="listing-reading-time">
-2 min
+3 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R package,palmerpenguins" data-listing-date-sort="1653577200000" data-listing-file-modified-sort="1661179626803" data-listing-reading-time-sort="3.35">
+<div class="quarto-post image-right" data-index="8" data-categories="R package,palmerpenguins" data-listing-date-sort="1653577200000" data-listing-file-modified-sort="1661179626803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
 <div class="thumbnail">
-<p><a href="./posts/220527_palmerpenguins-package/index.html"> <img src="./posts/220527_palmerpenguins-package/penguin.gif" class="thumnail-image"> </a></p>
+<p><a href="./posts/220527_palmerpenguins-package/index.html" class="no-external"></a></p><a href="./posts/220527_palmerpenguins-package/index.html" class="no-external">
+<p><img src="./posts/220527_palmerpenguins-package/penguin.gif" class="thumbnail-image"></p>
+</a><p><a href="./posts/220527_palmerpenguins-package/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/220527_palmerpenguins-package/index.html">
 <h3 class="no-anchor listing-title">
-iris 대신 귀여운 penguins package 씁시다
+<a href="./posts/220527_palmerpenguins-package/index.html" class="no-external">iris 대신 귀여운 penguins package 씁시다</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/220527_palmerpenguins-package/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R package'); return false;">
 R package
@@ -581,36 +612,34 @@ R package
 palmerpenguins
 </div>
 </div>
-<a href="./posts/220527_palmerpenguins-package/index.html">
 <div class="listing-description">
-<p>R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package</p>
+<a href="./posts/220527_palmerpenguins-package/index.html" class="no-external">R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/220527_palmerpenguins-package/index.html">
+<a href="./posts/220527_palmerpenguins-package/index.html" class="no-external">
 <div class="listing-date">
 2022/05/27
 </div>
 <div class="listing-reading-time">
-3 min
+4 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="R,Visualization" data-listing-date-sort="1647702000000" data-listing-file-modified-sort="1662209026563" data-listing-reading-time-sort="4.595">
+<div class="quarto-post image-right" data-index="9" data-categories="R,Visualization" data-listing-date-sort="1647702000000" data-listing-file-modified-sort="1662209026563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="919">
 <div class="thumbnail">
-<p><a href="./posts/220320_geofacet/index.html"> <img src="./posts/220320_geofacet/map.webp" class="thumnail-image"> </a></p>
+<p><a href="./posts/220320_geofacet/index.html" class="no-external"></a></p><a href="./posts/220320_geofacet/index.html" class="no-external">
+<p><img src="./posts/220320_geofacet/map.webp" class="thumbnail-image"></p>
+</a><p><a href="./posts/220320_geofacet/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/220320_geofacet/index.html">
 <h3 class="no-anchor listing-title">
-대선 득표율 지도 시각화 with R
+<a href="./posts/220320_geofacet/index.html" class="no-external">대선 득표율 지도 시각화 with R</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/220320_geofacet/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -619,36 +648,34 @@ R
 Visualization
 </div>
 </div>
-<a href="./posts/220320_geofacet/index.html">
 <div class="listing-description">
-<p>geofacet package로 대한민국 카토그램 만들기</p>
+<a href="./posts/220320_geofacet/index.html" class="no-external">geofacet package로 대한민국 카토그램 만들기</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/220320_geofacet/index.html">
+<a href="./posts/220320_geofacet/index.html" class="no-external">
 <div class="listing-date">
 2022/03/20
 </div>
 <div class="listing-reading-time">
-4 min
+5 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="R package,ggbump" data-listing-date-sort="1645282800000" data-listing-file-modified-sort="1661178764424" data-listing-reading-time-sort="5.23">
+<div class="quarto-post image-right" data-index="10" data-categories="R package,ggbump" data-listing-date-sort="1645282800000" data-listing-file-modified-sort="1661178764424" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1046">
 <div class="thumbnail">
-<p><a href="./posts/220220_ggbump-package/index.html"> <img src="./posts/220220_ggbump-package/thumbnail.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/220220_ggbump-package/index.html" class="no-external"></a></p><a href="./posts/220220_ggbump-package/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/220220_ggbump-package/thumbnail.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/220220_ggbump-package/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/220220_ggbump-package/index.html">
 <h3 class="no-anchor listing-title">
-bump chart를 그리고 싶을 때, ggbump package
+<a href="./posts/220220_ggbump-package/index.html" class="no-external">bump chart를 그리고 싶을 때, ggbump package</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/220220_ggbump-package/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R package'); return false;">
 R package
@@ -657,36 +684,34 @@ R package
 ggbump
 </div>
 </div>
-<a href="./posts/220220_ggbump-package/index.html">
 <div class="listing-description">
-<p>R아두면 쓸데있는 패키지 이야기 02 ggbump package</p>
+<a href="./posts/220220_ggbump-package/index.html" class="no-external">R아두면 쓸데있는 패키지 이야기 02 ggbump package</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/220220_ggbump-package/index.html">
+<a href="./posts/220220_ggbump-package/index.html" class="no-external">
 <div class="listing-date">
 2022/02/20
 </div>
 <div class="listing-reading-time">
-5 min
+6 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="R package,tibble" data-listing-date-sort="1619881200000" data-listing-file-modified-sort="1661178763409" data-listing-reading-time-sort="3.28">
+<div class="quarto-post image-right" data-index="11" data-categories="R package,tibble" data-listing-date-sort="1619881200000" data-listing-file-modified-sort="1661178763409" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="656">
 <div class="thumbnail">
-<p><a href="./posts/210502_tibble-package/index.html"> <img src="./posts/210502_tibble-package/thumbnail.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/210502_tibble-package/index.html" class="no-external"></a></p><a href="./posts/210502_tibble-package/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/210502_tibble-package/thumbnail.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/210502_tibble-package/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/210502_tibble-package/index.html">
 <h3 class="no-anchor listing-title">
-data frame의 진화, tibble package
+<a href="./posts/210502_tibble-package/index.html" class="no-external">data frame의 진화, tibble package</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/210502_tibble-package/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R package'); return false;">
 R package
@@ -695,19 +720,17 @@ R package
 tibble
 </div>
 </div>
-<a href="./posts/210502_tibble-package/index.html">
 <div class="listing-description">
-<p>R아두면 쓸데있는 패키지 이야기 01 tibble package</p>
+<a href="./posts/210502_tibble-package/index.html" class="no-external">R아두면 쓸데있는 패키지 이야기 01 tibble package</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/210502_tibble-package/index.html">
+<a href="./posts/210502_tibble-package/index.html" class="no-external">
 <div class="listing-date">
 2021/05/02
 </div>
 <div class="listing-reading-time">
-3 min
+4 min
 </div>
 </a>
 </div>
@@ -744,9 +767,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -782,10 +819,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -795,8 +831,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -811,6 +856,238 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -853,11 +1130,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Published with <a href="https://quarto.org/">Quarto</a> v<!--?quarto.version?--> | Hosted by <a href="https://www.netlify.com"></a></div>   
-      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
-    <div class="nav-footer-right">© 2024 <a href="./about">chichead</a> | <a href="https://www.quantumjitter.com/license">MIT License</a></div>
+    <div class="nav-footer-left">
+<p>Published with <a href="https://quarto.org/">Quarto</a> v<!--?quarto.version?--> | Hosted by <a href="https://www.netlify.com">{{&lt; iconify simple-icons netlify &gt;}}</a></p>
+</div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+<p>© 2024 <a href="./about">chichead</a> | <a href="https://www.quantumjitter.com/license">MIT License</a></p>
+</div>
   </div>
 </footer>
+
 
 
 

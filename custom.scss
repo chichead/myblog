@@ -1,13 +1,30 @@
-/*-- scss:rules --*/
+/*-- scss:defaults --*/
 
 // import fonts
-//@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
-//@import url('https://webfontworld.github.io/ridi/RidiBatang.css');
 @import url('https://webfontworld.github.io/pretendard/Pretendard.css');
 @import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css');
 @import url('https://webfontworld.github.io/heungkuk/SimKyungha.css');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+
+
+$body-bg:                                 #fdfdfd !default;
+$body-color:                              #313745 !default;
+$headings-color:                          $body-color !default;
+$code-block-bg:                           darken($body-bg, 5%) !default;
+$navbar-bg:                               $body-bg !default;
+
+
+$code-color:                              lighten($body-color, 10%) !default;
+$code-bg:                                 darken($body-bg, 10%) !default;
+
+
+$link-color:                              #F95700 !default;
+$link-shade-percentage:                   4% !default;
+$link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
+
+
+/*-- scss:rules --*/
 
 @font-face {
     font-family: 'KIMM_Bold';
@@ -64,6 +81,12 @@ p {
   line-height: 1.7;
 }
 
+.nav-footer {
+  p, a {
+    font-size: 12px;
+  }
+}
+
 h3 {
   font-size: 24px;
 }
@@ -74,7 +97,10 @@ h5 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "LINESeedKR-Rg";
-  color: #595959;
+}
+
+td {
+  font-size: 16px;
 }
 
 code.sourceCode {
