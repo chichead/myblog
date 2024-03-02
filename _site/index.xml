@@ -2721,6 +2721,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 
 
 
+
 <section id="geo_grid를-활용한-시각화" class="level2">
 <h2 class="anchored" data-anchor-id="geo_grid를-활용한-시각화">geo_grid를 활용한 시각화</h2>
 <section id="해외의-선거-시각화" class="level4">
@@ -2728,7 +2729,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://orange-mansion.com/posts/220320_geofacet/fivethirtyeight_vote_graph.webp" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">FiveThirtyEight의 2020 미 대선 선거결과 시각화</figcaption><p></p>
+<figcaption>FiveThirtyEight의 2020 미 대선 선거결과 시각화</figcaption>
 </figure>
 </div>
 <p>해외 언론에서 선거 결과를 시각화한 기사를 볼 때마다 드는 생각이 있습니다. “아 우리나라도 저렇게 격자형태로 시각화하면 멋드러지지 않을까…” 국내에서는 시군구 혹은 읍면동 단위로 색을 칠하는 형태가 대부분이지 그 안에 그래프를 넣어서 시각화하기가 힘들어요. 미국은 50개 주에 1개의 특별구로 이루어졌으니, 필요한 격자는 51개 뿐이지만 우리나라의 시군구는 250개. 큰 권역 구분 정도는 다양한 시각화를 시도할 수 있지만 시군구 단위로 하기엔 부담이 될 수 있는거죠.</p>
@@ -2790,7 +2791,11 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">grid_preview</span>(mygrid)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>짜잔~ 면적이 서로 다른 시군구를 동일한 면적 단위로 표현했기때문에 실제 위치와는 차이가 있을 수 있습니다. 시군구 그리드에 적용된 코드는 행정안전부에서 제공하고 있는 행정표준코드를 따라서 만들어 놓았습니다. 종로구(11110), 중구(11140) 이런식으로 말이죠. 시군구 단위의 여러 데이터들을 합쳐서 시각화, 분석할 일 있으면 행정코드 기준으로 정리한다면 간단하게 할 수 있을 겁니다.</p>
@@ -3120,7 +3125,11 @@ background-color: null;
 font-style: inherit;">element_blank</span>()</span>
 <span id="cb12-19">    )</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -3244,7 +3253,11 @@ font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>짜잔! 이러면 우리가 원했던 250개 시군구 그리드에 각각의 후보별 득표율을 그릴수 있게 되었습니다.</p>
