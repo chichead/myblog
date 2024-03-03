@@ -3,7 +3,7 @@ title: '내가 원하는 주식 종목 정보 한번에 불러오기'
 date: '2022-09-18'
 categories: ['Quant', 'tidyquant']
 description: 'R고보면 쉬운 퀀트 분석 01 주식정보 불러오기'
-image: tidyquant.png
+image: /image/tidyquant.png
 execute: 
   message: false
   warning: false
@@ -13,7 +13,7 @@ editor_options:
 
 ## tidyquant package
 
-![](tidyquant-logo.png){width="25%"}
+![](/image/tidyquant-logo.png){width="25%"}
 
 R을 활용해 주식을 분석하는 방법엔 다양한 선택지가 있습니다. 주식정보 사이트에서 데이터를 크롤링해 분석하는 방법, 그리고 패키지를 활용하는 방법 등... R의 퀀트 분석에서 가장 유명한 패키지는 아마 quantmod package일 겁니다. quantmod package를 이용하면 주식, 환율, 원자재 등 다양한 경제 데이터를 활용해 분석할 수 있습니다. 하지만 오늘은 tidyquant package를 활용해 퀀트 분석을 정리해보려고 합니다.
 

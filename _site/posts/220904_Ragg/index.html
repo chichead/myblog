@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="chichead">
 <meta name="dcterms.date" content="2022-09-04">
 <meta name="description" content="R아두면 쓸데있는 패키지 이야기 04 Ragg package">
-
 <title>🍊오렌지맨숀 - 한글 폰트 깨짐 현상 Ragg package로 부셔드림</title>
 <style>
 code{white-space: pre-wrap;}
@@ -59,7 +56,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -80,8 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -107,18 +102,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script>
-
-<script type="text/plain" cookie-consent="tracking">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
-</script>
-
-<script type="text/javascript" charset="UTF-8">
+</script><script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
 cookieconsent.run({
   "notice_banner_type":"simple",
@@ -133,37 +123,28 @@ cookieconsent.run({
 "language":"en"
   });
 });
-</script> 
-  
-<style>html{ scroll-behavior: smooth; }</style>
+</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean",
   "openSidebar": false
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-<script>
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
-
-
 <meta property="og:title" content="🍊오렌지맨숀 - 한글 폰트 깨짐 현상 Ragg package로 부셔드림">
 <meta property="og:description" content="R아두면 쓸데있는 패키지 이야기 04 Ragg package">
-<meta property="og:image" content="https://orange-mansion.com/posts/220904_Ragg/Ragg_thumb.png">
+<meta property="og:image" content="https://orange-mansion.com/image/Ragg_thumb.png">
 <meta property="og:site_name" content="🍊오렌지맨숀">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">🍊오렌지맨숀</span>
@@ -175,7 +156,7 @@ cookieconsent.run({
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">POSTS</span></a>
   </li>  
@@ -184,12 +165,12 @@ cookieconsent.run({
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">ABOUT</span></a>
   </li>  
@@ -209,15 +190,11 @@ cookieconsent.run({
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">한글 폰트 깨짐 현상 Ragg package로 부셔드림</h1>
                   <div>
@@ -257,111 +234,96 @@ cookieconsent.run({
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#한글이-깨진다" id="toc-한글이-깨진다" class="nav-link active" data-scroll-target="#한글이-깨진다">한글이 깨진다</a></li>
-  <li><a href="#ragg-package" id="toc-ragg-package" class="nav-link" data-scroll-target="#ragg-package">Ragg Package</a>
+<li><a href="#%ED%95%9C%EA%B8%80%EC%9D%B4-%EA%B9%A8%EC%A7%84%EB%8B%A4" id="toc-한글이-깨진다" class="nav-link active" data-scroll-target="#%ED%95%9C%EA%B8%80%EC%9D%B4-%EA%B9%A8%EC%A7%84%EB%8B%A4">한글이 깨진다</a></li>
+  <li>
+<a href="#ragg-package" id="toc-ragg-package" class="nav-link" data-scroll-target="#ragg-package">Ragg Package</a>
   <ul>
-  <li><a href="#ragg가-뭐지" id="toc-ragg가-뭐지" class="nav-link" data-scroll-target="#ragg가-뭐지">Ragg가 뭐지?</a></li>
-  <li><a href="#rapp-package-사용법" id="toc-rapp-package-사용법" class="nav-link" data-scroll-target="#rapp-package-사용법">Rapp package 사용법</a></li>
-  <li><a href="#app-환경에서-만드는-그래프" id="toc-app-환경에서-만드는-그래프" class="nav-link" data-scroll-target="#app-환경에서-만드는-그래프">APP 환경에서 만드는 그래프</a></li>
-  </ul></li>
+<li><a href="#ragg%EA%B0%80-%EB%AD%90%EC%A7%80" id="toc-ragg가-뭐지" class="nav-link" data-scroll-target="#ragg%EA%B0%80-%EB%AD%90%EC%A7%80">Ragg가 뭐지?</a></li>
+  <li><a href="#rapp-package-%EC%82%AC%EC%9A%A9%EB%B2%95" id="toc-rapp-package-사용법" class="nav-link" data-scroll-target="#rapp-package-%EC%82%AC%EC%9A%A9%EB%B2%95">Rapp package 사용법</a></li>
+  <li><a href="#app-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EA%B7%B8%EB%9E%98%ED%94%84" id="toc-app-환경에서-만드는-그래프" class="nav-link" data-scroll-target="#app-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EA%B7%B8%EB%9E%98%ED%94%84">APP 환경에서 만드는 그래프</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<section id="한글이-깨진다" class="level2">
-<h2 class="anchored" data-anchor-id="한글이-깨진다">한글이 깨진다</h2>
-<p>R에서 데이터를 잘 정제해서 시각화를 만들면 항상 한글의 벽에 부딫히곤 합니다. 한글을 인식하지 못하는 경우에는 인코딩을 해결하면 깨짐현상을 막을 수 있죠. 그렇다면 이미지를 추출할 때 한글이 깨지는 경우는 어떻게 할까요? 여기 그 예시가 있습니다. 대한민국의 주요 도시의 위치를 나타내기 위해 이런 데이터 셋을 만들어봤어요. tibble package에서 소개했던 <code>tibble::tribble</code> 함수를 이용해봤습니다. 세계화 시대에 맞춰 도시명에는 한글과 영어, 그리고 한자까지 포함했고요.</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="한글이-깨진다" class="level2"><h2 class="anchored" data-anchor-id="한글이-깨진다">한글이 깨진다</h2>
+<p>R에서 데이터를 잘 정제해서 시각화를 만들면 항상 한글의 벽에 부딫히곤 합니다. 한글을 인식하지 못하는 경우에는 인코딩을 해결하면 깨짐현상을 막을 수 있죠. 그렇다면 이미지를 추출할 때 한글이 깨지는 경우는 어떻게 할까요? 여기 그 예시가 있습니다. 대한민국의 주요 도시의 위치를 나타내기 위해 이런 데이터 셋을 만들어봤어요. tibble package에서 소개했던 <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tibble::tribble</a></code> 함수를 이용해봤습니다. 세계화 시대에 맞춰 도시명에는 한글과 영어, 그리고 한자까지 포함했고요.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ROK_city <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>City, <span class="sc">~</span>Lat, <span class="sc">~</span>Lon,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"울산(Ulsan, 蔚山)"</span>, <span class="fl">35.549999</span>, <span class="fl">129.316666</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"광주(Gwangju, 光州)"</span>, <span class="fl">35.166668</span>, <span class="fl">126.916664</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"대전(Daejeon, 大田)"</span>, <span class="fl">36.351002</span>, <span class="fl">127.385002</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"대구(Daegu, 大邱)"</span>, <span class="fl">35.866669</span>, <span class="fl">128.600006</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"부산(Busan, 釜山)"</span>, <span class="fl">35.166668</span>, <span class="fl">129.066666</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"청주(Chungju, 淸州)"</span>, <span class="fl">36.981304</span>, <span class="fl">127.935905</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"원주(Wonju, 原州)"</span>, <span class="fl">37.342220</span>, <span class="fl">127.920158</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"인천(Incheon, 仁川)"</span>, <span class="fl">37.456257</span>, <span class="fl">126.705208</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"서울(Seoul)"</span>, <span class="fl">37.532600</span>,<span class="fl">127.024612</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ROK_city</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<span>  <span class="op">~</span><span class="va">City</span>, <span class="op">~</span><span class="va">Lat</span>, <span class="op">~</span><span class="va">Lon</span>,</span>
+<span>  <span class="st">"울산(Ulsan, 蔚山)"</span>, <span class="fl">35.549999</span>, <span class="fl">129.316666</span>,</span>
+<span>  <span class="st">"광주(Gwangju, 光州)"</span>, <span class="fl">35.166668</span>, <span class="fl">126.916664</span>,</span>
+<span>  <span class="st">"대전(Daejeon, 大田)"</span>, <span class="fl">36.351002</span>, <span class="fl">127.385002</span>,</span>
+<span>  <span class="st">"대구(Daegu, 大邱)"</span>, <span class="fl">35.866669</span>, <span class="fl">128.600006</span>,</span>
+<span>  <span class="st">"부산(Busan, 釜山)"</span>, <span class="fl">35.166668</span>, <span class="fl">129.066666</span>,</span>
+<span>  <span class="st">"청주(Chungju, 淸州)"</span>, <span class="fl">36.981304</span>, <span class="fl">127.935905</span>,</span>
+<span>  <span class="st">"원주(Wonju, 原州)"</span>, <span class="fl">37.342220</span>, <span class="fl">127.920158</span>,</span>
+<span>  <span class="st">"인천(Incheon, 仁川)"</span>, <span class="fl">37.456257</span>, <span class="fl">126.705208</span>,</span>
+<span>  <span class="st">"서울(Seoul)"</span>, <span class="fl">37.532600</span>,<span class="fl">127.024612</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>이 데이터셋을 바탕으로 지도를 그려봤습니다. 지도의 제목은 &lt;🇰🇷대한민국(大韓民國)의 주요 도시 위치&gt;로 해봤습니다. 그래프 제목에 이모지 정도는 써 줘야 그래도 웹 3.0 시대를 살고 있다고 할 수 있지 않겠습니까? 그렇게 만들어본 그래프의 모습입니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="broken_image.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="../../image/broken_image.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>처참한 모습입니다. 영어를 제외한 모든 글자를 인식하지 못하는군요. 하지만 걱정하지 마세요. 해결책이 있습니다. 바로 Ragg package를 이용하면 됩니다.</p>
 <p><br></p>
-</section>
-<section id="ragg-package" class="level2">
-<h2 class="anchored" data-anchor-id="ragg-package">Ragg Package</h2>
-<section id="ragg가-뭐지" class="level4">
-<h4 class="anchored" data-anchor-id="ragg가-뭐지">Ragg가 뭐지?</h4>
-<p><img src="logo.svg" class="img-fluid" style="width:25.0%"></p>
+</section><section id="ragg-package" class="level2"><h2 class="anchored" data-anchor-id="ragg-package">Ragg Package</h2>
+<section id="ragg가-뭐지" class="level4"><h4 class="anchored" data-anchor-id="ragg가-뭐지">Ragg가 뭐지?</h4>
+<p><img src="../../image/logo.svg" class="img-fluid" style="width:25.0%"></p>
 <p>Rapp package는 Maxim Shemanarev라는 개발자가 개발한 AGG(Anti-Grain Geometry) 라이브러리를 기반으로 만들어진 R용 그래픽 패키지입니다. R과 AGG가 만나 Ragg package로 탄생했죠. Rag가 누더기, 조각이라는 뜻이 있는만큼 패키지 로고는 천 조각의 모습을 하고 있습니다. R의 그래픽 패키지로 가장 많이 알려진 건 grDevices package일 겁니다. 색상, 폰트를 자유롭게 이용하기 위해, 이제는 grDevices 대신 Ragg를 사용하면 됩니다. AGG는 grDevices에서 제공하는 표준 래스터 장치보다 더 높은 성능과 더 높은 품질을 제공하고 있습니다.</p>
 <p><br></p>
-</section>
-<section id="rapp-package-사용법" class="level4">
-<h4 class="anchored" data-anchor-id="rapp-package-사용법">Rapp package 사용법</h4>
+</section><section id="rapp-package-사용법" class="level4"><h4 class="anchored" data-anchor-id="rapp-package-사용법">Rapp package 사용법</h4>
 <p>Rapp package를 사용하는 법은 아주 간단합니다. 일반적인 package를 설치하듯 R에 Rapp package를 설치하면 됩니다. <code>intall.package("ragg")</code> 이렇게 말이죠. <code>devtools::install_github("r-lib/ragg")</code>로 개발버전의 Rapp package를 사용해도 됩니다. 설치한 다음엔 RStudio의 옵션창으로 가 봅시다. 일반 옵션에서 Graphics 항목에서 Graphics Device를 기존 (Default)로 되어있던 것을 AGG로 변경하면 끝입니다. 아래 스크린샷을 참고하시면 이해하기 편할겁니다.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="image1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:88.0%"></p>
+<figure class="figure"><p><img src="../../image/image1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:88.0%"></p>
 </figure>
 </div>
 <p><br></p>
-</section>
-<section id="app-환경에서-만드는-그래프" class="level4">
-<h4 class="anchored" data-anchor-id="app-환경에서-만드는-그래프">APP 환경에서 만드는 그래프</h4>
-<p>이제 다시 그래프를 만들어봅시다. 대한민국의 지도를 만들기 위해 rnaturalearth package의 ne_countries 함수를 이용했습니다. rnaturalearth package는 과학 데이터의 장벽을 낮추기 위한 프로젝트 중 하나인 ropensci package에 포함되어 있는데요, ropensci는 나중에 따로 다뤄보겠습니다. 여튼 <code>rnaturalearth::ne_countries</code> 함수를 사용해보겠습니다.</p>
+</section><section id="app-환경에서-만드는-그래프" class="level4"><h4 class="anchored" data-anchor-id="app-환경에서-만드는-그래프">APP 환경에서 만드는 그래프</h4>
+<p>이제 다시 그래프를 만들어봅시다. 대한민국의 지도를 만들기 위해 rnaturalearth package의 ne_countries 함수를 이용했습니다. rnaturalearth package는 과학 데이터의 장벽을 낮추기 위한 프로젝트 중 하나인 ropensci package에 포함되어 있는데요, ropensci는 나중에 따로 다뤄보겠습니다. 여튼 <code><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_countries.html">rnaturalearth::ne_countries</a></code> 함수를 사용해보겠습니다.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>korea <span class="ot">&lt;-</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_countries</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="dv">10</span>, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="st">"South Korea"</span>, </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">returnclass =</span> <span class="st">"sf"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/rnaturalearth/">rnaturalearth</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">korea</span> <span class="op">&lt;-</span> <span class="fu">rnaturalearth</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/rnaturalearth/reference/ne_countries.html">ne_countries</a></span><span class="op">(</span></span>
+<span>  scale <span class="op">=</span> <span class="fl">10</span>, </span>
+<span>  country <span class="op">=</span> <span class="st">"South Korea"</span>, </span>
+<span>  returnclass <span class="op">=</span> <span class="st">"sf"</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>불러온 대한민국 데이터를 <code>ggplot2::geom_sf</code>에 넣어 지도를 그려보겠습니다.</p>
+<p>불러온 대한민국 데이터를 <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">ggplot2::geom_sf</a></code>에 넣어 지도를 그려보겠습니다.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ragg)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> korea, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#C3ECB1"</span>, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"#D5D8DB"</span>, </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.2</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_label_repel</span>(</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ROK_city,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(Lon, Lat, <span class="at">label =</span> City), </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#FFFFFF88"</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> ROK_city, <span class="fu">aes</span>(Lon, Lat)) <span class="sc">+</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"대한민국(大韓民國)의 주요 도시 위치🇰🇷"</span>) <span class="sc">+</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"#AADAFE"</span>),</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ragg.r-lib.org">ragg</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">korea</span>, </span>
+<span>    fill <span class="op">=</span> <span class="st">"#C3ECB1"</span>, </span>
+<span>    colour <span class="op">=</span> <span class="st">"#D5D8DB"</span>, </span>
+<span>    size <span class="op">=</span> <span class="fl">0.2</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_label_repel</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">ROK_city</span>,</span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Lon</span>, <span class="va">Lat</span>, label <span class="op">=</span> <span class="va">City</span><span class="op">)</span>, </span>
+<span>    fill <span class="op">=</span> <span class="st">"#FFFFFF88"</span>,</span>
+<span>    box.padding <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ROK_city</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Lon</span>, <span class="va">Lat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"대한민국(大韓民國)의 주요 도시 위치🇰🇷"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span><span class="st">"#AADAFE"</span><span class="op">)</span>,</span>
+<span>        plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -369,11 +331,7 @@ cookieconsent.run({
 <p>짜잔~ rapp 패키지로 APP 환경을 이용하면 한글과 이모지, 한자가 깨지지 않는 이미지를 손쉽게 얻을 수 있습니다.</p>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -759,14 +717,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Published with <a href="https://quarto.org/">Quarto</a> | Hosted by <a href="https://www.netlify.com">Netlify</a></p>
 </div>   
@@ -778,8 +732,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 <script src="../../site_libs/quarto-html/zenscroll-min.js"></script>

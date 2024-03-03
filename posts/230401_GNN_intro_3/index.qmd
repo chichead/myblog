@@ -3,7 +3,7 @@ title: '그래프 신경망'
 date: '2023-04-01'
 categories: ['GNN', 'GRAPH', 'TRANSLATION']
 description: "[번역] A Gentle Introduction to Graph Neural Networks ③" 
-image: RT.gif
+image: /image/RT.gif
 execute: 
   message: false
   warning: false
@@ -26,7 +26,7 @@ editor_options:
 <br/>
 
 ::: column-body-outset
-![](arch_independent.png){width="100%"}
+![](/image/arch_independent.png){width="100%"}
 :::
 
 <br/>
@@ -55,7 +55,7 @@ GNN은 입력된 그래프의 연결성을 업데이트하지 않기 때문에 �
 
 <br/>
 
-![](prediction_edges_nodes.png){width="100%"}
+![](/image/prediction_edges_nodes.png){width="100%"}
 
 <br/>
 
@@ -63,7 +63,7 @@ GNN은 입력된 그래프의 연결성을 업데이트하지 않기 때문에 �
 
 <br/>
 
-![](prediction_nodes_edges.png){width="100%"}
+![](/image/prediction_nodes_edges.png){width="100%"}
 
 <br/>
 
@@ -71,7 +71,7 @@ GNN은 입력된 그래프의 연결성을 업데이트하지 않기 때문에 �
 
 <br/>
 
-![](prediction_nodes_edges_global.png){width="100%"}
+![](/image/prediction_nodes_edges_global.png){width="100%"}
 
 <br/>
 
@@ -79,7 +79,7 @@ GNN은 입력된 그래프의 연결성을 업데이트하지 않기 때문에 �
 
 <br/>
 
-![](Overall.png){width="100%"}
+![](/image/Overall.png){width="100%"}
 
 <br/>
 
@@ -105,7 +105,7 @@ Message Passing은 3단계로 진행됩니다.
 
 <br/>
 
-![](GNN_layer.png){width="100%"}
+![](/image/GNN_layer.png){width="100%"}
 
 <br/>
 
@@ -117,7 +117,7 @@ MP GNN 레이어를 쌓아올리면 결국 전체 그래프의 정보를 통합�
 
 <br/>
 
-![](arch_gcn){width="100%"}
+![](/image/arch_gcn){width="100%"}
 
 위 다이어그램은 1도 거리의 인접 노드를 풀링해서 그래프의 노드 표현을 업데이트하는 GCN(Graph Convolutional Network) 아키텍처의 모식도입니다.
 
@@ -133,7 +133,7 @@ MP GNN 레이어를 쌓아올리면 결국 전체 그래프의 정보를 통합�
 
 <br/>
 
-![](arch_mpnn.png){width="100%"}
+![](/image/arch_mpnn.png){width="100%"}
 
 <br/>
 
@@ -141,7 +141,7 @@ MP GNN 레이어를 쌓아올리면 결국 전체 그래프의 정보를 통합�
 
 <br/>
 
-![](arch_weave.png){width="100%"}
+![](/image/arch_weave.png){width="100%"}
 
 <br/>
 
@@ -153,7 +153,7 @@ MP GNN 레이어를 쌓아올리면 결국 전체 그래프의 정보를 통합�
 
 <br/>
 
-![](arch_graphnet.png){width="100%"}
+![](/image/arch_graphnet.png){width="100%"}
 
 <br/>
 
@@ -161,14 +161,4 @@ MP GNN 레이어를 쌓아올리면 결국 전체 그래프의 정보를 통합�
 
 <br/>
 
-![](graph_conditioning.png){width="100%"}
-
-<br/>
-
-### A Gentle Introduction to GNNs
-
-> [1. 그래프는 세상 어디에나 있다](https://orange-mansion.com/posts/230316_gnn_intro_1/)
->
-> [2. 그래프 데이터로 풀 수 있는 문제](https://orange-mansion.com/posts/230317_gnn_intro_2/)
->
-> 3. 그래프 신경망
+![](/image/graph_conditioning.png){width="100%"}

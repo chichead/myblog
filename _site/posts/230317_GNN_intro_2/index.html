@@ -147,8 +147,10 @@ window.Quarto = {
 
 <meta property="og:title" content="🍊오렌지맨숀 - 그래프 데이터로 풀 수 있는 문제">
 <meta property="og:description" content="[번역] A Gentle Introduction to Graph Neural Networks ②">
-<meta property="og:image" content="https://orange-mansion.com/posts/230317_GNN_intro_2/gnn_thumbnail.gif">
+<meta property="og:image" content="https://orange-mansion.com/image/gnn2_thumb.png">
 <meta property="og:site_name" content="🍊오렌지맨숀">
+<meta property="og:image:height" content="962">
+<meta property="og:image:width" content="1740">
 </head>
 
 <body class="nav-fixed">
@@ -177,7 +179,7 @@ window.Quarto = {
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
@@ -262,7 +264,6 @@ window.Quarto = {
   <li><a href="#edge-level-task" id="toc-edge-level-task" class="nav-link" data-scroll-target="#edge-level-task">Edge-level task</a></li>
   </ul></li>
   <li><a href="#the-challenges-of-using-graphs-in-machine-learning" id="toc-the-challenges-of-using-graphs-in-machine-learning" class="nav-link" data-scroll-target="#the-challenges-of-using-graphs-in-machine-learning">The challenges of using graphs in machine learning</a></li>
-  <li><a href="#a-gentle-introduction-to-gnns" id="toc-a-gentle-introduction-to-gnns" class="nav-link" data-scroll-target="#a-gentle-introduction-to-gnns">A Gentle Introduction to GNNs</a></li>
   </ul>
 </nav>
     </div>
@@ -282,7 +283,7 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="graph-level-task">Graph-level task</h4>
 <p>그래프 수준에서의 목표는 전체 그래프의 속성을 예측하는 것입니다. 예를 들면 분자식을 그래프로 표현한 경우에, 분자가 어떤 냄새를 풍기는지 혹은 질병과 관련된 수용체에 결합할지를 예측할 수 있죠.</p>
 <div class="column-body-outset">
-<p><img src="graph-level-task.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/graph-level-task.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <p>이러한 접근방식은 라벨을 이미지에 연결하는 MNIST, CIFAR의 이미지 분류 문제와 비슷합니다. 텍스트 데이터로 보자면, 전체 문장의 분위기나 감정을 파악하는 이른바 감정 분석이 비슷한 접근이라고 할 수 있을 겁니다.</p>
 <p><br></p>
@@ -293,7 +294,7 @@ window.Quarto = {
 <p>Node 수준 예측 문제의 대표적인 예는 ’재커리 가라테 클럽 데이터’입니다. 제커리 가라테 클럽 데이터는 클럽 내 정치적 불화로 클럽이 둘로 갈라지면서, 한 곳에만 충성을 맹세한 사람들로 구성된 소셜 네트워크 그래프입니다. 조금 더 스토리를 설명하자면 가라테 강사 Mr.&nbsp;Hi와 관리자 John A 사이에 불화가 생겨 가라테 클럽이 분열됩니다. 회원의 절반 가량이 Mr.&nbsp;Hi를 중심으로 새로운 가라테 클럽을 결성하게 되죠.</p>
 <p>여튼 그래프에서 Node는 개별 가라테 수련생을 나타내고, Edge는 가라테 클럽 밖에서의 회원들 간의 상호 작용을 나타냅니다. 여기서 예측문제는 불화 이후 특정 회원이 Mr.&nbsp;Hi와 John A 중 어느 쪽에 충성하게 될지 분류하는 거죠. 이 경우 특정 Node와 Mr.&nbsp;Hi와의 거리, 혹은 John A와의 거리는 충성도와 높은 상관관계가 있습니다.</p>
 <div class="column-body-outset">
-<p><img src="node-level-task.png" class="img-fluid"></p>
+<p><img src="../../image/node-level-task.png" class="img-fluid"></p>
 </div>
 <p>이미지 분석에 비유를 해보자면, Node 수준의 예측 문제는 이미지 안에서 각 픽셀의 역할에 레이블을 지정하는 이미지 분할(image segmentation)과 유사한 접근입니다. 텍스트 분석에서는 문장 안에서 각 단어의 품사를 예측하는 것과 비슷하죠.</p>
 <p><br></p>
@@ -304,13 +305,13 @@ window.Quarto = {
 <p>Edge 수준의 예측의 한 가지 예는 이미지 장면 이해(Image scene understanding)입니다. 딥러닝 모델은 이미지에서 객체를 식별하는 것 외에도 객체 간의 관계를 예측하는 데 사용할 수 있습니다. 이를 Edge 수준 분류라고 표현할 수 있죠. 이미지의 객체(Node)들이 주어지면 Node 가운데 어떤 Node가 Edge를 서로 공유하는지, 혹은 그 Edge의 값이 무엇인지 예측합니다. 각 개체 간의 연결을 발견하기 위해선 그래프를 완전 그래프(Complete graph, 모든 Node간에 Edge가 존재하는 그래프)로 설정한 뒤 예측된 값에 따라 Edge를 잘라내면서 희소 그래프(Sparse graph, Node 개수보다 Edge 개수가 적은 그래프)에 도달할 수 있습니다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="edge-level-task.png" class="img-fluid figure-img"></p>
+<p><img src="../../image/edge-level-task.png" class="img-fluid figure-img"></p>
 <figcaption>원본 이미지에서 각 선수, 심판, 관중, 매트 등 5개의 엔티티(Entities)로 세분화해 그들 사이의 관계를 표현해봅니다</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="edges_level_diagram.png" class="img-fluid figure-img"></p>
+<p><img src="../../image/edges_level_diagram.png" class="img-fluid figure-img"></p>
 <figcaption>왼쪽에는 엔티티 구분 전에 구축된 초기 그래프가 있습니다. 오른쪽은 Edge 라벨링된 결과 그래프입니다.</figcaption>
 </figure>
 </div>
@@ -323,24 +324,13 @@ window.Quarto = {
 <p>머신러닝 모델은 일반적으로 직사각형이나 격자모양의 배열을 input 값으로 받습니다. 따라서 이를 딥러닝과 호환되는 형식으로 표현하는 방법은 직관적이지 않을 수 있습니다. 그래프에는 Node, Edge, 글로벌 컨텍스트, 연결성 등 예측에 잠재적으로 사용할 수 있는 4개의 정보가 있습니다. 앞의 3개는 비교적 간단합니다. 예를 들어서 Node의 경우 각각의 Node에 인덱스 <span class="math inline">\(i\)</span>를 할당하고 <span class="math inline">\(node_i\)</span>의 특징을 Node 특징 행렬(Node feature matrix) <span class="math inline">\(N\)</span>에 넣을 수 있을 겁니다. 이러한 행렬에는 다양한 예가 있지만 특별한 기술이 들어갈 필요 없이 처리할 수 있습니다.</p>
 <p>하지만 그래프의 연결성을 표현하는 건 복잡합니다. 아마도 가장 확실한 방법은 쉽게 텐서화(Tensorisable)할 수 있는 인접 행렬을 사용하는 것일 겁니다. 하지만 이 방법은 몇 가지 단점이 있습니다. 어떤 그래프의 Node 수는 수백만 개에 달할 수 있습니다. 그리고 Node별 Edge 수는 매우 가변적이죠. 이로 인해 인접 행렬은 희소 행렬(Sparse matrix)이 될 가능성이 높아 공간이 비효율적인 경우가 많습니다.</p>
 <p>또 다른 문제는 동일한 연결성을 인코딩할 수 있는 인접 행렬이 많다는 겁니다. 동일한 연결성을 나타내지만 다른 모양의 인접 행렬이 심층 신경망에서 동일한 결과를 생성한다는 보장이 없죠. 즉 다시 말해 순열 불변(Permutation invariance, 입력 벡터 요소의 순서와 상관없이 같은 출력을 생성하는 특성)이 아니라는 겁니다. 예를 들어서 앞서 설명한 오셀로 그래프는 아래 두 인접 행렬로 표현할 수 있습니다.</p>
-<p><img src="othello.png" class="img-fluid"></p>
+<p><img src="../../image/othello.png" class="img-fluid"></p>
 <p><br></p>
 <p>아래 예는 4개의 Node로 구성된 작은 그래프를 표현할 수 있는 모든 인접 행렬을 나타낸 겁니다. 인접행렬의 개수는 <span class="math inline">\(4! = 24\)</span>개로, 상당한 수가 나옵니다. 오셀로 그래프와 같이 더 큰 데이터에서는 인접 행렬의 수는 엄청나게 늘어날 겁니다.</p>
 <div class="column-body-outset">
-<p><img src="matrices.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/matrices.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <p>메모리 효율을 고려한다면 인접성 목록으로 희소 행렬(sparse matrices)을 표현할 수도 있습니다. 인접성 목록의 k번째 항목에는 Node <span class="math inline">\(n_i\)</span>와 Node <span class="math inline">\(n_j\)</span> 사이의 Edge <span class="math inline">\(e_k\)</span>의 연결성을 나타냅니다. 희소 행렬이니만큼 Edge 수가 행렬의 항목 수 <span class="math inline">\(n^2_{nodes}\)</span>) 보다 훨씬 적을 테고, 그만큼 그래프에서 연결되어 있지 않는 부분에 대한 계산과 저장을 피할 수 있습니다. 예시에서 본 그림에서는 Node, Edge, Global에 스칼라 값을 사용했지만, 대부분의 실제 텐서 표현에서는 그래프의 각 속성당 벡터를 사용합니다.</p>
-<p><br></p>
-</section>
-<section id="a-gentle-introduction-to-gnns" class="level3">
-<h3 class="anchored" data-anchor-id="a-gentle-introduction-to-gnns">A Gentle Introduction to GNNs</h3>
-<blockquote class="blockquote">
-<p><a href="https://orange-mansion.com/posts/230316_gnn_intro_1/">1. 그래프는 세상 어디에나 있다</a></p>
-<ol start="2" type="1">
-<li>그래프 데이터로 풀 수 있는 문제</li>
-</ol>
-<p><a href="https://orange-mansion.com/posts/230401_gnn_intro_3/">3. 그래프 신경망</a></p>
-</blockquote>
 
 
 </section>

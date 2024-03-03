@@ -3,7 +3,7 @@ title: 'pure function과 친해지려면 purrr 합시다'
 date: '2023-01-01'
 categories: ['R package', 'purrr']
 description: 'R아두면 쓸데있는 패키지 이야기 05 purrr package'
-image: cat.webp
+image: /image/cat.webp
 execute: 
   message: false
   warning: false
@@ -13,7 +13,7 @@ editor_options:
 
 ## purrr package
 
-![](purrr_compressed.png){width="25%"}
+![](/image/purrr_compressed.png){width="25%"}
 
 데이터를 요리조리 만지다보면, 혹은 R을 조금 더 본격 프로그래밍적으로 접근하고 싶어서 이것저것 찾다보면 purrr 패키지를 만나게 됩니다. 마침 작년 12월 20일에 purrr 패키지 1.0.0 버전이 [출시](https://www.tidyverse.org/blog/2022/12/purrr-1-0-0/)되었으니 새해를 여는 R쓸 이야기의 주인공으로 purrr 패키지를 골라봤습니다.
 
@@ -35,7 +35,7 @@ purrr 패키지가 세상에 처음으로 선을 보인건 2015년 9월입니다
 
 그런데 여기서 이야기하는 함수형 프로그래밍(FP, Functional Programming)은 뭘까요? 프로그래밍은 크게 명령형 프로그래밍(Imperative Programming)과 선언형 프로그래밍(Declarative Programming)으로 구분할 수 있습니다. 물론 엄밀하게 구분하면 아래와 같은 지도같이 더 복잡하게 구분할 수도 있는데, 우리는 purrr 패키지를 이해하는 게 우선이니 명령형과 선언형으로만 구분해 보겠습니다.
 
-![Overview of the various programming paradigms according to Peter Van Roy](1920px-Programming_paradigms.png){width="100%"}
+![Overview of the various programming paradigms according to Peter Van Roy](/image/1920px-Programming_paradigms.png){width="100%"}
 
 명령형 프로그래밍은 프로그래밍의 상태와 상태를 변형시키는 구문의 관점에서 연산을 설명합니다. 우리가 일반적으로 누군가에게 명령(혹은 부탁)을 할 때 어떤 동작을 할 것인지를 표현하는 것처럼, 명령형 프로그래밍은 컴퓨터에게도 컴퓨터가 수행할 명령을 순서대로 말하는 방식을 의미합니다. 즉 명령형 프로그래밍은 컴퓨터에게 무엇(What)을 할 것인지에 방점을 찍어 설명하는 게 아니라 어떻게(How)할 것인지에 중심을 두고 설명합니다.
 
@@ -55,7 +55,7 @@ purrr 패키지의 알파이자 오메가인 `map( )` 함수를 살펴보겠습�
 
 대표적인 게 바로 하스켈의 map함수입니다. 하스켈의 map함수는 purrr에서도 동일하게 등장합니다. map함수의 map은 수학에서 의미하는 매핑(mapping, 사상), 즉 일반적인 의미의 함수를 뜻합니다. 참고로 하스켈은 순수 함수형 프로그래밍 언어인데요, 하스켈 코드는 부작용(side effect)이 없다(!)는 장점을 가지고 있기도 하죠. 
 
-![xkce_Haskell](haskell_2x.png){fig-align="center" width="30%"}
+![xkce_Haskell](/image/haskell_2x.png){fig-align="center" width="30%"}
 
 r에서 명령형 프로그래밍 방법과 함수형 프로그래밍 방법에 따라 1부터 10까지의 숫자들을 제곱해 보겠습니다. 먼저 나만의 소중한 제곱 함수를 만들어놓고 시작해 보죠. for loop에서는 1부터 10까지 각각의 i에 `my_square( )` 함수를 적용했습니다. 함수형 프로그래밍에선 고차함수 map( )에 `my_square( )`라는 함수를 값으로 취급해 넣었습니다. 당연히 두 결과는 같습니다.
 
@@ -96,4 +96,4 @@ c("dogs", "cats", "rats") |>
 
 ```
 
-purrr 패키지에는 `map( )` 함수만 해도 `map_dbl( )`, `map_lgl( )`, `map_int( )`, `map_int( )` 등 딸린 식구들이 많습니다. 거기에 map2, pmap, imap, keep, compact, pluck, modify 등 다양한 함수들이 넘쳐나죠. R쓸 패키지 이야기는 이 정도로 마무리하고 purrr에 딸려있는 나머지 다양한 함수들은 [daily](https://orange-mansion.com/daily.html) 코너를 통해 조금씩 풀어나가 보도록 하겠습니다. 
+purrr 패키지에는 `map( )` 함수만 해도 `map_dbl( )`, `map_lgl( )`, `map_int( )`, `map_int( )` 등 딸린 식구들이 많습니다. 거기에 map2, pmap, imap, keep, compact, pluck, modify 등 다양한 함수들이 넘쳐나죠. R쓸 패키지 이야기는 이 정도로 마무리하고 purrr에 딸려있는 나머지 다양한 함수들은 추후에 조금씩 풀어나가 보도록 하겠습니다.

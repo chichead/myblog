@@ -3,7 +3,7 @@ title: '그래프 데이터로 풀 수 있는 문제'
 date: '2023-03-17'
 categories: ['GNN', 'GRAPH', 'TRANSLATION']
 description: "[번역] A Gentle Introduction to Graph Neural Networks ②"
-image: gnn_thumbnail.gif
+image: /image/gnn2_thumb.png
 execute: 
   message: false
   warning: false
@@ -24,7 +24,7 @@ editor_options:
 그래프 수준에서의 목표는 전체 그래프의 속성을 예측하는 것입니다. 예를 들면 분자식을 그래프로 표현한 경우에, 분자가 어떤 냄새를 풍기는지 혹은 질병과 관련된 수용체에 결합할지를 예측할 수 있죠.
 
 ::: column-body-outset
-![](graph-level-task.png){width="100%"}
+![](/image/graph-level-task.png){width="100%"}
 :::
 
 이러한 접근방식은 라벨을 이미지에 연결하는 MNIST, CIFAR의 이미지 분류 문제와 비슷합니다. 텍스트 데이터로 보자면, 전체 문장의 분위기나 감정을 파악하는 이른바 감정 분석이 비슷한 접근이라고 할 수 있을 겁니다.
@@ -40,7 +40,7 @@ Node 수준 예측 문제의 대표적인 예는 '재커리 가라테 클럽 데
 여튼 그래프에서 Node는 개별 가라테 수련생을 나타내고, Edge는 가라테 클럽 밖에서의 회원들 간의 상호 작용을 나타냅니다. 여기서 예측문제는 불화 이후 특정 회원이 Mr. Hi와 John A 중 어느 쪽에 충성하게 될지 분류하는 거죠. 이 경우 특정 Node와 Mr. Hi와의 거리, 혹은 John A와의 거리는 충성도와 높은 상관관계가 있습니다.
 
 ::: column-body-outset
-![](node-level-task.png)
+![](/image/node-level-task.png)
 :::
 
 이미지 분석에 비유를 해보자면, Node 수준의 예측 문제는 이미지 안에서 각 픽셀의 역할에 레이블을 지정하는 이미지 분할(image segmentation)과 유사한 접근입니다. 텍스트 분석에서는 문장 안에서 각 단어의 품사를 예측하는 것과 비슷하죠.
@@ -53,9 +53,9 @@ Node 수준 예측 문제의 대표적인 예는 '재커리 가라테 클럽 데
 
 Edge 수준의 예측의 한 가지 예는 이미지 장면 이해(Image scene understanding)입니다. 딥러닝 모델은 이미지에서 객체를 식별하는 것 외에도 객체 간의 관계를 예측하는 데 사용할 수 있습니다. 이를 Edge 수준 분류라고 표현할 수 있죠. 이미지의 객체(Node)들이 주어지면 Node 가운데 어떤 Node가 Edge를 서로 공유하는지, 혹은 그 Edge의 값이 무엇인지 예측합니다. 각 개체 간의 연결을 발견하기 위해선 그래프를 완전 그래프(Complete graph, 모든 Node간에 Edge가 존재하는 그래프)로 설정한 뒤 예측된 값에 따라 Edge를 잘라내면서 희소 그래프(Sparse graph, Node 개수보다 Edge 개수가 적은 그래프)에 도달할 수 있습니다.
 
-![원본 이미지에서 각 선수, 심판, 관중, 매트 등 5개의 엔티티(Entities)로 세분화해 그들 사이의 관계를 표현해봅니다](edge-level-task.png) 
+![원본 이미지에서 각 선수, 심판, 관중, 매트 등 5개의 엔티티(Entities)로 세분화해 그들 사이의 관계를 표현해봅니다](/image/edge-level-task.png) 
 
-![왼쪽에는 엔티티 구분 전에 구축된 초기 그래프가 있습니다. 오른쪽은 Edge 라벨링된 결과 그래프입니다.](edges_level_diagram.png)
+![왼쪽에는 엔티티 구분 전에 구축된 초기 그래프가 있습니다. 오른쪽은 Edge 라벨링된 결과 그래프입니다.](/image/edges_level_diagram.png)
 
 <br/>
 
@@ -69,24 +69,14 @@ Edge 수준의 예측의 한 가지 예는 이미지 장면 이해(Image scene u
 
 또 다른 문제는 동일한 연결성을 인코딩할 수 있는 인접 행렬이 많다는 겁니다. 동일한 연결성을 나타내지만 다른 모양의 인접 행렬이 심층 신경망에서 동일한 결과를 생성한다는 보장이 없죠. 즉 다시 말해 순열 불변(Permutation invariance, 입력 벡터 요소의 순서와 상관없이 같은 출력을 생성하는 특성)이 아니라는 겁니다. 예를 들어서 앞서 설명한 오셀로 그래프는 아래 두 인접 행렬로 표현할 수 있습니다.
 
-![](othello.png)
+![](/image/othello.png)
 
 <br/>
 
 아래 예는 4개의 Node로 구성된 작은 그래프를 표현할 수 있는 모든 인접 행렬을 나타낸 겁니다. 인접행렬의 개수는 $4! = 24$개로, 상당한 수가 나옵니다. 오셀로 그래프와 같이 더 큰 데이터에서는 인접 행렬의 수는 엄청나게 늘어날 겁니다.
 
 ::: column-body-outset
-![](matrices.png){width="100%"}
+![](/image/matrices.png){width="100%"}
 :::
 
 메모리 효율을 고려한다면 인접성 목록으로 희소 행렬(sparse matrices)을 표현할 수도 있습니다. 인접성 목록의 k번째 항목에는 Node $n_i$와 Node $n_j$ 사이의 Edge $e_k$의 연결성을 나타냅니다. 희소 행렬이니만큼 Edge 수가 행렬의 항목 수 $n^2_{nodes}$) 보다 훨씬 적을 테고, 그만큼 그래프에서 연결되어 있지 않는 부분에 대한 계산과 저장을 피할 수 있습니다. 예시에서 본 그림에서는 Node, Edge, Global에 스칼라 값을 사용했지만, 대부분의 실제 텐서 표현에서는 그래프의 각 속성당 벡터를 사용합니다.
-
-<br/>
-
-### A Gentle Introduction to GNNs
-
-> [1. 그래프는 세상 어디에나 있다](https://orange-mansion.com/posts/230316_gnn_intro_1/)
->
-> 2. 그래프 데이터로 풀 수 있는 문제
->
-> [3. 그래프 신경망](https://orange-mansion.com/posts/230401_gnn_intro_3/)
