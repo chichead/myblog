@@ -12,7 +12,7 @@ editor_options:
 
 ## tibble package
 
-![](thumbnail.png){width="100%"}
+![](/image/thumbnail.png){width="100%"}
 
 tidyverse 패키지를 사용하면 data.frame 대신 사용하게되는 tibble. 오늘 알아볼 R package는 tibble입니다. tibble 패키지의 역사부터 기존의 data.frame과는 어떻게 다른지 정리해봅니다.
 
@@ -95,7 +95,7 @@ tb
 
 ### tribble
 
-![](tribble.gif){width="40%"}
+![](/image/tribble.gif){width="40%"}
 
 tibble을 만들 수 있는 또다른 방법은 함수 tribble을 사용하는겁니다. 스타 트렉의 커크 함장에게 눈처럼 내리는 동물이 바로 트리블이랍니다. 트리블은 복실복실한 털과 귀여운 목소리 탓에 애완용으로 많이 키워졌는데 다만 한가지 주의해야할 부분은 바로 번식이랍니다. 한 번 번식을 시작하면 끝도 없이 증식해버려서 자칫하면 손을 쓸 수 없을지도 몰라요.
 

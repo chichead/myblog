@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-03-20">
 <meta name="description" content="geofacet package로 대한민국 카토그램 만들기">
 
-<title>🍊오렌지맨숀 - 대선 득표율 지도 시각화 with R</title>
+<title>🍊오렌지맨숀 - 득표율을 한 눈에! 득표율 지도 시각화</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,9 +150,8 @@ cookieconsent.run({
 </script>
 
 
-<meta property="og:title" content="🍊오렌지맨숀 - 대선 득표율 지도 시각화 with R">
+<meta property="og:title" content="🍊오렌지맨숀 - 득표율을 한 눈에! 득표율 지도 시각화">
 <meta property="og:description" content="geofacet package로 대한민국 카토그램 만들기">
-<meta property="og:image" content="https://orange-mansion.com/posts/220320_geofacet/map.webp">
 <meta property="og:site_name" content="🍊오렌지맨숀">
 </head>
 
@@ -182,7 +181,7 @@ cookieconsent.run({
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
@@ -217,7 +216,7 @@ cookieconsent.run({
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">대선 득표율 지도 시각화 with R</h1>
+      <h1 class="title">득표율을 한 눈에! 득표율 지도 시각화</h1>
                   <div>
         <div class="description">
           geofacet package로 대한민국 카토그램 만들기
@@ -287,7 +286,7 @@ cookieconsent.run({
 <h4 class="anchored" data-anchor-id="해외의-선거-시각화">해외의 선거 시각화</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fivethirtyeight_vote_graph.webp" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="../../image/fivethirtyeight_vote_graph.webp" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>FiveThirtyEight의 2020 미 대선 선거결과 시각화</figcaption>
 </figure>
 </div>
@@ -320,7 +319,7 @@ cookieconsent.run({
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -333,7 +332,7 @@ cookieconsent.run({
 <h2 class="anchored" data-anchor-id="geo_grid-ggplot">geo_grid + ggplot</h2>
 <section id="선거-데이터-만들기" class="level4">
 <h4 class="anchored" data-anchor-id="선거-데이터-만들기">선거 데이터 만들기</h4>
-<p>이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다. PE_20 데이터는 <a href="https://github.com/chichead/chichead.github.io/blob/master/_posts/geofacet_package/Presidential_Election_2022.xlsx">여기에서</a> 다운받을 수 있습니다.</p>
+<p>이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
@@ -344,18 +343,17 @@ cookieconsent.run({
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(PE_20)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 21
-   code 구분    시군…¹  선거…² 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
-  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 11110 서울특… 종로구  129968 100629  46130  49172   3115     53    558     42
-2 11140 서울특… 중구    111448  84998  38244  42906   2310     46    463     19
-3 11170 서울특… 용산구  199077 152068  60063  85047   4374     67    755     37
-4 11200 서울특… 성동구  252087 197240  84411 103880   5365    123    969     50
-5 11215 서울특… 광진구  303582 235471 109922 113733   7072    155   1416     52
-6 11230 서울특… 동대문… 300928 232106 108171 112890   6416    151   1304     44
-# … with 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;,
-#   김재연 &lt;dbl&gt;, 이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;,
-#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;, and abbreviated variable names ¹​시군구명,
-#   ²​선거인수</code></pre>
+   code 구분  시군구명 선거인수 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 11110 서울… 종로구     129968 100629  46130  49172   3115     53    558     42
+2 11140 서울… 중구       111448  84998  38244  42906   2310     46    463     19
+3 11170 서울… 용산구     199077 152068  60063  85047   4374     67    755     37
+4 11200 서울… 성동구     252087 197240  84411 103880   5365    123    969     50
+5 11215 서울… 광진구     303582 235471 109922 113733   7072    155   1416     52
+6 11230 서울… 동대문구   300928 232106 108171 112890   6416    151   1304     44
+# ℹ 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;, 김재연 &lt;dbl&gt;,
+#   이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;, 기권수 &lt;dbl&gt;,
+#   개표율 &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>PE_20 데이터에는 각 시군구 단위로 후보별 득표수를 넣어 두었습니다. 시군구별 선거인수, 후보별 득표수, 무효투표수, 기권수 등… 이 데이터로 시각화를 바로 할 순 없습니다. 우리에게 필요한 건 각 후보별 득표율이니까, 조금 더 정제할 필요가 있죠. 일단 득표율 TOP3 후보의 득표율을 계산해보겠습니다. 득표율은 후보별 투표수를 전체 투표수 - 무효투표수로 나누면 됩니다.</p>
@@ -458,7 +456,7 @@ cookieconsent.run({
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
@@ -490,7 +488,7 @@ cookieconsent.run({
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>

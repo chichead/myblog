@@ -2340,7 +2340,7 @@ font-style: inherit;">5</span>)))</span></code></pre></div>
   <media:content url="https://orange-mansion.com/posts/220904_Ragg/Ragg_thumb.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
-  <title>iris 대신 귀여운 penguins package 씁시다</title>
+  <title>iris 대신 penguins package 씁시다</title>
   <dc:creator>chichead </dc:creator>
   <link>https://orange-mansion.com/posts/220527_palmerpenguins-package/</link>
   <description><![CDATA[ 
@@ -2351,11 +2351,11 @@ font-style: inherit;">5</span>)))</span></code></pre></div>
 
 <section id="palmerpenguins-package" class="level2">
 <h2 class="anchored" data-anchor-id="palmerpenguins-package">palmerpenguins package</h2>
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/image/palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘 소개할 R package는 palmerpenguins package입니다. 남극의 파머 군도에 있는 3곳의 섬에서 관찰된 3종의 펭귄 데이터가 담겨져 있죠.</p>
 <section id="paler-penguins" class="level3">
 <h3 class="anchored" data-anchor-id="paler-penguins">paler penguins</h3>
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/penguins.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/image/penguins.png" class="img-fluid" style="width:100.0%"></p>
 <p>파머 군도에 있는 Dreams Island, Torgersen Island, Biscoe Point에는 세 종의 펭귄이 살고 있습니다. 턱끈 펭귄(Chinstrap), 젠투 펭귄(Gentoo), 아델리 펭귄(Adélie) 이렇게 말이죠. palmerpenguins package에는 이 세 펭귄의 크기, 성별 정보가 담겨있습니다. 펭귄들의 데이터는 미국의 장기 생태 연구 네트워크(US Long Term Ecological Research Network)에서 운영하는 프로그램의 일부로, 파머 군도에서 2007년부터 2009년까지 크리스틴 고먼 박사에 의해 수집됐습니다.</p>
 <p><br></p>
 </section>
@@ -2367,73 +2367,7 @@ font-style: inherit;">5</span>)))</span></code></pre></div>
 <section id="ronald-fisher" class="level3">
 <h3 class="anchored" data-anchor-id="ronald-fisher">Ronald Fisher</h3>
 <p>피셔는 통계학자이자 유전학자이자 진화생물학자였습니다. 현대 통계학에 지대한 공을 세운 학자로 알려져있습니다. 통계학자 앤더스 할(Anders Hald)은 피셔를 두고 현대 통계학의 토대를 거의 혼자서 만들어낸 천재로 지칭할 정도죠. Bootstrap을 처음으로 제안한 브래들리 에프론(스탠퍼드 대학교 통계학과 교수)도 로널드 피셔를 20세기 통계에서 가장 중요한 인물이라고 말할 정도입니다.</p>
-<p>F-검정, F-분포의 F가 바로 피셔의 F입니다. 피셔가 F-분포를 처음 제안했고, 조지 W 스네데코가 이후에 완성하면서 처음 제안한 피셔를 기려 F-분포, F-검정이라고 명명한거죠. 그래서 F-분포를 피셔-스네데코 분포라고도 합니다. ggplot2에서 제공해주는 stat_function을 활용해서 간단한 F-분포를 그려봤습니다. `</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb1-2"></span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>)), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">stat_function</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fun =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"df"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">args =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df1 =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df2 =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb1-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_classic</span>()</span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 자유도가 (a, b)인 F-분포를 그리려면 args의 df1, df2에 a, b를 넣으면 됩니다.</span></span>
-<span id="cb2-2"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 위의 그래프는 자유도가 5, 10인 F-분포입니다.</span></span></code></pre></div>
-</div>
+<p>F-검정, F-분포의 F가 바로 피셔의 F입니다. 피셔가 F-분포를 처음 제안했고, 조지 W 스네데코가 이후에 완성하면서 처음 제안한 피셔를 기려 F-분포, F-검정이라고 명명한거죠. 그래서 F-분포를 피셔-스네데코 분포라고도 합니다</p>
 <p>전체 대상(모집단)의 특성(모수)을 파악하기 위해 표본을 추출해 추론하는 건 현대 통계에서 아주 당연한 접근방식이죠? 이 흐름을 만든 게 바로 로널드 피셔입니다. 피셔는 모집단과 표본집단을 구분짓고, 일부(표본집단)를 통해 전체(모집단)에 대한 분석이 가능하다는 걸 귀무가설로 증명해 냈습니다. 귀무가설(null hypothesis)도 피셔가 정의한 개념입니다.</p>
 <p>그리고 이걸 발전시켜서 추측통계학, 이른바 추계학(stochastic)을 탄생시키죠. 추계학은 통계의 범위를 수학뿐만 아니라 여론조사, 제품검사, 의약품의 효과 등 사회과학의 방법론까지 확장시켰습니다. 20세기 통계에서 가장 중요한 인물이라고 칭하는 게 부족함이 없어보입니다.</p>
 <p>그런데 그 대단한 피셔가 우생학자로도 유명했습니다. BLM 시위 이후 피셔의 우생학자로서의 삶이 다시 재조명되면서 과학 분야 전반에서 정화의 흐름이 나오고 있습니다. 영국의 명문대학 유니버시티 칼리지 런던은 피셔의 이름이 붙은 연구 센터의 이름을 Center for Computational Biology로 바꾸기도 했죠. 그래서 iris를 과연 계속 써야하는지에 대한 논의가 나온 겁니다. 그 대안으로 떠오른 데이터셋이 바로 palmerpenguins package의 펭귄 데이터입니다.</p>
@@ -2445,50 +2379,50 @@ font-style: inherit;"># 위의 그래프는 자유도가 5, 10인 F-분포입니
 <section id="penguins" class="level3">
 <h3 class="anchored" data-anchor-id="penguins">penguins</h3>
 <p>파머 군도에서 수집된 원자료는 penguins_raw에 담겨있습니다. 관측치를 모두 활용하고 싶다면 penguins_raw를 불러오면 됩니다. 아마 대부분의 경우에는 penguins 데이터면 충분할겁니다. penguins 데이터에는 8개의 변수, 344개의 개체 정보가 들어가 있습니다. bill_length와 bill_depth는 펭귄의 부리의 크기를 나타낸 정보입니다. 아래 그림을 보면 length와 depth의 차이를 알 수 있어요.</p>
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/image/culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">palmerpenguins<span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">palmerpenguins<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span>penguins</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007
- 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007
- 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007
- 4 Adelie  Torgersen           NA            NA           NA      NA &lt;NA&gt;   2007
- 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007
- 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007
- 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007
- 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007
- 9 Adelie  Torgersen           34.1          18.1        193    3475 &lt;NA&gt;   2007
-10 Adelie  Torgersen           42            20.2        190    4250 &lt;NA&gt;   2007
-# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
-#   ²​body_mass_g</code></pre>
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span></span>
-<span id="cb5-2"><span class="co" style="color: #5E5E5E;
+<span id="cb3-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span></span>
-<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+<span id="cb3-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># bill_length_mm : 펭귄 부리의 길이를 ㎜단위로 나타낸 number형 변수</span></span>
-<span id="cb5-4"><span class="co" style="color: #5E5E5E;
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># bill_depth_mm : 펭귄 부리의 깊이를 ㎜단위로 나타낸 number형 변수</span></span>
-<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+<span id="cb3-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># flipper_length_mm : 펭귄 물갈퀴의 길이를 ㎜단위로 나타낸 integer형 변수</span></span>
-<span id="cb5-6"><span class="co" style="color: #5E5E5E;
+<span id="cb3-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># body_mass_g : 펭귄 몸무게를 g단위로 나타낸 integer형 변수</span></span>
-<span id="cb5-7"><span class="co" style="color: #5E5E5E;
+<span id="cb3-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># sex : 펭귄 성별을 나타낸 factor형 변수(female, male)</span></span>
-<span id="cb5-8"><span class="co" style="color: #5E5E5E;
+<span id="cb3-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># year : 연구 시점이 담긴 integer형 변수(2007, 2008, 2009)</span></span></code></pre></div>
 </div>
@@ -2497,11 +2431,14 @@ font-style: inherit;"># year : 연구 시점이 담긴 integer형 변수(2007, 2
 <h3 class="anchored" data-anchor-id="simpsons-paradox">Simpson’s paradox</h3>
 <p>iris대신 제시되는 데이터셋인만큼 기본적인 시각화를 연습하는데 penguins 패키지는 부족함이 없습니다. 펭귄 부리의 길이와 깊이를 가지고 scatter plot을 그려보겠습니다. geom_smooth로 상관관계를 살펴보면 음의 상관관계가 있다고 볼 수 있겠네요.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(palmerpenguins)</span>
-<span id="cb6-2"></span>
-<span id="cb6-3"><span class="fu" style="color: #4758AB;
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb4-3"></span>
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2514,7 +2451,7 @@ background-color: null;
 font-style: inherit;">y =</span> bill_depth_mm)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+<span id="cb4-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2523,7 +2460,7 @@ background-color: null;
 font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+<span id="cb4-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2536,24 +2473,24 @@ background-color: null;
 font-style: inherit;">FALSE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb6-6">  <span class="fu" style="color: #4758AB;
+<span id="cb4-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_classic</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>하지만 종별로 나눠서 살펴보면 어떨까요? 이번엔 Adélie, Chinstrap, Gentoo 세 종별로 scatter plot을 그려서 상관관계를 살펴보겠습니다. 종별로 보면 부리의 길이와 깊이는 양의 상관관계가 있어 보입니다. 야생의 데이터에서 확인할 수 있는 심슨의 역설(Simpson’s Paradox)의 아주 좋은 사례입니다. 영국의 통계학자 에드워드 심슨이 정리한 이 역설은 각각의 변수를 살피지 않고 전체 통계만 보고 판단하다가 발생할 수 있는 함정입니다.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(palmerpenguins)</span>
-<span id="cb7-2"></span>
-<span id="cb7-3"><span class="fu" style="color: #4758AB;
+<span id="cb5-2"></span>
+<span id="cb5-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2566,24 +2503,24 @@ background-color: null;
 font-style: inherit;">y =</span> bill_depth_mm)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+<span id="cb5-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">color =</span> species, </span>
-<span id="cb7-5">                 <span class="at" style="color: #657422;
+<span id="cb5-5">                 <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">shape =</span> species),</span>
-<span id="cb7-6">             <span class="at" style="color: #657422;
+<span id="cb5-6">             <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb7-7">  <span class="fu" style="color: #4758AB;
+<span id="cb5-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2600,7 +2537,7 @@ background-color: null;
 font-style: inherit;">color =</span> species)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb7-8">  <span class="fu" style="color: #4758AB;
+<span id="cb5-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_color_manual</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2615,12 +2552,12 @@ background-color: null;
 font-style: inherit;">"cyan4"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb7-9">  <span class="fu" style="color: #4758AB;
+<span id="cb5-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_classic</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb7-10">  <span class="fu" style="color: #4758AB;
+<span id="cb5-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2630,7 +2567,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220527_palmerpenguins-package/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2645,10 +2582,10 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
   <category>palmerpenguins</category>
   <guid>https://orange-mansion.com/posts/220527_palmerpenguins-package/</guid>
   <pubDate>Thu, 26 May 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/posts/220527_palmerpenguins-package/penguin.gif" medium="image" type="image/gif"/>
+  <media:content url="https://orange-mansion.com/image/penguin.gif" medium="image" type="image/gif"/>
 </item>
 <item>
-  <title>대선 득표율 지도 시각화 with R</title>
+  <title>득표율을 한 눈에! 득표율 지도 시각화</title>
   <dc:creator>chichead </dc:creator>
   <link>https://orange-mansion.com/posts/220320_geofacet/</link>
   <description><![CDATA[ 
@@ -2663,7 +2600,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <h4 class="anchored" data-anchor-id="해외의-선거-시각화">해외의 선거 시각화</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/fivethirtyeight_vote_graph.webp" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/image/fivethirtyeight_vote_graph.webp" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>FiveThirtyEight의 2020 미 대선 선거결과 시각화</figcaption>
 </figure>
 </div>
@@ -2728,7 +2665,7 @@ font-style: inherit;">grid_preview</span>(mygrid)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2741,7 +2678,7 @@ font-style: inherit;">grid_preview</span>(mygrid)</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="geo_grid-ggplot">geo_grid + ggplot</h2>
 <section id="선거-데이터-만들기" class="level4">
 <h4 class="anchored" data-anchor-id="선거-데이터-만들기">선거 데이터 만들기</h4>
-<p>이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다. PE_20 데이터는 <a href="https://github.com/chichead/chichead.github.io/blob/master/_posts/geofacet_package/Presidential_Election_2022.xlsx">여기에서</a> 다운받을 수 있습니다.</p>
+<p>이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2768,18 +2705,17 @@ background-color: null;
 font-style: inherit;">head</span>(PE_20)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 21
-   code 구분    시군…¹  선거…² 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
-  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1 11110 서울특… 종로구  129968 100629  46130  49172   3115     53    558     42
-2 11140 서울특… 중구    111448  84998  38244  42906   2310     46    463     19
-3 11170 서울특… 용산구  199077 152068  60063  85047   4374     67    755     37
-4 11200 서울특… 성동구  252087 197240  84411 103880   5365    123    969     50
-5 11215 서울특… 광진구  303582 235471 109922 113733   7072    155   1416     52
-6 11230 서울특… 동대문… 300928 232106 108171 112890   6416    151   1304     44
-# … with 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;,
-#   김재연 &lt;dbl&gt;, 이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;,
-#   기권수 &lt;dbl&gt;, 개표율 &lt;dbl&gt;, and abbreviated variable names ¹​시군구명,
-#   ²​선거인수</code></pre>
+   code 구분  시군구명 선거인수 투표수 이재명 윤석열 심상정 오준호 허경영 이백윤
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 11110 서울… 종로구     129968 100629  46130  49172   3115     53    558     42
+2 11140 서울… 중구       111448  84998  38244  42906   2310     46    463     19
+3 11170 서울… 용산구     199077 152068  60063  85047   4374     67    755     37
+4 11200 서울… 성동구     252087 197240  84411 103880   5365    123    969     50
+5 11215 서울… 광진구     303582 235471 109922 113733   7072    155   1416     52
+6 11230 서울… 동대문구   300928 232106 108171 112890   6416    151   1304     44
+# ℹ 10 more variables: 옥은호 &lt;dbl&gt;, 김경재 &lt;dbl&gt;, 조원진 &lt;dbl&gt;, 김재연 &lt;dbl&gt;,
+#   이경희 &lt;dbl&gt;, 김민찬 &lt;dbl&gt;, 계 &lt;dbl&gt;, 무효투표수 &lt;dbl&gt;, 기권수 &lt;dbl&gt;,
+#   개표율 &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>PE_20 데이터에는 각 시군구 단위로 후보별 득표수를 넣어 두었습니다. 시군구별 선거인수, 후보별 득표수, 무효투표수, 기권수 등… 이 데이터로 시각화를 바로 할 순 없습니다. 우리에게 필요한 건 각 후보별 득표율이니까, 조금 더 정제할 필요가 있죠. 일단 득표율 TOP3 후보의 득표율을 계산해보겠습니다. 득표율은 후보별 투표수를 전체 투표수 - 무효투표수로 나누면 됩니다.</p>
@@ -3062,7 +2998,7 @@ font-style: inherit;">element_blank</span>()</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
@@ -3190,7 +3126,7 @@ font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="https://orange-mansion.com/posts/220320_geofacet/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
@@ -3206,7 +3142,6 @@ font-style: inherit;">1</span>))</span></code></pre></div>
   <category>Visualization</category>
   <guid>https://orange-mansion.com/posts/220320_geofacet/</guid>
   <pubDate>Sat, 19 Mar 2022 15:00:00 GMT</pubDate>
-  <media:content url="https://orange-mansion.com/posts/220320_geofacet/map.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>bump chart를 그리고 싶을 때, ggbump package</title>
@@ -3220,7 +3155,7 @@ font-style: inherit;">1</span>))</span></code></pre></div>
 
 <section id="ggbump-package" class="level2">
 <h2 class="anchored" data-anchor-id="ggbump-package">ggbump package</h2>
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/image/thumbnail_ggbump.png" class="img-fluid" style="width:100.0%"></p>
 <section id="ggbumps-name" class="level3">
 <h3 class="anchored" data-anchor-id="ggbumps-name">ggbump’s name</h3>
 <p>ggplot2는 grammar of graphics(a.k.a. gg)을 토대로 시각화를 만드는 패키지입니다. 2는 ver.2의 의미를 담았죠. gg는 릴랜드 윌킨스의 동명의 책 The Grammar of Graphics에서 따온 건데, 이 책에서 릴랜드는 데이터를 어떻게 시각적으로 표현할 것인지에 대해 다룹니다. gg에 대한 이야기는 나중에 다른 포스트에서 다루도록 하겠습니다.</p>
@@ -3231,17 +3166,17 @@ font-style: inherit;">1</span>))</span></code></pre></div>
 <h3 class="anchored" data-anchor-id="bump-chart">bump chart</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/may_bump.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/image/may_bump.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>2022 May Bumps, Corpus Christi College</figcaption>
 </figure>
 </div>
 <p>영국의 케임브리지 대학에는 The bump라고 불리는 조정 경기가 있습니다. 케임브리지를 가로지르는 캠 강(river Cam) 은 나란히 경주하기에는 너무 좁아서 한 줄로 경주하는 독특한 조정 경주를 진행해왔어요. 19세기 초부터 시작된 이 경기 이름이 바로 The bump입니다. The bump의 경주 방식은 이렇습니다. 우선 강을 따라 한 줄로 경기를 시작합니다. 각 선수들은 전속력으로 노를 저어 앞에 있는 보트를 따라잡고 충돌(bump)하죠. 그렇게 되면 앞에 있는 조정 팀을 추월한 것으로 인정, 순위가 올라가게 됩니다. 주최 측에서는 경기의 진행 상황을 매핑하는 차트를 그려서 제공했는데, 이 차트를 bump chart라고 불렀습니다. 아래 차트는 2020년 사순절에 치러진 대회(Lent Bump)의 남자부 경기 결과입니다. 어떤 차트인지 감이 오죠?</p>
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/bumpchart_thebump.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="https://orange-mansion.com/image/bumpchart_thebump.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
 </section>
 <section id="ggbumps-logo" class="level3">
 <h3 class="anchored" data-anchor-id="ggbumps-logo">ggbump’s logo</h3>
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/ggbump logo.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="https://orange-mansion.com/image/ggbump_logo.png" class="img-fluid" style="width:25.0%"></p>
 <p>로고에는 3개의 노드(점), 노드에 연결된 시그모이드 곡선이 보입니다. 시그모이드(Sigmoid) 곡선은 S자 모양의 부드러운 곡선을 의미합니다. Sigmoid라는 단어의 뜻이 S자 모양이거든요. 시그모이드 곡선은 로지스틱 방정식, 정규분포의 누적분포함수에서 확인할 수 있습니다. 아래 차트를 보면 정규분포의 누적분포함수의 부드러운 S자 곡선을 확인할 수 있습니다.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
@@ -3702,7 +3637,7 @@ font-style: inherit;">head</span>(df)</span></code></pre></div>
 <pre><code># A tibble: 6 × 4
   country  year value  rank
   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
-1 Korea    2020   500     5
+1 Korea    2020   500     4
 2 Korea    2021   200     1
 3 Korea    2022   100     2
 4 Japan    2020   400     3
@@ -3773,7 +3708,7 @@ font-style: inherit;">5</span>))</span></code></pre></div>
 <p>부드러운 시그모이드 곡선으로 이뤄진 범프 차트가 만들어졌습니다. scale_color_manual에 들어있는 wes_palette는 이름에서 유추할 수 있듯 웨스 앤더슨 감독의 색감이 담긴 컬러 팔레트입니다. 이 차트에서는 웨스 앤더슨 감독의 2004년 작 &lt;스티브 지소와의 해저 생활(The Life Aquatic With Steve Zissou)&gt;의 색상을 사용했습니다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://orange-mansion.com/posts/220220_ggbump-package/zissou.gif" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src="https://orange-mansion.com/image/zissou.gif" class="img-fluid figure-img" style="width:50.0%"></p>
 <figcaption>The Life Aquatic with Steve Zissou, Wes Anderson</figcaption>
 </figure>
 </div>
@@ -4000,7 +3935,7 @@ font-style: inherit;">5</span>))</span></code></pre></div>
 
 <section id="tibble-package" class="level2">
 <h2 class="anchored" data-anchor-id="tibble-package">tibble package</h2>
-<p><img src="https://orange-mansion.com/posts/210502_tibble-package/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://orange-mansion.com/image/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
 <p>tidyverse 패키지를 사용하면 data.frame 대신 사용하게되는 tibble. 오늘 알아볼 R package는 tibble입니다. tibble 패키지의 역사부터 기존의 data.frame과는 어떻게 다른지 정리해봅니다.</p>
 <p><br></p>
 <section id="tibbles-name" class="level3">
@@ -4059,7 +3994,7 @@ font-style: inherit;">as_tibble</span>(iris)</span>
  8          5           3.4          1.5         0.2 setosa 
  9          4.4         2.9          1.4         0.2 setosa 
 10          4.9         3.1          1.5         0.1 setosa 
-# … with 140 more rows</code></pre>
+# ℹ 140 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -4194,7 +4129,7 @@ font-style: inherit;">"number"</span></span>
 </section>
 <section id="tribble" class="level3">
 <h3 class="anchored" data-anchor-id="tribble">tribble</h3>
-<p><img src="https://orange-mansion.com/posts/210502_tibble-package/tribble.gif" class="img-fluid" style="width:40.0%"></p>
+<p><img src="https://orange-mansion.com/image/tribble.gif" class="img-fluid" style="width:40.0%"></p>
 <p>tibble을 만들 수 있는 또다른 방법은 함수 tribble을 사용하는겁니다. 스타 트렉의 커크 함장에게 눈처럼 내리는 동물이 바로 트리블이랍니다. 트리블은 복실복실한 털과 귀여운 목소리 탓에 애완용으로 많이 키워졌는데 다만 한가지 주의해야할 부분은 바로 번식이랍니다. 한 번 번식을 시작하면 끝도 없이 증식해버려서 자칫하면 손을 쓸 수 없을지도 몰라요.</p>
 <p>tibble 패키지에 있는 tribble은 <strong>tr</strong>ansposed t<strong>ibble</strong>의 줄임말입니다. 단어 그대로 전치된 티블이라는 뜻이지요. 기존의 tibble 입력 형식이 colname = data 같은 가로형이었다면 tribble에서는 세로형으로 입력할 수 있지요. 간단하게 적은 양의 데이터를 코드로 입력할 때에는 tribble을 쓰면 편리합니다.</p>
 <div class="cell">
@@ -4294,7 +4229,7 @@ font-style: inherit;">tibble</span>(time)</span></code></pre></div>
 <pre><code># A tibble: 1 × 1
   time               
   &lt;dttm&gt;             
-1 2023-04-09 21:41:43</code></pre>
+1 2024-03-03 21:30:41</code></pre>
 </div>
 </div>
 <p>model의 경우 vector가 아니여서 tibble에 담기지 않아요. 반면 time 데이터는 들어갈 수 있어요. 하지만 tibble_row 함수를 사용한다면 어떨까요. tibble_row와 함께라면 vector와 scalar 상관없이 tibble에 담을 수 있습니다.</p>

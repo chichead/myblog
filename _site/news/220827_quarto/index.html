@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="chichead">
 <meta name="dcterms.date" content="2022-08-27">
 <meta name="description" content="R, Python, Julia 모두 Quarto로 모여라">
 
@@ -117,14 +118,14 @@ cookieconsent.run({
 
 <meta property="og:title" content="🍊오렌지맨숀 - R Markdown의 차세대 포맷, Quarto">
 <meta property="og:description" content="R, Python, Julia 모두 Quarto로 모여라">
-<meta property="og:image" content="https://orange-mansion.com/news/220827_quarto/quarto thumbnail.jpeg">
+<meta property="og:image" content="https://orange-mansion.com/image/quarto thumbnail.jpeg">
 <meta property="og:site_name" content="🍊오렌지맨숀">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -147,7 +148,7 @@ cookieconsent.run({
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
@@ -179,7 +180,44 @@ cookieconsent.run({
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">R Markdown의 차세대 포맷, Quarto</h1>
+                  <div>
+        <div class="description">
+          R, Python, Julia 모두 Quarto로 모여라
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R Markdown</div>
+                <div class="quarto-category">Quarto</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 27, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -187,52 +225,28 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarto가-뭐지" id="toc-quarto가-뭐지" class="nav-link active" data-scroll-target="#quarto가-뭐지">Quarto가 뭐지</a></li>
-  <li><a href="#r-markdown과-차이점" id="toc-r-markdown과-차이점" class="nav-link" data-scroll-target="#r-markdown과-차이점">R Markdown과 차이점</a></li>
+  <li><a href="#quarto가-뭐지" id="toc-quarto가-뭐지" class="nav-link active" data-scroll-target="#quarto가-뭐지">Quarto가 뭐지</a>
+  <ul>
+  <li><a href="#quarto-다운받기" id="toc-quarto-다운받기" class="nav-link" data-scroll-target="#quarto-다운받기">Quarto 다운받기</a></li>
+  </ul></li>
+  <li><a href="#r-markdown과-차이점" id="toc-r-markdown과-차이점" class="nav-link" data-scroll-target="#r-markdown과-차이점">R Markdown과 차이점</a>
+  <ul>
+  <li><a href="#quarto-vs-r-markdown" id="toc-quarto-vs-r-markdown" class="nav-link" data-scroll-target="#quarto-vs-r-markdown">Quarto vs R Markdown</a></li>
+  </ul></li>
   <li><a href="#quarto의-미래" id="toc-quarto의-미래" class="nav-link" data-scroll-target="#quarto의-미래">Quarto의 미래</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">R Markdown의 차세대 포맷, Quarto</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">R Markdown</div>
-    <div class="quarto-category">Quarto</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    R, Python, Julia 모두 Quarto로 모여라
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 27, 2022</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="quarto가-뭐지" class="level2">
 <h2 class="anchored" data-anchor-id="quarto가-뭐지">Quarto가 뭐지</h2>
-<p><img src="quarto thumbnail.jpeg" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/quarto thumbnail.jpeg" class="img-fluid" style="width:100.0%"></p>
 <p>RStudio는 자사의 2022년 컨퍼런스 rstudio::conf(2022)에서 발표한 여러 소식 가운데 가장 중요한 소식으로 이렇게 4가지를 꼽았습니다.</p>
 <ol type="1">
 <li><p>RStudio의 이름은 Posit으로 바꾼다</p></li>
@@ -241,7 +255,7 @@ cookieconsent.run({
 <li><p>tidymodel의 업데이트</p></li>
 </ol>
 <p>1번은 이미 <a href="https://orange-mansion.com/posts/220821_rstudio-is-becoming-posit/">이 포스트</a>에서 다루었죠? 그 연장선이라고 볼 수 있는 Quarto가 이번 게시물의 주제입니다. Quarto는 R Markdown에 이은 RStudio의 차세대 R 출판 플랫폼입니다. 기존의 R Markdown을 이용하면 R code sript를 Word, HTML, PDF, PPT 등 다양한 문서 형식으로 만들 수 있었습니다. 웹을 통한 출판(Bookdown)까지도 가능했죠.</p>
-<p><img src="rmarkdown_env.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/rmarkdown_env.png" class="img-fluid" style="width:100.0%"></p>
 <p>그런데 이 R Markdwon이 어느새 10년 가까이 지났습니다. 기능의 편리함은 지적할만한 게 없었지만 R Markdown 생태계가 너무 커져버렸죠. 관련 생태계가 커졌다는 건 오히려 반길 일이지만 덕지덕지 붙어버린 서드파티 패키지들이 많아진 게 문제였습니다. 더 이상 통일된 하나의 R Markdown의 제작과 작업이 되질 못했습니다. 과학, 기술 블로그를 만들 땐 distill package를 사용하고, 웹 프레젠테이션 파일을 만들 땐 xaringan(사륜안) package를 사용하고…</p>
 <p>그래서 등장한 게 바로 이 Quarto입니다. R Markdown과 마찬가지로 Knitr와 Pandoc을 기반으로 하고 있고요. 궁극적으로 R Studio는 Quarto 생태계에 다른 언어를 사용하는 사람들끼리 모을 생각을 하고 있습니다. 그래서 저번 Posit 이야기의 연장선이라고 말씀을 드린 겁니다. 그 이유 때문인지 Quarto는 R의 내장 라이브러리가 아닌 독립 소프트웨어로 제작되었습니다. 새로운 시스템 Quarto 단어가 생소할 텐데, Quarto는 4절판을 의미합니다. 8페이지 분량의 텍스트를 두 번 접어서 네 장을 만드는 형식을 뜻하죠. 출판 역사에 의미가 있는 단어를 골랐다고 합니다.</p>
 <p><br></p>
@@ -256,13 +270,13 @@ cookieconsent.run({
 <h2 class="anchored" data-anchor-id="r-markdown과-차이점">R Markdown과 차이점</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="rmarkdown_sys.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="../../image/rmarkdown_sys.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Quarto의 구조를 알기 위해선 R Markdown에 대한 이해가 필요합니다. 일단 R Markdown 시스템은 위의 그림과 같습니다. Rmd(R 마크다운) 파일을 knitr package를 통해 md(마크다운) 파일로 만들고, pandoc 라이브러리를 통해 문서, PPT, 웹페이지, 책의 형태로 퍼블리싱되는 거죠. knitr은 2012년 Yihui Xie에 의해 개발된 패키지입니다. Knitr 패키지를 이용하면 동적 리포트를 생성할 수 있게 해주죠. md 파일을 다양한 형식으로 변환할 때에는 pandoc 라이브러리를 활용합니다. 정리해보면 기존 R Markdown은 Rmd 파일을 여러 가지 형태의 문서로 퍼블리싱해주는 시스템이라고 할 수 있겠네요.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="quarto.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="../../image/quarto.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption>
 </figure>
 </div>
@@ -354,7 +368,7 @@ Quarto Blogs</td>
 <h2 class="anchored" data-anchor-id="quarto의-미래">Quarto의 미래</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="qaurto2.png" class="img-fluid figure-img"></p>
+<p><img src="../../image/qaurto2.png" class="img-fluid figure-img"></p>
 <figcaption>R &amp; stats illustrations by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption>
 </figure>
 </div>
@@ -751,6 +765,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

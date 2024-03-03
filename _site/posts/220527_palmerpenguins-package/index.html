@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2022-05-27">
 <meta name="description" content="R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package">
 
-<title>🍊오렌지맨숀 - iris 대신 귀여운 penguins package 씁시다</title>
+<title>🍊오렌지맨숀 - iris 대신 penguins package 씁시다</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,9 +150,9 @@ cookieconsent.run({
 </script>
 
 
-<meta property="og:title" content="🍊오렌지맨숀 - iris 대신 귀여운 penguins package 씁시다">
+<meta property="og:title" content="🍊오렌지맨숀 - iris 대신 penguins package 씁시다">
 <meta property="og:description" content="R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package">
-<meta property="og:image" content="https://orange-mansion.com/posts/220527_palmerpenguins-package/penguin.gif">
+<meta property="og:image" content="https://orange-mansion.com/image/penguin.gif">
 <meta property="og:site_name" content="🍊오렌지맨숀">
 </head>
 
@@ -182,7 +182,7 @@ cookieconsent.run({
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
@@ -217,7 +217,7 @@ cookieconsent.run({
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">iris 대신 귀여운 penguins package 씁시다</h1>
+      <h1 class="title">iris 대신 penguins package 씁시다</h1>
                   <div>
         <div class="description">
           R아두면 쓸데있는 패키지 이야기 03 palmerpenguins package
@@ -282,11 +282,11 @@ cookieconsent.run({
 
 <section id="palmerpenguins-package" class="level2">
 <h2 class="anchored" data-anchor-id="palmerpenguins-package">palmerpenguins package</h2>
-<p><img src="palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
+<p><img src="../../image/palmerpenguins.png" class="img-fluid" style="width:25.0%"></p>
 <p>오늘 소개할 R package는 palmerpenguins package입니다. 남극의 파머 군도에 있는 3곳의 섬에서 관찰된 3종의 펭귄 데이터가 담겨져 있죠.</p>
 <section id="paler-penguins" class="level3">
 <h3 class="anchored" data-anchor-id="paler-penguins">paler penguins</h3>
-<p><img src="penguins.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/penguins.png" class="img-fluid" style="width:100.0%"></p>
 <p>파머 군도에 있는 Dreams Island, Torgersen Island, Biscoe Point에는 세 종의 펭귄이 살고 있습니다. 턱끈 펭귄(Chinstrap), 젠투 펭귄(Gentoo), 아델리 펭귄(Adélie) 이렇게 말이죠. palmerpenguins package에는 이 세 펭귄의 크기, 성별 정보가 담겨있습니다. 펭귄들의 데이터는 미국의 장기 생태 연구 네트워크(US Long Term Ecological Research Network)에서 운영하는 프로그램의 일부로, 파머 군도에서 2007년부터 2009년까지 크리스틴 고먼 박사에 의해 수집됐습니다.</p>
 <p><br></p>
 </section>
@@ -298,23 +298,7 @@ cookieconsent.run({
 <section id="ronald-fisher" class="level3">
 <h3 class="anchored" data-anchor-id="ronald-fisher">Ronald Fisher</h3>
 <p>피셔는 통계학자이자 유전학자이자 진화생물학자였습니다. 현대 통계학에 지대한 공을 세운 학자로 알려져있습니다. 통계학자 앤더스 할(Anders Hald)은 피셔를 두고 현대 통계학의 토대를 거의 혼자서 만들어낸 천재로 지칭할 정도죠. Bootstrap을 처음으로 제안한 브래들리 에프론(스탠퍼드 대학교 통계학과 교수)도 로널드 피셔를 20세기 통계에서 가장 중요한 인물이라고 말할 정도입니다.</p>
-<p>F-검정, F-분포의 F가 바로 피셔의 F입니다. 피셔가 F-분포를 처음 제안했고, 조지 W 스네데코가 이후에 완성하면서 처음 제안한 피셔를 기려 F-분포, F-검정이라고 명명한거죠. 그래서 F-분포를 피셔-스네데코 분포라고도 합니다. ggplot2에서 제공해주는 stat_function을 활용해서 간단한 F-분포를 그려봤습니다. `</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="st">"df"</span>, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df1 =</span> <span class="dv">5</span>, <span class="at">df2 =</span> <span class="dv">10</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 자유도가 (a, b)인 F-분포를 그리려면 args의 df1, df2에 a, b를 넣으면 됩니다.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 위의 그래프는 자유도가 5, 10인 F-분포입니다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>F-검정, F-분포의 F가 바로 피셔의 F입니다. 피셔가 F-분포를 처음 제안했고, 조지 W 스네데코가 이후에 완성하면서 처음 제안한 피셔를 기려 F-분포, F-검정이라고 명명한거죠. 그래서 F-분포를 피셔-스네데코 분포라고도 합니다</p>
 <p>전체 대상(모집단)의 특성(모수)을 파악하기 위해 표본을 추출해 추론하는 건 현대 통계에서 아주 당연한 접근방식이죠? 이 흐름을 만든 게 바로 로널드 피셔입니다. 피셔는 모집단과 표본집단을 구분짓고, 일부(표본집단)를 통해 전체(모집단)에 대한 분석이 가능하다는 걸 귀무가설로 증명해 냈습니다. 귀무가설(null hypothesis)도 피셔가 정의한 개념입니다.</p>
 <p>그리고 이걸 발전시켜서 추측통계학, 이른바 추계학(stochastic)을 탄생시키죠. 추계학은 통계의 범위를 수학뿐만 아니라 여론조사, 제품검사, 의약품의 효과 등 사회과학의 방법론까지 확장시켰습니다. 20세기 통계에서 가장 중요한 인물이라고 칭하는 게 부족함이 없어보입니다.</p>
 <p>그런데 그 대단한 피셔가 우생학자로도 유명했습니다. BLM 시위 이후 피셔의 우생학자로서의 삶이 다시 재조명되면서 과학 분야 전반에서 정화의 흐름이 나오고 있습니다. 영국의 명문대학 유니버시티 칼리지 런던은 피셔의 이름이 붙은 연구 센터의 이름을 Center for Computational Biology로 바꾸기도 했죠. 그래서 iris를 과연 계속 써야하는지에 대한 논의가 나온 겁니다. 그 대안으로 떠오른 데이터셋이 바로 palmerpenguins package의 펭귄 데이터입니다.</p>
@@ -326,70 +310,71 @@ cookieconsent.run({
 <section id="penguins" class="level3">
 <h3 class="anchored" data-anchor-id="penguins">penguins</h3>
 <p>파머 군도에서 수집된 원자료는 penguins_raw에 담겨있습니다. 관측치를 모두 활용하고 싶다면 penguins_raw를 불러오면 됩니다. 아마 대부분의 경우에는 penguins 데이터면 충분할겁니다. penguins 데이터에는 8개의 변수, 344개의 개체 정보가 들어가 있습니다. bill_length와 bill_depth는 펭귄의 부리의 크기를 나타낸 정보입니다. 아래 그림을 보면 length와 depth의 차이를 알 수 있어요.</p>
-<p><img src="culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/culmen_depth.png" class="img-fluid" style="width:100.0%"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>palmerpenguins<span class="sc">::</span>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>palmerpenguins<span class="sc">::</span>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007
- 2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007
- 3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007
- 4 Adelie  Torgersen           NA            NA           NA      NA &lt;NA&gt;   2007
- 5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007
- 6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007
- 7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007
- 8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007
- 9 Adelie  Torgersen           34.1          18.1        193    3475 &lt;NA&gt;   2007
-10 Adelie  Torgersen           42            20.2        190    4250 &lt;NA&gt;   2007
-# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
-#   ²​body_mass_g</code></pre>
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># bill_length_mm : 펭귄 부리의 길이를 ㎜단위로 나타낸 number형 변수</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># bill_depth_mm : 펭귄 부리의 깊이를 ㎜단위로 나타낸 number형 변수</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># flipper_length_mm : 펭귄 물갈퀴의 길이를 ㎜단위로 나타낸 integer형 변수</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># body_mass_g : 펭귄 몸무게를 g단위로 나타낸 integer형 변수</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sex : 펭귄 성별을 나타낸 factor형 변수(female, male)</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># year : 연구 시점이 담긴 integer형 변수(2007, 2008, 2009)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># species : 펭귄 종을 나타내는 factor형 변수(Adélie, Chinstrap, Gentoo)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># island : 남극 파머 군도의 섬을 나타내는 factor형 변수(Biscoe, Dreams, Torgersen)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># bill_length_mm : 펭귄 부리의 길이를 ㎜단위로 나타낸 number형 변수</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># bill_depth_mm : 펭귄 부리의 깊이를 ㎜단위로 나타낸 number형 변수</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># flipper_length_mm : 펭귄 물갈퀴의 길이를 ㎜단위로 나타낸 integer형 변수</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># body_mass_g : 펭귄 몸무게를 g단위로 나타낸 integer형 변수</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sex : 펭귄 성별을 나타낸 factor형 변수(female, male)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># year : 연구 시점이 담긴 integer형 변수(2007, 2008, 2009)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="simpsons-paradox" class="level3">
 <h3 class="anchored" data-anchor-id="simpsons-paradox">Simpson’s paradox</h3>
 <p>iris대신 제시되는 데이터셋인만큼 기본적인 시각화를 연습하는데 penguins 패키지는 부족함이 없습니다. 펭귄 부리의 길이와 깊이를 가지고 scatter plot을 그려보겠습니다. geom_smooth로 상관관계를 살펴보면 음의 상관관계가 있다고 볼 수 있겠네요.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>하지만 종별로 나눠서 살펴보면 어떨까요? 이번엔 Adélie, Chinstrap, Gentoo 세 종별로 scatter plot을 그려서 상관관계를 살펴보겠습니다. 종별로 보면 부리의 길이와 깊이는 양의 상관관계가 있어 보입니다. 야생의 데이터에서 확인할 수 있는 심슨의 역설(Simpson’s Paradox)의 아주 좋은 사례입니다. 영국의 통계학자 에드워드 심슨이 정리한 이 역설은 각각의 변수를 살피지 않고 전체 통계만 보고 판단하다가 발생할 수 있는 함정입니다.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> species),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkorchid"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> species),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkorchid"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

@@ -152,7 +152,7 @@ cookieconsent.run({
 
 <meta property="og:title" content="🍊오렌지맨숀 - data frame의 진화, tibble package">
 <meta property="og:description" content="R아두면 쓸데있는 패키지 이야기 01 tibble package">
-<meta property="og:image" content="https://orange-mansion.com/posts/210502_tibble-package/thumbnail.png">
+<meta property="og:image" content="https://orange-mansion.com/image/thumbnail.png">
 <meta property="og:site_name" content="🍊오렌지맨숀">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
@@ -184,7 +184,7 @@ cookieconsent.run({
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
@@ -285,7 +285,7 @@ cookieconsent.run({
 
 <section id="tibble-package" class="level2">
 <h2 class="anchored" data-anchor-id="tibble-package">tibble package</h2>
-<p><img src="thumbnail.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="../../image/thumbnail.png" class="img-fluid" style="width:100.0%"></p>
 <p>tidyverse 패키지를 사용하면 data.frame 대신 사용하게되는 tibble. 오늘 알아볼 R package는 tibble입니다. tibble 패키지의 역사부터 기존의 data.frame과는 어떻게 다른지 정리해봅니다.</p>
 <p><br></p>
 <section id="tibbles-name" class="level3">
@@ -336,7 +336,7 @@ cookieconsent.run({
  8          5           3.4          1.5         0.2 setosa 
  9          4.4         2.9          1.4         0.2 setosa 
 10          4.9         3.1          1.5         0.1 setosa 
-# … with 140 more rows</code></pre>
+# ℹ 140 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 행이 n개를 넘어가면 m개만 출력하고 싶다면</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># options(tibble.print_max = n, tibble.print_min = m)</span></span>
@@ -393,7 +393,7 @@ cookieconsent.run({
 </section>
 <section id="tribble" class="level3">
 <h3 class="anchored" data-anchor-id="tribble">tribble</h3>
-<p><img src="tribble.gif" class="img-fluid" style="width:40.0%"></p>
+<p><img src="../../image/tribble.gif" class="img-fluid" style="width:40.0%"></p>
 <p>tibble을 만들 수 있는 또다른 방법은 함수 tribble을 사용하는겁니다. 스타 트렉의 커크 함장에게 눈처럼 내리는 동물이 바로 트리블이랍니다. 트리블은 복실복실한 털과 귀여운 목소리 탓에 애완용으로 많이 키워졌는데 다만 한가지 주의해야할 부분은 바로 번식이랍니다. 한 번 번식을 시작하면 끝도 없이 증식해버려서 자칫하면 손을 쓸 수 없을지도 몰라요.</p>
 <p>tibble 패키지에 있는 tribble은 <strong>tr</strong>ansposed t<strong>ibble</strong>의 줄임말입니다. 단어 그대로 전치된 티블이라는 뜻이지요. 기존의 tibble 입력 형식이 colname = data 같은 가로형이었다면 tribble에서는 세로형으로 입력할 수 있지요. 간단하게 적은 양의 데이터를 코드로 입력할 때에는 tribble을 쓰면 편리합니다.</p>
 <div class="cell">
@@ -431,7 +431,7 @@ cookieconsent.run({
 <pre><code># A tibble: 1 × 1
   time               
   &lt;dttm&gt;             
-1 2023-04-09 21:41:43</code></pre>
+1 2024-03-03 21:30:41</code></pre>
 </div>
 </div>
 <p>model의 경우 vector가 아니여서 tibble에 담기지 않아요. 반면 time 데이터는 들어갈 수 있어요. 하지만 tibble_row 함수를 사용한다면 어떨까요. tibble_row와 함께라면 vector와 scalar 상관없이 tibble에 담을 수 있습니다.</p>

@@ -1,9 +1,8 @@
 ---
-title: '대선 득표율 지도 시각화 with R'
+title: '득표율을 한 눈에! 득표율 지도 시각화'
 date: '2022-03-20'
 categories: ['R', 'Visualization']
 description: 'geofacet package로 대한민국 카토그램 만들기'
-image: map.webp
 execute: 
   message: false
   warning: false
@@ -15,7 +14,7 @@ editor_options:
 
 #### 해외의 선거 시각화
 
-![FiveThirtyEight의 2020 미 대선 선거결과 시각화](fivethirtyeight_vote_graph.webp){width="100%"}
+![FiveThirtyEight의 2020 미 대선 선거결과 시각화](/image/fivethirtyeight_vote_graph.webp){width="100%"}
 
 해외 언론에서 선거 결과를 시각화한 기사를 볼 때마다 드는 생각이 있습니다. "아 우리나라도 저렇게 격자형태로 시각화하면 멋드러지지 않을까..." 국내에서는 시군구 혹은 읍면동 단위로 색을 칠하는 형태가 대부분이지 그 안에 그래프를 넣어서 시각화하기가 힘들어요. 미국은 50개 주에 1개의 특별구로 이루어졌으니, 필요한 격자는 51개 뿐이지만 우리나라의 시군구는 250개. 큰 권역 구분 정도는 다양한 시각화를 시도할 수 있지만 시군구 단위로 하기엔 부담이 될 수 있는거죠.
 
@@ -46,7 +45,7 @@ geofacet::grid_preview(mygrid)
 
 #### 선거 데이터 만들기
 
-이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다. PE_20 데이터는 [여기에서](https://github.com/chichead/chichead.github.io/blob/master/_posts/geofacet_package/Presidential_Election_2022.xlsx) 다운받을 수 있습니다.
+이제 여기에 해야할 것은 각각의 시군구에 그래프를 넣어보는 겁니다. 이번 대통령 선거 득표 정보를 바탕으로 그래프를 넣어보려고 해요. 선관위 개표 데이터를 정리해서 다음과 같은 데이터(PE_20)를 만들어 봤습니다.
 
 ```{r}
 library(readxl)

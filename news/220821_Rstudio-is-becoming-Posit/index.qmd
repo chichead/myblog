@@ -12,7 +12,7 @@ editor_options:
 
 ## RStudio is becoming Posit
 
-![](posit.jpeg){fig-alt="posit logo" width="100%"}
+![](/image/posit.jpeg){fig-alt="posit logo" width="100%"}
 
 프로그래밍 언어 그 자체를 가지고 명령어를 통해 작업을 하는 건 많이 어렵습니다. 불편하기도 하고요. 그럴 때 사용하는 게 바로 IDE(통합계발환경, Intergrated Development Environment)입니다. Python을 이용할 때 사용하는 PyCharm이나 Jupyter Notebook, 혹은 MS의 텍스트 에디터 VS Code가 대표적인 IDE라고 할 수 있을겁니다.
 

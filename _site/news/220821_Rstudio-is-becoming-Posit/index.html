@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="chichead">
 <meta name="dcterms.date" content="2022-08-21">
 <meta name="description" content="RStudio가 갑자기 Posit으로 이름을 고치는 이유는 뭘까">
 
@@ -123,7 +124,7 @@ cookieconsent.run({
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -146,7 +147,7 @@ cookieconsent.run({
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../daily.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
@@ -178,7 +179,44 @@ cookieconsent.run({
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">RStudio가 Posit으로 이름을 바꾼다</h1>
+                  <div>
+        <div class="description">
+          RStudio가 갑자기 Posit으로 이름을 고치는 이유는 뭘까
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">IDE</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 21, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -187,51 +225,25 @@ cookieconsent.run({
    
   <ul>
   <li><a href="#rstudio-is-becoming-posit" id="toc-rstudio-is-becoming-posit" class="nav-link active" data-scroll-target="#rstudio-is-becoming-posit">RStudio is becoming Posit</a></li>
-  <li><a href="#rstudio가-이름을-바꾸는-이유는" id="toc-rstudio가-이름을-바꾸는-이유는" class="nav-link" data-scroll-target="#rstudio가-이름을-바꾸는-이유는">RStudio가 이름을 바꾸는 이유는</a></li>
+  <li><a href="#rstudio가-이름을-바꾸는-이유는" id="toc-rstudio가-이름을-바꾸는-이유는" class="nav-link" data-scroll-target="#rstudio가-이름을-바꾸는-이유는">RStudio가 이름을 바꾸는 이유는</a>
+  <ul>
+  <li><a href="#a-broader-focus" id="toc-a-broader-focus" class="nav-link" data-scroll-target="#a-broader-focus">1. A Broader Focus</a></li>
+  <li><a href="#a-large-community" id="toc-a-large-community" class="nav-link" data-scroll-target="#a-large-community">2. A Large Community</a></li>
+  </ul></li>
   <li><a href="#posit의-뜻은" id="toc-posit의-뜻은" class="nav-link" data-scroll-target="#posit의-뜻은">Posit의 뜻은</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">RStudio가 Posit으로 이름을 바꾼다</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">IDE</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    RStudio가 갑자기 Posit으로 이름을 고치는 이유는 뭘까
-  </div>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<div class="quarto-title-meta">
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2022</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="rstudio-is-becoming-posit" class="level2">
 <h2 class="anchored" data-anchor-id="rstudio-is-becoming-posit">RStudio is becoming Posit</h2>
-<p><img src="posit.jpeg" class="img-fluid" style="width:100.0%" alt="posit logo"></p>
+<p><img src="../../image/posit.jpeg" class="img-fluid" style="width:100.0%" alt="posit logo"></p>
 <p>프로그래밍 언어 그 자체를 가지고 명령어를 통해 작업을 하는 건 많이 어렵습니다. 불편하기도 하고요. 그럴 때 사용하는 게 바로 IDE(통합계발환경, Intergrated Development Environment)입니다. Python을 이용할 때 사용하는 PyCharm이나 Jupyter Notebook, 혹은 MS의 텍스트 에디터 VS Code가 대표적인 IDE라고 할 수 있을겁니다.</p>
 <p>RStudio는 R의 가장 대표 IDE입니다. 그런데 이 RStudio가 지난 7월 말, 본인들의 이름을 바꾼다고 선언했습니다. 아마 8월 중으로 이름표를 새로 바꿀 것 같은데요, 그들이 공개한 RStudio의 새로운 이름은 Posit입니다. RStudio는 왜 갑자기 이름을 Posit으로 바꾸려는걸까요?</p>
 <p><br></p>
@@ -654,6 +666,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
