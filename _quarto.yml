@@ -14,7 +14,7 @@ website:
       - text: "NEWS"
         file: news.qmd
       - text: "DIARY"
-        file: daily.qmd
+        file: diary.qmd
     right:
       - text: "ABOUT"
         file: about.qmd

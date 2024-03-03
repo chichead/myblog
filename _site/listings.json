@@ -32,7 +32,7 @@
   {
     "listing": "/daily.html",
     "items": [
-      "/daily/240108/index.html"
+      "/diary/240108/index.html"
     ]
   },
   {
@@ -40,6 +40,12 @@
     "items": [
       "/news/220827_quarto/index.html",
       "/news/220821_Rstudio-is-becoming-Posit/index.html"
+    ]
+  },
+  {
+    "listing": "/diary.html",
+    "items": [
+      "/diary/240108/index.html"
     ]
   }
 ]
