@@ -452,7 +452,6 @@ font-style: inherit;">)</span></span></code></pre></div>
 </div>
 </div>
 <p>우선 내가 다녀온 일본 영역을 담을 수 있는 맵박스를 만들었다. 이름은 <code>japan</code>. 그리고 <code>ggmap</code> 라이브러리에 있는 함수를 이용해 Stamen이 만든 지도를 불러왔다. 그리고 위에서 <code>Record.json</code>에서 정리한 데이터를 불러와 뿌리자.</p>
-<p><img src="https://orange-mansion.com/image/japan/japan.png" class="img-fluid"></p>
 <p>오른쪽에 나리타 공항도 보이고 잘 그려졌다. 물론 중간 중간 요상한 점들도 보인다. 아마도 비행중에 위치 정보가 잡힌게 아닐까 싶다. 일단은 도쿄에 집중을 해보자. 조금 더 확대해서 그려본다. 맵 박스를 도쿄에 맞게 조정하고 <code>get_stadiamap</code> 함수에서 zoom을 이용해 지도 이미지의 해상도를 조절해보자.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
