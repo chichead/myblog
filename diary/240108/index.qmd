@@ -2,15 +2,12 @@
 title: '사랑하는 소년이 얼음 밑에 살아서'
 date: '2024-01-08'
 categories: ['Book', 'Review']
-description: '시간의 흐름 시인선 첫번째 주인공 한정원'
+description: '시간의 흐름 시인선의 첫번째 책'
 execute: 
   message: false
   warning: false
 editor_options: 
   chunk_output_type: console
-editor: 
-  markdown: 
-    wrap: 72
 ---
 
 ## 240108.
