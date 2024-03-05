@@ -36,6 +36,7 @@
   {
     "listing": "/news.html",
     "items": [
+      "/news/231217_netflix/index.html",
       "/news/220827_quarto/index.html",
       "/news/220821_Rstudio-is-becoming-Posit/index.html"
     ]

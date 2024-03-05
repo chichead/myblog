@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="chichead">
+<meta name="dcterms.date" content="2023-12-17">
+<meta name="description" content="데이터 공개 요구에 백기든 넷플릭스">
+<title>🍊오렌지맨숀 - 넷플릭스가 18,214개의 콘텐츠 데이터를 공개했다</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../fabicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script><script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YZCBLF5F53', { 'anonymize_ip': true});
+</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
+</script><style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false
+}
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<meta property="og:title" content="🍊오렌지맨숀 - 넷플릭스가 18,214개의 콘텐츠 데이터를 공개했다">
+<meta property="og:description" content="데이터 공개 요구에 백기든 넷플릭스">
+<meta property="og:site_name" content="🍊오렌지맨숀">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">🍊오렌지맨숀</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">POSTS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">NEWS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../diary.html"> 
+<span class="menu-text">DIARY</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">ABOUT</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/ahnhyemin"> <i class="bi bi-instagram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/anhyemin"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/chichead"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">넷플릭스가 18,214개의 콘텐츠 데이터를 공개했다</h1>
+                  <div>
+        <div class="description">
+          데이터 공개 요구에 백기든 넷플릭스
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Netflix</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 17, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#%EB%B0%98%EB%85%84%EB%A7%88%EB%8B%A4-%EA%B3%B5%EA%B0%9C%ED%95%98%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0" id="toc-반년마다-공개하는-데이터" class="nav-link active" data-scroll-target="#%EB%B0%98%EB%85%84%EB%A7%88%EB%8B%A4-%EA%B3%B5%EA%B0%9C%ED%95%98%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0">반년마다 공개하는 데이터</a></li>
+  <li><a href="#%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4-%EC%8B%9C%EC%B2%AD-%EC%8B%9C%EA%B0%84-top-10" id="toc-넷플릭스-시청-시간-top-10" class="nav-link" data-scroll-target="#%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4-%EC%8B%9C%EC%B2%AD-%EC%8B%9C%EA%B0%84-top-10">넷플릭스 시청 시간 Top 10</a></li>
+  <li>
+<a href="#%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4%EB%8A%94-%EC%A0%95%EB%A7%90-%EB%A1%B1%ED%85%8C%EC%9D%BC-%EB%B2%95%EC%B9%99%EC%9D%84-%EB%94%B0%EB%A5%BC%EA%B9%8C" id="toc-넷플릭스는-정말-롱테일-법칙을-따를까" class="nav-link" data-scroll-target="#%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4%EB%8A%94-%EC%A0%95%EB%A7%90-%EB%A1%B1%ED%85%8C%EC%9D%BC-%EB%B2%95%EC%B9%99%EC%9D%84-%EB%94%B0%EB%A5%BC%EA%B9%8C">넷플릭스는 정말 롱테일 법칙을 따를까?</a>
+  <ul>
+<li><a href="#%EC%8B%9C%EC%B2%AD%EC%8B%9C%EA%B0%84-%EC%83%81%EC%9C%84-20%EA%B0%80-%EC%B0%A8%EC%A7%80%ED%95%98%EB%8A%94-%EB%B9%84%EC%9C%A8" id="toc-시청시간-상위-20가-차지하는-비율" class="nav-link" data-scroll-target="#%EC%8B%9C%EC%B2%AD%EC%8B%9C%EA%B0%84-%EC%83%81%EC%9C%84-20%EA%B0%80-%EC%B0%A8%EC%A7%80%ED%95%98%EB%8A%94-%EB%B9%84%EC%9C%A8">시청시간 상위 20%가 차지하는 비율</a></li>
+  <li><a href="#%EC%A0%88%EB%B0%98%EC%9D%84-%EC%B0%A8%EC%A7%80%ED%95%98%EB%8A%94-%EA%B1%B4-%EC%83%81%EC%9C%84-%EB%AA%87-%EC%9D%BC%EA%B9%8C" id="toc-절반을-차지하는-건-상위-몇-일까" class="nav-link" data-scroll-target="#%EC%A0%88%EB%B0%98%EC%9D%84-%EC%B0%A8%EC%A7%80%ED%95%98%EB%8A%94-%EA%B1%B4-%EC%83%81%EC%9C%84-%EB%AA%87-%EC%9D%BC%EA%B9%8C">절반을 차지하는 건 상위 몇 % 일까?</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="반년마다-공개하는-데이터" class="level2"><h2 class="anchored" data-anchor-id="반년마다-공개하는-데이터">반년마다 공개하는 데이터</h2>
+<p><img src="../../image/netflix.webp" class="img-fluid" style="width:100.0%"></p>
+<p>불투명성으로 오랫동안 비판을 받아온 넷플릭스가 1년에 두 번씩 종합적인 시청자 인사이트를 공개하기로 했습니다. 12월 13일에 공개된 넷플릭스의 <a href="https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report">첫 보고서</a>에는 18,214개의 타이틀과 타이틀 별 시청 시간을 공개했습니다. 넷플릭스는 앞으로 스트리밍 환경의 투명성 부족 문제를 해결하겠다고 약속했습니다.</p>
+<p>넷플릭스 CEO 테드 사란도스는 과거 넷플릭스의 투명성 부족이 할리우드에서 불신을 키웠다고 인정하고 상세한 시청자 데이터로 새로운 신뢰를 얻겠다는 목표를 세웠습니다.</p>
+<p>그래서 넷플릭스는 앞으로 1년에 두 번씩 시청자 선호도에 대한 상세 보고서를 발표할 예정입니다.</p>
+<p><br></p>
+</section><section id="넷플릭스-시청-시간-top-10" class="level2"><h2 class="anchored" data-anchor-id="넷플릭스-시청-시간-top-10">넷플릭스 시청 시간 Top 10</h2>
+<p>12월 13일에 공개된 상반기 보고서(2023년 1월~6월)에는 18,000개 이상의 타이틀과 약 1,000억 시간의 시청 데이터가 담겨있습니다. 보고서에 담긴 데이터는 상반기 기간동안 전 세계에서 50,000시간 이상 시청한 모든 타이틀(18,214개)을 대상으로 합니다. 18,214개의 타이틀의 총 시청 시간은 934억 5,520만 시간에 달합니다.</p>
+<table class="table">
+<thead><tr class="header">
+<th>Rank</th>
+<th>Title</th>
+<th>Hours Viewed</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>The Night Agent: Season 1</td>
+<td>812,100,000</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Ginny &amp; Georgia: Season 2</td>
+<td>665,100,000</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>더 글로리</td>
+<td>622,800,000</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Wednesday: Season 1</td>
+<td>507,700,000</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Queen Charlotte: A Bridgerton Story</td>
+<td>503,000,000</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>You: Season 4</td>
+<td>440,600,000</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>La Reina del Sur: Season 3</td>
+<td>429,600,000</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Outer Banks: Season 3</td>
+<td>402,500,000</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Ginny &amp; Georgia: Season 1</td>
+<td>302,100,000</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>FUBAR: Season 1</td>
+<td>266,200,000</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</section><section id="넷플릭스는-정말-롱테일-법칙을-따를까" class="level2"><h2 class="anchored" data-anchor-id="넷플릭스는-정말-롱테일-법칙을-따를까">넷플릭스는 정말 롱테일 법칙을 따를까?</h2>
+<p><img src="../../image/longtail.webp" class="img-fluid" style="width:100.0%"></p>
+<p>넷플릭스는 <code>롱테일 법칙</code>의 대표 사례로 일컬어집니다. 롱테일 법칙은 잘 팔리지 않는 상품들도 충분히 수요가 있고, 이 수요로 인한 매출이 인기 있는 상품의 매출에 버금간다는 뜻이죠. 애플 아이팟의 음원 서비스, 아마존의 도서 판매에서 하위 80%의 매출액이 전체 매출의 50% 가까이 차지하는 현상이 롱테일 법칙이라고 할 수 있습니다. 기존의 파레토 법칙에서 무시되었던 긴 꼬리의 영역을 확보하자는 접근이 바로 롱테일 법칙입니다.</p>
+<p>기존의 전통적인 시장을 지배했던 건 <code>파레토 법칙</code>입니다. 과거 기업이 투입할 수 있는 자원과 얻을 수 있는 정보량은 제한적이었습니다. 그들이 경영 실적을 높이기 위해선 선택과 집중이 필요했고, 그렇게 선택과 집중이 이뤄진 결과는 파레토 법칙으로 이어졌습니다. 파레토 법칙은 상위 20%가 전체 생산량의 80%를 차지한다는 법칙을 말합니다.</p>
+<p>넷플릭스가 공개한 18,214개 타이틀과 타이틀 별 시청시간 데이터는 정말 롱테일 법칙을 따르고 있을까요?</p>
+<p>참고로 넷플릭스가 공개한 보고서에 따르면 이번에 공개된 18,214개의 타이틀의 시청량은 넷플릭스 전체 시청량의 99%에 해당한다고 합니다. 50,000시간 이상 스트리밍된 타이틀만 포함된 수치인데, 넷플릭스 전체 타이틀 수와 크게 차이가 없는 것으로 추정되고 있습니다. 거의 모든 타이틀이 50,000시간 넘게 스트리밍 된다는 측면에서 롱테일 법칙을 따를 가능성이 높아 보이는데, 정말 그런지 확인해 봤습니다.</p>
+<p><br></p>
+<section id="시청시간-상위-20가-차지하는-비율" class="level4"><h4 class="anchored" data-anchor-id="시청시간-상위-20가-차지하는-비율">시청시간 상위 20%가 차지하는 비율</h4>
+<p>일단, 넷플릭스에서 제공해준 데이터를 <code>watch_times</code>라는 녀석에 넣었습니다. 그 중 시청시간은 Hours.Viewed라는 칼럼에 들어있고요. 시청시간 상위 20% 타이틀을 <code>top_20_percent_index</code>에 넣어 그 녀석들의 시청시간을 다 합친뒤, 전체에서 얼마나 차지하는지 확인해봤습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">watch_times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"watch_times.xlsx"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">top_20_percent_index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">$</span><span class="va">`Hours Viewed`</span><span class="op">)</span> <span class="op">*</span> <span class="fl">0.2</span><span class="op">)</span></span>
+<span><span class="va">percent</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">$</span><span class="va">`Hours Viewed`</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">top_20_percent_index</span><span class="op">]</span><span class="op">)</span> <span class="op">/</span> </span>
+<span>           <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">$</span><span class="va">`Hours Viewed`</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"The top 20% of titles account for"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">percent</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span>, </span>
+<span>    <span class="st">"% of the total watch time.\n"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The top 20% of titles account for 85.6 % of the total watch time.</code></pre>
+</div>
+</div>
+<p>상위 20% 타이틀이 전체 시청시간에서 찾이하는 비율은 85.6%로 전체의 80%를 넘습니다. 넷플릭스 시청시간에서 우리가 익히 알고 있던 파레토 법칙이 등장합니다. 익히 들어왔던 만큼 넷플릭스는 당연히 롱테일 법칙을 따를 줄 알았는데 말이죠.</p>
+<p><br></p>
+</section><section id="절반을-차지하는-건-상위-몇-일까" class="level4"><h4 class="anchored" data-anchor-id="절반을-차지하는-건-상위-몇-일까">절반을 차지하는 건 상위 몇 % 일까?</h4>
+<p>그렇다면 넷플릭스 시청시간은 얼마나 파레토 법칙이 강하게 작용하고 있을까요? 확인해 보기 위해 상위 그룹과 하위 그룹의 합이 같아지는 시점을 찾아보겠습니다. 특정 포인트를 찾아, 해당 포인트 윗 그룹과 아랫 그룹의 합이 threshold를 넘기지 않도록 세팅해 보겠습니다. 넷플릭스 시청시간 데이터를 고려해 threshold 값은 1,000만으로 잡아두었습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># threshold_point 찾기 함수</span></span>
+<span><span class="va">find_threshold_point</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">watch_times</span>, <span class="va">threshold</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">top_total</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="va">bottom_total</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">[</span><span class="op">(</span><span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">watch_times</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">top_total</span> <span class="op">-</span> <span class="va">bottom_total</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="va">threshold</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># threshold 세팅</span></span>
+<span><span class="va">threshold_value</span> <span class="op">&lt;-</span> <span class="fl">10000000</span> </span>
+<span></span>
+<span><span class="co"># threshold point 찾기</span></span>
+<span><span class="va">threshold_index</span> <span class="op">&lt;-</span> <span class="fu">find_threshold_point</span><span class="op">(</span><span class="va">watch_times</span><span class="op">$</span><span class="va">`Hours Viewed`</span>, </span>
+<span>                                        <span class="va">threshold_value</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Threshold point found at index:"</span>, <span class="va">threshold_index</span>, <span class="st">"\n"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Threshold point found at index: 713 </code></pre>
+</div>
+</div>
+<p>함수를 돌려보니 713번째 타이틀이 threshold point로 계산됩니다. 713개라면 전체 18,214개의 3.9% 수준입니다. 정리해 보자면 넷플릭스의 상위 4% 타이틀들이 넷플릭스 전체 시청시간의 절반을 차지하고 있는 겁니다.</p>
+<p>그렇습니다. 넷플릭스 시청시간은 롱테일 법칙이 아닌 파레토 법칙을 따르고 있습니다. 그것도 아주 강력하게요.</p>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Published with <a href="https://quarto.org/">Quarto</a> | Hosted by <a href="https://www.netlify.com">Netlify</a></p>
+</div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+<p>© 2024 <a href="https://github.com/chichead/"><i class="fa-brands fa-github" aria-label="github"></i> chichead</a></p>
+</div>
+  </div>
+</footer>
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

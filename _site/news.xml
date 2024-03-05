@@ -10,7 +10,457 @@
 <atom:link href="https://orange-mansion.com/news.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Fri, 26 Aug 2022 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 16 Dec 2023 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>넷플릭스가 18,214개의 콘텐츠 데이터를 공개했다</title>
+  <dc:creator>chichead </dc:creator>
+  <link>https://orange-mansion.com/news/231217_netflix/</link>
+  <description><![CDATA[ <section id="반년마다-공개하는-데이터" class="level2"><h2 class="anchored" data-anchor-id="반년마다-공개하는-데이터">반년마다 공개하는 데이터</h2>
+<p><img src="https://orange-mansion.com/image/netflix.webp" class="img-fluid" style="width:100.0%"></p>
+<p>불투명성으로 오랫동안 비판을 받아온 넷플릭스가 1년에 두 번씩 종합적인 시청자 인사이트를 공개하기로 했습니다. 12월 13일에 공개된 넷플릭스의 <a href="https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report">첫 보고서</a>에는 18,214개의 타이틀과 타이틀 별 시청 시간을 공개했습니다. 넷플릭스는 앞으로 스트리밍 환경의 투명성 부족 문제를 해결하겠다고 약속했습니다.</p>
+<p>넷플릭스 CEO 테드 사란도스는 과거 넷플릭스의 투명성 부족이 할리우드에서 불신을 키웠다고 인정하고 상세한 시청자 데이터로 새로운 신뢰를 얻겠다는 목표를 세웠습니다.</p>
+<p>그래서 넷플릭스는 앞으로 1년에 두 번씩 시청자 선호도에 대한 상세 보고서를 발표할 예정입니다.</p>
+<p><br></p>
+</section><section id="넷플릭스-시청-시간-top-10" class="level2"><h2 class="anchored" data-anchor-id="넷플릭스-시청-시간-top-10">넷플릭스 시청 시간 Top 10</h2>
+<p>12월 13일에 공개된 상반기 보고서(2023년 1월~6월)에는 18,000개 이상의 타이틀과 약 1,000억 시간의 시청 데이터가 담겨있습니다. 보고서에 담긴 데이터는 상반기 기간동안 전 세계에서 50,000시간 이상 시청한 모든 타이틀(18,214개)을 대상으로 합니다. 18,214개의 타이틀의 총 시청 시간은 934억 5,520만 시간에 달합니다.</p>
+<table class="table">
+<thead><tr class="header">
+<th>Rank</th>
+<th>Title</th>
+<th>Hours Viewed</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>The Night Agent: Season 1</td>
+<td>812,100,000</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Ginny &amp; Georgia: Season 2</td>
+<td>665,100,000</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>더 글로리</td>
+<td>622,800,000</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Wednesday: Season 1</td>
+<td>507,700,000</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Queen Charlotte: A Bridgerton Story</td>
+<td>503,000,000</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>You: Season 4</td>
+<td>440,600,000</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>La Reina del Sur: Season 3</td>
+<td>429,600,000</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Outer Banks: Season 3</td>
+<td>402,500,000</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Ginny &amp; Georgia: Season 1</td>
+<td>302,100,000</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>FUBAR: Season 1</td>
+<td>266,200,000</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</section><section id="넷플릭스는-정말-롱테일-법칙을-따를까" class="level2"><h2 class="anchored" data-anchor-id="넷플릭스는-정말-롱테일-법칙을-따를까">넷플릭스는 정말 롱테일 법칙을 따를까?</h2>
+<p><img src="https://orange-mansion.com/image/longtail.webp" class="img-fluid" style="width:100.0%"></p>
+<p>넷플릭스는 <code>롱테일 법칙</code>의 대표 사례로 일컬어집니다. 롱테일 법칙은 잘 팔리지 않는 상품들도 충분히 수요가 있고, 이 수요로 인한 매출이 인기 있는 상품의 매출에 버금간다는 뜻이죠. 애플 아이팟의 음원 서비스, 아마존의 도서 판매에서 하위 80%의 매출액이 전체 매출의 50% 가까이 차지하는 현상이 롱테일 법칙이라고 할 수 있습니다. 기존의 파레토 법칙에서 무시되었던 긴 꼬리의 영역을 확보하자는 접근이 바로 롱테일 법칙입니다.</p>
+<p>기존의 전통적인 시장을 지배했던 건 <code>파레토 법칙</code>입니다. 과거 기업이 투입할 수 있는 자원과 얻을 수 있는 정보량은 제한적이었습니다. 그들이 경영 실적을 높이기 위해선 선택과 집중이 필요했고, 그렇게 선택과 집중이 이뤄진 결과는 파레토 법칙으로 이어졌습니다. 파레토 법칙은 상위 20%가 전체 생산량의 80%를 차지한다는 법칙을 말합니다.</p>
+<p>넷플릭스가 공개한 18,214개 타이틀과 타이틀 별 시청시간 데이터는 정말 롱테일 법칙을 따르고 있을까요?</p>
+<p>참고로 넷플릭스가 공개한 보고서에 따르면 이번에 공개된 18,214개의 타이틀의 시청량은 넷플릭스 전체 시청량의 99%에 해당한다고 합니다. 50,000시간 이상 스트리밍된 타이틀만 포함된 수치인데, 넷플릭스 전체 타이틀 수와 크게 차이가 없는 것으로 추정되고 있습니다. 거의 모든 타이틀이 50,000시간 넘게 스트리밍 된다는 측면에서 롱테일 법칙을 따를 가능성이 높아 보이는데, 정말 그런지 확인해 봤습니다.</p>
+<p><br></p>
+<section id="시청시간-상위-20가-차지하는-비율" class="level4"><h4 class="anchored" data-anchor-id="시청시간-상위-20가-차지하는-비율">시청시간 상위 20%가 차지하는 비율</h4>
+<p>일단, 넷플릭스에서 제공해준 데이터를 <code>watch_times</code>라는 녀석에 넣었습니다. 그 중 시청시간은 Hours.Viewed라는 칼럼에 들어있고요. 시청시간 상위 20% 타이틀을 <code>top_20_percent_index</code>에 넣어 그 녀석들의 시청시간을 다 합친뒤, 전체에서 얼마나 차지하는지 확인해봤습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"watch_times.xlsx"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">top_20_percent_index</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">`Hours Viewed`</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">percent</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">`Hours Viewed`</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">top_20_percent_index</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> </span>
+<span>           <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">`Hours Viewed`</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"The top 20% of titles account for"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">percent</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, </span>
+<span>    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"% of the total watch time.\n"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The top 20% of titles account for 85.6 % of the total watch time.</code></pre>
+</div>
+</div>
+<p>상위 20% 타이틀이 전체 시청시간에서 찾이하는 비율은 85.6%로 전체의 80%를 넘습니다. 넷플릭스 시청시간에서 우리가 익히 알고 있던 파레토 법칙이 등장합니다. 익히 들어왔던 만큼 넷플릭스는 당연히 롱테일 법칙을 따를 줄 알았는데 말이죠.</p>
+<p><br></p>
+</section><section id="절반을-차지하는-건-상위-몇-일까" class="level4"><h4 class="anchored" data-anchor-id="절반을-차지하는-건-상위-몇-일까">절반을 차지하는 건 상위 몇 % 일까?</h4>
+<p>그렇다면 넷플릭스 시청시간은 얼마나 파레토 법칙이 강하게 작용하고 있을까요? 확인해 보기 위해 상위 그룹과 하위 그룹의 합이 같아지는 시점을 찾아보겠습니다. 특정 포인트를 찾아, 해당 포인트 윗 그룹과 아랫 그룹의 합이 threshold를 넘기지 않도록 세팅해 보겠습니다. 넷플릭스 시청시간 데이터를 고려해 threshold 값은 1,000만으로 잡아두었습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># threshold_point 찾기 함수</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">find_threshold_point</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span>  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span>    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">top_total</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">bottom_total</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>    </span>
+<span>    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">top_total</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">bottom_total</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span>      <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span>  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span>  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># threshold 세팅</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold_value</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000000</span> </span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># threshold point 찾기</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold_index</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">find_threshold_point</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">watch_times</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">`Hours Viewed`</span>, </span>
+<span>                                        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold_value</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Threshold point found at index:"</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold_index</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\n"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Threshold point found at index: 713 </code></pre>
+</div>
+</div>
+<p>함수를 돌려보니 713번째 타이틀이 threshold point로 계산됩니다. 713개라면 전체 18,214개의 3.9% 수준입니다. 정리해 보자면 넷플릭스의 상위 4% 타이틀들이 넷플릭스 전체 시청시간의 절반을 차지하고 있는 겁니다.</p>
+<p>그렇습니다. 넷플릭스 시청시간은 롱테일 법칙이 아닌 파레토 법칙을 따르고 있습니다. 그것도 아주 강력하게요.</p>
+
+
+</section></section> ]]></description>
+  <category>Netflix</category>
+  <guid>https://orange-mansion.com/news/231217_netflix/</guid>
+  <pubDate>Sat, 16 Dec 2023 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>R Markdown의 차세대 포맷, Quarto</title>
   <dc:creator>chichead </dc:creator>
