@@ -10,7 +10,1941 @@
 <atom:link href="https://orange-mansion.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Fri, 31 Mar 2023 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 05 Apr 2024 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>R에서 모델링할 땐? 깔끔한 프레임워크, tidymodels</title>
+  <dc:creator>chichead </dc:creator>
+  <link>https://orange-mansion.com/posts/240406_tidymodels/</link>
+  <description><![CDATA[ <section id="background" class="level2"><h2 class="anchored" data-anchor-id="background">1. Background</h2>
+<p>R에는 다양한 머신러닝 모델링 패키지와 통계 패키지들이 존재합니다. 다양한 분야의 연구자들이 R을 활용해서 새로운 통계 모델을 만들어내기도 하죠. 새롭게 만든 모델을 더 다듬어서 새로운 패키지를 배포할 수도 있고요. 오픈소스 R의 강력한 힘이라고 할 수 있겠습니다.</p>
+<p>하지만 배포되는 패키지마다 패키지 제작자 나름의 스타일을 담다 보니 이용자 입장에서는 신경 쓸 문제가 있습니다. 바로 모델링 문법의 일관성 문제입니다. 어느 패키지를 사용할 때는 수식으로 모델을 입력해야 하고요, 또 어느 때에는 수식 없이도 충분히 모델링을 굴릴 수 있습니다.</p>
+<p><code>tidymodels</code>과 함께라면 이 문제를 해결할 수 있습니다. <code>tidymodels</code>은 tidyverse 원리를 사용한 모델링 및 머신러닝 패키지 모음입니다. R 세상에 넘쳐나는 다양한 모델링 인터페이스를 매끄럽게 만들기 위해 <code>tidymodels</code>은 tidyverse의 기본 철학을 바탕으로 깔끔한 프레임워크를 만들었습니다. tidyverse의 파이프를 사용한 코드 구성도 <code>tidymodels</code>에서 가능하죠. 적용 범위도 광범위합니다. 고전적인 통계 방법부터 머신러닝 기법까지 싹 다 지원합니다.</p>
+<p><br></p>
+</section><section id="tidymodels-package" class="level2"><h2 class="anchored" data-anchor-id="tidymodels-package">2. Tidymodels package</h2>
+<p><img src="https://orange-mansion.com/image/hex_wall.png" class="img-fluid" style="width:100.0%"> tidymodels 패키지는 이렇게나 많습니다. 물론 이걸 다 쓰는 건 아니고요, 모델링 과정에서 필요한 패키지들을 불러와서 때에 맞춰서 골라 쓰면 됩니다. 그중 코어 패키지라고 할 수 있는 패키지는 8개 정도로 정리됩니다. 아래 소개된 8가지 패키지를 바탕으로 모델링을 진행하면서 tidymodels의 깔끔한 인터페이스를 경험해 보겠습니다.</p>
+<table class="table">
+<thead><tr class="header">
+<th>No</th>
+<th>Package</th>
+<th>Summary</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>rsample</td>
+<td>데이터를 분할하고 리샘플링할 때 사용하는 패키지</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>recipes</td>
+<td>Feature Engineering을 위한 데이터 전처리 패키지</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>parsnip</td>
+<td>통합 모델링 인터페이스를 제공해주는 패키지</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>workflows</td>
+<td>전처리, 모델링, 후처리를 결합해주는 패키지</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>tune</td>
+<td>전처리 단계의 하이퍼파라미터 최적화 및 튜닝 패키지</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>yardstick</td>
+<td>성능 메트릭을 통한 모델 평가 패키지</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>broom</td>
+<td>통계 정보를 tidy하게 출력해주는 패키지</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>dials</td>
+<td>튜닝 매개변수 패키지</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</section><section id="the-whole-game" class="level2"><h2 class="anchored" data-anchor-id="the-whole-game">3. The Whole Game</h2>
+<p>모델링에 활용할 데이터는 <code>tidytuesdayR</code> 패키지에서 제공하는 히말라야 등반 원정 데이터입니다. tidytuesday는 매주 화요일마다 진행되는 일종의 시각화 경진 프로젝트인데요, 화요일마다 공개되는 데이터 셋을 가지고 분석을 해보고, 나름의 시각화를 해 보는 거죠. 결과물은 개인 SNS에 업로드하면 끝입니다.</p>
+<p>2020년 9월 22일에 공개되었던 히말라야 등반 원정 데이터에는 네팔 히말라야를 등반한 모든 원정대의 기록이 담겨 있습니다. 1905년부터 2019년 봄까지 네팔의 465개 이상의 주요 봉우리에 대한 모든 원정이 담겨 있죠.</p>
+<p><code>tidytuesdayR</code> 패키지의 <code><a href="https://rdrr.io/pkg/tidytuesdayR/man/tt_load.html">tt_load()</a></code> 함수를 이용하면 바로 불러올 수 있지만, Github API 요청 한계를 넘길 경우 제대로 로드가 되지 않을 수 있습니다. 이런 경우엔 tidytuesdayR github에 들어가면 원 데이터를 받을 수 있습니다😄</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://github.com/thebioengineer/tidytuesdayR">tidytuesdayR</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://readr.tidyverse.org">readr</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># tt_data &lt;- tidytuesdayR::tt_load(2020, week = 39)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">peaks</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"peaks.csv"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">members</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"members.csv"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">expeditions</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"expeditions.csv"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p>총 3개의 데이터셋이 있습니다.</p>
+<ul>
+<li>peaks.csv : 히말라야 산막의 봉우리 데이터</li>
+<li>members.csv : 히말라야 탐험 원정대 구성원 데이터</li>
+<li>expeditions.csv : 해당 기간동안 수행된 탐험 데이터</li>
+</ul>
+<p>우선 탐험 데이터를 조금 더 자세히 살펴보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">expeditions</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 16
+  expedition_id peak_id peak_name     year season basecamp_date highpoint_date
+  &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;date&gt;        &lt;date&gt;        
+1 ANN260101     ANN2    Annapurna II  1960 Spring 1960-03-15    1960-05-17    
+2 ANN269301     ANN2    Annapurna II  1969 Autumn 1969-09-25    1969-10-22    
+3 ANN273101     ANN2    Annapurna II  1973 Spring 1973-03-16    1973-05-06    
+4 ANN278301     ANN2    Annapurna II  1978 Autumn 1978-09-08    1978-10-02    
+5 ANN279301     ANN2    Annapurna II  1979 Autumn NA            1979-10-18    
+# ℹ 9 more variables: termination_date &lt;date&gt;, termination_reason &lt;chr&gt;,
+#   highpoint_metres &lt;dbl&gt;, members &lt;dbl&gt;, member_deaths &lt;dbl&gt;,
+#   hired_staff &lt;dbl&gt;, hired_staff_deaths &lt;dbl&gt;, oxygen_used &lt;lgl&gt;,
+#   trekking_agency &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>탐험이 언제, 어디서 이뤄졌는지, 참여한 구성원은 얼마나 되는지, 사망했는지 등의 정보가 담겨 있습니다. 다음으로 원정대 정보를 살펴보겠습니다. skimr 패키지의 skim 함수를 이용해 각 변수별 기술 통계량을 조회해 보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">members</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">skimr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">members</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">76519</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">logical</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">expedition_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10350</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">member_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">76518</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">peak_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">391</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">peak_name</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">390</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">season</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sex</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">citizenship</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">212</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">expedition_role</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">524</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">death_cause</td>
+<td style="text-align: right;">75413</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">injury_type</td>
+<td style="text-align: right;">74807</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: logical</strong></p>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: left;">count</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">hired</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: left;">FAL: 60788, TRU: 15731</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">success</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: left;">FAL: 47320, TRU: 29199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">solo</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: left;">FAL: 76398, TRU: 121</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">oxygen_used</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: left;">FAL: 58286, TRU: 18233</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">died</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: left;">FAL: 75413, TRU: 1106</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">injured</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: left;">FAL: 74806, TRU: 1713</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2000.36</td>
+<td style="text-align: right;">14.78</td>
+<td style="text-align: right;">1905</td>
+<td style="text-align: right;">1991</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">2012</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: left;">▁▁▁▃▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">3497</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">37.33</td>
+<td style="text-align: right;">10.40</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: left;">▁▇▅▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">highpoint_metres</td>
+<td style="text-align: right;">21833</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">7470.68</td>
+<td style="text-align: right;">1040.06</td>
+<td style="text-align: right;">3800</td>
+<td style="text-align: right;">6700</td>
+<td style="text-align: right;">7400</td>
+<td style="text-align: right;">8400</td>
+<td style="text-align: right;">8850</td>
+<td style="text-align: left;">▁▁▆▃▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">death_height_metres</td>
+<td style="text-align: right;">75451</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">6592.85</td>
+<td style="text-align: right;">1308.19</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">5800</td>
+<td style="text-align: right;">6600</td>
+<td style="text-align: right;">7550</td>
+<td style="text-align: right;">8830</td>
+<td style="text-align: left;">▁▁▂▇▆</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">injury_height_metres</td>
+<td style="text-align: right;">75510</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">7049.91</td>
+<td style="text-align: right;">1214.24</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">6200</td>
+<td style="text-align: right;">7100</td>
+<td style="text-align: right;">8000</td>
+<td style="text-align: right;">8880</td>
+<td style="text-align: left;">▁▁▂▇▇</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>우리는 이 데이터를 가지고 히말라야 등반이 안타까운 결말을 맞이할 가능성, 즉 탐험에 참여한 구성원이 사망할지 말지 여부를 판단하는 모델링 작업을 진행해 보겠습니다. 즉 생사를 분류하는 이진 분류 작업, died 칼럼에서 TRUE 값이 나올지 FALSE 값이 나올지 예측해 보겠습니다.</p>
+<p><br></p>
+<section id="dataset" class="level4"><h4 class="anchored" data-anchor-id="dataset">3-1. dataset</h4>
+<p><code>members</code>데이터에는 변수가 21개나 있습니다. 다 쓰기엔 너무 많으니 이 중에 우리가 모델링에 필요한 칼럼만 쏙 빼서 <code>member_df</code>로 가져오도록 하겠습니다. 가져올 데이터 안에 NA 값이 있다면 제외하고요. logical 데이터와 character 데이터들은 모두 factor로 변경하도록 하겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_df</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">members</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_id</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">peak_name</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">season</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">year</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">sex</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">age</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">citizenship</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">expedition_role</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">hired</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">solo</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">oxygen_used</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">success</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">sex</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">citizenship</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">peak_name</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">expedition_role</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/logical.html">is.logical</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">as.factor</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_df</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 13
+  member_id peak_name season  year sex     age citizenship expedition_role hired
+  &lt;fct&gt;     &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;           &lt;fct&gt;
+1 AMAD7830… Ama Dabl… Autumn  1978 M        40 France      Leader          FALSE
+2 AMAD7830… Ama Dabl… Autumn  1978 M        41 France      Deputy Leader   FALSE
+3 AMAD7830… Ama Dabl… Autumn  1978 M        27 France      Climber         FALSE
+4 AMAD7830… Ama Dabl… Autumn  1978 M        40 France      Exp Doctor      FALSE
+5 AMAD7830… Ama Dabl… Autumn  1978 M        34 France      Climber         FALSE
+# ℹ 4 more variables: solo &lt;fct&gt;, oxygen_used &lt;fct&gt;, success &lt;fct&gt;, died &lt;fct&gt;</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="rsample" class="level4"><h4 class="anchored" data-anchor-id="rsample">3-2. rsample</h4>
+<p><img src="https://orange-mansion.com/image/logo_rsample.png" class="img-fluid" style="width:20.0%"></p>
+<p>데이터셋이 준비되었으니, 본격적인 모델링 작업에 들어가 보겠습니다. <code>tidymodels</code> 패키지를 불러온 뒤, 가장 먼저 해야 할 일은 데이터를 학습 데이터와 테스트 데이터로 분류하는 작업일 겁니다. 데이터를 나누어 학습 데이터로는 모델링을 진행하고, 만들어진 모델이 테스트 데이터에는 얼마나 잘 맞는지 살펴보기 위해서죠. <code>rsample</code> 패키지를 이용하면 효율적으로 데이터를 나눌 수 있고, 필요할 경우 리샘플링도 할 수 있습니다.</p>
+<p>참고로 <code>rsample</code>의 로고엔 부츠가 그려져 있습니다. 데이터를 리샘플링할 때 사용하는 부트스트랩(Bootstrap)의 영향이었을까요? 부트스트랩은 주어진 데이터 셋에서 랜덤 하게 반복하여 샘플을 추출함으로써, 통계적 추정치나 모델의 정확도를 평가하는 데 사용됩니다. 핵심 아이디어가 재추출(Resampling)인 만큼 <code>rsample</code> 로고로는 아주 적합해 보입니다.</p>
+<p>바로 데이터부터 분할해 보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">42</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_split</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rsample</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rsample.tidymodels.org/reference/initial_split.html">initial_split</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_df</span>, prop <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>, strata <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>         </span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rsample</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rsample.tidymodels.org/reference/initial_split.html">training</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_split</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rsample</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rsample.tidymodels.org/reference/initial_split.html">testing</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_split</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p><code>initial_split()</code> 함수를 이용하면 쉽게 데이터를 분할할 수 있습니다. <code>prop</code> 변수를 이용하면 학습 데이터와 테스트 데이터의 분할 비율을 설정할 수 있고요. 혹 내가 관심 있는 변수가 균등하게 분포되지 않아서 모델의 성능이 떨어질까 염려가 되나요? 이런 경우엔 <code>strata</code> 변수를 이용하면 내가 원하는 데이터를 학습 데이터와 테스트 데이터에 균등하게 반영되도록 할 수 있습니다.</p>
+<p>학습 데이터셋과 테스트 데이터셋으로 구분 짓는 것을 Hold-out Method라고 합니다. 정확한 판단이 이뤄지기 위해선 모델링 과정에서 테스트 데이터셋은 단일 최종 모델을 평가하는 것을 제외하고는 건드려서는 안 됩니다.</p>
+<p><br></p>
+<section id="resampling" class="level5"><h5 class="anchored" data-anchor-id="resampling">* Resampling</h5>
+<p>하지만 여러 모델을 두고 하나의 모델을 선택하는 과정에선 무의식적으로 테스트 데이터셋을 엿보는 일이 발생할 수 있습니다. 가령 학습 데이터에 여러 모델을 구축하고 테스트 데이터에서 가장 높은 정확도를 보인 모델을 선택했다면, 사실 테스트 데이터셋을 사용해 최고의 결과를 골라낸 것이죠. 즉 이 경우엔 테스트 성능 값은 본래 보이지 않는 데이터에 대한 편향되지 않은 측정치가 아니게 됩니다.</p>
+<p>이것을 해결하기 위한 방법이 바로 validation dataset(검증 데이터셋)을 따로 두는 겁니다. 가장 기본적인 방법은 <code>validation_split()</code>을 사용하여 초기 train_set을 더 작은 학습 데이터와 검증 데이터로 분할하는 방법입니다.</p>
+<p>혹은 Cross-Validation, Bootstrap, Monte Carlo CV(MCCV), Time-Series Resampling 같은 Resampling 기법을 이용할 수도 있습니다. 리샘플링은 이름에서 알 수 있듯 반복하여 샘플을 추출하는 방법입니다. 지금 여기선 10-fold CV 방법을 선택하겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_folds</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rsample</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rsample.tidymodels.org/reference/vfold_cv.html">vfold_cv</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>v <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, repeats <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, strata <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p><br></p>
+</section></section><section id="recipe" class="level4"><h4 class="anchored" data-anchor-id="recipe">3-3. recipe</h4>
+<p><img src="https://orange-mansion.com/image/logo_recipe.png" class="img-fluid" style="width:20.0%"></p>
+<p>다음 단계는 이제 전처리입니다. <code>recipe</code> 패키지를 사용해서 전처리는 진행할 수 있습니다. <code>recipe</code> 패키지를 이용하면 여러 전처리 단계를 한꺼번에 연결해서 구성할 수 있는데요, 다음과 같은 단계로 진행됩니다. 패키지 이름이 레시피인 만큼 단계별로 사용하는 함수도 요리에서 사용하는 단어들이 등장합니다.</p>
+<ol type="1">
+<li>먼저 처리할 데이터셋과 변수를 정한 뒤 레시피(recipe)에 담습니다.</li>
+<li>그리고 전처리 단계를 추가해 줍니다.</li>
+<li>그런 다음 전처리 단계가 추가된 레시피에 필요한 데이터들을 준비(prep)합니다.</li>
+<li>마지막으로 이 준비된 레시피로 새 데이터를 베이킹(bake)합니다.</li>
+</ol>
+<p>그림으로 그려보면 이렇게 표현할 수 있을 겁니다. 재료를 골라 담고, 레시피 단계(전처리)를 작성한 뒤, 단계별로 필요한 데이터를 준비하고, 요리하기!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://orange-mansion.com/image/recipes.png" class="img-fluid figure-img"></p>
+<figcaption>R &amp; stats illustrations by @allison_horst</figcaption></figure>
+</div>
+<p>일단 우리가 요리할 재료는 <code>train_set</code> 데이터셋입니다. 그리고 그 중 관심있는 건 <code>died</code> 변수죠. <code>died</code> 변수 외의 모든 변수를 예측변수로 두겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">recipe</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>formula <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.</span> , data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p>다음 단계는 레시피 설계 단계입니다. 어떻게 데이터를 요리할지 그 전처리 과정을 설계해 보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">update_role</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_id</span>, new_role <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_impute_median</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">age</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_normalize</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_numeric_predictors</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_other</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">peak_name</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">citizenship</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">expedition_role</span>, threshold <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_dummy</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_predictors</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_numeric</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, one_hot <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">themis</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://themis.tidymodels.org/reference/step_upsample.html">step_upsample</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span>, over_ratio <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, seed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">42</span>, skip <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<ul>
+<li>
+<code>update_role()</code> : 예측변수 중 member_id는 단순한 관측값이기에 id 역할을 새로 할당합니다.</li>
+<li>
+<code>step_impute_median()</code> : NA 값을 예측변수의 median으로 대체합니다.</li>
+<li>
+<code>step_normalize()</code> : 데이터를 표준화합니다.</li>
+<li>
+<code>step_other()</code> : 드물게 발생하는 데이터를 other로 묶습니다. 그 기준은 0.05로 하고요.</li>
+<li>
+<code>step_dummy()</code> : 범주형 데이터를 더미화합니다.</li>
+</ul>
+<p>마지막 전처리 단계는 <code>recipe</code> 패키지의 기본값에서는 제공해주지 않는 추가 단계입니다. 앞서 전체 데이터셋에서 살펴본 기술 통계량에서 died가 TRUE인 경우가 1106개, FALSE가 75413개로 큰 차이가 나고 있었죠. 그 불균형을 해소하기 위해 <code>themis</code> 패키지를 이용했습니다.</p>
+<p><code>step_upsample()</code> 함수를 이용하면 불균형한 클래스 샘플 수를 증가시켜 균형을 맞출 수 있습니다. <code>over_ratio</code>를 이용하면 다수 클래스의 어느 수준까지 소수 클래스를 복제할지 결정해 줄 수 있고요. 다만 복제된 샘플을 사용하기에 과적합 이슈가 발생할 수 있고, 실제 데이터 분포와는 다를 수 있다는 점은 유념해야 합니다.</p>
+<p>세팅한 레시피를 살펴보면 다음과 같습니다. 다 제대로 들어간 것 같네요.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#── Recipe ──────────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#── Inputs </span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Number of variables by role</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># outcome:    1</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># predictor: 11</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># id:         1</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#── Operations </span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#• Median imputation for: age</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#• Centering and scaling for: all_numeric_predictors()</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#• Collapsing factor levels for: peak_name, citizenship, expedition_role</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#• Dummy variables from: all_predictors() and -all_numeric()</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#• Up-sampling based on: died</span></span></code></pre></div>
+</div>
+<p>레시피가 준비되었으니, 이제 각 단계에 맞는 재료, 데이터를 가져오면 됩니다. <code>prep()</code> 함수를 이용하면 금방입니다. <code>retain</code>을 TRUE로 두면 전처리 규칙뿐 아니라 전처리한 결과 데이터들도 보존해 둡니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe_prepped</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prep</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span>, retain <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p>이제 준비된 레시피로 구워내기만 하면 됩니다. <code>bake()</code> 함수를 이용해서요. 이미 처음 제공된 데이터(<code>train_set</code>)가 있기 때문에 <code>new_data</code>에는 NULL을 넣으면 됩니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bake</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe_prepped</span>, new_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 72,342 × 24
+   member_id      year     age died  peak_name_Cho.Oyu peak_name_Everest
+   &lt;fct&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;             &lt;dbl&gt;             &lt;dbl&gt;
+ 1 EVER17109-02  1.13   1.55   FALSE                 0                 1
+ 2 TILI11302-06  0.719 -0.619  FALSE                 0                 0
+ 3 EVER13106-10  0.854 -0.0282 FALSE                 0                 1
+ 4 AMAD05304-08  0.313  2.23   FALSE                 0                 0
+ 5 EVER87101-10 -0.905  0.267  FALSE                 0                 1
+ 6 EVER19111-13  1.26   1.05   FALSE                 0                 1
+ 7 EVER07157-01  0.448  0.562  FALSE                 0                 1
+ 8 DHA470101-05 -2.06  -1.11   FALSE                 0                 0
+ 9 CHOY16319-05  1.06  -0.127  FALSE                 1                 0
+10 AMAD87304-05 -0.905 -0.815  FALSE                 0                 0
+# ℹ 72,332 more rows
+# ℹ 18 more variables: peak_name_Manaslu &lt;dbl&gt;, peak_name_other &lt;dbl&gt;,
+#   season_Spring &lt;dbl&gt;, season_Summer &lt;dbl&gt;, season_Winter &lt;dbl&gt;, sex_M &lt;dbl&gt;,
+#   citizenship_Japan &lt;dbl&gt;, citizenship_Nepal &lt;dbl&gt;, citizenship_UK &lt;dbl&gt;,
+#   citizenship_USA &lt;dbl&gt;, citizenship_other &lt;dbl&gt;,
+#   expedition_role_H.A.Worker &lt;dbl&gt;, expedition_role_Leader &lt;dbl&gt;,
+#   expedition_role_other &lt;dbl&gt;, hired_TRUE. &lt;dbl&gt;, solo_TRUE. &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="parsnip" class="level4"><h4 class="anchored" data-anchor-id="parsnip">3-4. parsnip</h4>
+<p><img src="https://orange-mansion.com/image/logo_parsnip.png" class="img-fluid" style="width:20.0%"></p>
+<p>전처리가 끝났습니다. 이제는 모델을 돌려야죠. 이번에 함께할 패키지는 <code>parsnip</code> 패키지입니다. <code>parsnip</code> 패키지를 이용하면 다양한 모델을 이용하더라도 깔끔하게 통일된 인터페이스와 문법을 이용할 수 있습니다. 함수에 사용할 인수가 계속 바뀌면서 생겼던 혼란은 이제 굳빠이입니다.</p>
+<p>그런데 이 패키지의 이름은 왜 <code>parsnip</code>일까요? <code>parsnip</code>은 로고에 그려진 설탕당근을 뜻합니다. 하얀 당근 말이죠. parsnip 패키지를 만든 사람은 Max Kuhn인데요. 사실 Max Kuhn은 <code>parsnip</code> 뿐 아니라 <code>tidymodels</code> 패키지의 아버지라고 할 수 있습니다. Max가 <code>tidymodels</code> 패키지를 만들기 전에 <code>caret</code>이라는 패키지를 만들고 운영했어요. <code>caret</code>은 classification and regression training의 줄임말로 모델링, 성능 평가 종합 패키지이죠. 그 <code>caret</code> 패키지가 한 단계 업그레이드 된 것이 바로 <code>parsnip</code>입니다. 그 영향으로 모델의 이름은 설탕당근이 되었고요.</p>
+<p>여튼 <code>parsnip</code> 패키지를 이용하면 모델의 유형, 모드, 계산 엔진만 결정해 주면 쉽게 모델링을 할 수 있습니다. 아래엔 몇몇 모델을 가지고 분류 모델을 세팅해 봤습니다. <code>set_mode()</code>로 모드를 결정해 주고, <code>set_engine()</code>으로 계산 엔진을 결정해 주면 끝이죠. <code>set_args()</code>는 추가 인자를 설정할 때 사용합니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dt_cls</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">decision_tree</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_args</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>cost_complexity <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.01</span>, tree_depth <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, min_n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_mode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"classification"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_engine</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rpart"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">log_cls</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logistic_reg</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_mode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"classification"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_engine</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"glm"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">lasso_cls</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logistic_reg</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_args</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>penalty <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, mixture <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_mode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"classification"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_engine</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"glmnet"</span>, family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"binomial"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://orange-mansion.com/image/parsnip.png" class="img-fluid figure-img"></p>
+<figcaption>R &amp; stats illustrations by @allison_horst</figcaption></figure>
+</div>
+<p>모드와 엔진이 세팅되면 이제 모델을 돌릴일만 남았습니다. decision_tree를 가지고 만든 분류 모델을 가지고 진행해보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dt_cls_fit</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dt_cls</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fit</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>formula <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.</span>, data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dt_cls_fit</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>new_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span>, type <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"prob"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15,295
+Columns: 2
+$ .pred_FALSE &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ .pred_TRUE  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</code></pre>
+</div>
+</div>
+<p>모델을 피팅하고, 예측한 결과값을 출력했습니다. 보기 좋게 예측값과 실제값을 한꺼번에 비교해보겠습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/bind_cols.html">bind_cols</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dt_cls_fit</span>, new_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span>, type <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"prob"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_id</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">year</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">sex</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">age</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">citizenship</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.pred_FALSE</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.pred_TRUE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15,295 × 8
+   member_id     year sex     age citizenship died  .pred_FALSE .pred_TRUE
+   &lt;fct&gt;        &lt;dbl&gt; &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+ 1 AMAD78301-02  1978 M        41 France      FALSE           1          0
+ 2 AMAD78301-04  1978 M        40 France      FALSE           1          0
+ 3 AMAD78301-05  1978 M        34 France      FALSE           1          0
+ 4 AMAD79101-04  1979 M        37 W Germany   FALSE           1          0
+ 5 AMAD79101-01  1979 M        44 USA         FALSE           1          0
+ 6 AMAD79101-12  1979 M        35 USA         FALSE           1          0
+ 7 AMAD79101-18  1979 M        23 Nepal       FALSE           1          0
+ 8 AMAD79301-12  1979 M        35 France      FALSE           1          0
+ 9 AMAD79301-01  1979 M        29 France      FALSE           1          0
+10 AMAD79302-02  1979 M        25 New Zealand FALSE           1          0
+# ℹ 15,285 more rows</code></pre>
+</div>
+</div>
+<p><br></p>
+</section><section id="workflows" class="level4"><h4 class="anchored" data-anchor-id="workflows">3-5. workflows</h4>
+<p><img src="https://orange-mansion.com/image/logo_workflows.png" class="img-fluid" style="width:20.0%"></p>
+<p><code>workflows</code> 패키지를 이용하면 앞서 살펴본 레시피와 파스닙을 한꺼번에 묶어서 표현할 수 있습니다. 이번엔 앞서 세팅한 모델 중에 또 다른 모델인 logistic regression model을 가지고 해 보겠습니다. <code>workflow()</code>를 통해 워크플로를 만들고 앞서 사용한 레시피와 모델을 더해줍시다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">workflow</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_recipe</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_model</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">log_cls</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: logistic_reg()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_impute_median()
+• step_normalize()
+• step_other()
+• step_dummy()
+• step_upsample()
+
+── Model ───────────────────────────────────────────────────────────────────────
+Logistic Regression Model Specification (classification)
+
+Computational engine: glm </code></pre>
+</div>
+</div>
+<p>Preprocessor(전처리) 항목에는 우리가 레시피에서 세팅한 5단계의 전처리가 잘 들어가 있습니다. 순서도 똑같습니다. Model(모델) 파트에도 우리가 더해준 <code>logistic_reg()</code>이 알맞게 들어가 있습니다. 이제 이 워크플로를 가지고 피팅을 해봅시다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf_fit</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fit</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf_fit</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow [trained] ══════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: logistic_reg()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_impute_median()
+• step_normalize()
+• step_other()
+• step_dummy()
+• step_upsample()
+
+── Model ───────────────────────────────────────────────────────────────────────
+
+Call:  stats::glm(formula = ..y ~ ., family = stats::binomial, data = data)
+
+Coefficients:
+               (Intercept)                        year  
+                  -3.05790                    -0.41545  
+                       age           peak_name_Cho.Oyu  
+                   0.04451                     0.24208  
+         peak_name_Everest           peak_name_Manaslu  
+                   1.06119                     1.14410  
+           peak_name_other               season_Spring  
+                   1.15339                    -0.02694  
+             season_Summer               season_Winter  
+                  -1.13567                     0.30145  
+                     sex_M           citizenship_Japan  
+                   0.34733                     0.05900  
+         citizenship_Nepal              citizenship_UK  
+                   0.36350                    -0.63167  
+           citizenship_USA           citizenship_other  
+                  -0.48721                     0.18822  
+expedition_role_H.A.Worker      expedition_role_Leader  
+                  -1.86787                     0.26439  
+     expedition_role_other                 hired_TRUE.  
+                  -0.47372                     1.97657  
+                solo_TRUE.           oxygen_used_TRUE.  
+                   1.03481                     0.26593  
+             success_TRUE.  
+                  -0.72660  
+
+Degrees of Freedom: 72341 Total (i.e. Null);  72319 Residual
+Null Deviance:      65190 
+Residual Deviance: 58540    AIC: 58590</code></pre>
+</div>
+</div>
+<p>워크플로 단계에서 <code>fit()</code>을 호출하면 <code>recipe</code> 패키지의 <code>prep()</code> + <code>bake()</code>와 모델 단계의 <code>fit()</code>이 한꺼번에 이뤄집니다. 각각을 나눠서 진행할 때보다 워크플로를 통해 진행하는 게 훨씬 편하죠. 피팅을 한 이후엔 해당 워크플로에서 <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>를 호출해 테스트 데이터를 예측할 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb24" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf_fit</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>new_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span>, type <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"prob"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15,295
+Columns: 2
+$ .pred_FALSE &lt;dbl&gt; 0.9268164, 0.9271129, 0.8904869, 0.9355971, 0.9555498, 0.9…
+$ .pred_TRUE  &lt;dbl&gt; 0.07318359, 0.07288707, 0.10951311, 0.06440293, 0.04445024…</code></pre>
+</div>
+</div>
+<p>이렇게 하면 끝이 납니다. 정리해보면 이렇게 되겠네요.</p>
+<ol type="1">
+<li>rsample package로 데이터를 학습 및 테스트 집합으로 분할 + 리샘플링도 가능</li>
+<li>recipe package로 전처리 단계를 정의 + 추가 전처리가 필요할 경우 add-on 패키지 활용</li>
+<li>parnip pakage를 사용하여 원하는 머신 러닝 모델을 지정</li>
+<li>workflow pakcage를 통해 앞의 과정을 통합</li>
+<li>workflow(recipe + model)을 학습시키고 예측</li>
+</ol>
+<p>코드를 한꺼번에 쓴다면 이렇게 될 겁니다.</p>
+<div class="cell">
+<div class="sourceCode" id="cb26" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">42</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">### step 1. 데이터 나누기</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_split</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">initial_split</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_df</span>, prop <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>, strata <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">training</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_split</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">testing</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_split</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">### step 2. 레시피 만들기</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">recipe</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>formula <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">.</span>, data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">update_role</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">member_id</span>, new_role <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_impute_median</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">age</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_normalize</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_numeric_predictors</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_other</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">peak_name</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">citizenship</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">expedition_role</span>, threshold <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">step_dummy</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_predictors</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_numeric</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, one_hot <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">themis</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://themis.tidymodels.org/reference/step_upsample.html">step_upsample</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">died</span>, over_ratio <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, seed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">42</span>, skip <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">### step 3. 모델 세팅</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">log_cls</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logistic_reg</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_engine</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"glm"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_mode</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"classification"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">### step 4. 워크플로</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">workflow</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_recipe</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">my_recipe</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_model</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">log_cls</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">### step 5. 학습 및 예측</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf_fit</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fit</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_set</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">cls_wf_fit</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>new_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_set</span>, type <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"prob"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15,295
+Columns: 2
+$ .pred_FALSE &lt;dbl&gt; 0.9268164, 0.9271129, 0.8904869, 0.9355971, 0.9555498, 0.9…
+$ .pred_TRUE  &lt;dbl&gt; 0.07318359, 0.07288707, 0.10951311, 0.06440293, 0.04445024…</code></pre>
+</div>
+</div>
+<p>아주 깔끔하네요.</p>
+<p>지금까지 tidymodels의 코어 패키지 8개 중에 4가지를 다루어봤습니다. 생각보다 분량이 너무 길어지는 관계로 나머지 4개 패키지는 독립된 포스트에서 다루려고 합니다. 이번엔 꼭 미루지 않고 빠르게 정리하도록 하겠습니다.</p>
+
+
+</section></section> ]]></description>
+  <category>tidymodels</category>
+  <category>ML</category>
+  <guid>https://orange-mansion.com/posts/240406_tidymodels/</guid>
+  <pubDate>Fri, 05 Apr 2024 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>그래프 신경망</title>
   <dc:creator>chichead </dc:creator>
