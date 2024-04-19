@@ -86,7 +86,7 @@ editor_options:
 
 2020년 초, 새롭게 등장하는 초거대 AI 모델을 두고 학계는 고심이 많았습니다. 당시는 대규모 데이터로 학습되어 다양한 다운스트림 작업에 적용할 수 있는 BERT, DALL-E, GPT-3라는 모델들이 속속 등장하는 시기였죠. 이런 모델들은 AI의 패러다임을 전환할 수 있는 모델로 여겨졌고, 이 전환을 설명할 수 있는 모델들의 개념, 혹은 카테고리가 필요했습니다.
 
-2021년 HAI에서는 초거대AI연구센터를 설립해 컴퓨터와 AI 관련 연구진뿐 아니라 법, 철학 등 다방면의 스탠퍼드 연구진 100여 명을 모아 보고서를 만들었습니다. 보고서의 이름은 <On the Opportunities and Risks of Foundation Models>이었죠. 보고서의 이름에서도 알 수 있듯 HAI가 선택한 이름은 파운데이션 모델(Foundation Models)이었습니다.
+2021년 HAI에서는 초거대AI연구센터를 설립해 컴퓨터와 AI 관련 연구진뿐 아니라 법, 철학 등 다방면의 스탠퍼드 연구진 100여 명을 모아 보고서를 만들었습니다. 보고서의 이름은 [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258)이었죠. 보고서의 이름에서도 알 수 있듯 HAI가 선택한 이름은 파운데이션 모델(Foundation Models)이었습니다.
 
 ![](/image/FM.png)
 
