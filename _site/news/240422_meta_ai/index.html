@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="chichead">
+<meta name="dcterms.date" content="2024-04-22">
+<meta name="description" content="메타AI의 오픈소스 + SNS 통합 전략">
 
-<title>🍊오렌지맨숀 - NEWS 🗞</title>
+<title>🍊오렌지맨숀 - 메타의 Llama3 공개로 알 수 있는 것</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +26,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./fabicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../fabicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YZCBLF5F53"></script>
 
 <script type="text/plain" cookie-consent="tracking">
@@ -143,49 +115,20 @@ cookieconsent.run({
   });
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="🍊오렌지맨숀" href="news.xml" data-external="1"><meta property="og:title" content="🍊오렌지맨숀 - NEWS 🗞">
-<meta property="og:description" content="귤 향 가득한, 오렌지 맨숀입니다.">
+<meta property="og:title" content="🍊오렌지맨숀 - 메타의 Llama3 공개로 알 수 있는 것">
+<meta property="og:description" content="메타AI의 오픈소스 + SNS 통합 전략">
 <meta property="og:site_name" content="🍊오렌지맨숀">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">🍊오렌지맨숀</span>
     </a>
   </div>
@@ -196,21 +139,21 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">POSTS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./news.html" aria-current="page"> 
+    <a class="nav-link" href="../../news.html"> 
 <span class="menu-text">NEWS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./diary.html"> 
+    <a class="nav-link" href="../../diary.html"> 
 <span class="menu-text">DIARY</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">ABOUT</span></a>
   </li>  
   <li class="nav-item compact">
@@ -236,204 +179,184 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">메타의 Llama3 공개로 알 수 있는 것</h1>
+                  <div>
+        <div class="description">
+          메타AI의 오픈소스 + SNS 통합 전략
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Meta</div>
+                <div class="quarto-category">Llama3</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>chichead </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 22, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="AI">AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Foundation Model">Foundation Model <span class="quarto-category-count">(1)</span></div><div class="category" data-category="IDE">IDE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Llama3">Llama3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Meta">Meta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Netflix">Netflix <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R Markdown">R Markdown <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#메타가-llama3를-공개했다" id="toc-메타가-llama3를-공개했다" class="nav-link active" data-scroll-target="#메타가-llama3를-공개했다">메타가 Llama3를 공개했다</a></li>
+  <li><a href="#llama3의-스펙-뜯어보기" id="toc-llama3의-스펙-뜯어보기" class="nav-link" data-scroll-target="#llama3의-스펙-뜯어보기">Llama3의 스펙 뜯어보기</a></li>
+  <li><a href="#메타-sns에-적용되는-메타ai" id="toc-메타-sns에-적용되는-메타ai" class="nav-link" data-scroll-target="#메타-sns에-적용되는-메타ai">메타 SNS에 적용되는 메타AI</a></li>
+  <li><a href="#오픈소스를-선택한-메타ai" id="toc-오픈소스를-선택한-메타ai" class="nav-link" data-scroll-target="#오픈소스를-선택한-메타ai">오픈소스를 선택한 메타AI</a></li>
+  <li><a href="#오픈소스에-대한-저커버그의-생각" id="toc-오픈소스에-대한-저커버그의-생각" class="nav-link" data-scroll-target="#오픈소스에-대한-저커버그의-생각">오픈소스에 대한 저커버그의 생각</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">NEWS 🗞</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page-left">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>관심있는 소식을 요약해 정리합니다.</p>
-<div id="sample-listings">
-
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
+
+<section id="메타가-llama3를-공개했다" class="level2">
+<h2 class="anchored" data-anchor-id="메타가-llama3를-공개했다">메타가 Llama3를 공개했다</h2>
+<p><img src="../../image/llama3.png" class="img-fluid"></p>
+<ul>
+<li><dl>
+<dt>메타가 새로운 고성능의 AI 모델인 <a href="https://ai.meta.com/blog/meta-llama-3/">Llama3</a>를 공개했습니다.</dt>
+<dd>
+<p>이번 모델 발표는 AI 연구, 개발에 있어 새로운 이정표를 세웠다고 평가됩니다. 왜냐하면 메타가 Llama3도 이전 모델과 마찬가지로 오픈소스로 공개했기 때문이죠.</p>
+</dd>
+<dd>
+<p>오픈AI의 GPT-4, 앤트로픽의 Claued3 모두 사용자가 돈을 지불해야하는 폐쇄형 모델입니다. 하지만 메타의 Llama3는 오픈소스라 모델의 코드, 아키텍처, 학습 프로세스 등 관련 정보를 누구나 사용할 수 있습니다. 무료로요.</p>
+</dd>
+</dl></li>
+</ul>
+<p><br></p>
+</section>
+<section id="llama3의-스펙-뜯어보기" class="level2">
+<h2 class="anchored" data-anchor-id="llama3의-스펙-뜯어보기">Llama3의 스펙 뜯어보기</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://mlabonne.github.io/blog/posts/2024-04-19_Fine_tune_Llama_3_with_ORPO.html"><img src="../../image/ELO.png" class="img-fluid figure-img" alt="@Maxime Labonne ML blog"></a></p>
+<figcaption>@Maxime Labonne ML blog</figcaption>
+</figure>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Meta,Llama3" data-listing-date-sort="1713711600000" data-listing-file-modified-sort="1713796209852" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="975">
-<a href="./news/240422_meta_ai/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="image/llama3.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-메타의 Llama3 공개로 알 수 있는 것
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Meta'); return false;">
-Meta
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Llama3'); return false;">
-Llama3
-</div>
-</div>
-<div class="card-text listing-description">
-메타AI의 오픈소스 + SNS 통합 전략
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-2024/04/22
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="AI,Foundation Model" data-listing-date-sort="1713366000000" data-listing-file-modified-sort="1713499356885" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="34" data-listing-word-count-sort="6638">
-<a href="./news/240418_fm/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="image/AIIndex_2024.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-“한국이 개발한 파운데이션 모델은 없다”
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
-AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Foundation Model'); return false;">
-Foundation Model
-</div>
-</div>
-<div class="card-text listing-description">
-*다만 보고서에 누락될 수는 있습니다🤪
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-2024/04/18
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="Netflix" data-listing-date-sort="1702738800000" data-listing-file-modified-sort="1709642811360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="886">
-<a href="./news/231217_netflix/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="image/netflix.webp" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-넷플릭스가 18,214개의 콘텐츠 데이터를 공개했다
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Netflix'); return false;">
-Netflix
-</div>
-</div>
-<div class="card-text listing-description">
-데이터 공개 요구에 백기든 넷플릭스
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-2023/12/17
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="R Markdown,Quarto" data-listing-date-sort="1661526000000" data-listing-file-modified-sort="1709468488714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1273">
-<a href="./news/220827_quarto/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="image/quarto thumbnail.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-R Markdown의 차세대 포맷, Quarto
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R Markdown'); return false;">
-R Markdown
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
-Quarto
-</div>
-</div>
-<div class="card-text listing-description">
-R, Python, Julia 모두 Quarto로 모여라
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-2022/08/27
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="R,IDE" data-listing-date-sort="1661007600000" data-listing-file-modified-sort="1709468564381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="410">
-<a href="./news/220821_Rstudio-is-becoming-Posit/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="image/posit.jpeg" alt="posit logo" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-RStudio가 Posit으로 이름을 바꾼다
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('IDE'); return false;">
-IDE
-</div>
-</div>
-<div class="card-text listing-description">
-RStudio가 갑자기 Posit으로 이름을 고치는 이유는 뭘까
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-2022/08/21
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+<ul>
+<li><dl>
+<dt>현재 공개된 Llama3 모델은 매개변수 8B짜리와 70B 버전입니다.</dt>
+<dd>
+<p>개발중인 400B+(405B)는 올해 말에 출시할 예정입니다. 70B 모델은 오픈소스임에도 Claude3의 Sonnet와 비슷한 성능을 발휘하고 있습니다. 위의 그래프에서 그 성능을 비교해볼 수 있습니다. 400B+(405B)는 중간 성능만 공개했는데 GPT-4와 Claude3 Opus와 경쟁상대가 될 것으로 예측됩니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>이번 모델은 2개의 24K H100 클러스터에서 15T 토큰 이상의 데이터로 학습되었습니다.</dt>
+<dd>
+<p>학습에 사용된 데이터셋은 모두 공개된 소스에서 수집했다고 하고요. 메타는 Llama3 발표에 앞서, Llama3 모델을 훈련하기 위한 신규 GPU 클러스터, <a href="https://engineering.fb.com/2024/03/12/data-center-engineering/building-metas-genai-infrastructure/">24K H100</a>를 공개했습니다. 24K H100는 엔비디아의 텐서코어 H100 GPU가 모두 24,576개(24K)있는 클러스터입니다. 메타는 2024년 말까지 35만개의 H100을 추가해 포트폴리오를 확장할 계획이라고 합니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Llama3 학습을 위해 데이터 병렬 + 모델 병렬 + 파이프라인 병렬화 결합이 이뤄졌습니다</dt>
+<dd>
+<p>이 방법을 이용했더니 GPU당 최대 400TFLOPS 이상의 활용도를 달성했다고 합니다. 참고로 FLOPS는 초당 수행되는 부동 소수점 연산 규모를 의미하는 컴퓨터 성능 단위입니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>모델의 유연성과 정확성을 높이기 위해 인스트럭션 튜닝도 많이 이뤄졌습니다.</dt>
+<dd>
+<p>인스트럭션 튜닝은 fine-tuning과 in-Context Learning의 장점을 결합한 전략입니다. 메타는 SFT(Supervised fine-tuning) + PPO(proximal Policy Optimization) + DPO(Direct Preference Optimization) + RS(rejection Sampling)을 조합해 튜닝을 진행했습니다. 튜닝에 사용한 데이터에는 인스트럭션 데이터 셋 뿐만 아니라 <a href="https://huggingface.co/NousResearch/Meta-Llama-3-70B-Instruct-GGUF#training-data">10M개 이상의 사람이 손수 주석을 단 예제</a>가 포함되었다고 합니다.</p>
+</dd>
+</dl></li>
+</ul>
+<p><br></p>
+</section>
+<section id="메타-sns에-적용되는-메타ai" class="level2">
+<h2 class="anchored" data-anchor-id="메타-sns에-적용되는-메타ai">메타 SNS에 적용되는 메타AI</h2>
+<p><img src="../../image/meta_ai.jpeg" class="img-fluid"></p>
+<ul>
+<li><dl>
+<dt>Meta의 SNS인 Facebook, Instagram, WhatsApp, Messenger에도 메타AI가 적용됩니다.</dt>
+<dd>
+<p>30억 명의 사용자가 AI 모델을 사용할 수 있기에 파괴력이 클 것으로 예측됩니다. 메타 AI가 적용된 이후엔 WhatsApp에서 구글에서 검색하듯이 질문할 수도 있습니다. Facebook의 게시물에 올라온 이미지에 대한 추가 정보를 확인할 수도 있습니다. Instagram에서 실시간 움직이는 이미지를 생성해서 DM을 보낼 수 있고요. Llama3를 기반으로 제작된 Meta AI는 meta.ai라는 독립 애플리케이션으로도 이용할 수 있습니다.</p>
+</dd>
+</dl></li>
+</ul>
+<p><br></p>
+</section>
+<section id="오픈소스를-선택한-메타ai" class="level2">
+<h2 class="anchored" data-anchor-id="오픈소스를-선택한-메타ai">오픈소스를 선택한 메타AI</h2>
+<ul>
+<li><dl>
+<dt>모델의 뛰어난 성능도 집중할 지점이지만 더 중요한 건, Llama3는 오픈소스 모델이라는 겁니다.</dt>
+<dd>
+<p>다른 기업들과 달리 메타는 AI 모델에 있어서 오픈소스로 접근하고 있습니다. GPT 등, 폐쇄형 모델을 활용하기 위해선 API 호출에 의존해야 하고 비용도 듭니다. 하지만 Llama3는 공개된 코드를 바탕으로 이용자가 맞춤형으로 모델을 만들 수 있습니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>Local하다는 장점도 있습니다.</dt>
+<dd>
+<p>이용자의 데이터는 이용자 기기에 저장되기에 인터넷 없이도 사용할 수 있죠 iPhone MLX로 <a href="https://twitter.com/ac_crypto/status/1781061013716037741">Locally 작동</a>되는 Llama3의 모습을 볼 수도 있습니다.</p>
+</dd>
+</dl></li>
+</ul>
+<p><br></p>
+</section>
+<section id="오픈소스에-대한-저커버그의-생각" class="level2">
+<h2 class="anchored" data-anchor-id="오픈소스에-대한-저커버그의-생각">오픈소스에 대한 저커버그의 생각</h2>
+<ul>
+<li><dl>
+<dt>메타의 마크 저커버그는 한 팟캐스트에서 오픈소스에 대한 자신의 생각을 밝혔습니다.</dt>
+<dd>
+<p>팟캐스트는 <a href="https://www.dwarkeshpatel.com/p/mark-zuckerberg">여기</a>에서 들을 수 있고, 스크립트를 번역해 옮겨보겠습니다.</p>
+</dd>
+<dd>
+<p><strong>🎙파텔</strong>: 100억 달러짜리 모델이 완전히 안전하다고 판단되었다고 가정해봅시다. 이런 경우에 100억 달러 모델을 오픈 소스로 공개할 생각이 있습니까?</p>
+</dd>
+<dd>
+<p><strong>🦎저커버그</strong>: 우리에게 도움이 된다면, 그렇게 할 겁니다.</p>
+</dd>
+<dd>
+<p><strong>🎙파텔</strong>: 연구 개발에 100억 달러를 들였는데, 오픈 소스로요…?</p>
+</dd>
+<dd>
+<p><strong>🦎저커버그</strong> : 돈 문제는 시간이 지나면서 평가해봐야 할 문제입니다. 우리는 이미 소프트웨어를 오픈 소스로 공개하는 긴 역사가 있습니다. 물론 제품을 오픈 소스로 만들지는 않습니다. 인스타그램의 코드를 오픈 소스로 공개하지 않죠. 하지만 저수준 인프라는 많이 오픈 소스로 만들었습니다. 가장 큰 예가 <a href="https://tech.facebook.com/engineering/2021/11/open-compute-project/">‘오픈 컴퓨트 프로젝트’</a>일텐데, 이 프로젝트에서는 서버, 네트워크 스위치, 데이터 센터의 설계를 모두 오픈 소스로 만들었고 이는 매우 유용했습니다. 많은 사람들이 서버를 설계했지만, 업계는 저희 디자인을 표준으로 채택했고, 이로 인해 공급망이 저희 디자인을 중심으로 구축되어 비용이 절감되었습니다. 이로 인해 수십억 달러를 절약했고, 이는 정말 멋진 일이었습니다.</p>
+</dd>
+<dd>
+<p>오픈 소스가 우리에게 도움이 되는 여러 가지 방법이 있습니다. 예를 들어, 사람들이 모델을 더 저렴하게 운영하는 방법을 알아내면, 우리는 수십억, 아니 수백억 달러 이상을 이러한 것들에 투자할 것입니다. 따라서 <strong>이를 10% 더 효율적으로 수행할 수 있다면, 우리는 수십억 달러를 절약할 수 있죠.</strong> 그 자체로 매우 가치가 있습니다. 특히 다른 경쟁 모델이 존재한다면, 우리의 모델이 무언가 놀라운 이점을 제공하는 것은 아닙니다. (중략)</p>
+</dd>
+<dd>
+<p><strong>🦎저커버그</strong> : 모바일 생태계에 대해 제가 생각하기에 불만스러운 점은, 애플과 구글과 같은 두 개의 게이트키핑 업체가 있어서 무엇을 만들 수 있는지 그들이 결정할 수 있다는 것입니다. 일단 경제적인 측면이 있을 겁니다. 즉, 우리가 무언가를 만들면 두 기업이 우리의 돈을 많이 가져갑니다. 하지만 더 심각한 것은 <strong>질적인 측면</strong>인데, 이것이 사실 저를 더 화나게 하죠. 우리가 새로운 기능을 출시하거나 출시하고자 할 때마다 애플이 <strong>“안 돼, 출시하지 마”</strong>라고 하는 경우가 많습니다. 이것은 정말 문제입니다, 맞죠? 그렇다면 AI와 관련해서도 비슷한 상황이 벌어진다면 어떨까요? 소수의 회사들이 이러한 폐쇄된 모델을 운영하고 API를 통제함으로써 여러분이 무엇을 만들 수 있는지 결정할 수 있게 될 겁니다.</p>
+</dd>
+</dl>
+<p>메타가 생각했을 때, 다른 회사들이 우리에게 무엇을 만들 수 있는지를 지시하는 상황에 처하지 않도록 스스로 모델을 만드는 것이 가치 있다고 생각합니다. 오픈 소스 관점에서 볼 때, 많은 개발자들도 이러한 회사들이 무엇을 만들 수 있는지 지시받고 싶어하지 않습니다. 따라서 중요한 질문은 이런 상황에서 <strong>어떤 생태계가 구축될 것인가, 어떤 흥미로운 새로운 것들이 나올 것인가, 그리고 이것이 우리 제품을 얼마나 향상시킬 수 있을까</strong> 일 겁니다. 만약 이것이 우리의 데이터베이스나 캐싱 시스템, 아키텍처와 같다면, 커뮤니티의 가치 있는 기여로 인해 우리의 제품이 개선되겠죠. 우리의 앱 특화 작업도 여전히 충분히 차별화되어 있기 때문에 크게 문제되지 않을 것입니다. 우리는 이득을 보고, 우리와 커뮤니티의 시스템 모두가 오픈 소스로 인해 개선될 것입니다.</p>
+<p>한편으로는 그렇지 않을 수도 있는 세계가 있을 수도 있습니다. 모델 자체가 제품이 되는 경우가 그렇겠죠. 그렇다면 그것을 오픈소스로 내 놓는 것은 더 까다로운 경제적 계산이 될 수 있습니다. 그럼 자신을 상품화하는 것이니까요. 하지만 지금까지 본 바로는 우리가 그런 상황에 처해 있지 않은 것 같습니다.</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -821,6 +744,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://giscus.app/client.js" data-repo="chichead/myblog" data-repo-id="R_kgDOH0W75w" data-category="General" data-category-id="DIC_kwDOH0W7584CQ0p3" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -839,5 +766,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
