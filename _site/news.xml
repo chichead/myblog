@@ -10,7 +10,117 @@
 <atom:link href="https://orange-mansion.com/news.xml" rel="self" type="application/rss+xml"/>
 <description>귤 향 가득한, 오렌지 맨숀입니다.</description>
 <generator>quarto-1.4.550</generator>
-<lastBuildDate>Sun, 21 Apr 2024 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 22 Apr 2024 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>AI 챗봇 다음은? AI 에이전트</title>
+  <dc:creator>chichead </dc:creator>
+  <link>https://orange-mansion.com/news/240423_ai_agent/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="년은-ai-에이전트의-시대" class="level2">
+<h2 class="anchored" data-anchor-id="년은-ai-에이전트의-시대">2024년은 AI 에이전트의 시대?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://deepmind.google/discover/blog/the-ethics-of-advanced-ai-assistants/"><img src="https://orange-mansion.com/image/ai_agent.webp" class="img-fluid figure-img" alt="Deepmind, The ethics of advanced AI assistants"></a></p>
+<figcaption>Deepmind, The ethics of advanced AI assistants</figcaption>
+</figure>
+</div>
+<ul>
+<li><dl>
+<dt>“I think AI agentic workflows will drive massive AI progress this year”</dt>
+<dd>
+<p>“저는 올해 AI 에이전트 워크플로우가 차세대 파운데이션 모델보다 더 큰 AI 발전을 이끌 것이라고 생각합니다. 이는 중요한 트렌드이며, AI 분야에서 일하는 모든 사람이 여기에 주목해야 할 겁니다.” 이 말은 AI 4대 그루 중 한 명인 <a href="https://twitter.com/AndrewYNg/status/1780991671855161506">앤드류 응</a>이 한 말입니다. 지난 3월 22일, 앤드류 응은 올해 AI 발전을 이끄는 건 AI 에이전트 워크플로우가 될 것이라 전망했습니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>AI 에이전트는 AI 챗봇 이상의 업무를 할 수 있는 AI 모델을 의미합니다.</dt>
+<dd>
+<p>챗봇과 인터랙션을 할 때에는 하나하나 세부 지시사항을 전달해줘야 했지만, 에이전트에게는 그럴 필요가 없죠. 목표만 설정하면 AI 에이전트가 알아서 결과물을 만들어줍니다. 추론도 할 수 있고요, 고차원적인 목표도 뚝딱 해결해 줄 것이고요, 실행 계획까지 세울 겁니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>전문가들은 2024년 여름부터 AI 에이전트의 실체가 조금씩 드러날 것이라고 전망하고 있습니다.</dt>
+<dd>
+<p>아마도 그 시작은 GPT-5와 Devin이 될 가능성이 크고요.</p>
+</dd>
+</dl></li>
+</ul>
+<p><br></p>
+</section>
+<section id="챗봇-너머를-향해-달려가는-기업들" class="level2">
+<h2 class="anchored" data-anchor-id="챗봇-너머를-향해-달려가는-기업들">챗봇 너머를 향해 달려가는 기업들</h2>
+<ul>
+<li><dl>
+<dt>기업들은 현재 AI 에이전트 개발에 열심입니다.</dt>
+<dd>
+<p>우리가 AI 하면 쉽게 떠올리는 OpenAI의 ChatGPT, 그리고 Google의 바드 모두 뛰어난 AI입니다. 하지만 두 기업 모두 현재의 챗봇이 AI 서비스의 끝이 아니라고 생각하고 있죠. 2024년 현재, 기업들은 큰 돈을 벌 수 있는 AI 에이전트 개발에 몰두하고 있습니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>구글, MS, OpenAI <a href="https://www.theinformation.com/articles/to-unlock-ai-spending-microsoft-openai-and-google-prep-agents">모두 개발중</a>입니다.</dt>
+<dd>
+<p>구글의 모기업인 알파벳에선 인터넷을 탐색할 수 있는 AI 에이전트 개발 중이고요. Microsoft에선 고객이 대량 주문을 처리하지 않은 경우를 알아서 표시하고, 처리되지 못한 해당 주문에 대해 송장도 알아서 작성하고, 후속 조치도 알아서 처리하는 AI 에이전트를 개발하고 있다고 밝혔습니다. OpenAI 역시 데스크톱 애플리케이션을 알아서 관리하고, 경비 양식도 작성하고, 회계 기록도 업데이트할 수 있고, 개인 문서를 구글 시트로 옮겨주는 작업을 수행할 수 있는 AI 에이전트 구축 중입니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>세계 최초의 AI 소프트웨어 엔지니어 <a href="https://www.cognition-labs.com/introducing-devin">Devin</a>도 있습니다.</dt>
+<dd>
+<p>현재 AI 에이전트에서 가장 눈길을 끄는 모델은 Devin일 겁니다. Devin은 세계 최초의 AI 소프트웨어 엔지니어라는 별칭을 얻기도 했죠. 미국의 AI 스타트업 코그니션 AI가 발표한 Devin은 처음부터 AI 에이전트로 선보였습니다. Devin 안에는 쉘과 코드 에디터, 브라우저 등 자체 개발자 도구가 포함되어 있어서 복잡한 코딩 작업을 스스로 계획하고 실행할 수 있습니다. 창업한 지 6개월도 안 된 코그니션 AI는 Devin의 영향으로 기업가치 20억 달러로 평가되고 있죠.</p>
+</dd>
+</dl>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/G45NKnAWuXc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+<li><dl>
+<dt>생명 게임도 Devin은 척척 만듭니다.</dt>
+<dd>
+<p>Devin은 앱을 처음부터 끝까지 빌드하고 배포할 수 있습니다. 위 영상에는 Devin이 생명 게임을 시뮬레이션하는웹사이트를 만드는 모습이 담겨 있습니다. Devin은 사용자가 요청한 기능을 점진적으로 추가한 다음 Netlify에 배포까지 해냅니다.</p>
+</dd>
+</dl></li>
+</ul>
+<p><br></p>
+</section>
+<section id="ai-에이전트가-중요한-이유" class="level2">
+<h2 class="anchored" data-anchor-id="ai-에이전트가-중요한-이유">AI 에이전트가 중요한 이유</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://deepmind.google/discover/blog/the-ethics-of-advanced-ai-assistants/"><img src="https://orange-mansion.com/image/deepmind_aiagent.webp" class="img-fluid figure-img" alt="Deepmind, The ethics of advanced AI assistants"></a></p>
+<figcaption>Deepmind, The ethics of advanced AI assistants</figcaption>
+</figure>
+</div>
+<ul>
+<li><dl>
+<dt>AI 에이전트는 단순한 보조, 그 이상의 업무를 할 겁니다.</dt>
+<dd>
+<p>AI 에이전트는 인간이 하던 업무를 완전히 자동화해서, 작업 완료 시간을 엄청나게 단축시킬 겁니다. 업무 자동화 시스템의 일종의 퀀텀 점프가 생길 지 모르죠. 물론 아직까지 그런 녀석들이 상품화 돼 공개되진 않았습니다. 하지만 올 해 안에 공개될 차세대 모델들은 점점 AI 에이전트에 가까워질 겁니다.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>AI 에이전트가 잘못하면 누구의 책임인가?</dt>
+<dd>
+<p>AI 에이전트가 뒤바꿀 우리의 삶이 생각보다 클 수 있습니다. 그래서 AI 에이전트의 윤리적, 사회적 영향에 대한 고민도 필요한 상황입니다. 만약 AI 모델이 인간을 대체한다면, 책임은 누가 져야 하는걸까요? 모델이 실수를 하거나 사회적 규범을 위반했을 때 책임은 개발자에게 있을까요, 아니면 AI에게 있는 걸까요? AI는 설령 다른 사람에게 피해를 주더라도 스스로에게 가장 좋은 결정을 내릴 수도 있습니다. 혹은 작업을 위해 (어쩌면) 필연적으로 사용자에 대해 많은 것을 학습하며 개인정보를 침해할 수 있고요.</p>
+</dd>
+</dl></li>
+<li><dl>
+<dt>딥마인드의 The Ethics of Advanced AI Assistants</dt>
+<dd>
+<p>딥마인드 연구진은 최근 <a href="https://deepmind.google/discover/blog/the-ethics-of-advanced-ai-assistants/">The Ethics of Advanced AI Assistants</a>라는 논문을 발간했습니다. AI 에이전트(보고서에서는 고급 AI 어시스턴트라 표기)의 윤리적, 사회적 영향을 심도 있게 분석한 최초의 논문이죠. AI 에이전트 기술의 책임있는 발전과 적용에 도움이 되기 위한 시도로 평가할 수 있습니다. 연구진은 AI 에이전트의 안정성을 확보하고, 위험을 관리하기 위해선 보다 포괄적인 평가가 필요하다고 조언합니다. 또한 AI 에이전트의 악의적인 사용을 막기 위해선 사용자와 사회에 미칠 수 있는 위험을 체계적으로 분석해야 한다고 말합니다.</p>
+</dd>
+</dl></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>AI</category>
+  <category>AI Agent</category>
+  <category>Foundation Model</category>
+  <guid>https://orange-mansion.com/news/240423_ai_agent/</guid>
+  <pubDate>Mon, 22 Apr 2024 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>메타의 Llama3 공개로 알 수 있는 것</title>
   <dc:creator>chichead </dc:creator>
