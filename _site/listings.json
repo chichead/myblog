@@ -37,6 +37,7 @@
   {
     "listing": "/news.html",
     "items": [
+      "/news/240505_ms_report/index.html",
       "/news/240502_ai_news/index.html",
       "/news/240428_ai_twins/index.html",
       "/news/240423_ai_agent/index.html",
