@@ -3,7 +3,7 @@ project:
 
 website:
   open-graph: true
-  title: "🍊오렌지맨숀"
+  title: "오렌지맨숀"
   site-url: https://orange-mansion.com
   description: "귤 향 가득한, 오렌지 맨숀입니다."
   favicon: fabicon.png
