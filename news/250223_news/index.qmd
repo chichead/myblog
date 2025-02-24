@@ -2,7 +2,7 @@
 title: 'DeepSeek의 오픈소스 전략은 계속된다'
 date: '2025-02-23'
 categories: ['DeepSeek', 'AI Safety', 'DEI', 'Mistral']
-description: '250217 ~ 250223 이주의 AI 소식'
+description: '250217 ~ 250223 AI 소식'
 execute: 
   message: false
   warning: false
@@ -10,7 +10,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## 1. 계속되는 DeepSeek의 오픈소스 전략
+## 1. DeepSeek의 오픈소스 전략
 
 ![](/image/deepseek.jpg)
 
