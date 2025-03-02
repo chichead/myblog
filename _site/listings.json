@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/250302_deepseek_redteam/index.html",
       "/posts/240406_tidymodels/index.html",
       "/posts/230401_GNN_intro_3/index.html",
       "/posts/230317_GNN_intro_2/index.html",
